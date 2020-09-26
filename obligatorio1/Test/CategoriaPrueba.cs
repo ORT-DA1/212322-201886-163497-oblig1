@@ -19,11 +19,17 @@ namespace Test
             Assert.AreEqual(nombre, categoria.Nombre);
         }
 
-       /* [TestMethod]
-        public void ListaPalabrasClavePrueba()
+
+   
+
+        [TestMethod]
+        public void ListaVaciaPrueba()
         {
             List<String> palabrasClave = new List< String > ();
-            palabrasClave.Add();
-        }*/
+            Categoria categoria = new Categoria();
+            string palabra = "Cine";
+            categoria.AgregarPalabraClave(palabra,palabrasClave);
+            Assert.IsFalse(categoria.esVacia());
+        }
     }
 }
