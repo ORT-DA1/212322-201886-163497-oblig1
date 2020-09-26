@@ -8,8 +8,7 @@ namespace obligatorio1
 {
     public class Categoria
     {
-        
-
-
+        //List <String> palabrasClave = new List<String>();
+        public string Nombre { get; set; }
     }
 }
