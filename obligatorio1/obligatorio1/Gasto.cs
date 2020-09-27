@@ -12,28 +12,28 @@ namespace obligatorio1
 
         private string desc;
         public int Monto { get; set; }
-        
 
-      
-            public string Descripcion
-            {
+
+
+        public string Descripcion
+        {
 
             get { return desc; }
 
             set
             {
-            if (value.Length < 3 || value.Length > 20)
-            {
-            throw new IndexOutOfRangeException();
-            }
-            else
-            {
-            desc = value;
-            }
+                if (value.Length < 3 || value.Length > 20)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                else
+                {
+                    desc = value;
+                }
 
             }
 
-            }
+        }
 
         public string Fecha { get; set; }
         public Categoria  Categoria { get; set; }

@@ -1,13 +1,18 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using obligatorio1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using obligatorio1;
 
 namespace Test
 {
+
+    /*
+     * 
+     * 
+     * Nombre de la categoria entre 3-15 caracteres.
+     * Seleccionar una palabra clave de la lista y la retorne.
+     */
     [TestClass]
     public class CategoriaPrueba
     {
@@ -20,16 +25,98 @@ namespace Test
         }
 
 
-   
 
         [TestMethod]
-        public void ListaVaciaPrueba()
+        public void CrearCatListaVaciaPrueba()
         {
-            List<String> palabrasClave = new List< String > ();
             Categoria categoria = new Categoria();
-            string palabra = "Cine";
-            categoria.AgregarPalabraClave(palabra,palabrasClave);
-            Assert.IsFalse(categoria.esVacia());
+            Assert.IsTrue(categoria.EsVacia());
+        
         }
+
+        [TestMethod]
+        public void AgregarPalabraClavePrueba()
+        {
+            Categoria categoria = new Categoria();
+            categoria.AgregarPalabraClave("Cine");
+            Assert.IsFalse(categoria.EsVacia());
+
+        }
+
+
+        [TestMethod]
+        public void DevolverListaPCPrueba()
+        {
+            Categoria categoria = new Categoria();
+            categoria.AgregarPalabraClave("Cine");
+            categoria.AgregarPalabraClave("Teatro");
+
+            var unaLista = new List<string>() { "Cine", "Teatro" };
+
+            Assert.IsTrue(categoria.GetListaPC().SequenceEqual(unaLista));
+         
+        }
+        
+        [TestMethod]
+        public void EliminarPalabraClavePrueba()
+        {
+            Categoria categoria = new Categoria();
+            categoria.AgregarPalabraClave("Cine");
+            categoria.BorrarPalabraClave("Cine");
+            Assert.IsTrue(categoria.EsVacia());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void ListaMax10PalabrasPrueba()
+        {
+            Categoria categoria = new Categoria();
+            
+            for(int i=0; i<11; i++)
+            {
+                categoria.AgregarPalabraClave("Manzana");
+            }
+            
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void ValidarNombrePrueba()
+        {
+            Categoria categoria1 = new Categoria() { Nombre = "B" };
+            Categoria categoria2 = new Categoria() { Nombre = "PaulaSaraMicaela" };
+        }
+
+
+
+
+        
+        [TestMethod]
+        public void BuscarPalabraPrueba()
+        {
+            Categoria categoria = new Categoria();
+            categoria.AgregarPalabraClave("Palabra");
+            String pEncontrada = categoria.BuscarPClave("Palabra");
+            Assert.AreEqual(pEncontrada, "Palabra");
+        }
+
+        
+
+         
+          [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void BuscarPalabraQueNoEstaPrueba()
+        {
+            Categoria categoria = new Categoria();
+            String palabraNoEsta = "Manzana";
+           
+            categoria.BuscarPClave(palabraNoEsta);
+            
+        }
+         
+         
+
+
+
     }
 }

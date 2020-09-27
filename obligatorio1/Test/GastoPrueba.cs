@@ -5,6 +5,12 @@ using obligatorio1;
 
 namespace Test
 {
+    /*
+     * monto > 0
+     * Si no encuentra una categoria la seleccion queda vacia asi el usuario elija manualmente.
+     * La fecha comprendida entre el 01/01/2018 y el 31/12/2030
+     * categoria no puede quedarr vacia.
+     */
 
     [TestClass]
     public class GastoPrueba
@@ -59,7 +65,9 @@ namespace Test
         [ExpectedException(typeof(IndexOutOfRangeException))]
         public void RangoDescripcionPrueba()
         {
-            Gasto gasto = new Gasto() { Descripcion = "a"};
+            Gasto gasto1 = new Gasto() { Descripcion = "a"};
+            Gasto gasto2 = new Gasto() { Descripcion = "abcdefghijklmnopqrsuvwxyz" };
+
 
         }
 
