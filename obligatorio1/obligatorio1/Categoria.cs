@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace obligatorio1
+namespace Dominio
 {
     public class Categoria
     {
         // PREGUNTAR SI ES PUBLIC O PRIVATE Y COMO HACER EL GET
-        public List<String> palabrasClave;
+        private List<String> palabrasClave;
 
 
         private String nomb;

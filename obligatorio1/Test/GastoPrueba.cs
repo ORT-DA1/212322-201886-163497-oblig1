@@ -1,7 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using obligatorio1;
-
+using Dominio;
+using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace Test
 {
@@ -15,13 +16,20 @@ namespace Test
     [TestClass]
     public class GastoPrueba
     {
+        private Gasto gasto;
+
+        [TestInitialize]
+        public void InitTests()
+        {
+            gasto = new Gasto();
+        }
 
         [TestMethod]
         public void PropertyMontoPrueba()
         {
 
 
-            Gasto gasto = new Gasto() { Monto = 0 };
+            gasto.Monto = 0 ;
             int monto = 0;
             Assert.AreEqual(monto, gasto.Monto);
 
@@ -33,7 +41,7 @@ namespace Test
         {
 
 
-            Gasto gasto = new Gasto() { Descripcion = "Una descripcion" };
+            gasto. Descripcion = "Una descripcion" ;
             string descrpcion = "Una descripcion";
             Assert.AreEqual(descrpcion, gasto.Descripcion);
 
@@ -43,8 +51,10 @@ namespace Test
         [TestMethod]
         public void PropertyFechaPrueba()
         {
-            Gasto gasto = new Gasto() { Fecha = "03/03/1999" };
-            string fecha = "03/03/1999";
+           
+
+            gasto.Fecha = new DateTime(2020, 5, 1, 8, 30, 52);
+            DateTime fecha = new DateTime(2020, 5, 1, 8, 30, 52);
             Assert.AreEqual(fecha, gasto.Fecha);
 
         }
@@ -54,7 +64,7 @@ namespace Test
         {
             Categoria cat = new Categoria();
  
-            Gasto gasto = new Gasto() { Categoria = cat };
+            gasto.Categoria = cat ;
             Assert.AreEqual(cat , gasto.Categoria);
 
 
@@ -65,8 +75,43 @@ namespace Test
         [ExpectedException(typeof(IndexOutOfRangeException))]
         public void RangoDescripcionPrueba()
         {
-            Gasto gasto1 = new Gasto() { Descripcion = "a"};
+            gasto.Descripcion = "a";
             Gasto gasto2 = new Gasto() { Descripcion = "abcdefghijklmnopqrsuvwxyz" };
+
+
+        }
+
+        /*   [TestMethod]
+           [ExpectedException(typeof(IndexOutOfRangeException))]
+           public void RangoFechaPrueba()
+           {
+
+               gasto.Fecha = new DateTime(2017, 31, 12, 0, 0, 0);
+
+
+           }*/
+
+        
+        //TRATANDO DE PROBAR QUE SE ASIGNE UNA CATEGORIA AL GASTO
+       [TestMethod]
+        public void AsignarCategoriaPrueba()
+        {
+            gasto.Descripcion = "cine";
+
+           List <Categoria> listaCategorias = new List <Categoria>();
+
+            Categoria c1 = new Categoria { Nombre = "Entretenimeinto" };
+            c1.AgregarPalabraClave("Cine");
+            c1.AgregarPalabraClave("Serie");
+
+            listaCategorias.Add(c1);
+
+            Categoria c2 = new Categoria { Nombre = "Gastronimia" };
+            c2.AgregarPalabraClave("Salir a comer");
+            c2.AgregarPalabraClave("Demorondanga");
+            listaCategorias.Add(c2);
+
+
 
 
         }
@@ -74,9 +119,8 @@ namespace Test
 
 
 
-
     }
-       
+
 }
 
   

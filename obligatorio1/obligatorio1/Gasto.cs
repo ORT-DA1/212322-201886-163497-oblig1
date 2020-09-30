@@ -5,7 +5,7 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace obligatorio1
+namespace Dominio
 {
     public class Gasto
     {
@@ -35,18 +35,45 @@ namespace obligatorio1
 
         }
 
-        public string Fecha { get; set; }
-        public Categoria  Categoria { get; set; }
+        public DateTime Fecha { get; set; }
+
+        /*private DateTime fechaMin;
+
+        public DateTime Fecha
+        {
+            get { return fechaMin; }
+
+
+            set
+            {
+                DateTime d1 = new DateTime(2018, 01, 01, 0, 0, 0);
+                DateTime d2 = value;
+              //  int resultado = DateTime.Compare(value, d1);
+
+                if (d1.Date > d2.Date)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                else
+                {
+                    fechaMin = value;
+                }
+            }
+        }*/
+
+    public Categoria  Categoria { get; set; }
 
         public Gasto()
         {
             this.Monto = 0;
             this.Descripcion = "No hay descripcion";
-            this.Fecha = "xx/xx/xxxx";
+            this.Fecha = new DateTime(2020, 5, 1, 8, 30, 52);
             this.Categoria = new Categoria();
         }
 
-
-
     }
+
+
+
+
 }
