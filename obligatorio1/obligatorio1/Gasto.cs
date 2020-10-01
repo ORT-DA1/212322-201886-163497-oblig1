@@ -35,9 +35,9 @@ namespace Dominio
 
         }
 
-        public DateTime Fecha { get; set; }
+        //public DateTime Fecha { get; set; }
 
-        /*private DateTime fechaMin;
+        private DateTime fechaMin;
 
         public DateTime Fecha
         {
@@ -46,11 +46,12 @@ namespace Dominio
 
             set
             {
-                DateTime d1 = new DateTime(2018, 01, 01, 0, 0, 0);
-                DateTime d2 = value;
-              //  int resultado = DateTime.Compare(value, d1);
+                DateTime d1 = new DateTime(2018, 1, 1, 0, 0, 0);
+                //DateTime d2 = value;
+            
+               int resultado = DateTime.Compare(value, d1);
 
-                if (d1.Date > d2.Date)
+                if (resultado<0)
                 {
                     throw new IndexOutOfRangeException();
                 }
@@ -59,7 +60,7 @@ namespace Dominio
                     fechaMin = value;
                 }
             }
-        }*/
+        }
 
     public Categoria  Categoria { get; set; }
 
