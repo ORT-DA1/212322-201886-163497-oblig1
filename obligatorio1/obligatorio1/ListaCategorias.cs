@@ -20,7 +20,12 @@ namespace Dominio
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
-            this.listaCategorias.Add(unaCategoria);
+            if (listaCategorias.Contains(unaCategoria))
+            {
+                throw new InvalidOperationException();
+                
+            }
+            else this.listaCategorias.Add(unaCategoria);
         }
 
 
@@ -32,23 +37,23 @@ namespace Dominio
         //consulta como 
         public Categoria BuscarPalabraClave(String unaPalabra)
         {
-            
+            String palabraMayuscula = unaPalabra.ToUpper();
 
             foreach (Categoria unaCategoria in listaCategorias)
             {
-                if (unaCategoria.GetListaPClave.Contains(unaPalabra))
+                if (unaCategoria.GetListaPClave().Contains(palabraMayuscula))
                 {
                     return unaCategoria;
                 }
-                //else quiero que siga
+                
             }
 
-           // Categoria cat = new Categoria() { Nombre = "Entretenimiento" };
-           // return cat;
+            throw new InvalidOperationException("No esta la palabra clave");
+
         }
 
 
-      
+        
 
     }
 }

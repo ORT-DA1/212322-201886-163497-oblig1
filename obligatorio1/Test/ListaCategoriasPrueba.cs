@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Dominio;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using obligatorio1;
+
 
 namespace Test
 {
@@ -84,11 +84,38 @@ namespace Test
         public void BuscarPalabraQueNoEstaPrueba()
         {
 
+
             listaCat.BuscarPalabraClave("Manzana");
 
         }
 
-    }
+        [TestMethod]
+        public void IgnorarMayusculasMinusulasPrueba()
+        {
+
+            Categoria c1 = new Categoria { Nombre = "Auto" };
+            c1.AgregarPalabraClave("Nafta");
+            c1.AgregarPalabraClave("Patente");
+            listaCat.AgregarCategoria(c1);
+            
+            unaCategoria = listaCat.BuscarPalabraClave("nafta");
+            Assert.AreEqual(c1, unaCategoria);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void NoAgregarCategoriaRepetidaPrueba()
+        {
+            Categoria c1 = new Categoria { Nombre = "Hogar" };
+            listaCat.AgregarCategoria(c1);
+            Categoria c2 = new Categoria { Nombre = "Hogar" };
+            listaCat.AgregarCategoria(c2);
+        }
+
+
+
+        }
 
 
 }

@@ -60,7 +60,7 @@ namespace Test
             categoria.AgregarPalabraClave("Cine");
             categoria.AgregarPalabraClave("Teatro");
 
-            var unaLista = new List<string>() { "Cine", "Teatro" };
+            var unaLista = new List<string>() { "CINE", "TEATRO" };
 
             Assert.IsTrue(categoria.GetListaPClave().SequenceEqual(unaLista));
          
@@ -97,31 +97,6 @@ namespace Test
         }
 
 
-
-
-        //TERMINAR
-        [TestMethod]
-        public void BuscarPalabraPrueba()
-        {
-           
-            categoria.AgregarPalabraClave("Palabra");
-            String pEncontrada = categoria.BuscarPClave("Palabra");
-            Assert.AreEqual(pEncontrada, "Palabra");
-        }
-
-        
-
-         
-       /*   [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void BuscarPalabraQueNoEstaPrueba()
-        {
-           
-            String palabraNoEsta = "Manzana";
-           
-            categoria.BuscarPClave(palabraNoEsta);
-            
-        }*/
 
         //NUEVO DEFINIR EL EQUALS EN CATGORIA 
         

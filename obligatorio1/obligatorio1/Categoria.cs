@@ -9,9 +9,9 @@ namespace Dominio
 {
     public class Categoria
     {
-        
-        private List<String> palabrasClave;
+       
 
+        private List<String> palabrasClave;
 
         private String nomb;
 
@@ -47,13 +47,15 @@ namespace Dominio
         
         public void AgregarPalabraClave(string palabra)
         {
+            String palabraMayuscula = palabra.ToUpper();
             if (this.palabrasClave.Count == 10)
             {
                 throw new IndexOutOfRangeException();
 
             }
 
-            this.palabrasClave.Add(palabra);
+
+            this.palabrasClave.Add(palabraMayuscula);
         }
         
         public bool EsVacia()
@@ -70,7 +72,8 @@ namespace Dominio
 
         public void BorrarPalabraClave(string palabra)
         {
-            this.GetListaPClave().Remove(palabra);
+            String palabraMayuscula = palabra.ToUpper();
+            this.GetListaPClave().Remove(palabraMayuscula);
           
         }
         public int CantPalabraClave()
