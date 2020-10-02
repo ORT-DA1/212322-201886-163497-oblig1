@@ -9,7 +9,7 @@ namespace Dominio
 {
     public class Categoria
     {
-        // PREGUNTAR SI ES PUBLIC O PRIVATE Y COMO HACER EL GET
+        
         private List<String> palabrasClave;
 
 
@@ -62,7 +62,7 @@ namespace Dominio
           
         }
 
-        public List<string> GetListaPC()
+        public List<string> GetListaPClave()
         {
             return this.palabrasClave;
         }
@@ -70,12 +70,12 @@ namespace Dominio
 
         public void BorrarPalabraClave(string palabra)
         {
-            this.GetListaPC().Remove(palabra);
+            this.GetListaPClave().Remove(palabra);
           
         }
         public int CantPalabraClave()
         {
-            return this.GetListaPC().Count;
+            return this.GetListaPClave().Count;
 
         }
 
@@ -92,5 +92,19 @@ namespace Dominio
             }
             throw new InvalidOperationException();
         }
+
+        // SAQUE DE ACA LA INFO
+        // https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netcore-3.1
+
+        public override bool Equals(Object obj)
+        {
+            Categoria catObj = obj as Categoria;
+            if (catObj == null)
+                return false;
+            else
+                return Nombre.Equals(catObj.Nombre);
+        }
+
+
     }
 }

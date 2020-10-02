@@ -54,7 +54,7 @@ namespace Test
 
 
         [TestMethod]
-        public void DevolverListaPCPrueba()
+        public void DevolverListaPClavePrueba()
         {
             
             categoria.AgregarPalabraClave("Cine");
@@ -62,7 +62,7 @@ namespace Test
 
             var unaLista = new List<string>() { "Cine", "Teatro" };
 
-            Assert.IsTrue(categoria.GetListaPC().SequenceEqual(unaLista));
+            Assert.IsTrue(categoria.GetListaPClave().SequenceEqual(unaLista));
          
         }
         
@@ -99,7 +99,7 @@ namespace Test
 
 
 
-        
+        //TERMINAR
         [TestMethod]
         public void BuscarPalabraPrueba()
         {
@@ -112,7 +112,7 @@ namespace Test
         
 
          
-          [TestMethod]
+       /*   [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
         public void BuscarPalabraQueNoEstaPrueba()
         {
@@ -121,9 +121,20 @@ namespace Test
            
             categoria.BuscarPClave(palabraNoEsta);
             
+        }*/
+
+        //NUEVO DEFINIR EL EQUALS EN CATGORIA 
+        
+        [TestMethod]
+        public void EqualsPrueba()
+        {
+            Categoria categoria1 = new Categoria { Nombre="Entretenimiento" };
+            Categoria categoria2 = new Categoria { Nombre = "Entretenimiento" };
+            
+            Assert.AreEqual(categoria1, categoria2);
         }
 
-        
+
 
     }
 }

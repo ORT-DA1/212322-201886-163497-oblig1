@@ -83,7 +83,7 @@ namespace Test
 
         [TestMethod]
            [ExpectedException(typeof(IndexOutOfRangeException))]
-           public void RangoFechaPrueba()
+           public void RangoInferiorFechaPrueba()
            {
 
                gasto.Fecha = new DateTime(2017, 12, 31, 0, 0, 0);
@@ -91,9 +91,18 @@ namespace Test
 
            }
 
-        
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void RangoSuperiorFechaPrueba()
+        {
+
+            gasto.Fecha = new DateTime(2031, 1, 1, 0, 0, 0);
+
+
+        }
+
         //TRATANDO DE PROBAR QUE SE ASIGNE UNA CATEGORIA AL GASTO
-       [TestMethod]
+        [TestMethod]
         public void AsignarCategoriaPrueba()
         {
             gasto.Descripcion = "cine";
