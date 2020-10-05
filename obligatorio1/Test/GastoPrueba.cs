@@ -108,8 +108,6 @@ namespace Test
             String descripcion = "Salida al cine";
             gasto.SepararPalabras(descripcion);
 
-
-
         }
          */
 
@@ -130,8 +128,7 @@ namespace Test
             listaCategorias.AgregarCategoria(c1);
 
             gasto.AsignarCategoria("Salida al cine");
-
-
+            Assert.AreEqual(gasto.Categoria,c1);
         }
 
 
