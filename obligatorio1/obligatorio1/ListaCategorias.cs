@@ -1,6 +1,7 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Dominio
 {
@@ -20,7 +21,8 @@ namespace Dominio
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
-            if (listaCategorias.Contains(unaCategoria))
+            
+            if (ExisteCategoria(unaCategoria))
             {
                 throw new InvalidOperationException();
                 
@@ -28,32 +30,44 @@ namespace Dominio
             else this.listaCategorias.Add(unaCategoria);
         }
 
+        private bool ExisteCategoria(Categoria unaCategoria)
+        {
+            return listaCategorias.Contains(unaCategoria);
+        }
 
         public void EliminarCategoria(Categoria unaCategoria)
         {
             this.listaCategorias.Remove(unaCategoria);
         }
 
-        //consulta como 
-        public Categoria BuscarPalabraClave(String unaPalabra)
+        
+        public Categoria RetornarCategoriaDePalabraClave(String palabraClave)
         {
-            String palabraMayuscula = unaPalabra.ToUpper();
-
+            
             foreach (Categoria unaCategoria in listaCategorias)
             {
-                if (unaCategoria.GetListaPClave().Contains(palabraMayuscula))
+                if (ExistePalabraClave (PasarAMayuscula(palabraClave), unaCategoria))
                 {
                     return unaCategoria;
                 }
-                
+
             }
 
             throw new InvalidOperationException("No esta la palabra clave");
 
         }
 
+        private bool ExistePalabraClave(string palabraMayuscula, Categoria unaCategoria)
+        {
+            return unaCategoria.GetListaPClave().Contains(palabraMayuscula);
+        }
 
-        
+        private string PasarAMayuscula(string unaPalabra)
+        {
+            return unaPalabra.ToUpper();
+        }
+
+
 
     }
 }

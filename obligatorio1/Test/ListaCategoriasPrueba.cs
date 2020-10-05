@@ -72,7 +72,7 @@ namespace Test
             listaCat.AgregarCategoria(c2);
 
 
-            unaCategoria = listaCat.BuscarPalabraClave("Cine");
+            unaCategoria = listaCat.RetornarCategoriaDePalabraClave("Cine");
             // la categoria c1 deberia ser igual a lo que devuelve el metodo BuscarPalabraClave de cine 
             Assert.AreEqual(c1, unaCategoria);
 
@@ -85,7 +85,7 @@ namespace Test
         {
 
 
-            listaCat.BuscarPalabraClave("Manzana");
+            listaCat.RetornarCategoriaDePalabraClave("Manzana");
 
         }
 
@@ -98,7 +98,7 @@ namespace Test
             c1.AgregarPalabraClave("Patente");
             listaCat.AgregarCategoria(c1);
             
-            unaCategoria = listaCat.BuscarPalabraClave("nAfta");
+            unaCategoria = listaCat.RetornarCategoriaDePalabraClave("nAfta");
             Assert.AreEqual(c1, unaCategoria);
 
         }
