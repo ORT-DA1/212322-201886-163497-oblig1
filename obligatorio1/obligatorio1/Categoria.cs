@@ -13,12 +13,12 @@ namespace Dominio
 
         private List<String> palabrasClave;
 
-        private String nomb;
+        private String nombre;
 
         public String Nombre
         {
 
-            get { return nomb; }
+            get { return nombre; }
 
             set
             {
@@ -28,7 +28,7 @@ namespace Dominio
                 }
                 else
                 {
-                    nomb = value;
+                    nombre = value;
                 }
 
             }
@@ -47,13 +47,13 @@ namespace Dominio
         
         public void AgregarPalabraClave(string palabra)
         {
+            
             String palabraMayuscula = palabra.ToUpper();
             if (this.palabrasClave.Count == 10)
             {
                 throw new IndexOutOfRangeException();
 
             }
-
 
             this.palabrasClave.Add(palabraMayuscula);
         }

@@ -78,7 +78,7 @@ namespace Test
 
 
         }
-        // este metodo no andaba lo que me habilito a escribir el metodo
+        // esta prueba no andaba lo que me habilito a escribir el metodo de buscar
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
         public void BuscarPalabraQueNoEstaPrueba()
@@ -98,7 +98,7 @@ namespace Test
             c1.AgregarPalabraClave("Patente");
             listaCat.AgregarCategoria(c1);
             
-            unaCategoria = listaCat.BuscarPalabraClave("nafta");
+            unaCategoria = listaCat.BuscarPalabraClave("nAfta");
             Assert.AreEqual(c1, unaCategoria);
 
         }
@@ -114,8 +114,7 @@ namespace Test
         }
 
 
-
-        }
+    }
 
 
 }
