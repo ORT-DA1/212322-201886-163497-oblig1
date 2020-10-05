@@ -101,26 +101,35 @@ namespace Test
 
         }
 
+        /*
+         [TestMethod]
+        public void SepararDescripcionEnPalabras()
+        {
+            String descripcion = "Salida al cine";
+            gasto.SepararPalabras(descripcion);
+
+
+
+        }
+         */
+
+
+
+
         //TRATANDO DE PROBAR QUE SE ASIGNE UNA CATEGORIA AL GASTO
         [TestMethod]
-        public void AsignarCategoriaPrueba()
+        public void AsignarCategoriaAGastoPrueba()
         {
-            gasto.Descripcion = "cine";
-
-           List <Categoria> listaCategorias = new List <Categoria>();
+               
+            ListaCategorias listaCategorias = new ListaCategorias();
 
             Categoria c1 = new Categoria { Nombre = "Entretenimeinto" };
             c1.AgregarPalabraClave("Cine");
             c1.AgregarPalabraClave("Serie");
 
-            listaCategorias.Add(c1);
+            listaCategorias.AgregarCategoria(c1);
 
-            Categoria c2 = new Categoria { Nombre = "Gastronimia" };
-            c2.AgregarPalabraClave("Salir a comer");
-            c2.AgregarPalabraClave("Demorondanga");
-            listaCategorias.Add(c2);
-
-
+            gasto.AsignarCategoria("Salida al cine");
 
 
         }

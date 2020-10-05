@@ -74,6 +74,15 @@ namespace Dominio
             this.Categoria = new Categoria();
         }
 
+        private String[] SepararPalabras(string descripcion)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AsignarCategoria(string descripcion)
+        {
+            
+        }
     }
 
 
