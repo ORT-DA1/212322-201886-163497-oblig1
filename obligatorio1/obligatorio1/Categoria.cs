@@ -49,7 +49,7 @@ namespace Dominio
         {
             
             String palabraMayuscula = palabra.ToUpper();
-            if (this.palabrasClave.Count == 10)
+            if (CantPalabraClave() == 10)
             {
                 throw new IndexOutOfRangeException();
 
@@ -76,25 +76,37 @@ namespace Dominio
             this.GetListaPClave().Remove(palabraMayuscula);
           
         }
-        public int CantPalabraClave()
+        private int CantPalabraClave()
         {
             return this.GetListaPClave().Count;
 
         }
 
-
-        public String BuscarPClave(String unaPalabra)
+        public bool ExistePalabraClave(string unaPalabra)
         {
-            foreach (String Palabra in this.palabrasClave)
-            {
-                if (Palabra == unaPalabra)
-                {
-                    return unaPalabra;
-                }
-                
-            }
-            throw new InvalidOperationException();
+            
+            return GetListaPClave().Contains(PasarAMayuscula(unaPalabra));
         }
+
+
+        private string PasarAMayuscula(string unaPalabra)
+        {
+            return unaPalabra.ToUpper();
+        }
+
+        // este metodo es al pedo que hace?
+        /*  public String BuscarPClave(String unaPalabra)
+          {
+              foreach (String Palabra in this.palabrasClave)
+              {
+                  if (Palabra == unaPalabra)
+                  {
+                      return unaPalabra;
+                  }
+
+              }
+              throw new InvalidOperationException();
+          }*/
 
         // SAQUE DE ACA LA INFO
         // https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netcore-3.1

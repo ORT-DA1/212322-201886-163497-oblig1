@@ -44,6 +44,8 @@ namespace Test
 
         }
 
+        
+       
         [TestMethod]
         public void EliminarCategoriaPrueba()
         {
@@ -55,10 +57,10 @@ namespace Test
 
         }
 
-        //NUEVO
+        
 
         [TestMethod]
-        public void BuscarPalabraClavePrueba()
+        public void RetornarCategoriaDePalabraClavePrueba()
         {
            
             Categoria c1 = new Categoria { Nombre = "Entretenimiento" };
@@ -67,13 +69,13 @@ namespace Test
             listaCat.AgregarCategoria(c1);
 
             Categoria c2 = new Categoria { Nombre = "Gastronimia" };
-            c2.AgregarPalabraClave("Salir a comer");
+            c2.AgregarPalabraClave("Salir");
             c2.AgregarPalabraClave("Demorondanga");
             listaCat.AgregarCategoria(c2);
 
 
             unaCategoria = listaCat.RetornarCategoriaDePalabraClave("Cine");
-            // la categoria c1 deberia ser igual a lo que devuelve el metodo BuscarPalabraClave de cine 
+            
             Assert.AreEqual(c1, unaCategoria);
 
 
@@ -113,6 +115,76 @@ namespace Test
             listaCat.AgregarCategoria(c2);
         }
 
+        [TestMethod]
+        public void PalabraClaveYaIngresadaEnAlgunaListaPrueba()
+        {
+
+            Categoria cat = new Categoria { Nombre = "Auto" };
+            cat.AgregarPalabraClave("Nafta");
+           
+            listaCat.AgregarCategoria(cat);
+
+            
+            Assert.IsTrue(listaCat.PalabraClaveYaIngresadaEnAlgunaLista("Nafta"));
+
+        }
+
+        //NUEVO parecido a lo anteior pero retorna la categoria de la descripcion no solo de la palabra clave que nos es mas util
+        [TestMethod]
+        public void CantDeCategoriasDondeApareceLaDescripcionPrueba()
+        {
+            Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
+            catrgoria.AgregarPalabraClave("Cine");
+            listaCat.AgregarCategoria(catrgoria);
+
+            Categoria otraCatrgoria = new Categoria { Nombre = "GoingOut" };
+            otraCatrgoria.AgregarPalabraClave("Salida");
+            listaCat.AgregarCategoria(otraCatrgoria);
+
+            string descripcion = "Salida al Cine";
+            Assert.AreEqual(2, listaCat.CantDeCategoriasDondeApareceLaDescripcion(descripcion));
+
+        }
+
+        [TestMethod]
+        public void RetornarCategoriaDeDescripcionPrueba()
+        {
+            Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
+            catrgoria.AgregarPalabraClave("Cine");
+            listaCat.AgregarCategoria(catrgoria);
+
+
+            Assert.AreEqual(catrgoria, listaCat.RetornarCategoriaDeDescripcion("Voy al Cine"));
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void RetornarCategoriaDeDescripcionQueNoEstaPrueba()
+        {
+
+            
+            listaCat.RetornarCategoriaDeDescripcion("Manzana");
+
+        }
+
+        // otra excepcion para cuando hay muchas palabras claves
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void RetornarCategoriaDeDescripcionConVariasPalabrasClavesPrueba()
+        {
+            Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
+            catrgoria.AgregarPalabraClave("Cine");
+            listaCat.AgregarCategoria(catrgoria);
+
+            Categoria otraCatrgoria = new Categoria { Nombre = "GoingOut" };
+            otraCatrgoria.AgregarPalabraClave("Salida");
+            listaCat.AgregarCategoria(otraCatrgoria);
+
+            listaCat.RetornarCategoriaDeDescripcion("Salida al Cine");
+            
+
+        }
 
     }
 

@@ -7,6 +7,7 @@ namespace Dominio
 {
     public class ListaCategorias
     {
+        private const char SEPARADOR = ' ';
         private List<Categoria> listaCategorias { get; }
 
         public ListaCategorias()
@@ -46,10 +47,12 @@ namespace Dominio
             
             foreach (Categoria unaCategoria in listaCategorias)
             {
-                if (ExistePalabraClave (PasarAMayuscula(palabraClave), unaCategoria))
+
+                if (unaCategoria.ExistePalabraClave(palabraClave))
                 {
                     return unaCategoria;
                 }
+
 
             }
 
@@ -57,15 +60,82 @@ namespace Dominio
 
         }
 
-        private bool ExistePalabraClave(string palabraMayuscula, Categoria unaCategoria)
+        public bool PalabraClaveYaIngresadaEnAlgunaLista(string palabreClave)
         {
-            return unaCategoria.GetListaPClave().Contains(palabraMayuscula);
+            foreach (Categoria unaCategoria in listaCategorias)
+            {
+                if (unaCategoria.ExistePalabraClave(palabreClave))
+                {
+                    return true;
+                }
+            }
+            return false;
+         }
+
+        // NUEVO
+
+        public int CantDeCategoriasDondeApareceLaDescripcion(string descripcion)
+        {
+            string[] palabras = SepararPalabras(descripcion);
+
+            int cantidadDeVeces = 0;
+
+            foreach (string pal in palabras)
+            {
+
+
+                if (PalabraClaveYaIngresadaEnAlgunaLista(pal))
+                {
+                    cantidadDeVeces++;
+                }
+            }
+
+            return cantidadDeVeces;
+
         }
 
-        private string PasarAMayuscula(string unaPalabra)
+        private string[] SepararPalabras(string descripcion)
         {
-            return unaPalabra.ToUpper();
+            return descripcion.Split(SEPARADOR);
         }
+
+
+        public Categoria RetornarCategoriaDeDescripcion(string descripcion)
+        {
+            if (CantDeCategoriasDondeApareceLaDescripcion(descripcion) > 1)
+            {
+                throw new InvalidOperationException("Hay varias palabras clave");
+            }
+
+            string[] palabras = SepararPalabras(descripcion);
+
+            foreach (string pal in palabras)
+            {
+                foreach (Categoria unaCategoria in listaCategorias)
+                {
+                    if (unaCategoria.ExistePalabraClave(pal))
+                    {
+                        return unaCategoria;
+                    }
+                }
+
+            }
+
+            throw new InvalidOperationException("Ninguna de las palabras es palabra clave");
+        }
+
+
+
+
+        /* public bool ExistePalabraClave(string palabraMayuscula, Categoria unaCategoria)
+         {
+             return unaCategoria.GetListaPClave().Contains(palabraMayuscula);
+         }*/
+
+        /* private string PasarAMayuscula(string unaPalabra)
+         {
+             return unaPalabra.ToUpper();
+         }*/
 
 
 

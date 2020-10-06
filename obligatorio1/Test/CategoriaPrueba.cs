@@ -109,7 +109,14 @@ namespace Test
             Assert.AreEqual(categoria1, categoria2);
         }
 
+        [TestMethod]
+        public void ExistePalabraClavePrueba()
+        {
 
+            categoria.AgregarPalabraClave("Cine");
+            
+            Assert.IsTrue(categoria.ExistePalabraClave("cine"));
+        }
 
     }
 }

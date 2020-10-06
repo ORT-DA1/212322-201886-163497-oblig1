@@ -17,11 +17,13 @@ namespace Test
     public class GastoPrueba
     {
         private Gasto gasto;
+        ListaCategorias listaCategorias;
 
         [TestInitialize]
         public void InitTests()
         {
             gasto = new Gasto();
+            listaCategorias = new ListaCategorias();
         }
 
         [TestMethod]
@@ -111,24 +113,23 @@ namespace Test
         }
          */
 
+ 
 
-
-
-        //TRATANDO DE PROBAR QUE SE ASIGNE UNA CATEGORIA AL GASTO
+        //TRATANDO DE PROBAR QUE SE ASIGNE UNA CATEGORIA AL GASTO sin terminar
         [TestMethod]
         public void AsignarCategoriaAGastoPrueba()
         {
                
-            ListaCategorias listaCategorias = new ListaCategorias();
+            Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
+            catrgoria.AgregarPalabraClave("Cine");
+            catrgoria.AgregarPalabraClave("Serie");
 
-            Categoria c1 = new Categoria { Nombre = "Entretenimeinto" };
-            c1.AgregarPalabraClave("Cine");
-            c1.AgregarPalabraClave("Serie");
+            listaCategorias.AgregarCategoria(catrgoria);
 
-            listaCategorias.AgregarCategoria(c1);
+            gasto.AsignarCategoriaSegunDescripcion(listaCategorias, "Cine");
 
-            gasto.AsignarCategoria("Salida al cine");
-            Assert.AreEqual(gasto.Categoria,c1);
+
+            Assert.AreEqual(gasto.Categoria, catrgoria);
         }
 
 
