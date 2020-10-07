@@ -42,7 +42,7 @@ namespace Dominio
         }
 
         
-        public Categoria RetornarCategoriaDePalabraClave(String palabraClave)
+        public Categoria CategoriaDePalabraClave(String palabraClave)
         {
             
             foreach (Categoria unaCategoria in listaCategorias)
@@ -60,41 +60,63 @@ namespace Dominio
 
         }
 
-        public bool PalabraClaveYaIngresadaEnAlgunaLista(string palabreClave)
-        {
-            foreach (Categoria unaCategoria in listaCategorias)
-            {
-                if (unaCategoria.ExistePalabraClave(palabreClave))
-                {
-                    return true;
-                }
-            }
-            return false;
-         }
+         public bool PalabraClaveYaIngresadaEnAlgunaLista(string palabreClave)
+         {
+             foreach (Categoria unaCategoria in listaCategorias)
+             {
+                 if (unaCategoria.ExistePalabraClave(palabreClave))
+                 {
+                     return true;
+                 }
+             }
+             return false;
+          }
+ 
+        /* // NUEVO
+         //Este metodo deberia retornar la cantidad de categorias distintas donde aparece la descripcion.
+         public int CantDeCategoriasDondeApareceLaDescripcion(string descripcion)
+         {
+             string[] palabras = SepararPalabras(descripcion);
 
-        // NUEVO
+             int cantidadDeVeces = 0;
+             //cine
+             foreach (string pal in palabras)
+             {
 
+
+                 if (PalabraClaveYaIngresadaEnAlgunaLista(pal))
+                 {
+                     cantidadDeVeces++;
+                 }
+             }
+
+             return cantidadDeVeces;
+
+         }*/
+
+
+        //Este metodo deberia retornar la cantidad de categorias distintas donde aparece la descripcion.
         public int CantDeCategoriasDondeApareceLaDescripcion(string descripcion)
         {
-            string[] palabras = SepararPalabras(descripcion);
+            string[] palabras = descripcion.Split(' ');
 
-            int cantidadDeVeces = 0;
-
-            foreach (string pal in palabras)
+            int cant = 0;
+            foreach(String palabra in palabras)
             {
-
-
-                if (PalabraClaveYaIngresadaEnAlgunaLista(pal))
+               foreach(Categoria unaCategoria in listaCategorias)
                 {
-                    cantidadDeVeces++;
+                    if (unaCategoria.ExistePalabraClave(palabra))
+                    {
+                        cant++;
+                    }
                 }
             }
 
-            return cantidadDeVeces;
-
+            return cant;
+        
         }
 
-        private string[] SepararPalabras(string descripcion)
+            private string[] SepararPalabras(string descripcion)
         {
             return descripcion.Split(SEPARADOR);
         }

@@ -74,7 +74,7 @@ namespace Test
             listaCat.AgregarCategoria(c2);
 
 
-            unaCategoria = listaCat.RetornarCategoriaDePalabraClave("Cine");
+            unaCategoria = listaCat.CategoriaDePalabraClave("Cine");
             
             Assert.AreEqual(c1, unaCategoria);
 
@@ -87,7 +87,7 @@ namespace Test
         {
 
 
-            listaCat.RetornarCategoriaDePalabraClave("Manzana");
+            listaCat.CategoriaDePalabraClave("Manzana");
 
         }
 
@@ -100,7 +100,7 @@ namespace Test
             c1.AgregarPalabraClave("Patente");
             listaCat.AgregarCategoria(c1);
             
-            unaCategoria = listaCat.RetornarCategoriaDePalabraClave("nAfta");
+            unaCategoria = listaCat.CategoriaDePalabraClave("nAfta");
             Assert.AreEqual(c1, unaCategoria);
 
         }

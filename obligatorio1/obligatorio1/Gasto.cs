@@ -82,29 +82,11 @@ namespace Dominio
         {
 
             //PREGUNTAR QUE PASA SI NO TE DEVUELVE NADA, PORQUE HAY UNA EXCEPCION
+            //si hay una palabra clave que esta en dos lugares, es decir hay dos categorias, por lo tanto queda vacia.
 
             Categoria catrgoria = listaABuscar.RetornarCategoriaDeDescripcion(descripcion);
             this.Categoria = catrgoria;
 
-
-
-            //palabra clave, si hay una palabra clave ver a que categoria 
-            //pertenece sino queda vacio y si tiene mas de una palabra clave tambien queda vacio.
-            /*
-            string [] palabra = descripcion.Split(' ');
-
-
-            var cont=0;
-            foreach(string pal in palabra)
-            { 
-                if (cont == 0)
-                {
-                    Categoria cat = listaCategorias.RetornarCategoriaDePalabraClave(pal);
-                    this.Categoria = cat;
-                    cont++;
-                }
-                
-            }*/
 
         }
 

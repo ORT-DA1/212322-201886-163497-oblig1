@@ -44,15 +44,15 @@ namespace Dominio
         }
         
      
-        
+        //hacer refactor para que este metodo haga solo una cosa.
         public void AgregarPalabraClave(string palabra)
         {
             
             String palabraMayuscula = palabra.ToUpper();
-            if (CantPalabraClave() == 10)
+            if (CantPalabrasClave() == 10 || this.ExistePalabraClave(palabraMayuscula) )           
             {
-                throw new IndexOutOfRangeException();
 
+                throw new InvalidOperationException();
             }
 
             this.palabrasClave.Add(palabraMayuscula);
@@ -76,7 +76,7 @@ namespace Dominio
             this.GetListaPClave().Remove(palabraMayuscula);
           
         }
-        private int CantPalabraClave()
+        private int CantPalabrasClave()
         {
             return this.GetListaPClave().Count;
 

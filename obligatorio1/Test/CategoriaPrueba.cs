@@ -18,11 +18,13 @@ namespace Test
     public class CategoriaPrueba
     {
         private Categoria categoria;
+        ListaCategorias listaCategorias;
 
         [TestInitialize]
         public void InitTests()
         {
             categoria = new Categoria();
+            listaCategorias = new ListaCategorias();
         }
 
         [TestMethod]
@@ -38,15 +40,15 @@ namespace Test
         [TestMethod]
         public void CrearCatListaVaciaPrueba()
         {
-            
+
             Assert.IsTrue(categoria.EsVacia());
-        
+
         }
 
         [TestMethod]
         public void AgregarPalabraClavePrueba()
         {
-            
+
             categoria.AgregarPalabraClave("Cine");
             Assert.IsFalse(categoria.EsVacia());
 
@@ -56,36 +58,36 @@ namespace Test
         [TestMethod]
         public void DevolverListaPClavePrueba()
         {
-            
+
             categoria.AgregarPalabraClave("Cine");
             categoria.AgregarPalabraClave("Teatro");
 
             var unaLista = new List<string>() { "CINE", "TEATRO" };
 
             Assert.IsTrue(categoria.GetListaPClave().SequenceEqual(unaLista));
-         
+
         }
-        
+
         [TestMethod]
         public void EliminarPalabraClavePrueba()
         {
-            
+
             categoria.AgregarPalabraClave("Cine");
             categoria.BorrarPalabraClave("Cine");
             Assert.IsTrue(categoria.EsVacia());
         }
 
         [TestMethod]
-        [ExpectedException(typeof(IndexOutOfRangeException))]
+        [ExpectedException(typeof(InvalidOperationException))]
         public void ListaMax10PalabrasPrueba()
         {
-            
-            
-            for(int i=0; i<11; i++)
+
+
+            for (int i = 0; i < 11; i++)
             {
                 categoria.AgregarPalabraClave("Manzana");
             }
-            
+
         }
 
         [TestMethod]
@@ -99,13 +101,13 @@ namespace Test
 
 
         //NUEVO DEFINIR EL EQUALS EN CATGORIA 
-        
+
         [TestMethod]
         public void EqualsPrueba()
         {
-            Categoria categoria1 = new Categoria { Nombre="Entretenimiento" };
+            Categoria categoria1 = new Categoria { Nombre = "Entretenimiento" };
             Categoria categoria2 = new Categoria { Nombre = "Entretenimiento" };
-            
+
             Assert.AreEqual(categoria1, categoria2);
         }
 
@@ -114,9 +116,38 @@ namespace Test
         {
 
             categoria.AgregarPalabraClave("Cine");
-            
+
             Assert.IsTrue(categoria.ExistePalabraClave("cine"));
         }
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void NoRepetirPalabraClavePrueba()
+        {
+            categoria.AgregarPalabraClave("Cine");
+            categoria.AgregarPalabraClave("Cine");
 
+        }
+      /*  [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void NoRepetirPalabraClaveEnOtraCategoriaPrueba()
+        {
+            categoria.AgregarPalabraClave("Cine");
+            Categoria otraCatrgoria = new Categoria { Nombre = "GoingOut" };
+            otraCatrgoria.AgregarPalabraClave("Cine");
+
+        }*/
+
+/*          [TestMethod]
+            [ExpectedException(typeof(InvalidOperationException))]
+            public void NoRepetirPalabraClaveEnOtraCategoriaPrueba()
+            {
+                Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
+                catrgoria.AgregarPalabraClave("Cine",ListaCategorias);
+                listaCategorias.NoAgregarCategoria(catrgoria);
+
+                Categoria otraCatrgoria = new Categoria { Nombre = "GoingOut" };
+                otraCatrgoria.NoAgregarPalabraClave("Cine",ListaCategorias);
+
+            }*/
     }
 }
