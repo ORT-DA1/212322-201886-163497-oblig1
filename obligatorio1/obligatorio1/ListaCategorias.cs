@@ -95,30 +95,44 @@ namespace Dominio
          }*/
 
 
-        //Este metodo deberia retornar la cantidad de categorias distintas donde aparece la descripcion.
+       
+
+            private string[] SepararPalabras(string descripcion)
+        {
+            return descripcion.Split(SEPARADOR);
+        }
+
+
+        // otra prueba  ARREGLADO
+
         public int CantDeCategoriasDondeApareceLaDescripcion(string descripcion)
         {
-            string[] palabras = descripcion.Split(' ');
+            string[] palabras = SepararPalabras(descripcion);
+            Categoria guardarCategoria = new Categoria();
 
             int cant = 0;
-            foreach(String palabra in palabras)
+            foreach (String palabra in palabras)
             {
-               foreach(Categoria unaCategoria in listaCategorias)
+                foreach (Categoria unaCategoria in listaCategorias)
                 {
                     if (unaCategoria.ExistePalabraClave(palabra))
                     {
-                        cant++;
+
+                        // si es la primera vuelta, guardarCategoria va a ser distinta a unaCategoria
+                        // en la segunda vuelta si es la misma categoria no entra aqui y no suma cant
+                        if (!guardarCategoria.Equals(unaCategoria))
+                        {
+                            guardarCategoria = unaCategoria;
+                            cant++;
+                        }
+
+
                     }
                 }
             }
 
             return cant;
-        
-        }
 
-            private string[] SepararPalabras(string descripcion)
-        {
-            return descripcion.Split(SEPARADOR);
         }
 
 
@@ -129,35 +143,31 @@ namespace Dominio
                 throw new InvalidOperationException("Hay varias palabras clave");
             }
 
-            string[] palabras = SepararPalabras(descripcion);
-
-            foreach (string pal in palabras)
+            else
             {
-                foreach (Categoria unaCategoria in listaCategorias)
+                string[] palabras = SepararPalabras(descripcion);
+
+                foreach (string pal in palabras)
                 {
-                    if (unaCategoria.ExistePalabraClave(pal))
+                    foreach (Categoria unaCategoria in listaCategorias)
                     {
-                        return unaCategoria;
+                        if (unaCategoria.ExistePalabraClave(pal))
+                        {
+                            return unaCategoria;
+                        }
                     }
+
                 }
+
+                throw new InvalidOperationException("Ninguna de las palabras es palabra clave");
 
             }
 
-            throw new InvalidOperationException("Ninguna de las palabras es palabra clave");
-        }
+
+        }   
 
 
 
-
-        /* public bool ExistePalabraClave(string palabraMayuscula, Categoria unaCategoria)
-         {
-             return unaCategoria.GetListaPClave().Contains(palabraMayuscula);
-         }*/
-
-        /* private string PasarAMayuscula(string unaPalabra)
-         {
-             return unaPalabra.ToUpper();
-         }*/
 
 
 

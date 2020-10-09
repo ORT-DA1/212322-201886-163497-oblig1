@@ -129,9 +129,10 @@ namespace Test
 
         }
 
-        //NUEVO parecido a lo anteior pero retorna la categoria de la descripcion no solo de la palabra clave que nos es mas util
+       // PRUEBAS PARA IDENTIFICAR LA CATEGORIA DE LA DESCRIPCION 
+
         [TestMethod]
-        public void CantDeCategoriasDondeApareceLaDescripcionPrueba()
+        public void CantDeCategoriasDistintasDondeApareceLaDescripcionPrueba()
         {
             Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
             catrgoria.AgregarPalabraClave("Cine");
@@ -142,9 +143,26 @@ namespace Test
             listaCat.AgregarCategoria(otraCatrgoria);
 
             string descripcion = "Salida al Cine";
+            
             Assert.AreEqual(2, listaCat.CantDeCategoriasDondeApareceLaDescripcion(descripcion));
 
         }
+
+        [TestMethod]
+        public void CantDeCategoriasDistintasDeDescripcionPrueba()
+        {
+            Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
+            catrgoria.AgregarPalabraClave("Cine");
+            catrgoria.AgregarPalabraClave("Peli");
+            listaCat.AgregarCategoria(catrgoria);
+
+            
+            string descripcion = "Peli al Cine";
+            
+            Assert.AreEqual(1, listaCat.CantDeCategoriasDondeApareceLaDescripcion(descripcion));
+
+        }
+      
 
         [TestMethod]
         public void RetornarCategoriaDeDescripcionPrueba()
