@@ -1,16 +1,20 @@
 ﻿using System;
 
-namespace obligatorio1
+namespace Dominio
 {
     public class Presupuesto
     {
+
+        private int unAnio;
         public String mes { get; set; }
         public int monto { get; set; }
-        
-        public int Año
+
+
+       
+        public int Anio
         {
 
-            get { return Año; }
+            get { return unAnio; }
 
             set
             {
@@ -20,7 +24,7 @@ namespace obligatorio1
                 }
                 else
                 {
-                    Año = value;
+                    unAnio = value;
                 }
 
             }

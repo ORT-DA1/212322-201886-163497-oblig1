@@ -9,17 +9,17 @@ namespace Test
 {
 
     [TestClass]
-    public class ListaCategoriasPrueba
+    public class RepositorioPrueba
     {
 
 
-        private ListaCategorias listaCat;
+        private Repositorio repositorio;
         private Categoria unaCategoria;
 
         [TestInitialize]
         public void InitTests()
         {
-            listaCat = new ListaCategorias();
+            repositorio = new Repositorio();
             unaCategoria = new Categoria();
         }
 
@@ -28,19 +28,19 @@ namespace Test
         [TestMethod]
         public void CrearListaVaciaPrueba()
         {
-             Assert.IsTrue(listaCat.EsVacia());
+             Assert.IsTrue(repositorio.EsVaciaListaCategorias());
 
         }
 
 
       [TestMethod]
-        public void AlAgregarNoEsVacioPrueba()
+        public void AlAgregarCateogoriaNoEsVacioPrueba()
         {
             
            
-            listaCat.AgregarCategoria(unaCategoria);
+            repositorio.AgregarCategoria(unaCategoria);
            
-            Assert.IsFalse(listaCat.EsVacia());
+            Assert.IsFalse(repositorio.EsVaciaListaCategorias());
 
         }
 
@@ -50,10 +50,10 @@ namespace Test
         public void EliminarCategoriaPrueba()
         {
             
-            listaCat.AgregarCategoria(unaCategoria);
-            listaCat.EliminarCategoria(unaCategoria);
+            repositorio.AgregarCategoria(unaCategoria);
+            repositorio.EliminarCategoria(unaCategoria);
 
-            Assert.IsTrue(listaCat.EsVacia());
+            Assert.IsTrue(repositorio.EsVaciaListaCategorias());
 
         }
 
@@ -66,15 +66,15 @@ namespace Test
             Categoria c1 = new Categoria { Nombre = "Entretenimiento" };
             c1.AgregarPalabraClave("Cine");
             c1.AgregarPalabraClave("Serie");
-            listaCat.AgregarCategoria(c1);
+            repositorio.AgregarCategoria(c1);
 
             Categoria c2 = new Categoria { Nombre = "Gastronimia" };
             c2.AgregarPalabraClave("Salir");
             c2.AgregarPalabraClave("Demorondanga");
-            listaCat.AgregarCategoria(c2);
+            repositorio.AgregarCategoria(c2);
 
 
-            unaCategoria = listaCat.CategoriaDePalabraClave("Cine");
+            unaCategoria = repositorio.CategoriaDePalabraClave("Cine");
             
             Assert.AreEqual(c1, unaCategoria);
 
@@ -83,24 +83,24 @@ namespace Test
         // esta prueba no andaba lo que me habilito a escribir el metodo de buscar
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void BuscarPalabraQueNoEstaPrueba()
+        public void BuscarPalabraQueNoEstaCateogiraPrueba()
         {
 
 
-            listaCat.CategoriaDePalabraClave("Manzana");
+            repositorio.CategoriaDePalabraClave("Manzana");
 
         }
 
         [TestMethod]
-        public void IgnorarMayusculasMinusulasPrueba()
+        public void IgnorarMayusculasMinusulasCategoriaPrueba()
         {
 
             Categoria c1 = new Categoria { Nombre = "Auto" };
             c1.AgregarPalabraClave("Nafta");
             c1.AgregarPalabraClave("Patente");
-            listaCat.AgregarCategoria(c1);
+            repositorio.AgregarCategoria(c1);
             
-            unaCategoria = listaCat.CategoriaDePalabraClave("nAfta");
+            unaCategoria = repositorio.CategoriaDePalabraClave("nAfta");
             Assert.AreEqual(c1, unaCategoria);
 
         }
@@ -110,9 +110,9 @@ namespace Test
         public void NoAgregarCategoriaRepetidaPrueba()
         {
             Categoria c1 = new Categoria { Nombre = "Hogar" };
-            listaCat.AgregarCategoria(c1);
+            repositorio.AgregarCategoria(c1);
             Categoria c2 = new Categoria { Nombre = "Hogar" };
-            listaCat.AgregarCategoria(c2);
+            repositorio.AgregarCategoria(c2);
         }
 
         [TestMethod]
@@ -122,10 +122,10 @@ namespace Test
             Categoria cat = new Categoria { Nombre = "Auto" };
             cat.AgregarPalabraClave("Nafta");
            
-            listaCat.AgregarCategoria(cat);
+            repositorio.AgregarCategoria(cat);
 
             
-            Assert.IsTrue(listaCat.PalabraClaveYaIngresadaEnAlgunaLista("Nafta"));
+            Assert.IsTrue(repositorio.PalabraClaveYaIngresadaEnAlgunaLista("Nafta"));
 
         }
 
@@ -136,15 +136,15 @@ namespace Test
         {
             Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
             catrgoria.AgregarPalabraClave("Cine");
-            listaCat.AgregarCategoria(catrgoria);
+            repositorio.AgregarCategoria(catrgoria);
 
             Categoria otraCatrgoria = new Categoria { Nombre = "GoingOut" };
             otraCatrgoria.AgregarPalabraClave("Salida");
-            listaCat.AgregarCategoria(otraCatrgoria);
+            repositorio.AgregarCategoria(otraCatrgoria);
 
             string descripcion = "Salida al Cine";
             
-            Assert.AreEqual(2, listaCat.CantDeCategoriasDondeApareceLaDescripcion(descripcion));
+            Assert.AreEqual(2, repositorio.CantDeCategoriasDondeApareceLaDescripcion(descripcion));
 
         }
 
@@ -154,12 +154,12 @@ namespace Test
             Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
             catrgoria.AgregarPalabraClave("Cine");
             catrgoria.AgregarPalabraClave("Peli");
-            listaCat.AgregarCategoria(catrgoria);
+            repositorio.AgregarCategoria(catrgoria);
 
             
             string descripcion = "Peli al Cine";
             
-            Assert.AreEqual(1, listaCat.CantDeCategoriasDondeApareceLaDescripcion(descripcion));
+            Assert.AreEqual(1, repositorio.CantDeCategoriasDondeApareceLaDescripcion(descripcion));
 
         }
       
@@ -169,10 +169,10 @@ namespace Test
         {
             Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
             catrgoria.AgregarPalabraClave("Cine");
-            listaCat.AgregarCategoria(catrgoria);
+            repositorio.AgregarCategoria(catrgoria);
 
 
-            Assert.AreEqual(catrgoria, listaCat.RetornarCategoriaDeDescripcion("Voy al Cine"));
+            Assert.AreEqual(catrgoria, repositorio.RetornarCategoriaDeDescripcion("Voy al Cine"));
 
         }
 
@@ -182,7 +182,7 @@ namespace Test
         {
 
             
-            listaCat.RetornarCategoriaDeDescripcion("Manzana");
+            repositorio.RetornarCategoriaDeDescripcion("Manzana");
 
         }
 
@@ -193,13 +193,13 @@ namespace Test
         {
             Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
             catrgoria.AgregarPalabraClave("Cine");
-            listaCat.AgregarCategoria(catrgoria);
+            repositorio.AgregarCategoria(catrgoria);
 
             Categoria otraCatrgoria = new Categoria { Nombre = "GoingOut" };
             otraCatrgoria.AgregarPalabraClave("Salida");
-            listaCat.AgregarCategoria(otraCatrgoria);
+            repositorio.AgregarCategoria(otraCatrgoria);
 
-            listaCat.RetornarCategoriaDeDescripcion("Salida al Cine");
+            repositorio.RetornarCategoriaDeDescripcion("Salida al Cine");
             
 
         }

@@ -78,7 +78,7 @@ namespace Dominio
         }
 
 
-        public void AsignarCategoriaSegunDescripcion(ListaCategorias listaABuscar, string descripcion)
+        public void AsignarCategoriaSegunDescripcion(Repositorio listaABuscar, string descripcion)
         {
 
             //PREGUNTAR QUE PASA SI NO TE DEVUELVE NADA, PORQUE HAY UNA EXCEPCION

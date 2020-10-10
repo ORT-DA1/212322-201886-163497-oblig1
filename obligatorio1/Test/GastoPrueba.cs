@@ -20,13 +20,13 @@ namespace Test
     public class GastoPrueba
     {
         private Gasto gasto;
-        ListaCategorias listaCategorias;
+        Repositorio listaCategorias;
 
         [TestInitialize]
         public void InitTests()
         {
             gasto = new Gasto();
-            listaCategorias = new ListaCategorias();
+            listaCategorias = new Repositorio();
         }
 
         [TestMethod]

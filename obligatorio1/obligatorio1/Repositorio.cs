@@ -1,21 +1,27 @@
-﻿using Dominio;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace Dominio
 {
-    public class ListaCategorias
+    public class Repositorio
     {
         private const char SEPARADOR = ' ';
         private List<Categoria> listaCategorias { get; }
 
-        public ListaCategorias()
+        public Repositorio()
         {
             this.listaCategorias = new List<Categoria>(); 
         }
 
-        public bool EsVacia()
+
+
+
+
+
+        // METODOS DE LISTAS CATEGORIAS
+        public bool EsVaciaListaCategorias()
         {
             return listaCategorias.Count == 0;
         }
