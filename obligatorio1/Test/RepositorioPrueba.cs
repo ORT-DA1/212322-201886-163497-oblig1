@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Dominio;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-
+using System.Linq;
 
 namespace Test
 {
@@ -26,7 +26,7 @@ namespace Test
 
 
         [TestMethod]
-        public void CrearListaVaciaPrueba()
+        public void CrearListaCategoriasVaciaPrueba()
         {
              Assert.IsTrue(repositorio.EsVaciaListaCategorias());
 
@@ -80,12 +80,11 @@ namespace Test
 
 
         }
-        // esta prueba no andaba lo que me habilito a escribir el metodo de buscar
+        
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
         public void BuscarPalabraQueNoEstaCateogiraPrueba()
         {
-
 
             repositorio.CategoriaDePalabraClave("Manzana");
 
@@ -203,6 +202,44 @@ namespace Test
             
 
         }
+
+
+        [TestMethod]
+        public void AlAgregarPalabraClaveGeneralNoEsVacioPrueba()
+        {
+           repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"Cine");
+
+            Assert.IsFalse(repositorio.EsVaciaListaTodasPalabrasClave());
+
+        }
+
+
+        [TestMethod]
+        public void ExistePalabraEnListaTodasPalabrasClavePrueba()
+        {
+            repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"Cine");
+            
+            Assert.IsTrue(repositorio.ExistePalabraEnListaTodasPalabrasClave("Cine"));
+        }
+
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void NoRepetirPalabraEnListaTodasPAlabrasClavePrueba()
+        {
+            repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"Cine");
+            repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"cine");
+
+        }
+
+        [TestMethod]
+        public void PalabraAgregadaACategoriaSeleccionada()
+        {
+            repositorio.AgregarAListaTodasPalabrasClave(unaCategoria, "Cine");
+            Assert.IsTrue(unaCategoria.PalabrasClave.SequenceEqual(repositorio.ListaDeTodasPalabrasClave));
+        }
+
+
 
     }
 

@@ -8,22 +8,27 @@ namespace Dominio
     public class Repositorio
     {
         private const char SEPARADOR = ' ';
-        private List<Categoria> listaCategorias { get; }
+        private Categoria categoria;
+
+        public List<Categoria> ListaCategorias { get; }
+
+        public List<String> ListaDeTodasPalabrasClave { get; }
+        
+
 
         public Repositorio()
         {
-            this.listaCategorias = new List<Categoria>(); 
+            this.ListaCategorias = new List<Categoria>();
+            this.ListaDeTodasPalabrasClave = new List<string>();
+            this.categoria = new Categoria();
         }
-
-
-
 
 
 
         // METODOS DE LISTAS CATEGORIAS
         public bool EsVaciaListaCategorias()
         {
-            return listaCategorias.Count == 0;
+            return ListaCategorias.Count == 0;
         }
 
         public void AgregarCategoria(Categoria unaCategoria)
@@ -34,24 +39,24 @@ namespace Dominio
                 throw new InvalidOperationException();
                 
             }
-            else this.listaCategorias.Add(unaCategoria);
+            else this.ListaCategorias.Add(unaCategoria);
         }
 
         private bool ExisteCategoria(Categoria unaCategoria)
         {
-            return listaCategorias.Contains(unaCategoria);
+            return ListaCategorias.Contains(unaCategoria);
         }
 
         public void EliminarCategoria(Categoria unaCategoria)
         {
-            this.listaCategorias.Remove(unaCategoria);
+            this.ListaCategorias.Remove(unaCategoria);
         }
 
         
         public Categoria CategoriaDePalabraClave(String palabraClave)
         {
             
-            foreach (Categoria unaCategoria in listaCategorias)
+            foreach (Categoria unaCategoria in ListaCategorias)
             {
 
                 if (unaCategoria.ExistePalabraClave(palabraClave))
@@ -68,7 +73,7 @@ namespace Dominio
 
          public bool PalabraClaveYaIngresadaEnAlgunaLista(string palabreClave)
          {
-             foreach (Categoria unaCategoria in listaCategorias)
+             foreach (Categoria unaCategoria in ListaCategorias)
              {
                  if (unaCategoria.ExistePalabraClave(palabreClave))
                  {
@@ -78,29 +83,6 @@ namespace Dominio
              return false;
           }
  
-        /* // NUEVO
-         //Este metodo deberia retornar la cantidad de categorias distintas donde aparece la descripcion.
-         public int CantDeCategoriasDondeApareceLaDescripcion(string descripcion)
-         {
-             string[] palabras = SepararPalabras(descripcion);
-
-             int cantidadDeVeces = 0;
-             //cine
-             foreach (string pal in palabras)
-             {
-
-
-                 if (PalabraClaveYaIngresadaEnAlgunaLista(pal))
-                 {
-                     cantidadDeVeces++;
-                 }
-             }
-
-             return cantidadDeVeces;
-
-         }*/
-
-
        
 
             private string[] SepararPalabras(string descripcion)
@@ -119,7 +101,7 @@ namespace Dominio
             int cant = 0;
             foreach (String palabra in palabras)
             {
-                foreach (Categoria unaCategoria in listaCategorias)
+                foreach (Categoria unaCategoria in ListaCategorias)
                 {
                     if (unaCategoria.ExistePalabraClave(palabra))
                     {
@@ -155,7 +137,7 @@ namespace Dominio
 
                 foreach (string pal in palabras)
                 {
-                    foreach (Categoria unaCategoria in listaCategorias)
+                    foreach (Categoria unaCategoria in ListaCategorias)
                     {
                         if (unaCategoria.ExistePalabraClave(pal))
                         {
@@ -170,12 +152,46 @@ namespace Dominio
             }
 
 
-        }   
+        }
 
 
+        public bool EsVaciaListaTodasPalabrasClave()
+        {
+            return this.ListaDeTodasPalabrasClave.Count == 0;
+        }
+
+        public void AgregarAListaTodasPalabrasClave(Categoria categoria,string unaPalabra)
+        {
+
+            if (this.ExistePalabraEnListaTodasPalabrasClave(unaPalabra))
+            {
+                throw new InvalidOperationException();
+            }
+            this.ListaDeTodasPalabrasClave.Add(PasarAMayuscula(unaPalabra));
+            AgregarPalabraClaveACategoria(categoria, unaPalabra);
+        }
+
+        
+        private void AgregarPalabraClaveACategoria(Categoria categoria, string unaPalabra)
+        {
+            categoria.AgregarPalabraClave(unaPalabra);
+        }
+        
 
 
+        public bool ExistePalabraEnListaTodasPalabrasClave(string unaPalabra)
+        {
+            return this.ListaDeTodasPalabrasClave.Contains(PasarAMayuscula(unaPalabra));
+        }
 
+
+       
+
+
+        private string PasarAMayuscula(string unaPalabra)
+        {
+            return unaPalabra.ToUpper();
+        }
 
     }
 }

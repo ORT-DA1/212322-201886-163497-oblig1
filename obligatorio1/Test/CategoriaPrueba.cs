@@ -55,18 +55,7 @@ namespace Test
         }
 
 
-        [TestMethod]
-        public void DevolverListaPClavePrueba()
-        {
-
-            categoria.AgregarPalabraClave("Cine");
-            categoria.AgregarPalabraClave("Teatro");
-
-            var unaLista = new List<string>() { "CINE", "TEATRO" };
-
-            Assert.IsTrue(categoria.GetListaPClave().SequenceEqual(unaLista));
-
-        }
+   
 
         [TestMethod]
         public void EliminarPalabraClavePrueba()
@@ -95,7 +84,7 @@ namespace Test
         public void ValidarNombrePrueba()
         {
             Categoria categoria1 = new Categoria() { Nombre = "B" };
-            Categoria categoria2 = new Categoria() { Nombre = "PaulaSaraMicaela" };
+            Categoria categoria2 = new Categoria() { Nombre = "PalabraMuyMuyLarga" };
         }
 
 
@@ -127,27 +116,6 @@ namespace Test
             categoria.AgregarPalabraClave("Cine");
 
         }
-      /*  [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void NoRepetirPalabraClaveEnOtraCategoriaPrueba()
-        {
-            categoria.AgregarPalabraClave("Cine");
-            Categoria otraCatrgoria = new Categoria { Nombre = "GoingOut" };
-            otraCatrgoria.AgregarPalabraClave("Cine");
-
-        }*/
-
-/*          [TestMethod]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void NoRepetirPalabraClaveEnOtraCategoriaPrueba()
-            {
-                Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
-                catrgoria.AgregarPalabraClave("Cine",ListaCategorias);
-                listaCategorias.NoAgregarCategoria(catrgoria);
-
-                Categoria otraCatrgoria = new Categoria { Nombre = "GoingOut" };
-                otraCatrgoria.NoAgregarPalabraClave("Cine",ListaCategorias);
-
-            }*/
+    
     }
 }

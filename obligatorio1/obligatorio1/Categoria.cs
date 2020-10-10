@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -9,9 +10,9 @@ namespace Dominio
 {
     public class Categoria
     {
-       
 
-        private List<String> palabrasClave;
+
+        public List<String> PalabrasClave { get; }
 
         private String nombre;
 
@@ -39,7 +40,7 @@ namespace Dominio
 
         public Categoria()
         {
-            this.palabrasClave = new List<string>();
+            this.PalabrasClave = new List<string>();
             this.Nombre = "No hay nombre";
         }
         
@@ -48,44 +49,41 @@ namespace Dominio
         public void AgregarPalabraClave(string palabra)
         {
             
-            String palabraMayuscula = palabra.ToUpper();
+            String palabraMayuscula = PasarAMayuscula(palabra);
             if (CantPalabrasClave() == 10 || this.ExistePalabraClave(palabraMayuscula) )           
             {
 
                 throw new InvalidOperationException();
             }
 
-            this.palabrasClave.Add(palabraMayuscula);
+            this.PalabrasClave.Add(palabraMayuscula);
         }
         
         public bool EsVacia()
         {
-           return this.palabrasClave.Count == 0;
+           return this.PalabrasClave.Count == 0;
           
         }
 
-        public List<string> GetListaPClave()
-        {
-            return this.palabrasClave;
-        }
+     
 
 
         public void BorrarPalabraClave(string palabra)
         {
             String palabraMayuscula = palabra.ToUpper();
-            this.GetListaPClave().Remove(palabraMayuscula);
+            this.PalabrasClave.Remove(palabraMayuscula);
           
         }
         private int CantPalabrasClave()
         {
-            return this.GetListaPClave().Count;
+            return this.PalabrasClave.Count;
 
         }
 
         public bool ExistePalabraClave(string unaPalabra)
         {
             
-            return GetListaPClave().Contains(PasarAMayuscula(unaPalabra));
+            return PalabrasClave.Contains(PasarAMayuscula(unaPalabra));
         }
 
 
