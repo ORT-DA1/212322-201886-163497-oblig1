@@ -225,7 +225,7 @@ namespace Test
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void NoRepetirPalabraEnListaTodasPAlabrasClavePrueba()
+        public void NoRepetirPalabraEnListaTodasPalabrasClavePrueba()
         {
             repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"Cine");
             repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"cine");

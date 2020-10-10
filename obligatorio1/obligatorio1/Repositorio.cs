@@ -8,8 +8,7 @@ namespace Dominio
     public class Repositorio
     {
         private const char SEPARADOR = ' ';
-        private Categoria categoria;
-
+      
         public List<Categoria> ListaCategorias { get; }
 
         public List<String> ListaDeTodasPalabrasClave { get; }
@@ -20,7 +19,7 @@ namespace Dominio
         {
             this.ListaCategorias = new List<Categoria>();
             this.ListaDeTodasPalabrasClave = new List<string>();
-            this.categoria = new Categoria();
+          
         }
 
 
