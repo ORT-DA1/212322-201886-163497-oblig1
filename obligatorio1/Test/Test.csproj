@@ -52,6 +52,7 @@
     <Compile Include="CategoriaPrueba.cs" />
     <Compile Include="ListaCategoriasPrueba.cs" />
     <Compile Include="GastoPrueba.cs" />
+    <Compile Include="PresupuestoPrueba.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

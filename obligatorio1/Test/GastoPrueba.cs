@@ -83,7 +83,7 @@ namespace Test
             gasto.Descripcion = "a";
             Gasto gasto2 = new Gasto() { Descripcion = "abcdefghijklmnopqrsuvwxyz" };
 
-
+            
         }
 
         [TestMethod]
