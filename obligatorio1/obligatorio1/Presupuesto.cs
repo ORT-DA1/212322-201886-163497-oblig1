@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Dominio
 {
@@ -7,10 +8,10 @@ namespace Dominio
 
         private int unAnio;
         public String mes { get; set; }
-        public int monto { get; set; }
+        public List <CategoriaMonto> ListaCategoriaMonto { get; }
 
 
-       
+
         public int Anio
         {
 
@@ -29,6 +30,21 @@ namespace Dominio
 
             }
 
+        }
+
+        public Presupuesto()
+        {
+            this.ListaCategoriaMonto = new List<CategoriaMonto>();
+        }
+
+        public bool EsVaciaListaCategoriaMonto()
+        {
+            return this.ListaCategoriaMonto.Count == 0;
+        }
+
+        public void AgregarCategoriaMonto(CategoriaMonto categoriaMonto)
+        {
+            this.ListaCategoriaMonto.Add(categoriaMonto);
         }
     }
 }

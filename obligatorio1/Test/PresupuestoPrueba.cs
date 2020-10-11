@@ -19,7 +19,7 @@ presupuesto, el valor para la categoría nueva será inicialmente cero,
 pudiendo el usuario cambiarlo después. Los montos por categoría son
 números positivos positivos, con dos decimales.
 
-     * 
+     * s
      */
 
     [TestClass]
@@ -45,14 +45,7 @@ números positivos positivos, con dos decimales.
 
         }
 
-        [TestMethod]
-        public void PropertyMontoPrueba()
-        {
-            int monto = 200;
-            presupuesto.monto = 200;
-
-            Assert.AreEqual(monto, presupuesto.monto);
-        }
+      
 
         [TestMethod]
         public void PropertyAnioPrueba()
@@ -70,6 +63,23 @@ números positivos positivos, con dos decimales.
             
             presupuesto.Anio = 2031;
 
+        }
+
+        [TestMethod]
+        public void CrearListaCategoriaMontoVaciaPrueba()
+        {
+
+            Assert.IsTrue(presupuesto.EsVaciaListaCategoriaMonto());
+
+        }
+
+        [TestMethod]
+        public void AgregarCategoriaMontoPrueba()
+        {
+            CategoriaMonto categoriaMonto = new CategoriaMonto();
+            presupuesto.AgregarCategoriaMonto(categoriaMonto);
+
+            Assert.IsFalse(presupuesto.EsVaciaListaCategoriaMonto());
         }
 
 
