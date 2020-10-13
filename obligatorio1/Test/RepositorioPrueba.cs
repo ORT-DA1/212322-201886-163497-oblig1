@@ -203,42 +203,89 @@ namespace Test
 
         }
 
-
         [TestMethod]
-        public void AlAgregarPalabraClaveGeneralNoEsVacioPrueba()
+        public void CrearYAgregarCategoriaPrueba()
         {
-           repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"Cine");
-
-            Assert.IsFalse(repositorio.EsVaciaListaTodasPalabrasClave());
-
+            repositorio.CrearYAgregarCategoria("Viajes");
+            Assert.IsFalse(repositorio.EsVaciaListaCategorias());
         }
 
 
-        [TestMethod]
-        public void ExistePalabraEnListaTodasPalabrasClavePrueba()
-        {
-            repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"Cine");
-            
-            Assert.IsTrue(repositorio.ExistePalabraEnListaTodasPalabrasClave("Cine"));
-        }
-
+ 
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void NoRepetirPalabraEnListaTodasPalabrasClavePrueba()
+        public void CrearYAgregarCategoriaYaExistentePrueba()
         {
-            repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"Cine");
-            repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"cine");
-
+            repositorio.CrearYAgregarCategoria("Viajes");
+            repositorio.CrearYAgregarCategoria("Viajes");
         }
 
         [TestMethod]
-        public void PalabraAgregadaACategoriaSeleccionada()
+        public void AgregarPalabraCalveCategoriaSeleccionadaPrueba()
         {
-            repositorio.AgregarAListaTodasPalabrasClave(unaCategoria, "Cine");
-            Assert.IsTrue(unaCategoria.PalabrasClave.SequenceEqual(repositorio.ListaDeTodasPalabrasClave));
+
+            repositorio.AgregarCategoria(unaCategoria);
+            repositorio.AgregarPalabraClaveACategoria(unaCategoria, "Peaje");
+            Assert.AreEqual(unaCategoria, repositorio.CategoriaDePalabraClave("Peaje"));
         }
 
+        [TestMethod]
+        public void EliminarPalabraClaveACategoriaPrueba()
+        {
+
+            repositorio.AgregarCategoria(unaCategoria);
+            repositorio.AgregarPalabraClaveACategoria(unaCategoria, "PEAJE");
+            repositorio.BorrarPalabraClaveACategoria(unaCategoria, "PEAJE");
+            Assert.IsTrue(unaCategoria.EsVacia());
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        /*        [TestMethod]
+                public void AlAgregarPalabraClaveGeneralNoEsVacioPrueba()
+                {
+                   repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"Cine");
+
+                    Assert.IsFalse(repositorio.EsVaciaListaTodasPalabrasClave());
+
+                }
+
+
+                [TestMethod]
+                public void ExistePalabraEnListaTodasPalabrasClavePrueba()
+                {
+                    repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"Cine");
+
+                    Assert.IsTrue(repositorio.ExistePalabraEnListaTodasPalabrasClave("Cine"));
+                }
+
+
+                [TestMethod]
+                [ExpectedException(typeof(InvalidOperationException))]
+                public void NoRepetirPalabraEnListaTodasPalabrasClavePrueba()
+                {
+                    repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"Cine");
+                    repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"cine");
+
+                }
+
+                [TestMethod]
+                public void PalabraAgregadaACategoriaSeleccionada()
+                {
+                    repositorio.AgregarAListaTodasPalabrasClave(unaCategoria, "Cine");
+                    Assert.IsTrue(unaCategoria.PalabrasClave.SequenceEqual(repositorio.ListaDeTodasPalabrasClave));
+                }
+        */
 
 
     }

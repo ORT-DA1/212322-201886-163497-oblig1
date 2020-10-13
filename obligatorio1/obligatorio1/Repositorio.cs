@@ -11,14 +11,13 @@ namespace Dominio
       
         public List<Categoria> ListaCategorias { get; }
 
-        public List<String> ListaDeTodasPalabrasClave { get; }
+
         
 
 
         public Repositorio()
         {
             this.ListaCategorias = new List<Categoria>();
-            this.ListaDeTodasPalabrasClave = new List<string>();
           
         }
 
@@ -154,37 +153,61 @@ namespace Dominio
         }
 
 
-        public bool EsVaciaListaTodasPalabrasClave()
+    
+
+        // NUEVO
+
+        public void CrearYAgregarCategoria(String nombre)
         {
-            return this.ListaDeTodasPalabrasClave.Count == 0;
+            Categoria categoria = new Categoria() { Nombre = nombre };
+            this.AgregarCategoria(categoria);
         }
 
-        public void AgregarAListaTodasPalabrasClave(Categoria categoria,string unaPalabra)
+        public void AgregarPalabraClaveACategoria(Categoria categoria, string unaPalabra)
         {
 
-            if (this.ExistePalabraEnListaTodasPalabrasClave(unaPalabra))
+            if (this.PalabraClaveYaIngresadaEnAlgunaLista(unaPalabra))
             {
                 throw new InvalidOperationException();
             }
-            this.ListaDeTodasPalabrasClave.Add(PasarAMayuscula(unaPalabra));
-            AgregarPalabraClaveACategoria(categoria, unaPalabra);
-        }
-
-        
-        private void AgregarPalabraClaveACategoria(Categoria categoria, string unaPalabra)
-        {
             categoria.AgregarPalabraClave(unaPalabra);
+          
         }
-        
 
-
-        public bool ExistePalabraEnListaTodasPalabrasClave(string unaPalabra)
+        public void BorrarPalabraClaveACategoria(Categoria categoria, String palabra)
         {
-            return this.ListaDeTodasPalabrasClave.Contains(PasarAMayuscula(unaPalabra));
+            categoria.BorrarPalabraClave(palabra);
+            
         }
 
 
-       
+
+        /* public void AgregarAListaTodasPalabrasClave(Categoria categoria,string unaPalabra)
+         {
+
+             if (this.ExistePalabraEnListaTodasPalabrasClave(unaPalabra))
+             {
+                 throw new InvalidOperationException();
+             }
+             this.ListaDeTodasPalabrasClave.Add(PasarAMayuscula(unaPalabra));
+             AgregarPalabraClaveACategoria(categoria, unaPalabra);
+         }
+
+
+         private void AgregarPalabraClaveACategoria(Categoria categoria, string unaPalabra)
+         {
+             categoria.AgregarPalabraClave(unaPalabra);
+         }
+
+
+
+         public bool ExistePalabraEnListaTodasPalabrasClave(string unaPalabra)
+         {
+             return this.ListaDeTodasPalabrasClave.Contains(PasarAMayuscula(unaPalabra));
+         }
+ */
+
+
 
 
         private string PasarAMayuscula(string unaPalabra)
