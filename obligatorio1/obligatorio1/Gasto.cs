@@ -36,9 +36,7 @@ namespace Dominio
 
         }
 
-        //public DateTime Fecha { get; set; }
-
-        private DateTime fechaMin;
+        /*private DateTime fecha;
 
         public DateTime Fecha
         {
@@ -51,7 +49,7 @@ namespace Dominio
                 
                 DateTime fechaFuturo = new DateTime(2030, 12, 31, 0, 0, 0);
 
-                int resultado = DateTime.Compare(value, fechaAntigua);
+               int resultado = DateTime.Compare(value, fechaAntigua);
                int resultado2 = DateTime.Compare(value, fechaFuturo);
 
                 if (resultado<0 || resultado2 >0)
@@ -63,7 +61,7 @@ namespace Dominio
                     fechaMin = value;
                 }
             }
-        }
+        }*/
 
     public Categoria  Categoria { get; set; }
         
@@ -72,7 +70,7 @@ namespace Dominio
         {
             this.Monto = 0;
             this.Descripcion = "No hay descripcion";
-            this.Fecha = new DateTime(2020, 5, 1, 8, 30, 52);
+            //this.Fecha = new DateTime(2020, 5, 1, 8, 30, 52);
             this.Categoria = new Categoria();
             
         }
