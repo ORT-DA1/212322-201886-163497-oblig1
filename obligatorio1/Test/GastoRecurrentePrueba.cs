@@ -9,7 +9,7 @@ using Dominio;
 namespace Test
 {
     [TestClass]
-    class GastoRecurrentePrueba
+    public class GastoRecurrentePrueba
     {
         private GastoRecuerrente gastoRec;
 

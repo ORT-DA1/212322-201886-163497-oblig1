@@ -108,12 +108,11 @@ namespace Dominio
                 }
 
                 throw new InvalidOperationException("Ninguna de las palabras es palabra clave");
-
-            }
-
+    }
 
         }
 
+     
         public int CantDeCategoriasDondeApareceLaDescripcion(string descripcion)
         {
             string[] palabras = SepararPalabras(descripcion);
