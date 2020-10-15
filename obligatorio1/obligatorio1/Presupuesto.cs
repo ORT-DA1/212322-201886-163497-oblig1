@@ -7,7 +7,7 @@ namespace Dominio
     {
 
         private int unAnio;
-        public String mes { get; set; }
+        public String Mes { get; set; }
         public List <CategoriaMonto> ListaCategoriaMonto { get; }
 
 

@@ -12,16 +12,11 @@ namespace Dominio
         public List<Categoria> ListaCategorias { get; }
 
 
-        
-
-
         public Repositorio()
         {
             this.ListaCategorias = new List<Categoria>();
           
         }
-
-
 
         // METODOS DE LISTAS CATEGORIAS
         public bool EsVaciaListaCategorias()
@@ -89,8 +84,35 @@ namespace Dominio
         }
 
 
-        // otra prueba  ARREGLADO
-        //Iria despues del siguiente metodo que es el que lo usa no? Este existe como herramienta para el otro?Capaz podria ser private.
+        public Categoria RetornarCategoriaDeDescripcion(string descripcion)
+        {
+            if (CantDeCategoriasDondeApareceLaDescripcion(descripcion) > 1)
+            {
+                throw new InvalidOperationException("Hay varias palabras clave");
+            }
+
+            else
+            {
+                string[] palabras = SepararPalabras(descripcion);
+
+                foreach (string unaPalabra in palabras)
+                {
+                    foreach (Categoria unaCategoria in ListaCategorias)
+                    {
+                        if (unaCategoria.ExistePalabraClave(unaPalabra))
+                        {
+                            return unaCategoria;
+                        }
+                    }
+
+                }
+
+                throw new InvalidOperationException("Ninguna de las palabras es palabra clave");
+    }
+
+        }
+
+     
         public int CantDeCategoriasDondeApareceLaDescripcion(string descripcion)
         {
             string[] palabras = SepararPalabras(descripcion);
@@ -122,40 +144,6 @@ namespace Dominio
         }
 
 
-        public Categoria RetornarCategoriaDeDescripcion(string descripcion)
-        {
-            //No deberia de dejar agregar palabras clave en mas de una categoria.Podria existir esta posibilidad?
-            if (CantDeCategoriasDondeApareceLaDescripcion(descripcion) > 1)
-            {
-                throw new InvalidOperationException("Hay varias palabras clave");
-            }
-
-            else
-            {
-                string[] palabras = SepararPalabras(descripcion);
-
-                foreach (string unaPalabra in palabras)
-                {
-                    foreach (Categoria unaCategoria in ListaCategorias)
-                    {
-                        if (unaCategoria.ExistePalabraClave(unaPalabra))
-                        {
-                            return unaCategoria;
-                        }
-                    }
-
-                }
-
-                throw new InvalidOperationException("Ninguna de las palabras es palabra clave");
-
-            }
-
-
-        }
-
-
-    
-
         // NUEVO
 
         public void CrearYAgregarCategoria(String nombre)
@@ -180,36 +168,6 @@ namespace Dominio
             categoria.BorrarPalabraClave(palabra);
             
         }
-
-
-
-        /* public void AgregarAListaTodasPalabrasClave(Categoria categoria,string unaPalabra)
-         {
-
-             if (this.ExistePalabraEnListaTodasPalabrasClave(unaPalabra))
-             {
-                 throw new InvalidOperationException();
-             }
-             this.ListaDeTodasPalabrasClave.Add(PasarAMayuscula(unaPalabra));
-             AgregarPalabraClaveACategoria(categoria, unaPalabra);
-         }
-
-
-         private void AgregarPalabraClaveACategoria(Categoria categoria, string unaPalabra)
-         {
-             categoria.AgregarPalabraClave(unaPalabra);
-         }
-
-
-
-         public bool ExistePalabraEnListaTodasPalabrasClave(string unaPalabra)
-         {
-             return this.ListaDeTodasPalabrasClave.Contains(PasarAMayuscula(unaPalabra));
-         }
- */
-
-
-
 
         private string PasarAMayuscula(string unaPalabra)
         {

@@ -18,20 +18,22 @@ namespace Interfaz_De_Usuario
         {
             InitializeComponent();
             miRepostorio = unRepositorio;
-            CargarComboBoxPabrasClave();
+            //CargarComboBoxPabrasClave();
         }
 
-        private void CargarComboBoxPabrasClave()
+       /* private void CargarComboBoxPabrasClave()
         {
             throw new NotImplementedException();
-        }
+        }*/
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Categoria unaCategoria = new Categoria
+            //miRepositorio.CrearYAgregarCategoria(tbNombre.Text);
+
+           /* Categoria unaCategoria = new Categoria
             {
                 Nombre = tbNombre.Text
-            };
+            };*/
         }
     }
 }

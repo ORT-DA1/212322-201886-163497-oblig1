@@ -20,13 +20,13 @@ namespace Test
     public class GastoPrueba
     {
         private Gasto gasto;
-        Repositorio listaCategorias;
+       
 
         [TestInitialize]
         public void InitTests()
         {
             gasto = new Gasto();
-            listaCategorias = new Repositorio();
+           
         }
 
         [TestMethod]
@@ -52,7 +52,7 @@ namespace Test
 
 
         }
-
+/*
         [TestMethod]
         public void PropertyFechaPrueba()
         {
@@ -62,7 +62,7 @@ namespace Test
             DateTime fecha = new DateTime(2020, 5, 1, 8, 30, 52);
             Assert.AreEqual(fecha, gasto.Fecha);
 
-        }
+        }*/
 
         [TestMethod]
         public void PropertyCategoriaPrueba()
@@ -86,7 +86,7 @@ namespace Test
             
         }
 
-        [TestMethod]
+   /*     [TestMethod]
            [ExpectedException(typeof(IndexOutOfRangeException))]
            public void RangoInferiorFechaPrueba()
            {
@@ -94,8 +94,8 @@ namespace Test
                gasto.Fecha = new DateTime(2017, 12, 31, 0, 0, 0);
 
 
-           }
-
+           }*/
+/*
         [TestMethod]
         [ExpectedException(typeof(IndexOutOfRangeException))]
         public void RangoSuperiorFechaPrueba()
@@ -105,37 +105,8 @@ namespace Test
 
 
         }
-
-        /*
-         [TestMethod]
-        public void SepararDescripcionEnPalabras()
-        {
-            String descripcion = "Salida al cine";
-            gasto.SepararPalabras(descripcion);
-
-        }
-         */
-
- 
-
-        //TRATANDO DE PROBAR QUE SE ASIGNE UNA CATEGORIA AL GASTO sin terminar
-        [TestMethod]
-        public void AsignarCategoriaAGastoPrueba()
-        {
-               
-            Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
-            catrgoria.AgregarPalabraClave("Cine");
-            catrgoria.AgregarPalabraClave("Serie");
-
-            listaCategorias.AgregarCategoria(catrgoria);
-
-            gasto.AsignarCategoriaSegunDescripcion(listaCategorias, "Cine");
-
-
-            Assert.AreEqual(gasto.Categoria, catrgoria);
-        }
-
-
+*/
+       
 
 
     }
