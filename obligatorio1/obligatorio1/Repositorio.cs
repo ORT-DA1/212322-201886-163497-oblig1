@@ -90,7 +90,7 @@ namespace Dominio
 
 
         // otra prueba  ARREGLADO
-
+        //Iria despues del siguiente metodo que es el que lo usa no? Este existe como herramienta para el otro?Capaz podria ser private.
         public int CantDeCategoriasDondeApareceLaDescripcion(string descripcion)
         {
             string[] palabras = SepararPalabras(descripcion);
@@ -124,6 +124,7 @@ namespace Dominio
 
         public Categoria RetornarCategoriaDeDescripcion(string descripcion)
         {
+            //No deberia de dejar agregar palabras clave en mas de una categoria.Podria existir esta posibilidad?
             if (CantDeCategoriasDondeApareceLaDescripcion(descripcion) > 1)
             {
                 throw new InvalidOperationException("Hay varias palabras clave");
@@ -133,11 +134,11 @@ namespace Dominio
             {
                 string[] palabras = SepararPalabras(descripcion);
 
-                foreach (string pal in palabras)
+                foreach (string unaPalabra in palabras)
                 {
                     foreach (Categoria unaCategoria in ListaCategorias)
                     {
-                        if (unaCategoria.ExistePalabraClave(pal))
+                        if (unaCategoria.ExistePalabraClave(unaPalabra))
                         {
                             return unaCategoria;
                         }
