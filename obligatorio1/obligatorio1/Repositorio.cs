@@ -1,8 +1,8 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
+using Excepciones;
 
 namespace Dominio
 {
@@ -36,7 +36,7 @@ namespace Dominio
             
             if (ExisteCategoria(unaCategoria))
             {
-                throw new InvalidOperationException();
+                throw new ExcepcionElementoRepetido();
                 
             }
             else this.ListaCategorias.Add(unaCategoria);
@@ -67,14 +67,14 @@ namespace Dominio
 
             }
 
-            throw new InvalidOperationException("No esta la palabra clave");
+            throw new ExcepcionElementoNoExistente("No esta la palabra clave");
 
         }
 
          public bool PalabraClaveYaIngresadaEnAlgunaLista(string palabreClave)
          {
              foreach (Categoria unaCategoria in ListaCategorias)
-             {
+             {  
                  if (unaCategoria.ExistePalabraClave(palabreClave))
                  {
                      return true;
@@ -91,9 +91,10 @@ namespace Dominio
         }
 
 
+
         public Categoria RetornarCategoriaDeDescripcion(string descripcion)
         {
-            if (CantDeCategoriasDondeApareceLaDescripcion(descripcion) > 1)
+            if (CantDeCategoriasDistintasDondeApareceLaDescripcion(descripcion) > 1)
             {
                 throw new InvalidOperationException("Hay varias palabras clave");
             }
@@ -102,56 +103,68 @@ namespace Dominio
             {
                 string[] palabras = SepararPalabras(descripcion);
 
-                foreach (string unaPalabra in palabras)
-                {
-                    foreach (Categoria unaCategoria in ListaCategorias)
-                    {
-                        if (unaCategoria.ExistePalabraClave(unaPalabra))
-                        {
-                            return unaCategoria;
-                        }
-                    }
 
-                }
+                return this.BuscarCategoriaPorPalabras(palabras);
 
-                throw new InvalidOperationException("Ninguna de las palabras es palabra clave");
-    }
+            }
 
         }
 
-     
-        public int CantDeCategoriasDondeApareceLaDescripcion(string descripcion)
+        internal Categoria BuscarCategoriaPorPalabras(string[] algunasPalabras)
         {
-            string[] palabras = SepararPalabras(descripcion);
-            Categoria guardarCategoria = new Categoria();
+             foreach (string unaPalabra in algunasPalabras)
+            {
+                foreach (Categoria unaCategoria in ListaCategorias)
+                {
+                    if (unaCategoria.ExistePalabraClave(unaPalabra))
+                    {
+                        return unaCategoria;
+                    }
+                   
+                }
+            }
+            throw new ExcepcionElementoNoExistente("Ninguna de las palabras es palabra clave");
+        }
 
-            int cant = 0;
+
+        public int CantDeCategoriasDistintasDondeApareceLaDescripcion(string descripcion)
+        {
+            int cantDeCategoriasDistintas = 0;
+            string[] palabras = SepararPalabras(descripcion);
+            Categoria categoriaYaContada = new Categoria();
+
             foreach (String palabra in palabras)
             {
                 foreach (Categoria unaCategoria in ListaCategorias)
                 {
                     if (unaCategoria.ExistePalabraClave(palabra))
                     {
-
                         // si es la primera vuelta, guardarCategoria va a ser distinta a unaCategoria
                         // en la segunda vuelta si es la misma categoria no entra aqui y no suma cant
-                        if (!guardarCategoria.Equals(unaCategoria))
+                        if (LaCategoriaEsDistinta(unaCategoria, categoriaYaContada))
                         {
-                            guardarCategoria = unaCategoria;
-                            cant++;
+                            cantDeCategoriasDistintas++;
+                            categoriaYaContada = unaCategoria;
+                            
                         }
-
 
                     }
                 }
             }
 
-            return cant;
+            return cantDeCategoriasDistintas;
 
         }
 
 
-        // NUEVO
+       private bool LaCategoriaEsDistinta (Categoria unaCategoria, Categoria otraCategoria)
+        {
+            if (!unaCategoria.Equals(otraCategoria))
+            {
+                return true;
+            }
+            else return false;
+        }
 
         public void CrearYAgregarCategoria(String nombre)
         {
