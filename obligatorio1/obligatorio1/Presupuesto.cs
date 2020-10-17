@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Excepciones;
 
 namespace Dominio
 {
@@ -21,7 +22,7 @@ namespace Dominio
             {
                 if (value < 2018 || value > 2030)
                 {
-                    throw new IndexOutOfRangeException();
+                    throw new ExcepcionFueraDeFecha();
                 }
                 else
                 {

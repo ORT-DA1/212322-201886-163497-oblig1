@@ -2,8 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Globalization;
 using Dominio;
-
-
+using Excepciones;
 
 namespace Test
 {
@@ -57,7 +56,7 @@ números positivos positivos, con dos decimales.
         }
 
         [TestMethod]
-        [ExpectedException(typeof(IndexOutOfRangeException))]
+        [ExpectedException(typeof(ExcepcionFueraDeFecha))]
         public void RangoAnioPrueba()
         {
             

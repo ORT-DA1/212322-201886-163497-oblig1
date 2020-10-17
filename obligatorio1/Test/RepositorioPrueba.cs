@@ -4,6 +4,7 @@ using Dominio;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Linq;
+using Excepciones;
 
 namespace Test
 {
@@ -82,7 +83,7 @@ namespace Test
         }
         
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(ExcepcionElementoNoExistente))]
         public void BuscarPalabraQueNoEstaCateogiraPrueba()
         {
 
@@ -105,7 +106,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(ExcepcionElementoRepetido))]
         public void NoAgregarCategoriaRepetidaPrueba()
         {
             Categoria c1 = new Categoria { Nombre = "Hogar" };
@@ -143,7 +144,7 @@ namespace Test
 
             string descripcion = "Salida al Cine";
             
-            Assert.AreEqual(2, repositorio.CantDeCategoriasDondeApareceLaDescripcion(descripcion));
+            Assert.AreEqual(2, repositorio.CantDeCategoriasDistintasDondeApareceLaDescripcion(descripcion));
 
         }
 
@@ -158,7 +159,7 @@ namespace Test
             
             string descripcion = "Peli al Cine";
             
-            Assert.AreEqual(1, repositorio.CantDeCategoriasDondeApareceLaDescripcion(descripcion));
+            Assert.AreEqual(1, repositorio.CantDeCategoriasDistintasDondeApareceLaDescripcion(descripcion));
 
         }
       
@@ -176,7 +177,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(ExcepcionElementoNoExistente))]
         public void RetornarCategoriaDeDescripcionQueNoEstaPrueba()
         {
 
@@ -214,7 +215,7 @@ namespace Test
  
 
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(ExcepcionElementoRepetido))]
         public void CrearYAgregarCategoriaYaExistentePrueba()
         {
             repositorio.CrearYAgregarCategoria("Viajes");
@@ -241,51 +242,6 @@ namespace Test
         }
 
 
-
-
-
-
-
-
-
-
-
-
-        /*        [TestMethod]
-                public void AlAgregarPalabraClaveGeneralNoEsVacioPrueba()
-                {
-                   repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"Cine");
-
-                    Assert.IsFalse(repositorio.EsVaciaListaTodasPalabrasClave());
-
-                }
-
-
-                [TestMethod]
-                public void ExistePalabraEnListaTodasPalabrasClavePrueba()
-                {
-                    repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"Cine");
-
-                    Assert.IsTrue(repositorio.ExistePalabraEnListaTodasPalabrasClave("Cine"));
-                }
-
-
-                [TestMethod]
-                [ExpectedException(typeof(InvalidOperationException))]
-                public void NoRepetirPalabraEnListaTodasPalabrasClavePrueba()
-                {
-                    repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"Cine");
-                    repositorio.AgregarAListaTodasPalabrasClave(unaCategoria,"cine");
-
-                }
-
-                [TestMethod]
-                public void PalabraAgregadaACategoriaSeleccionada()
-                {
-                    repositorio.AgregarAListaTodasPalabrasClave(unaCategoria, "Cine");
-                    Assert.IsTrue(unaCategoria.PalabrasClave.SequenceEqual(repositorio.ListaDeTodasPalabrasClave));
-                }
-        */
 
 
     }
