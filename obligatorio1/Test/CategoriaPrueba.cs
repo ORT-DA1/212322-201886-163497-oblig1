@@ -3,6 +3,7 @@ using Dominio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Excepciones;
 
 namespace Test
 {
@@ -80,7 +81,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(IndexOutOfRangeException))]
+        [ExpectedException(typeof(ExcepcionPalabraLarga))]
         public void ValidarNombrePrueba()
         {
             Categoria categoria1 = new Categoria() { Nombre = "B" };
