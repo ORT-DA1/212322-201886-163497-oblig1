@@ -13,8 +13,8 @@ namespace Interfaz_De_Usuario
 {
     public partial class AgregarCategoria : UserControl
     {
-        private Repositorio miRepostorio;
-        public AgregarCategoria(Repositorio unRepositorio)
+        private Administrador miRepostorio;
+        public AgregarCategoria(Administrador unRepositorio)
         {
             InitializeComponent();
             miRepostorio = unRepositorio;

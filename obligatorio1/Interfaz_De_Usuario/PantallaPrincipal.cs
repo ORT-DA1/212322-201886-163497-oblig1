@@ -13,17 +13,18 @@ namespace Interfaz_De_Usuario
 {
     public partial class PantallaPrincipal : Form
     {
-        public Repositorio RepositorioPrincipal { get; set; }
+        
+        public Administrador AdministradorPrincipal { get; set; }
         public PantallaPrincipal()
         {
             InitializeComponent();
-            RepositorioPrincipal = new Repositorio();
+            AdministradorPrincipal = new Administrador();
         }
 
         private void btnAgregarCategoria_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
-            UserControl agregarCategoria = new AgregarCategoria(RepositorioPrincipal);
+            UserControl agregarCategoria = new AgregarCategoria(AdministradorPrincipal);
             panelPrincipal.Controls.Add(agregarCategoria);
         }
     }

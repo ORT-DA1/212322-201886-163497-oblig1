@@ -43,9 +43,10 @@
   <ItemGroup>
     <Compile Include="Categoria.cs" />
     <Compile Include="CategoriaMonto.cs" />
+    <Compile Include="Repositorio.cs" />
     <Compile Include="Gasto.cs" />
     <Compile Include="GastoRecuerrente.cs" />
-    <Compile Include="Repositorio.cs" />
+    <Compile Include="Administrador.cs" />
     <Compile Include="Presupuesto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -19,13 +19,13 @@ namespace Test
     public class CategoriaPrueba
     {
         private Categoria categoria;
-        Repositorio listaCategorias;
+        Administrador listaCategorias;
 
         [TestInitialize]
         public void InitTests()
         {
             categoria = new Categoria();
-            listaCategorias = new Repositorio();
+            listaCategorias = new Administrador();
         }
 
         [TestMethod]
