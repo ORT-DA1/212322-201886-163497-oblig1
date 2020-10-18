@@ -12,21 +12,40 @@ namespace Test
     public class GastoRecurrentePrueba
     {
         private GastoRecuerrente gastoRec;
+        private Categoria cat;
 
         [TestInitialize]
         public void InitTests()
         {
             gastoRec = new GastoRecuerrente();
+            cat = new Categoria();
+
         }
 
 
-          [TestMethod]
-          [ExpectedException(typeof(IndexOutOfRangeException))]
-          public void RangoInferiorFechaPrueba()
-          {
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void RangoInferiorFechaPrueba()
+        {
 
-            gastoRec.Fecha = 1;
+            gastoRec.Fecha = 0;
 
-          }
+        }
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void RangoSuperiorFechaGastoRecurrentePrueba()
+        {
+
+            gastoRec.Fecha = 29;
+
+        }
+
+        [TestMethod]
+        public void ConstructorGastoRecurrentePrueba()
+        {
+           GastoRecuerrente gastoRec2 = new GastoRecuerrente(1000 , "Ir a comer", cat ,10);
+            Assert.AreEqual(gastoRec2.Fecha, 10);
+
+        }
     }
 }

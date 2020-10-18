@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Dominio;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using Microsoft.Win32.SafeHandles;
 
 namespace Test
 {
@@ -20,12 +21,14 @@ namespace Test
     public class GastoPrueba
     {
         private Gasto gasto;
-       
+        private Categoria cat;
+        private Categoria salida;
 
         [TestInitialize]
         public void InitTests()
         {
             gasto = new Gasto();
+            cat = new Categoria();
            
         }
 
@@ -52,17 +55,6 @@ namespace Test
 
 
         }
-/*
-        [TestMethod]
-        public void PropertyFechaPrueba()
-        {
-           
-
-            gasto.Fecha = new DateTime(2020, 5, 1, 8, 30, 52);
-            DateTime fecha = new DateTime(2020, 5, 1, 8, 30, 52);
-            Assert.AreEqual(fecha, gasto.Fecha);
-
-        }*/
 
         [TestMethod]
         public void PropertyCategoriaPrueba()
@@ -86,27 +78,23 @@ namespace Test
             
         }
 
-   /*     [TestMethod]
-           [ExpectedException(typeof(IndexOutOfRangeException))]
-           public void RangoInferiorFechaPrueba()
-           {
 
-               gasto.Fecha = new DateTime(2017, 12, 31, 0, 0, 0);
-
-
-           }*/
-/*
         [TestMethod]
-        [ExpectedException(typeof(IndexOutOfRangeException))]
-        public void RangoSuperiorFechaPrueba()
+        public void ConstructorPrueba()
         {
-
-            gasto.Fecha = new DateTime(2031, 1, 1, 0, 0, 0);
-
+            Gasto gasto2 = new Gasto(1000, "Ir a comer", cat);
+            Assert.AreEqual(gasto2.Monto,1000);
 
         }
-*/
-       
+
+     /*   [TestMethod]
+        public void toStringPrueba()
+        {
+
+            Gasto gasto2 = new Gasto(100, "Salida al cine", salida);
+            Assert.AreEqual(gasto.ToString,"Monto: 100 , Descripcion: Salida al cine , Categoria: Salida ");
+
+        }*/
 
 
     }

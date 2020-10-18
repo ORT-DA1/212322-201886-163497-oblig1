@@ -45,6 +45,7 @@
     <Compile Include="CategoriaMonto.cs" />
     <Compile Include="Repositorio.cs" />
     <Compile Include="Gasto.cs" />
+    <Compile Include="GastoComun.cs" />
     <Compile Include="GastoRecuerrente.cs" />
     <Compile Include="Administrador.cs" />
     <Compile Include="Presupuesto.cs" />

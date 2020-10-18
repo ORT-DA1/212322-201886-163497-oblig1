@@ -10,12 +10,12 @@ namespace Dominio
 {
     public class Gasto
     {
-        
+
 
         private string desc;
         public int Monto { get; set; }
 
-  
+
         public string Descripcion
         {
 
@@ -36,35 +36,10 @@ namespace Dominio
 
         }
 
-        /*private DateTime fecha;
-
-        public DateTime Fecha
-        {
-            get { return fechaMin; }
 
 
-            set
-            {
-                DateTime fechaAntigua = new DateTime(2018, 1, 1, 0, 0, 0);
-                
-                DateTime fechaFuturo = new DateTime(2030, 12, 31, 0, 0, 0);
+        public Categoria Categoria { get; set; }
 
-               int resultado = DateTime.Compare(value, fechaAntigua);
-               int resultado2 = DateTime.Compare(value, fechaFuturo);
-
-                if (resultado<0 || resultado2 >0)
-                {
-                    throw new IndexOutOfRangeException();
-                }
-                else
-                {
-                    fechaMin = value;
-                }
-            }
-        }*/
-
-    public Categoria  Categoria { get; set; }
-        
 
         public Gasto()
         {
@@ -72,28 +47,23 @@ namespace Dominio
             this.Descripcion = "No hay descripcion";
             //this.Fecha = new DateTime(2020, 5, 1, 8, 30, 52);
             this.Categoria = new Categoria();
-            
+
         }
 
 
-        public void AsignarCategoriaSegunDescripcion(Administrador listaABuscar, string descripcion)
+        public Gasto(int unMonto, string unaDescripcion, Categoria unaCategoria)
+
         {
-
-            //PREGUNTAR QUE PASA SI NO TE DEVUELVE NADA, PORQUE HAY UNA EXCEPCION
-            //si hay una palabra clave que esta en dos lugares, es decir hay dos categorias, por lo tanto queda vacia.
-
-            Categoria catrgoria = listaABuscar.RetornarCategoriaDeDescripcion(descripcion);
-            this.Categoria = catrgoria;
-
-
+            Monto = unMonto;
+            Descripcion = unaDescripcion;
+            Categoria = unaCategoria;
         }
-
-
-
-
     }
 
+    public override string ToString()
+    {
 
+    }
 
 
 }

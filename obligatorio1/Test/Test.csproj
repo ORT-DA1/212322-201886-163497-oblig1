@@ -51,6 +51,11 @@
   <ItemGroup>
     <Compile Include="CategoriaMontoPrueba.cs" />
     <Compile Include="CategoriaPrueba.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="GastoComunPrueba.cs" />
+    <Compile Include="GastoRecurrentePrueba.cs" />
+>>>>>>> develop
     <Compile Include="RepositorioPrueba.cs" />
     <Compile Include="GastoRecurrentePrueba.cs" />
     <Compile Include="AdministradorPrueba.cs" />
