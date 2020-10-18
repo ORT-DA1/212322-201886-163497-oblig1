@@ -1,0 +1,76 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Dominio;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Test
+{
+    [TestClass]
+    class GastoComunPrueba
+    {
+        private GastoComun gasto;
+        private Categoria cat;
+
+        [TestInitialize]
+        public void InitTests()
+        {
+            gasto = new GastoComun();
+            cat = new Categoria();
+
+        }
+
+        [TestMethod]
+        public void PropertyFechaPrueba()
+        {
+
+
+            gasto.Fecha = new DateTime(2020, 5, 1, 8, 30, 52);
+            DateTime fecha = new DateTime(2020, 5, 1, 8, 30, 52);
+            Assert.AreEqual(fecha, gasto.Fecha);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void RangoInferiorFechaPrueba()
+        {
+
+            gasto.Fecha = new DateTime(2017, 12, 31, 0, 0, 0);
+
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void RangoInferiorFechaGastoComunPrueba()
+        {
+
+            gasto.Fecha = new DateTime(2017, 12, 31, 0, 0, 0);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void RangoSuperiorFechaGastoComunPrueba()
+        {
+
+            gasto.Fecha = new DateTime(2031, 1, 1, 0, 0, 0);
+
+
+        }
+        
+        [TestMethod]
+        public void ConstructorGastoComunPrueba()
+        {
+            DateTime fecha = new DateTime(2020, 5, 1, 8, 30, 52);
+            GastoComun gastoRec2 = new GastoComun(1000, "Ir a comer", cat,fecha);
+            Assert.AreEqual(gastoRec2.Descripcion,"Ir a comer");
+
+        }
+
+
+    }
+}
