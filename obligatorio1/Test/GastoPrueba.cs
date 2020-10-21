@@ -22,7 +22,7 @@ namespace Test
     {
         private Gasto gasto;
         private Categoria cat;
-        private Categoria salida;
+      
 
         [TestInitialize]
         public void InitTests()
@@ -87,14 +87,12 @@ namespace Test
 
         }
 
-     /*   [TestMethod]
-        public void toStringPrueba()
+       [TestMethod]
+        public void ToStringGastoPrueba()
         {
+            Assert.AreEqual(gasto.ToString(),"0,No hay descripcion,No hay nombre");
 
-            Gasto gasto2 = new Gasto(100, "Salida al cine", salida);
-            Assert.AreEqual(gasto.ToString,"Monto: 100 , Descripcion: Salida al cine , Categoria: Salida ");
-
-        }*/
+        }
 
 
     }

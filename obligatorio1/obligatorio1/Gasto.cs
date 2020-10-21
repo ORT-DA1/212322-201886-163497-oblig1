@@ -45,7 +45,6 @@ namespace Dominio
         {
             this.Monto = 0;
             this.Descripcion = "No hay descripcion";
-            //this.Fecha = new DateTime(2020, 5, 1, 8, 30, 52);
             this.Categoria = new Categoria();
 
         }
@@ -56,12 +55,10 @@ namespace Dominio
             Descripcion = unaDescripcion;
             Categoria = unaCategoria;
         }
+        public override string ToString()
+        {
+            return String.Format("{0},{1},{2}",this.Monto, this.Descripcion ,this.Categoria);
+        }
     }
-
-    public override string ToString()
-    {
-
-    }
-
 
 }

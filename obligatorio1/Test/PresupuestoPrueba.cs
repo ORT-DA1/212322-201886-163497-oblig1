@@ -18,7 +18,7 @@ presupuesto, el valor para la categoría nueva será inicialmente cero,
 pudiendo el usuario cambiarlo después. Los montos por categoría son
 números positivos positivos, con dos decimales.
 
-     * s
+     * 
      */
 
     [TestClass]
@@ -38,13 +38,11 @@ números positivos positivos, con dos decimales.
         {
            
             string nombreMes = DateTimeFormatInfo.CurrentInfo.GetMonthName(1);
-            presupuesto.Mes = "January";
+            presupuesto.Mes = "Enereo";
 
             Assert.AreEqual(nombreMes, presupuesto.Mes);
 
         }
-
-      
 
         [TestMethod]
         public void PropertyAnioPrueba()
@@ -81,6 +79,19 @@ números positivos positivos, con dos decimales.
             Assert.IsFalse(presupuesto.EsVaciaListaCategoriaMonto());
         }
 
+        [TestMethod]
+        public void ConstructorPresupuestoPrueba()
+        {
+            Presupuesto presupuesto1 = new Presupuesto(2019, "Setiembre");
+            Assert.AreEqual(presupuesto1.Anio, 2019);
+
+        }
+
+        [TestMethod]
+        public void ToStringPrueba()
+        {
+            Assert.AreEqual(presupuesto.ToString(),"2019,Setiembre");
+        }
 
     }
 }

@@ -47,5 +47,11 @@ namespace Test
             Assert.AreEqual(gastoRec2.Fecha, 10);
 
         }
+        [TestMethod]
+        public void ToStringGastoRecurrentePrueba()
+        {
+            Assert.AreEqual(gastoRec.ToString(),"0,No hay descripcion,No hay nombre,1");
+
+        }
     }
 }

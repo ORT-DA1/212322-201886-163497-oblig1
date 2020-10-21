@@ -29,16 +29,15 @@ namespace Dominio
 
         public GastoRecuerrente()
         {
-
-            this.Monto = 0;
-            this.Descripcion = "No hay descripcion";
             this.Fecha = 1;
-
         }
         public GastoRecuerrente(int unMonto, string unaDescripcion, Categoria unaCategoria , int unaFecha):base(unMonto, unaDescripcion, unaCategoria)
         {
-
             Fecha = unaFecha;
+        }
+        public override string ToString()
+        {
+            return String.Format("{0},{1}",base.ToString(),this.Fecha);
         }
 
     }
