@@ -24,30 +24,21 @@ namespace Test
             unaCategoria = new Categoria();
         }
 
-
-
         [TestMethod]
-        public void CrearListaCategoriasVaciaPrueba()
+        public void RetornarListaCategoriasPrueba()
         {
-             Assert.IsTrue(repositorio.EsVaciaListaCategorias());
+
+            Assert.IsTrue(repositorio.RetornarListaCategorias().Count == 0);
+
 
         }
 
-
-      [TestMethod]
-        public void AlAgregarCateogoriaNoEsVacioPrueba()
-        {
-            
-           
-            repositorio.AgregarCategoria(unaCategoria);
-           
-            Assert.IsFalse(repositorio.EsVaciaListaCategorias());
-
-        }
+    
 
         
+
        
-        [TestMethod]
+      /*  [TestMethod]
         public void EliminarCategoriaPrueba()
         {
             
@@ -56,7 +47,7 @@ namespace Test
 
             Assert.IsTrue(repositorio.EsVaciaListaCategorias());
 
-        }
+        }*/
 
         
 

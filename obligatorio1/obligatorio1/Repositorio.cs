@@ -16,36 +16,23 @@ namespace Dominio
         public Repositorio()
         {
             this.ListaCategorias = new List<Categoria>();
-            var cantidad = this.GetAll().Count<Categoria>();
+            //var cantidad = this.GetAll().Count<Categoria>();
         }
 
-        // METODOS DE LISTAS CATEGORIAS
-        public bool EsVaciaListaCategorias()
-        {
-            return ListaCategorias.Count == 0;
-        }
+       
 
         //Esto va en mi repositorio para acceder a todas las listas
-        public List<Categoria> GetAll()
+        public List<Categoria> RetornarListaCategorias()
         {
-            return new List<Categoria>();
+            return this.ListaCategorias;
+            //return new List<Categoria>();
         }
 
-        public void AgregarCategoria(Categoria unaCategoria)
-        {
-            
-            if (ExisteCategoria(unaCategoria))
-            {
-                throw new ExcepcionElementoRepetido();
-                
-            }
-            else this.ListaCategorias.Add(unaCategoria);
-        }
 
-        private bool ExisteCategoria(Categoria unaCategoria)
-        {
-            return ListaCategorias.Contains(unaCategoria);
-        }
+
+
+        // A PARTIR DE ACA ES LO QUE ESTABA ANTES
+      
 
         public void EliminarCategoria(Categoria unaCategoria)
         {
