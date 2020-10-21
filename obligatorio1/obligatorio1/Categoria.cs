@@ -92,16 +92,20 @@ namespace Dominio
             return unaPalabra.ToUpper();
         }
 
-   
-        public override bool Equals(Object obj)
-        {
-            Categoria catObj = obj as Categoria;
-            if (catObj == null)
-                return false;
-            else
-                return Nombre.Equals(catObj.Nombre);
-        }
 
+          public override bool Equals(Object obj)
+          {
+              Categoria catObj = obj as Categoria;
+              if (catObj == null)
+                  return false;
+              else
+                  return Nombre.Equals(catObj.Nombre);
+          }
+
+            public override string ToString()
+            {
+                return String.Format(this.Nombre);
+            }
 
     }
 }

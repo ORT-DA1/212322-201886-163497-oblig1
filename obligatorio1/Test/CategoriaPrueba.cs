@@ -19,13 +19,13 @@ namespace Test
     public class CategoriaPrueba
     {
         private Categoria categoria;
-        Repositorio listaCategorias;
+     /*   Repositorio listaCategorias;*/
 
         [TestInitialize]
         public void InitTests()
         {
             categoria = new Categoria();
-            listaCategorias = new Repositorio();
+            /*listaCategorias = new Repositorio();*/
         }
 
         [TestMethod]
@@ -117,6 +117,13 @@ namespace Test
             categoria.AgregarPalabraClave("Cine");
 
         }
-    
+
+        [TestMethod]
+        public void toStringCategoriaPrueba()
+        {
+            Assert.AreEqual(categoria.ToString(),"No hay nombre");
+
+        }
+
     }
 }
