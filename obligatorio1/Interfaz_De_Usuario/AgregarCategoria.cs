@@ -13,27 +13,23 @@ namespace Interfaz_De_Usuario
 {
     public partial class AgregarCategoria : UserControl
     {
-        private Repositorio miRepostorio;
-        public AgregarCategoria(Repositorio unRepositorio)
+        private Sistema miSistema;
+        public AgregarCategoria(Sistema unSistema)
         {
             InitializeComponent();
-            miRepostorio = unRepositorio;
-            //CargarComboBoxPabrasClave();
+            miSistema = unSistema;
+            CargarComboBoxPabrasClave();
         }
 
-       /* private void CargarComboBoxPabrasClave()
+         private void CargarComboBoxPabrasClave()
         {
-            throw new NotImplementedException();
-        }*/
+            miSistema.repositorio.AgregarPalabraClaveACategoria(cbPalabrasClave);
+        }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            //miRepositorio.CrearYAgregarCategoria(tbNombre.Text);
+            miSistema.repo.CrearYAgregarCategoria(tbNombre.Text);
 
-           /* Categoria unaCategoria = new Categoria
-            {
-                Nombre = tbNombre.Text
-            };*/
         }
     }
 }

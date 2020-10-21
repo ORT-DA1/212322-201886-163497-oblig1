@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Excepciones;
@@ -16,7 +15,7 @@ namespace Dominio
         public Repositorio()
         {
             this.ListaCategorias = new List<Categoria>();
-            var cantidad = this.GetAll().Count<Categoria>();
+            //var cantidad = this.GetAll().Count<Categoria>();
         }
 
         // METODOS DE LISTAS CATEGORIAS

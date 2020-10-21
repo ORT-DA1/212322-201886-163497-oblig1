@@ -241,6 +241,8 @@ namespace Test
             Assert.IsTrue(unaCategoria.EsVacia());
         }
 
+       
+
 
 
 
