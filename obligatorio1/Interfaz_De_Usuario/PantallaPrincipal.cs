@@ -12,8 +12,7 @@ using System.Windows.Forms;
 namespace Interfaz_De_Usuario
 {
     public partial class PantallaPrincipal : Form
-    {
-        
+    { 
 
         public Sistema MiSistema { get; set; }
 
@@ -23,11 +22,11 @@ namespace Interfaz_De_Usuario
             MiSistema = new Sistema();
         }
 
-        private void btnAgregarCategoria_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
-            UserControl agregarCategoria = new AgregarCategoria(MiSistema);
-            panelPrincipal.Controls.Add(agregarCategoria);
+            UserControl modificarCategoria = new ModificarCategoria(MiSistema);
+            panelPrincipal.Controls.Add(modificarCategoria);
         }
     }
 }
