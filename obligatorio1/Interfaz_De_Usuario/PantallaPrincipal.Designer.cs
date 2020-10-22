@@ -35,15 +35,15 @@
             // 
             // panelPrincipal
             // 
-            this.panelPrincipal.Location = new System.Drawing.Point(252, 3);
+            this.panelPrincipal.Location = new System.Drawing.Point(351, 31);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(536, 435);
+            this.panelPrincipal.Size = new System.Drawing.Size(663, 581);
             this.panelPrincipal.TabIndex = 0;
             // 
             // btnAgregarCategoria
             // 
             this.btnAgregarCategoria.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarCategoria.Location = new System.Drawing.Point(12, 31);
+            this.btnAgregarCategoria.Location = new System.Drawing.Point(47, 31);
             this.btnAgregarCategoria.Name = "btnAgregarCategoria";
             this.btnAgregarCategoria.Size = new System.Drawing.Size(234, 46);
             this.btnAgregarCategoria.TabIndex = 6;
@@ -54,7 +54,7 @@
             // btnAgregarGasto
             // 
             this.btnAgregarGasto.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarGasto.Location = new System.Drawing.Point(12, 127);
+            this.btnAgregarGasto.Location = new System.Drawing.Point(47, 178);
             this.btnAgregarGasto.Name = "btnAgregarGasto";
             this.btnAgregarGasto.Size = new System.Drawing.Size(234, 42);
             this.btnAgregarGasto.TabIndex = 7;
@@ -65,7 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1127, 703);
             this.Controls.Add(this.btnAgregarGasto);
             this.Controls.Add(this.btnAgregarCategoria);
             this.Controls.Add(this.panelPrincipal);

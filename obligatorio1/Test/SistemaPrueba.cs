@@ -1,28 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+
 
 
 namespace Test
 {
     [TestClass]
-    public class SistemaTest
+    public class SistemaPrueba
     {
-        private Sistema sis;
-        private Repositorio repo;
+        private Sistema sistema;
+        private Repositorio repositorio;
         private Gasto gasto;
+
         [TestInitialize]
         public void InitTest()
         {
-            sis = new Sistema();
-            repo = new Repositorio();
+            sistema = new Sistema();
+            repositorio = new Repositorio();
             gasto = new GastoComun();
         }
-     /*  [TestMethod]
+
+       public void CrearYAgregarCategoriaPrueba()
+        {
+            
+            sistema.CrearYAgregarCategoria("Viajes");
+            Assert.IsFalse(sistema.Repositorio.EsVaciaListaCategorias());
+        }
+
+
+
+        /*  [TestMethod]
         public void crearRepositorioPrueba()
         {
             Repositorio repo2 = new Repositorio();

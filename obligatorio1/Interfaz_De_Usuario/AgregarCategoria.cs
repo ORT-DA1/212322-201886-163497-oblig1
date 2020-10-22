@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Excepciones;
 
 namespace Interfaz_De_Usuario
 {
@@ -18,18 +19,27 @@ namespace Interfaz_De_Usuario
         {
             InitializeComponent();
             miSistema = unSistema;
-            CargarComboBoxPabrasClave();
+           // CargarComboBoxPabrasClave();
         }
 
-         private void CargarComboBoxPabrasClave()
+        /* private void CargarComboBoxPabrasClave()
         {
-            miSistema.repositorio.AgregarPalabraClaveACategoria(cbPalabrasClave);
-        }
+            //miSistema.repositorio.AgregarPalabraClaveACategoria(cbPalabrasClave);
+        }*/
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            miSistema.repo.CrearYAgregarCategoria(tbNombre.Text);
 
+            try
+            {
+                miSistema.CrearYAgregarCategoria(tbNombre.Text);
+                MessageBox.Show("Categoria" + tbNombre.Text + "ha sido creada con exito");
+            }
+            catch (ExcepcionElementoRepetido unaExcepcion)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+            
         }
     }
 }

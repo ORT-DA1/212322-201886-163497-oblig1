@@ -103,7 +103,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblTitulo);
             this.Name = "AgregarCategoria";
-            this.Size = new System.Drawing.Size(501, 455);
+            this.Size = new System.Drawing.Size(523, 475);
             this.ResumeLayout(false);
             this.PerformLayout();
 

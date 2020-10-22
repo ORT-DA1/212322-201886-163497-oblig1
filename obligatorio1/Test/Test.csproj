@@ -57,7 +57,7 @@
     <Compile Include="GastoPrueba.cs" />
     <Compile Include="PresupuestoPrueba.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SistemaTest.cs" />
+    <Compile Include="SistemaPrueba.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

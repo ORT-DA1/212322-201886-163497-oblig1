@@ -15,20 +15,16 @@ namespace Dominio
         public Repositorio()
         {
             this.ListaCategorias = new List<Categoria>();
-            //var cantidad = this.GetAll().Count<Categoria>();
+            
         }
 
         // METODOS DE LISTAS CATEGORIAS
         public bool EsVaciaListaCategorias()
         {
-            return ListaCategorias.Count == 0;
+            return this.ListaCategorias.Count == 0;
         }
 
-        //Esto va en mi repositorio para acceder a todas las listas
-        public List<Categoria> GetAll()
-        {
-            return new List<Categoria>();
-        }
+     
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
@@ -43,7 +39,7 @@ namespace Dominio
 
         private bool ExisteCategoria(Categoria unaCategoria)
         {
-            return ListaCategorias.Contains(unaCategoria);
+            return this.ListaCategorias.Contains(unaCategoria);
         }
 
         public void EliminarCategoria(Categoria unaCategoria)

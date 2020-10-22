@@ -134,6 +134,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Excepciones\Excepciones.csproj">
+      <Project>{16064D46-CC24-40FF-9C32-5F4FEC52BB70}</Project>
+      <Name>Excepciones</Name>
+    </ProjectReference>
     <ProjectReference Include="..\obligatorio1\Dominio.csproj">
       <Project>{965ceeae-599e-45f2-bd46-f9381ba42871}</Project>
       <Name>Dominio</Name>
