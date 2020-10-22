@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using Excepciones;
 
+
 namespace Dominio
 {
     public class Sistema
     {
-        public Repositorio repositorio { get; set; }
+        public Repositorio Repositorio { get; set; }
         public Sistema()
         {
-            this.repositorio = new Repositorio();
+            Repositorio = new Repositorio();
+        }
+
+        public void CrearYAgregarCategoria (String nombre)
+        {
+            Repositorio.CrearYAgregarCategoria(nombre);
         }
 
     }

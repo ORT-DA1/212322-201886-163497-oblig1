@@ -52,6 +52,12 @@
     <Compile Include="AgregarCategoria.Designer.cs">
       <DependentUpon>AgregarCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModificarCategoria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModificarCategoria.Designer.cs">
+      <DependentUpon>ModificarCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="AgregarGasto.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </Compile>
     <EmbeddedResource Include="AgregarCategoria.resx">
       <DependentUpon>AgregarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarCategoria.resx">
+      <DependentUpon>ModificarCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AgregarGasto.resx">
       <DependentUpon>AgregarGasto.cs</DependentUpon>
@@ -134,6 +143,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Excepciones\Excepciones.csproj">
+      <Project>{16064D46-CC24-40FF-9C32-5F4FEC52BB70}</Project>
+      <Name>Excepciones</Name>
+    </ProjectReference>
     <ProjectReference Include="..\obligatorio1\Dominio.csproj">
       <Project>{965ceeae-599e-45f2-bd46-f9381ba42871}</Project>
       <Name>Dominio</Name>

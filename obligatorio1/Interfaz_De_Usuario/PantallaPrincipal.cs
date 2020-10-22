@@ -12,19 +12,21 @@ using System.Windows.Forms;
 namespace Interfaz_De_Usuario
 {
     public partial class PantallaPrincipal : Form
-    {
-        public Repositorio RepositorioPrincipal { get; set; }
+    { 
+
+        public Sistema MiSistema { get; set; }
+
         public PantallaPrincipal()
         {
             InitializeComponent();
-            RepositorioPrincipal = new Repositorio();
+            MiSistema = new Sistema();
         }
 
-        private void btnAgregarCategoria_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
-            UserControl agregarCategoria = new AgregarCategoria(RepositorioPrincipal);
-            panelPrincipal.Controls.Add(agregarCategoria);
+            UserControl modificarCategoria = new ModificarCategoria(MiSistema);
+            panelPrincipal.Controls.Add(modificarCategoria);
         }
     }
 }
