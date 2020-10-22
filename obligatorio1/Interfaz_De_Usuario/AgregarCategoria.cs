@@ -19,7 +19,8 @@ namespace Interfaz_De_Usuario
         {
             InitializeComponent();
             miSistema = unSistema;
-           // CargarComboBoxPabrasClave();
+            MessageBox.Show("Categoria" + tbNombre.Text + "ha sido creada con exito");
+            // CargarComboBoxPabrasClave();
         }
 
         /* private void CargarComboBoxPabrasClave()
