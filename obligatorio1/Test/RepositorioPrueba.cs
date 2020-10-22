@@ -33,23 +33,31 @@ namespace Test
 
         }
 
-    
-
-        
-
-       
-      /*  [TestMethod]
-        public void EliminarCategoriaPrueba()
+        [TestMethod]
+        public void ExisteCategoriaPrueba()
         {
-            
             repositorio.AgregarCategoria(unaCategoria);
-            repositorio.EliminarCategoria(unaCategoria);
 
-            Assert.IsTrue(repositorio.EsVaciaListaCategorias());
+            Assert.IsTrue(repositorio.ExisteCategoria(unaCategoria));
 
-        }*/
 
-        
+        }
+
+
+
+
+        /*  [TestMethod]
+          public void EliminarCategoriaPrueba()
+          {
+
+              repositorio.AgregarCategoria(unaCategoria);
+              repositorio.EliminarCategoria(unaCategoria);
+
+              Assert.IsTrue(repositorio.EsVaciaListaCategorias());
+
+          }*/
+
+
 
         [TestMethod]
         public void RetornarCategoriaDePalabraClavePrueba()
@@ -195,15 +203,19 @@ namespace Test
 
         }
 
-        [TestMethod]
+
+        /*   
+            [TestMethod]
         public void CrearYAgregarCategoriaPrueba()
         {
             repositorio.CrearYAgregarCategoria("Viajes");
             Assert.IsFalse(repositorio.EsVaciaListaCategorias());
         }
+         */
 
 
- 
+
+
 
         [TestMethod]
         [ExpectedException(typeof(ExcepcionElementoRepetido))]

@@ -25,7 +25,7 @@ namespace Dominio
         public void AgregarCategoria(Categoria unaCategoria)
         {
 
-            if (ExisteCategoria(unaCategoria))
+            if (repositorio.ExisteCategoria(unaCategoria))
             {
                 throw new ExcepcionElementoRepetido();
 
@@ -33,10 +33,12 @@ namespace Dominio
             else repositorio.RetornarListaCategorias().Add(unaCategoria);
         }
 
-        private bool ExisteCategoria(Categoria unaCategoria)
-        {
-            return repositorio.RetornarListaCategorias().Contains(unaCategoria);
-        }
+        /* 
+          private bool ExisteCategoria(Categoria unaCategoria)
+       {
+           return repositorio.RetornarListaCategorias().Contains(unaCategoria);
+       }
+          */
 
 
 

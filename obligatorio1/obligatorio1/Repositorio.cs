@@ -28,11 +28,19 @@ namespace Dominio
             //return new List<Categoria>();
         }
 
+        public bool ExisteCategoria(Categoria unaCategoria)
+        {
+            return this.ListaCategorias.Contains(unaCategoria);
+        }
 
+        public void AgregarCategoria(Categoria unaCategoria)
+        {
+            this.ListaCategorias.Add(unaCategoria);
+        }
 
 
         // A PARTIR DE ACA ES LO QUE ESTABA ANTES
-      
+
 
         public void EliminarCategoria(Categoria unaCategoria)
         {

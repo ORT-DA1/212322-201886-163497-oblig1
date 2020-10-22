@@ -29,8 +29,8 @@ namespace Test
 
         }
 
-
-        [TestMethod]
+        /*
+         [TestMethod]
         public void AlAgregarCateogoriaNoEsVacioPrueba()
         {
 
@@ -40,6 +40,8 @@ namespace Test
             Assert.IsFalse(repositorio.EsVaciaListaCategorias());
 
         }
+         */
+
 
 
 
