@@ -31,8 +31,8 @@ namespace Interfaz_De_Usuario
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             
-                String Categoria = cbCategorias.Text;
-                Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(Categoria);
+                
+                Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
                 AdminCategorias.AgregarPalabraClaveACategoria(categoriaSeleccionada, tbPalabraClave.Text);
                 cbListaPalabrasClave.DataSource = null;
                 cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
@@ -41,11 +41,24 @@ namespace Interfaz_De_Usuario
 
         private void cbCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String Categoria = cbCategorias.Text;
-            Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(Categoria);
+            
+            Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
             cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
 
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            
+            Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
+            
+            AdminCategorias.BorrarPalabraClaveACategoria(categoriaSeleccionada, cbListaPalabrasClave.Text);
+
+            cbListaPalabrasClave.DataSource = null;
+            cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
+        }
+        /*
+      
 
 
 
