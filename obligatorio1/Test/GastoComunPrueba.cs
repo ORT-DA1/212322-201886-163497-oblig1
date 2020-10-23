@@ -66,7 +66,7 @@ namespace Test
         [TestMethod]
         public void ToStringGastoComunPrueba()
         {
-            Assert.AreEqual(gasto.ToString(), "0,No hay descripcion,No hay nombre,1/5/2020 8:30:52");
+            Assert.AreEqual(gasto.ToString(), "0,No hay descripcion,No hay nombre,5/1/2020 8:30:52 AM");
 
         }
 

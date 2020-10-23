@@ -1,267 +1,163 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Dominio;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using System.Linq;
-using Excepciones;
+using System.Collections.Generic;
+using System;
 
 namespace Test
 {
-
     [TestClass]
     public class RepositorioPrueba
     {
 
-
-        private Repositorio repositorio;
-        private Categoria unaCategoria;
+        private Repositorio Repositorio { get; set; }
+        private Categoria UnaCategoria { get; set; }
+        private GastoRecuerrente GastoRecuerrente { get; set; }
+        private GastoComun GastoComun { get; set; }
 
         [TestInitialize]
         public void InitTests()
         {
-            repositorio = new Repositorio();
-            unaCategoria = new Categoria();
+            Repositorio = new Repositorio();
+            UnaCategoria = new Categoria();
+            GastoRecuerrente = new GastoRecuerrente();
+            GastoComun = new GastoComun();
+
         }
 
-
-
+        // PRUEBAS DE LISTA CATEGORIAS
         [TestMethod]
         public void CrearListaCategoriasVaciaPrueba()
         {
-             Assert.IsTrue(repositorio.EsVaciaListaCategorias());
+            Assert.IsTrue(Repositorio.EsVaciaListaCategorias());
 
         }
 
+        [TestMethod]
+        public void RetornarListaCategoriasPrueba()
+        {
+           
+            List<Categoria> ListaLocal = new List<Categoria>();
+            Assert.IsTrue(Repositorio.RetornarListaCategorias().SequenceEqual(ListaLocal));
 
-      [TestMethod]
+        }
+
+        [TestMethod]
         public void AlAgregarCateogoriaNoEsVacioPrueba()
         {
-            
-           
-            repositorio.AgregarCategoria(unaCategoria);
-           
-            Assert.IsFalse(repositorio.EsVaciaListaCategorias());
+
+            Repositorio.AgregarCategoria(UnaCategoria);
+            Assert.IsFalse(Repositorio.EsVaciaListaCategorias());
 
         }
 
-        
-       
         [TestMethod]
         public void EliminarCategoriaPrueba()
         {
-            
-            repositorio.AgregarCategoria(unaCategoria);
-            repositorio.EliminarCategoria(unaCategoria);
 
-            Assert.IsTrue(repositorio.EsVaciaListaCategorias());
+            Repositorio.AgregarCategoria(UnaCategoria);
+            Repositorio.EliminarCategoria(UnaCategoria);
 
-        }
+            Assert.IsFalse(Repositorio.ExisteCategoria(UnaCategoria));
 
-        
-
-        [TestMethod]
-        public void RetornarCategoriaDePalabraClavePrueba()
-        {
-           
-            Categoria c1 = new Categoria { Nombre = "Entretenimiento" };
-            c1.AgregarPalabraClave("Cine");
-            c1.AgregarPalabraClave("Serie");
-            repositorio.AgregarCategoria(c1);
-
-            Categoria c2 = new Categoria { Nombre = "Gastronimia" };
-            c2.AgregarPalabraClave("Salir");
-            c2.AgregarPalabraClave("Demorondanga");
-            repositorio.AgregarCategoria(c2);
-
-
-            unaCategoria = repositorio.CategoriaDePalabraClave("Cine");
-            
-            Assert.AreEqual(c1, unaCategoria);
-
-
-        }
-        
-        [TestMethod]
-        [ExpectedException(typeof(ExcepcionElementoNoExistente))]
-        public void BuscarPalabraQueNoEstaCateogiraPrueba()
-        {
-
-            repositorio.CategoriaDePalabraClave("Manzana");
-
-        }
-
-        [TestMethod]
-        public void IgnorarMayusculasMinusulasCategoriaPrueba()
-        {
-
-            Categoria c1 = new Categoria { Nombre = "Auto" };
-            c1.AgregarPalabraClave("Nafta");
-            c1.AgregarPalabraClave("Patente");
-            repositorio.AgregarCategoria(c1);
-            
-            unaCategoria = repositorio.CategoriaDePalabraClave("nAfta");
-            Assert.AreEqual(c1, unaCategoria);
-
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ExcepcionElementoRepetido))]
-        public void NoAgregarCategoriaRepetidaPrueba()
-        {
-            Categoria c1 = new Categoria { Nombre = "Hogar" };
-            repositorio.AgregarCategoria(c1);
-            Categoria c2 = new Categoria { Nombre = "Hogar" };
-            repositorio.AgregarCategoria(c2);
-        }
-
-        [TestMethod]
-        public void PalabraClaveYaIngresadaEnAlgunaListaPrueba()
-        {
-
-            Categoria cat = new Categoria { Nombre = "Auto" };
-            cat.AgregarPalabraClave("Nafta");
-           
-            repositorio.AgregarCategoria(cat);
-
-            
-            Assert.IsTrue(repositorio.PalabraClaveYaIngresadaEnAlgunaLista("Nafta"));
-
-        }
-
-       // PRUEBAS PARA IDENTIFICAR LA CATEGORIA DE LA DESCRIPCION 
-
-        [TestMethod]
-        public void CantDeCategoriasDistintasDondeApareceLaDescripcionPrueba()
-        {
-            Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
-            catrgoria.AgregarPalabraClave("Cine");
-            repositorio.AgregarCategoria(catrgoria);
-
-            Categoria otraCatrgoria = new Categoria { Nombre = "GoingOut" };
-            otraCatrgoria.AgregarPalabraClave("Salida");
-            repositorio.AgregarCategoria(otraCatrgoria);
-
-            string descripcion = "Salida al Cine";
-            
-            Assert.AreEqual(2, repositorio.CantDeCategoriasDistintasDondeApareceLaDescripcion(descripcion));
-
-        }
-
-        [TestMethod]
-        public void CantDeCategoriasDistintasDeDescripcionPrueba()
-        {
-            Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
-            catrgoria.AgregarPalabraClave("Cine");
-            catrgoria.AgregarPalabraClave("Peli");
-            repositorio.AgregarCategoria(catrgoria);
-
-            
-            string descripcion = "Peli al Cine";
-            
-            Assert.AreEqual(1, repositorio.CantDeCategoriasDistintasDondeApareceLaDescripcion(descripcion));
-
-        }
-      
-
-        [TestMethod]
-        public void RetornarCategoriaDeDescripcionPrueba()
-        {
-            Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
-            catrgoria.AgregarPalabraClave("Cine");
-            repositorio.AgregarCategoria(catrgoria);
-
-
-            Assert.AreEqual(catrgoria, repositorio.RetornarCategoriaDeDescripcion("Voy al Cine"));
-
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ExcepcionElementoNoExistente))]
-        public void RetornarCategoriaDeDescripcionQueNoEstaPrueba()
-        {
-
-            
-            repositorio.RetornarCategoriaDeDescripcion("Manzana");
-
-        }
-
-        // otra excepcion para cuando hay muchas palabras claves
-        [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void RetornarCategoriaDeDescripcionConVariasPalabrasClavesPrueba()
-        {
-            Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
-            catrgoria.AgregarPalabraClave("Cine");
-            repositorio.AgregarCategoria(catrgoria);
-
-            Categoria otraCatrgoria = new Categoria { Nombre = "GoingOut" };
-            otraCatrgoria.AgregarPalabraClave("Salida");
-            repositorio.AgregarCategoria(otraCatrgoria);
-
-            repositorio.RetornarCategoriaDeDescripcion("Salida al Cine");
-            
-
-        }
-
-        [TestMethod]
-        public void CrearYAgregarCategoriaPrueba()
-        {
-            repositorio.CrearYAgregarCategoria("Viajes");
-            Assert.IsFalse(repositorio.EsVaciaListaCategorias());
-        }
-
-
- 
-
-        [TestMethod]
-        [ExpectedException(typeof(ExcepcionElementoRepetido))]
-        public void CrearYAgregarCategoriaYaExistentePrueba()
-        {
-            repositorio.CrearYAgregarCategoria("Viajes");
-            repositorio.CrearYAgregarCategoria("Viajes");
-        }
-
-        [TestMethod]
-        public void AgregarPalabraCalveCategoriaSeleccionadaPrueba()
-        {
-
-            repositorio.AgregarCategoria(unaCategoria);
-            repositorio.AgregarPalabraClaveACategoria(unaCategoria, "Peaje");
-            Assert.AreEqual(unaCategoria, repositorio.CategoriaDePalabraClave("Peaje"));
-        }
-
-        [TestMethod]
-        public void EliminarPalabraClaveACategoriaPrueba()
-        {
-
-            repositorio.AgregarCategoria(unaCategoria);
-            repositorio.AgregarPalabraClaveACategoria(unaCategoria, "PEAJE");
-            repositorio.BorrarPalabraClaveACategoria(unaCategoria, "PEAJE");
-            Assert.IsTrue(unaCategoria.EsVacia());
-        }
-
-        [TestMethod]
-        public void RetornarPalabrasClaveCategoriaPrueba()
-        {
-            repositorio.AgregarCategoria(unaCategoria);
-            repositorio.AgregarPalabraClaveACategoria(unaCategoria, "PEAJE");
-            repositorio.RetornarPalabrasClaveDeCategoria(unaCategoria);
-            Assert.IsFalse(unaCategoria.EsVacia());
         }
 
 
         [TestMethod]
-        public void ConvertirStringACategoriaPrueba()
+        public void ExisteCategoriaPrueba()
         {
-            
-            unaCategoria.Nombre = "Entretenimiento";
-            Assert.AreEqual(repositorio.RetornarCategoriaSegunString("Entretenimiento"), unaCategoria);
+            Repositorio.AgregarCategoria(UnaCategoria);
+            Assert.IsTrue(Repositorio.ExisteCategoria(UnaCategoria));
 
         }
+
+        // PRUEBAS DE LISTA GASTOS RECURRENTES
+        [TestMethod]
+        public void RetornarListaGastosRecurrentesPrueba()
+        {
+
+            List<GastoRecuerrente> ListaLocal = new List<GastoRecuerrente>();
+            Assert.IsTrue(Repositorio.RetornarListaGastosRecurrentes().SequenceEqual(ListaLocal));
+
+        }
+
+
+        [TestMethod]
+        public void AlAgregarGastoRecuerrenteNoEsVacioPrueba()
+        {
+
+            Repositorio.AgregarGastoRecurrente(GastoRecuerrente);
+            Assert.IsFalse(Repositorio.EsVaciaListaGastosRecurrentes());
+
+        }
+
+        [TestMethod]
+        public void EliminarGastoRecuerrentePrueba()
+        {
+
+            Repositorio.AgregarGastoRecurrente(GastoRecuerrente);
+            Repositorio.EliminarGastoRecuerrente(GastoRecuerrente);
+
+            Assert.IsFalse(Repositorio.ExisteGastoRecurrente(GastoRecuerrente));
+
+        }
+
+
+        [TestMethod]
+        public void ExisteGastoRecuerrentePrueba()
+        {
+            Repositorio.AgregarGastoRecurrente(GastoRecuerrente);
+            Assert.IsTrue(Repositorio.ExisteGastoRecurrente(GastoRecuerrente));
+
+        }
+
+
+        // PRUEBAS DE LISTA GASTOS COMUNES
+
+        [TestMethod]
+        public void RetornarListaGastosComunesPrueba()
+        {
+
+            List<GastoComun> ListaLocal = new List<GastoComun>();
+            Assert.IsTrue(Repositorio.RetornarListaGastosCoumnes().SequenceEqual(ListaLocal));
+
+        }
+
+
+        [TestMethod]
+        public void AlAgregarGastoComunNoEsVacioPrueba()
+        {
+
+            Repositorio.AgregarGastoComun(GastoComun);
+            Assert.IsFalse(Repositorio.EsVaciaListaGastosComunes());
+
+        }
+
+        [TestMethod]
+        public void EliminarGastoComunPrueba()
+        {
+
+            Repositorio.AgregarGastoComun(GastoComun);
+            Repositorio.EliminareGastoComun(GastoComun);
+
+            Assert.IsFalse(Repositorio.ExisteGastoComun(GastoComun));
+
+        }
+
+
+        [TestMethod]
+        public void ExisteGastoComunPrueba()
+        {
+            Repositorio.AgregarGastoComun(GastoComun);
+            Assert.IsTrue(Repositorio.ExisteGastoComun(GastoComun));
+
+        }
+
+
+
+
+
 
 
     }
-
-
 }

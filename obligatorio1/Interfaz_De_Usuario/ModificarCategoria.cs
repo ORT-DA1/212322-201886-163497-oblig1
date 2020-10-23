@@ -14,27 +14,27 @@ namespace Interfaz_De_Usuario
 {
     public partial class ModificarCategoria : UserControl
     {
-        private Repositorio miRepositorio;
-        public ModificarCategoria(Repositorio unSistema)
+        private AdministradorCategorias AdminCategorias;
+        public ModificarCategoria(AdministradorCategorias unAdminCategorias)
         {
             InitializeComponent();
-            miRepositorio = unSistema;
+            AdminCategorias = unAdminCategorias;
             CargarComboBoxCategoria();
             
         }
 
         private void CargarComboBoxCategoria()
         {
-            cbCategorias.DataSource = miRepositorio.GetCategorias();  
+            cbCategorias.DataSource = AdminCategorias.RetornarListaCategorias();  
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             
                 String Categoria = cbCategorias.Text;
-                Categoria categoriaSeleccionada = miRepositorio.RetornarCategoriaSegunString(Categoria);
-                miRepositorio.AgregarPalabraClaveACategoria(categoriaSeleccionada, tbPalabraClave.Text);
-                cbListaPalabrasClave.Items.Clear();
+                Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(Categoria);
+                AdminCategorias.AgregarPalabraClaveACategoria(categoriaSeleccionada, tbPalabraClave.Text);
+                //cbListaPalabrasClave.Items.Clear();
                 cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
 
 
@@ -48,7 +48,7 @@ namespace Interfaz_De_Usuario
         private void cbCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
             String Categoria = cbCategorias.Text;
-            Categoria categoriaSeleccionada = miRepositorio.RetornarCategoriaSegunString(Categoria);
+            Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(Categoria);
             // cbListaPalabrasClave.DataSource = miRepositorio.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada);
             cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
 
