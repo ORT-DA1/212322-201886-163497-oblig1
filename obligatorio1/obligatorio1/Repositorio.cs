@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Excepciones;
 
 namespace Dominio
@@ -24,7 +25,12 @@ namespace Dominio
             return this.ListaCategorias.Count == 0;
         }
 
-     
+        public List<Categoria> GetCategorias()
+        {
+            return this.ListaCategorias;
+
+        }
+
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
@@ -154,11 +160,8 @@ namespace Dominio
 
        private bool LaCategoriaEsDistinta (Categoria unaCategoria, Categoria otraCategoria)
         {
-            if (!unaCategoria.Equals(otraCategoria))
-            {
-                return true;
-            }
-            else return false;
+            return !unaCategoria.Equals(otraCategoria);
+            
         }
 
         public void CrearYAgregarCategoria(String nombre)
@@ -188,6 +191,25 @@ namespace Dominio
         {
             return unaPalabra.ToUpper();
         }
+
+        public List<String> RetornarPalabrasClaveDeCategoria(Categoria unaCategoria)
+        {
+            return unaCategoria.PalabrasClave;
+        }
+
+        //metodo que dado un string (el del combobox)cretorne el objeto categoria con ese mismo nombre
+        public Categoria RetornarCategoriaSegunString(string unNombre)
+        {
+            
+            foreach (Categoria categoria in this.ListaCategorias)
+            {
+                if (categoria.Nombre == unNombre) return categoria; 
+            }
+
+            throw new ExcepcionElementoNoExistente("Categoria no existente");
+
+        }
+
 
     }
 }

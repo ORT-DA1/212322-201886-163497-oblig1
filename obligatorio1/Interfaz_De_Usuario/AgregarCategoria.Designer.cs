@@ -30,7 +30,7 @@
         {
             this.lbNombre = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.tbNombre = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -54,29 +54,30 @@
             this.lblTitulo.TabIndex = 18;
             this.lblTitulo.Text = "Agregar Categoria";
             // 
-            // txtNombre
+            // tbNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(162, 127);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(218, 26);
-            this.txtNombre.TabIndex = 21;
+            this.tbNombre.Location = new System.Drawing.Point(162, 127);
+            this.tbNombre.Name = "tbNombre";
+            this.tbNombre.Size = new System.Drawing.Size(218, 26);
+            this.tbNombre.TabIndex = 21;
             // 
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(271, 184);
+            this.btnAgregar.Location = new System.Drawing.Point(271, 172);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(109, 37);
+            this.btnAgregar.Size = new System.Drawing.Size(109, 49);
             this.btnAgregar.TabIndex = 22;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // AgregarCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.lbNombre);
             this.Controls.Add(this.lblTitulo);
             this.Name = "AgregarCategoria";
@@ -90,7 +91,7 @@
 
         private System.Windows.Forms.Label lbNombre;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.Button btnAgregar;
     }
 }

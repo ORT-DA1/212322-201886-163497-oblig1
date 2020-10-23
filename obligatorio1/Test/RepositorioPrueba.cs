@@ -241,9 +241,24 @@ namespace Test
             Assert.IsTrue(unaCategoria.EsVacia());
         }
 
-       
+        [TestMethod]
+        public void RetornarPalabrasClaveCategoriaPrueba()
+        {
+            repositorio.AgregarCategoria(unaCategoria);
+            repositorio.AgregarPalabraClaveACategoria(unaCategoria, "PEAJE");
+            repositorio.RetornarPalabrasClaveDeCategoria(unaCategoria);
+            Assert.IsFalse(unaCategoria.EsVacia());
+        }
 
 
+        [TestMethod]
+        public void ConvertirStringACategoriaPrueba()
+        {
+            
+            unaCategoria.Nombre = "Entretenimiento";
+            Assert.AreEqual(repositorio.RetornarCategoriaSegunString("Entretenimiento"), unaCategoria);
+
+        }
 
 
     }
