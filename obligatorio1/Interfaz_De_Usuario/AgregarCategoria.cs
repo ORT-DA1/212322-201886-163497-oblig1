@@ -38,10 +38,7 @@ namespace Interfaz_De_Usuario
             {
                 MessageBox.Show(unaExcepcion.Message);
             }
-           /* catch(ExcepcionPalabraLarga unaExcepcion)
-            {
-                MessageBox.Show(unaExcepcion.Message);
-            }*/
+        
         }
     }
 }

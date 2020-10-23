@@ -34,14 +34,8 @@ namespace Interfaz_De_Usuario
                 String Categoria = cbCategorias.Text;
                 Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(Categoria);
                 AdminCategorias.AgregarPalabraClaveACategoria(categoriaSeleccionada, tbPalabraClave.Text);
-                //cbListaPalabrasClave.Items.Clear();
+                cbListaPalabrasClave.DataSource = null;
                 cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
-
-
-            //MessageBox.Show("Lista palabras clave: "+miRepositorio.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada));
-            //MessageBox.Show("Palabra clave agregada con exito");
-
-
 
         }
 
@@ -49,7 +43,6 @@ namespace Interfaz_De_Usuario
         {
             String Categoria = cbCategorias.Text;
             Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(Categoria);
-            // cbListaPalabrasClave.DataSource = miRepositorio.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada);
             cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
 
         }
