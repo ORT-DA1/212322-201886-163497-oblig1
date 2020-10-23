@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Excepciones;
 
 namespace Interfaz_De_Usuario
 {
@@ -27,19 +28,35 @@ namespace Interfaz_De_Usuario
 
         private void btnOkDescripcion_Click(object sender, EventArgs e)
         {
-            Categoria cat = adminCategorias.RetornarCategoriaDeDescripcion(tbDescripcion.Text);   
+
             try
             {
+                Categoria cat = adminCategorias.RetornarCategoriaDeDescripcion(tbDescripcion.Text);
+                //en categoria tiene que aparecer cat.
+                GastoComun gastoC = new GastoComun { Descripcion = tbDescripcion.Text };
+                pAgregarAtributos.Controls.Clear();
+                UserControl agregarAtributos = new AtributosGastoComun(atrGastosComun);
+                pAgregarAtributos.Controls.Add(agregarAtributos);
+                
+
+            }
+            catch (Exception unaExcepcion)
+            when (unaExcepcion is ExcepcionElementoNoExistente)
+            {
+                MessageBox.Show(unaExcepcion.Message);
                 GastoComun gastoC = new GastoComun { Descripcion = tbDescripcion.Text };
                 pAgregarAtributos.Controls.Clear();
                 UserControl agregarAtributos = new AtributosGastoComun(atrGastosComun);
                 pAgregarAtributos.Controls.Add(agregarAtributos);
             }
-            catch ()
+            finally
             {
-
+                
             }
-           
+            
+
+            //buscar categorias por palabras sa una excepcion. 
+
         }
     }
 }
