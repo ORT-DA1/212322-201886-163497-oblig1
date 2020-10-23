@@ -16,9 +16,9 @@ namespace Dominio
 
             set
             {
-                DateTime fechaAntigua = new DateTime(2018, 1, 1, 0, 0, 0);
+                DateTime fechaAntigua = new DateTime(2018, 1, 1);
 
-                DateTime fechaFuturo = new DateTime(2030, 12, 31, 0, 0, 0);
+                DateTime fechaFuturo = new DateTime(2030, 12, 31);
 
                 int resultado = DateTime.Compare(value, fechaAntigua);
                 int resultado2 = DateTime.Compare(value, fechaFuturo);
@@ -37,7 +37,7 @@ namespace Dominio
         }
         public GastoComun()
         {
-            this.Fecha = new DateTime(2020, 5, 1, 8, 30, 52);
+            this.Fecha = new DateTime(2020, 5, 1);
         }
         public GastoComun(int unMonto, string unaDescripcion, Categoria unaCategoria, DateTime fecha):base(unMonto, unaDescripcion, unaCategoria)
         {

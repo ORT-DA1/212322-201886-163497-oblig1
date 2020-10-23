@@ -17,10 +17,10 @@ namespace Interfaz_De_Usuario
     {
         private AdministradorCategorias adminCategorias;
 
-        public AgregarCategoria(AdministradorCategorias unAdminCategorias)
+        public AgregarCategoria(AdministradorCategorias miAdminCategorias)
         {
             InitializeComponent();
-            adminCategorias = unAdminCategorias;
+            adminCategorias = miAdminCategorias;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace Interfaz_De_Usuario
             {
                 MessageBox.Show(unaExcepcion.Message);
             }
-        
+
         }
     }
 }

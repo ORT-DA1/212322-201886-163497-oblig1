@@ -25,8 +25,8 @@ namespace Test
         [TestMethod]
         public void PropertyFechaPrueba()
         {
-            gasto.Fecha = new DateTime(2020, 5, 1, 8, 30, 52);
-            DateTime fecha = new DateTime(2020, 5, 1, 8, 30, 52);
+            gasto.Fecha = new DateTime(2020, 5, 1);
+            DateTime fecha = new DateTime(2020, 5, 1);
             Assert.AreEqual(fecha, gasto.Fecha);
 
         }
@@ -35,7 +35,7 @@ namespace Test
         [ExpectedException(typeof(IndexOutOfRangeException))]
         public void RangoInferiorFechaPrueba()
         {
-            gasto.Fecha = new DateTime(2017, 12, 31, 0, 0, 0);
+            gasto.Fecha = new DateTime(2017, 12, 31);
 
         }
 
@@ -43,7 +43,7 @@ namespace Test
         [ExpectedException(typeof(IndexOutOfRangeException))]
         public void RangoInferiorFechaGastoComunPrueba()
         {
-            gasto.Fecha = new DateTime(2017, 12, 31, 0, 0, 0);
+            gasto.Fecha = new DateTime(2017, 12, 31);
 
         }
 
@@ -51,14 +51,14 @@ namespace Test
         [ExpectedException(typeof(IndexOutOfRangeException))]
         public void RangoSuperiorFechaGastoComunPrueba()
         {
-            gasto.Fecha = new DateTime(2031, 1, 1, 0, 0, 0);
+            gasto.Fecha = new DateTime(2031, 1, 1);
 
         }
         
         [TestMethod]
         public void ConstructorGastoComunPrueba()
         {
-            DateTime fecha = new DateTime(2020, 5, 1, 8, 30, 52);
+            DateTime fecha = new DateTime(2020, 5, 1);
             GastoComun gastoRec2 = new GastoComun(1000, "Ir a comer", cat,fecha);
             Assert.AreEqual(gastoRec2.Descripcion,"Ir a comer");
 
@@ -66,7 +66,7 @@ namespace Test
         [TestMethod]
         public void ToStringGastoComunPrueba()
         {
-            Assert.AreEqual(gasto.ToString(), "0,No hay descripcion,No hay nombre,5/1/2020 8:30:52 AM");
+            Assert.AreEqual(gasto.ToString(), "0,No hay descripcion,No hay nombre,1/5/2020 0:00:00");
 
         }
 
