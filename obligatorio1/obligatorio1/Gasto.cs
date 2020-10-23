@@ -25,7 +25,7 @@ namespace Dominio
             {
                 if (value.Length < 3 || value.Length > 20)
                 {
-                    throw new IndexOutOfRangeException();
+                    throw new IndexOutOfRangeException("muy corta o muy larga");
                 }
                 else
                 {

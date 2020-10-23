@@ -12,7 +12,6 @@ namespace Dominio
 
         private Repositorio Repositorio { get; }
 
-
         public AdministradorCategorias()
         {
 
@@ -149,10 +148,10 @@ namespace Dominio
         public void AgregarPalabraClaveACategoria(Categoria categoria, string unaPalabra)
         {
 
-            if (this.PalabraClaveYaIngresadaEnAlgunaLista(unaPalabra))
+          /*  if (this.PalabraClaveYaIngresadaEnAlgunaLista(unaPalabra))
             {
                 throw new ExcepcionElementoRepetido("Esta palabra clave ya fue ingresada");
-            }
+            }*/
             categoria.AgregarPalabraClave(unaPalabra);
 
         }

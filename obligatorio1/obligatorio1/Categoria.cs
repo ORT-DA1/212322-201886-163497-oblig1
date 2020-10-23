@@ -48,17 +48,22 @@ namespace Dominio
         //hacer refactor para que este metodo haga solo una cosa.
         public void AgregarPalabraClave(string palabra)
         {
-            
+
             String palabraMayuscula = PasarAMayuscula(palabra);
-            if (CantPalabrasClave() == 10 || this.ExistePalabraClave(palabraMayuscula) )           
+            if (PalabraClaveInvalida(palabraMayuscula))
             {
 
-                throw new InvalidOperationException();
+                throw new InvalidOperationException("Palabra clave invalida");
             }
-
             this.PalabrasClave.Add(palabraMayuscula);
         }
-        
+
+        private bool PalabraClaveInvalida(string palabraMayuscula)
+        {
+            return CantPalabrasClave() == 10 || this.ExistePalabraClave(palabraMayuscula);
+        }
+
+
         public bool EsVacia()
         {
            return this.PalabrasClave.Count == 0;

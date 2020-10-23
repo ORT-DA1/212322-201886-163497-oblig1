@@ -199,15 +199,6 @@ namespace Test
             Assert.IsTrue(adminCategorias.EsVaciaListaCategorias());
         }
 
-        /*    [TestMethod]
-            public void CrearYAgregarCategoriaPrueba()
-            {
-                adminCategorias.CrearYAgregarCategoria("Viajes");
-                Assert.IsFalse(adminCategorias.EsVaciaListaCategorias());
-            }*/
-
-
-
         [TestMethod]
         public void AgregarPalabraCalveCategoriaSeleccionadaPrueba()
         {
@@ -239,29 +230,25 @@ namespace Test
         }
 
 
-            [TestMethod]
-            public void RetornarPalabrasClaveCategoriaPrueba()
-            {
+        [TestMethod]
+        public void RetornarPalabrasClaveCategoriaPrueba()
+        {
             adminCategorias.AgregarCategoria(unaCategoria);
             adminCategorias.AgregarPalabraClaveACategoria(unaCategoria, "PEAJE");
             adminCategorias.RetornarPalabrasClaveDeCategoria(unaCategoria);
-                Assert.IsFalse(unaCategoria.EsVacia());
-            }
+            Assert.IsFalse(unaCategoria.EsVacia());
+        }
 
-
-        //NUEVO
         [TestMethod]
         public void ConvertirStringACategoriaPrueba()
         {
-            
+
             unaCategoria.Nombre = "Entretenimiento";
             adminCategorias.AgregarCategoria(unaCategoria);
             Assert.AreEqual(adminCategorias.RetornarCategoriaSegunString("Entretenimiento"), unaCategoria);
 
         }
 
-
     }
-
 
 }

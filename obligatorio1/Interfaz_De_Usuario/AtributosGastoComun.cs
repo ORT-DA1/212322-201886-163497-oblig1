@@ -1,24 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Dominio;
+using Excepciones;
+using System;
 using System.Windows.Forms;
-using Dominio;
 
 namespace Interfaz_De_Usuario
 {
-     
+
     public partial class AtributosGastoComun : UserControl
     {
         private AdministradorGastosComunes unAdminGastosComun;
-        public AtributosGastoComun(AdministradorGastosComunes miAdminGastoComun)
+        private AdministradorCategorias unAdminCategorias;
+
+        public AtributosGastoComun(AdministradorGastosComunes miAdminGastoComun, String descripcion, AdministradorCategorias miAdministradorCategorias)
         {
             InitializeComponent();
             unAdminGastosComun = miAdminGastoComun;
+            unAdminCategorias = miAdministradorCategorias;
+            CargarComboBox(descripcion);
         }
+
+        private void CargarComboBox(String descripcion)
+        {
+
+            foreach (Categoria unaCategoria in unAdminCategorias.RetornarListaCategorias())
+            {
+                cbCategoria.Items.Add(unaCategoria);
+            }
+            try
+            {
+                Categoria cat = unAdminCategorias.RetornarCategoriaDeDescripcion(descripcion);
+                GastoComun gastoC = new GastoComun { Descripcion = descripcion };
+            }
+            catch (Exception unaExcepcion)
+            when(unaExcepcion is ExcepcionElementoNoExistente  || unaExcepcion is IndexOutOfRangeException)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+           
+        }
+       
+
     }
 }
