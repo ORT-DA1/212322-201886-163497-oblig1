@@ -14,35 +14,52 @@ namespace Interfaz_De_Usuario
 {
     public partial class ModificarCategoria : UserControl
     {
-        private Sistema miSistema;
-        public ModificarCategoria(Sistema unSistema)
+        private Repositorio miRepositorio;
+        public ModificarCategoria(Repositorio unSistema)
         {
             InitializeComponent();
-            miSistema = unSistema;
-            //CargarComboBoxPabrasClave();
-        }
-
-     /*   private void CargarComboBoxPabrasClave()
-        {
-            miSistema.Repositorio.AgregarPalabraClaveACategoria(tbNombre.Text,cbPalabrasClave.Text);  
-        }*/
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-
-           /* try
-            {
-                miSistema.CrearYAgregarCategoria(tbNombre.Text);
-                miSistema.Repositorio.AgregarPalabraClaveACategoria(tbNombre.Text, cbPalabrasClave.Text);
-                MessageBox.Show("Categoria" + tbNombre.Text + "ha sido creada con exito");
-            }
-            catch (ExcepcionElementoRepetido unaExcepcion)
-            {
-                MessageBox.Show(unaExcepcion.Message);
-            }*/
+            miRepositorio = unSistema;
+            CargarComboBoxCategoria();
             
         }
 
-        
+        private void CargarComboBoxCategoria()
+        {
+            cbCategorias.DataSource = miRepositorio.GetCategorias();  
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            
+                String Categoria = cbCategorias.Text;
+                Categoria categoriaSeleccionada = miRepositorio.RetornarCategoriaSegunString(Categoria);
+                miRepositorio.AgregarPalabraClaveACategoria(categoriaSeleccionada, tbPalabraClave.Text);
+                cbListaPalabrasClave.Items.Clear();
+                cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
+
+
+            //MessageBox.Show("Lista palabras clave: "+miRepositorio.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada));
+            //MessageBox.Show("Palabra clave agregada con exito");
+
+
+
+        }
+
+        private void cbCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String Categoria = cbCategorias.Text;
+            Categoria categoriaSeleccionada = miRepositorio.RetornarCategoriaSegunString(Categoria);
+            // cbListaPalabrasClave.DataSource = miRepositorio.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada);
+            cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
+
+        }
+
+
+
+
+        /* String Categoria = cbCategorias.Text;
+         Categoria categoriaSeleccionada = miRepositorio.RetornarCategoriaSegunString(Categoria);
+         cbListaPalabrasClave.DataSource = miRepositorio.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada);
+ */
     }
 }

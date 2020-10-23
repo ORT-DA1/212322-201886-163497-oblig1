@@ -50,6 +50,7 @@
             this.btnAgregarCategoria.TabIndex = 6;
             this.btnAgregarCategoria.Text = " Agregar Categoria";
             this.btnAgregarCategoria.UseVisualStyleBackColor = true;
+            this.btnAgregarCategoria.Click += new System.EventHandler(this.btnAgregarCategoria_Click);
             // 
             // btnAgregarGasto
             // 
