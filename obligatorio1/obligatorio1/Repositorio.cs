@@ -14,9 +14,10 @@ namespace Dominio
 
         private List<Categoria> ListaCategorias { get; }
         private List<GastoRecuerrente> ListaGastosRecurrentes { get; }
-
+        private List<Presupuesto> ListaPresupuestos { get; }
         private List<GastoComun> ListaGastosComunes { get; }
 
+        
 
         public Repositorio()
         {
@@ -34,6 +35,11 @@ namespace Dominio
         public List<Categoria> RetornarListaCategorias()
         {
             return this.ListaCategorias;
+        }
+
+        public List<Presupuesto> RetornarListaPresupuestos()
+        {
+            return this.ListaPresupuestos;
         }
 
         public bool EsVaciaListaCategorias()
