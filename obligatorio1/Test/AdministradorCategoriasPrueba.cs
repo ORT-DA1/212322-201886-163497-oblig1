@@ -25,6 +25,14 @@ namespace Test
         }
 
 
+        [TestMethod]
+        public void RetornarListaCategoriasPrueba()
+        {
+
+            List<Categoria> ListaLocal = new List<Categoria>();
+            Assert.IsTrue(adminCategorias.RetornarListaCategorias().SequenceEqual(ListaLocal));
+
+        }
 
         [TestMethod]
         public void RetornarCategoriaDePalabraClavePrueba()
@@ -184,7 +192,8 @@ namespace Test
             Assert.IsFalse(adminCategorias.EsVaciaListaCategorias());
         }
 
-        public void EsVaciaListaCategorias()
+        [TestMethod]
+        public void EsVaciaListaCategoriasPrueba()
         {
 
             Assert.IsTrue(adminCategorias.EsVaciaListaCategorias());

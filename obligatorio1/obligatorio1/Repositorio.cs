@@ -15,10 +15,14 @@ namespace Dominio
         private List<Categoria> ListaCategorias { get; }
         private List<GastoRecuerrente> ListaGastosRecurrentes { get; }
 
+        private List<GastoComun> ListaGastosComunes { get; }
+
+
         public Repositorio()
         {
             ListaCategorias = new List<Categoria>();
             ListaGastosRecurrentes = new List<GastoRecuerrente>();
+            ListaGastosComunes = new List<GastoComun>();
 
         }
 
@@ -47,7 +51,7 @@ namespace Dominio
             this.ListaCategorias.Remove(unaCategoria);
         }
 
-        // NUEVO
+        // METODOS DE LISTAS DE GASTOS RECURRENTES
 
         public void AgregarGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
@@ -74,7 +78,32 @@ namespace Dominio
             this.ListaGastosRecurrentes.Remove(unGastoRecurrente);
         }
 
+        // METODOS DE LISTAS DE GASTOS COUMNES
 
+        public void AgregarGastoComun(GastoComun unGastoComun)
+        {
+            ListaGastosComunes.Add(unGastoComun);
+        }
+
+        public List<GastoComun> RetornarListaGastosCoumnes()
+        {
+            return this.ListaGastosComunes;
+        }
+
+        public bool EsVaciaListaGastosComunes()
+        {
+            return this.ListaGastosComunes.Count == 0;
+        }
+
+        public bool ExisteGastoComun(GastoComun unGastoComun)
+        {
+            return this.ListaGastosComunes.Contains(unGastoComun);
+        }
+
+        public void EliminareGastoComun(GastoComun unGastoComun)
+        {
+            this.ListaGastosComunes.Remove(unGastoComun);
+        }
 
 
 

@@ -31,7 +31,7 @@ namespace Dominio
 
             if (this.Repositorio.ExisteCategoria(unaCategoria))
             {
-                throw new ExcepcionElementoRepetido();
+                throw new ExcepcionElementoRepetido("Categoria ya existente");
 
             }
             else Repositorio.AgregarCategoria(unaCategoria);

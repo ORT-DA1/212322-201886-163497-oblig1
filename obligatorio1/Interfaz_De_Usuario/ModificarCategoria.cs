@@ -34,7 +34,7 @@ namespace Interfaz_De_Usuario
                 String Categoria = cbCategorias.Text;
                 Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(Categoria);
                 AdminCategorias.AgregarPalabraClaveACategoria(categoriaSeleccionada, tbPalabraClave.Text);
-                cbListaPalabrasClave.Items.Clear();
+                //cbListaPalabrasClave.Items.Clear();
                 cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
 
 

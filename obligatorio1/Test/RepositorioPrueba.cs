@@ -10,11 +10,10 @@ namespace Test
     public class RepositorioPrueba
     {
 
-
-
         private Repositorio Repositorio { get; set; }
         private Categoria UnaCategoria { get; set; }
         private GastoRecuerrente GastoRecuerrente { get; set; }
+        private GastoComun GastoComun { get; set; }
 
         [TestInitialize]
         public void InitTests()
@@ -22,9 +21,11 @@ namespace Test
             Repositorio = new Repositorio();
             UnaCategoria = new Categoria();
             GastoRecuerrente = new GastoRecuerrente();
+            GastoComun = new GastoComun();
 
         }
 
+        // PRUEBAS DE LISTA CATEGORIAS
         [TestMethod]
         public void CrearListaCategoriasVaciaPrueba()
         {
@@ -32,7 +33,6 @@ namespace Test
 
         }
 
-        // METODO NUEVO PARA PROBAR EL RETORNAR LISTACAT
         [TestMethod]
         public void RetornarListaCategoriasPrueba()
         {
@@ -71,7 +71,7 @@ namespace Test
 
         }
 
-        // Pruebas nuevas 
+        // PRUEBAS DE LISTA GASTOS RECURRENTES
         [TestMethod]
         public void RetornarListaGastosRecurrentesPrueba()
         {
@@ -112,6 +112,46 @@ namespace Test
         }
 
 
+        // PRUEBAS DE LISTA GASTOS COMUNES
+
+        [TestMethod]
+        public void RetornarListaGastosComunesPrueba()
+        {
+
+            List<GastoComun> ListaLocal = new List<GastoComun>();
+            Assert.IsTrue(Repositorio.RetornarListaGastosCoumnes().SequenceEqual(ListaLocal));
+
+        }
+
+
+        [TestMethod]
+        public void AlAgregarGastoComunNoEsVacioPrueba()
+        {
+
+            Repositorio.AgregarGastoComun(GastoComun);
+            Assert.IsFalse(Repositorio.EsVaciaListaGastosComunes());
+
+        }
+
+        [TestMethod]
+        public void EliminarGastoComunPrueba()
+        {
+
+            Repositorio.AgregarGastoComun(GastoComun);
+            Repositorio.EliminareGastoComun(GastoComun);
+
+            Assert.IsFalse(Repositorio.ExisteGastoComun(GastoComun));
+
+        }
+
+
+        [TestMethod]
+        public void ExisteGastoComunPrueba()
+        {
+            Repositorio.AgregarGastoComun(GastoComun);
+            Assert.IsTrue(Repositorio.ExisteGastoComun(GastoComun));
+
+        }
 
 
 
