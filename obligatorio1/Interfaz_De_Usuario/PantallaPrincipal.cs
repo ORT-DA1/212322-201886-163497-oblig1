@@ -14,25 +14,25 @@ namespace Interfaz_De_Usuario
     public partial class PantallaPrincipal : Form
     { 
 
-        public Repositorio MiRepositorio { get; set; }
+        public AdministradorCategorias AdminCategorias { get; set; }
 
         public PantallaPrincipal()
         {
             InitializeComponent();
-            MiRepositorio = new Repositorio();
+            AdminCategorias = new AdministradorCategorias();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
-            UserControl modificarCategoria = new ModificarCategoria(MiRepositorio);
+            UserControl modificarCategoria = new ModificarCategoria(AdminCategorias);
             panelPrincipal.Controls.Add(modificarCategoria);
         }
 
         private void btnAgregarCategoria_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
-            UserControl agregarCategoria = new AgregarCategoria(MiRepositorio);
+            UserControl agregarCategoria = new AgregarCategoria(AdminCategorias);
             panelPrincipal.Controls.Add(agregarCategoria);
         }
     }

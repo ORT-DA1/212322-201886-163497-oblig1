@@ -1,49 +1,43 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using Excepciones;
+using System.Text;
+using System.Threading.Tasks;
+using System;
+
 
 namespace Dominio
+
 {
     public class Repositorio
     {
-        private const char SEPARADOR = ' ';
-      
-        private List<Categoria> ListaCategorias { get; }
 
+        private List<Categoria> ListaCategorias { get; }
+        private List<GastoRecuerrente> ListaGastosRecurrentes { get; }
 
         public Repositorio()
         {
-            this.ListaCategorias = new List<Categoria>();
-            
+            ListaCategorias = new List<Categoria>();
+            ListaGastosRecurrentes = new List<GastoRecuerrente>();
+
         }
 
-        // METODOS DE LISTAS CATEGORIAS
+        public void AgregarCategoria(Categoria unaCategoria)
+        {
+            this.ListaCategorias.Add(unaCategoria);
+        }
+
+        public List<Categoria> RetornarListaCategorias()
+        {
+            return this.ListaCategorias;
+        }
+
         public bool EsVaciaListaCategorias()
         {
             return this.ListaCategorias.Count == 0;
         }
 
-        public List<Categoria> GetCategorias()
-        {
-            return this.ListaCategorias;
-
-        }
-
-
-        public void AgregarCategoria(Categoria unaCategoria)
-        {
-            
-            if (ExisteCategoria(unaCategoria))
-            {
-                throw new ExcepcionElementoRepetido();
-                
-            }
-            else this.ListaCategorias.Add(unaCategoria);
-        }
-
-        private bool ExisteCategoria(Categoria unaCategoria)
+        public bool ExisteCategoria(Categoria unaCategoria)
         {
             return this.ListaCategorias.Contains(unaCategoria);
         }
@@ -53,162 +47,35 @@ namespace Dominio
             this.ListaCategorias.Remove(unaCategoria);
         }
 
-        
-        public Categoria CategoriaDePalabraClave(String palabraClave)
+        // NUEVO
+
+        public void AgregarGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
-            
-            foreach (Categoria unaCategoria in ListaCategorias)
-            {
-
-                if (unaCategoria.ExistePalabraClave(palabraClave))
-                {
-                    return unaCategoria;
-                }
-
-
-            }
-
-            throw new ExcepcionElementoNoExistente("No esta la palabra clave");
-
+            ListaGastosRecurrentes.Add(unGastoRecurrente);
         }
 
-         public bool PalabraClaveYaIngresadaEnAlgunaLista(string palabreClave)
-         {
-             foreach (Categoria unaCategoria in ListaCategorias)
-             {  
-                 if (unaCategoria.ExistePalabraClave(palabreClave))
-                 {
-                     return true;
-                 }
-             }
-             return false;
-          }
- 
-       
-
-            private string[] SepararPalabras(string descripcion)
+        public List<GastoRecuerrente> RetornarListaGastosRecurrentes()
         {
-            return descripcion.Split(SEPARADOR);
+            return this.ListaGastosRecurrentes;
+        }
+
+        public bool EsVaciaListaGastosRecurrentes()
+        {
+            return this.ListaGastosRecurrentes.Count == 0;
+        }
+
+        public bool ExisteGastoRecurrente(GastoRecuerrente unGastoRecurrente)
+        {
+            return this.ListaGastosRecurrentes.Contains(unGastoRecurrente);
+        }
+
+        public void EliminarGastoRecuerrente(GastoRecuerrente unGastoRecurrente)
+        {
+            this.ListaGastosRecurrentes.Remove(unGastoRecurrente);
         }
 
 
 
-        public Categoria RetornarCategoriaDeDescripcion(string descripcion)
-        {
-            if (CantDeCategoriasDistintasDondeApareceLaDescripcion(descripcion) > 1)
-            {
-                throw new InvalidOperationException("Hay varias palabras clave");
-            }
-
-            else
-            {
-                string[] palabras = SepararPalabras(descripcion);
-
-
-                return this.BuscarCategoriaPorPalabras(palabras);
-
-            }
-
-        }
-
-        internal Categoria BuscarCategoriaPorPalabras(string[] algunasPalabras)
-        {
-             foreach (string unaPalabra in algunasPalabras)
-            {
-                foreach (Categoria unaCategoria in ListaCategorias)
-                {
-                    if (unaCategoria.ExistePalabraClave(unaPalabra))
-                    {
-                        return unaCategoria;
-                    }
-                   
-                }
-            }
-            throw new ExcepcionElementoNoExistente("Ninguna de las palabras es palabra clave");
-        }
-
-
-        public int CantDeCategoriasDistintasDondeApareceLaDescripcion(string descripcion)
-        {
-            int cantDeCategoriasDistintas = 0;
-            string[] palabras = SepararPalabras(descripcion);
-            Categoria categoriaYaContada = new Categoria();
-
-            foreach (String palabra in palabras)
-            {
-                foreach (Categoria unaCategoria in ListaCategorias)
-                {
-                    if (unaCategoria.ExistePalabraClave(palabra))
-                    {
-                        // si es la primera vuelta, guardarCategoria va a ser distinta a unaCategoria
-                        // en la segunda vuelta si es la misma categoria no entra aqui y no suma cant
-                        if (LaCategoriaEsDistinta(unaCategoria, categoriaYaContada))
-                        {
-                            cantDeCategoriasDistintas++;
-                            categoriaYaContada = unaCategoria;
-                            
-                        }
-
-                    }
-                }
-            }
-
-            return cantDeCategoriasDistintas;
-
-        }
-
-
-       private bool LaCategoriaEsDistinta (Categoria unaCategoria, Categoria otraCategoria)
-        {
-            return !unaCategoria.Equals(otraCategoria);
-            
-        }
-
-        public void CrearYAgregarCategoria(String nombre)
-        {
-            Categoria categoria = new Categoria() { Nombre = nombre };
-            this.AgregarCategoria(categoria);
-        }
-
-        public void AgregarPalabraClaveACategoria(Categoria categoria, string unaPalabra)
-        {
-
-            if (this.PalabraClaveYaIngresadaEnAlgunaLista(unaPalabra))
-            {
-                throw new InvalidOperationException();
-            }
-            categoria.AgregarPalabraClave(unaPalabra);
-          
-        }
-
-        public void BorrarPalabraClaveACategoria(Categoria categoria, String palabra)
-        {
-            categoria.BorrarPalabraClave(palabra);
-            
-        }
-
-        private string PasarAMayuscula(string unaPalabra)
-        {
-            return unaPalabra.ToUpper();
-        }
-
-        public List<String> RetornarPalabrasClaveDeCategoria(Categoria unaCategoria)
-        {
-            return unaCategoria.PalabrasClave;
-        }
-
-        //metodo que dado un string (el del combobox)cretorne el objeto categoria con ese mismo nombre
-        public Categoria RetornarCategoriaSegunString(string unNombre)
-        {
-            
-            foreach (Categoria categoria in this.ListaCategorias)
-            {
-                if (categoria.Nombre == unNombre) return categoria; 
-            }
-
-            throw new ExcepcionElementoNoExistente("Categoria no existente");
-
-        }
 
 
     }

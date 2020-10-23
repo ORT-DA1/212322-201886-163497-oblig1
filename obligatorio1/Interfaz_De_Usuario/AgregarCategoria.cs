@@ -15,20 +15,23 @@ namespace Interfaz_De_Usuario
 
     public partial class AgregarCategoria : UserControl
     {
-        private Repositorio miRepositorio;
+        private AdministradorCategorias adminCategorias;
 
-        public AgregarCategoria(Repositorio unRepositorio)
+        public AgregarCategoria(AdministradorCategorias unAdminCategorias)
         {
             InitializeComponent();
-            miRepositorio = unRepositorio;
+            adminCategorias = unAdminCategorias;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+           
             try
             {
-                miRepositorio.CrearYAgregarCategoria(tbNombre.Text);
+                Categoria categoria = new Categoria() { Nombre = tbNombre.Text };
+                adminCategorias.AgregarCategoria(categoria);
                 MessageBox.Show("Categoria " + tbNombre.Text + " ha sido creada con exito");
+                tbNombre.Clear();
             }
             catch (Exception unaExcepcion)
             when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)

@@ -51,9 +51,10 @@
   <ItemGroup>
     <Compile Include="CategoriaMontoPrueba.cs" />
     <Compile Include="CategoriaPrueba.cs" />
+    <Compile Include="RepositorioPrueba.cs" />
     <Compile Include="GastoComunPrueba.cs" />
     <Compile Include="GastoRecurrentePrueba.cs" />
-    <Compile Include="RepositorioPrueba.cs" />
+    <Compile Include="AdministradorCategoriasPrueba.cs" />
     <Compile Include="GastoPrueba.cs" />
     <Compile Include="PresupuestoPrueba.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

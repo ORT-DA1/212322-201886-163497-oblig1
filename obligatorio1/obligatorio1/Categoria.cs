@@ -26,7 +26,7 @@ namespace Dominio
             {
                 if (value.Length < 3 || value.Length > 15)
                 {
-                    throw new ExcepcionPalabraLarga();
+                    throw new ExcepcionPalabraLarga("La palabra es demasiado corta o larga");
                 }
                 else
                 {
