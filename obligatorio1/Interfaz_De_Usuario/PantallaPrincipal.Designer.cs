@@ -59,8 +59,9 @@
             this.btnAgregarGasto.Name = "btnAgregarGasto";
             this.btnAgregarGasto.Size = new System.Drawing.Size(260, 42);
             this.btnAgregarGasto.TabIndex = 7;
-            this.btnAgregarGasto.Text = " Agregar Gasto";
+            this.btnAgregarGasto.Text = " Agregar Gasto Comun";
             this.btnAgregarGasto.UseVisualStyleBackColor = true;
+            this.btnAgregarGasto.Click += new System.EventHandler(this.btnAgregarGasto_Click);
             // 
             // button1
             // 

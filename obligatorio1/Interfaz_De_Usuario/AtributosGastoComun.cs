@@ -11,12 +11,14 @@ using Dominio;
 
 namespace Interfaz_De_Usuario
 {
-    public partial class AgregarGasto : UserControl
+     
+    public partial class AtributosGastoComun : UserControl
     {
-        public AgregarGasto()
+        private AdministradorGastosComunes unAdminGastosComun;
+        public AtributosGastoComun(AdministradorGastosComunes miAdminGastoComun)
         {
             InitializeComponent();
-          
+            unAdminGastosComun = miAdminGastoComun;
         }
     }
 }

@@ -43,12 +43,6 @@ namespace Dominio
             return Repositorio.EsVaciaListaCategorias();
         }
 
-        /*   public void CrearYAgregarCategoria(String nombre)
-           {
-               Categoria categoria = new Categoria() { Nombre = nombre };
-               this.AgregarCategoria(categoria);
-           }*/
-
         public Categoria CategoriaDePalabraClave(String palabraClave)
         {
 
@@ -86,7 +80,6 @@ namespace Dominio
             {
                 throw new InvalidOperationException("Hay varias palabras clave");
             }
-
             else
             {
                 string[] palabras = SepararPalabras(descripcion);

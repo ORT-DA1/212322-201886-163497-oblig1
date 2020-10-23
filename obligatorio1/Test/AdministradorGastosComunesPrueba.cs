@@ -13,6 +13,7 @@ namespace Test
     public class AdministradorGastosComunesPrueba
     {
         private AdministradorGastosComunes adminGastosComunes;
+        private AdministradorCategorias adminCategorias;
         private GastoComun unGastoComun;
         private Categoria unaCategoria;
 
@@ -20,9 +21,10 @@ namespace Test
         public void InitTests()
         {
             adminGastosComunes = new AdministradorGastosComunes();
+            adminCategorias = new AdministradorCategorias();
             unGastoComun = new GastoComun();
             unaCategoria = new Categoria();
-            unaCategoria.Nombre = "Entretenimiento";
+
         }
 
         [TestMethod]
@@ -37,6 +39,8 @@ namespace Test
         [TestMethod]
         public void AgregarGastoComunConCategoriaDefinidaPrueba()
         {
+            unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
+            unGastoComun.Categoria = unaCategoria;
             adminGastosComunes.AgregarGastoComun(unGastoComun);
             Assert.IsFalse(adminGastosComunes.EsVaciaListaGastosComunes());
         }
@@ -53,7 +57,7 @@ namespace Test
         {
             GastoComun otroGastoComun = new GastoComun();
             adminGastosComunes.AgregarGastoComun(otroGastoComun);
-           
+
         }
 
     }
