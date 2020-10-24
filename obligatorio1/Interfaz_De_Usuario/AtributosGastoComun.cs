@@ -33,33 +33,42 @@ namespace Interfaz_De_Usuario
             {
 
                 Categoria cat = unAdminCategorias.RetornarCategoriaDeDescripcion(descripcion);
-                //gastoC.Descripcion = descripcion ;
+                cbCategoria.SelectedItem = cat;
 
             } catch (Exception unaExcepcion)
-             when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException)
+             when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException || unaExcepcion is InvalidOperationException)
             {
+                
                 MessageBox.Show(unaExcepcion.Message);
             }
            
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+     
+        private void btnAceptarGastoC_Click(object sender, EventArgs e)
         {
+            if (cbCategoria.SelectedItem == null)
+            {
+                MessageBox.Show("La Categoria no puede quedar vacia");
+                return;
+            }
+
             try
             {
                 gastoC.Monto = (double)numMonto.Value;
                 gastoC.Fecha = dtFecha.Value;
-                gastoC.Categoria = unAdminCategorias.RetornarCategoriaSegunString(cbCategoria.Text);
+                //No usar esta funcion RetornarCategoriaSegunString, usar las funciones que traen las ventanas tipo .SelectedItem
+                // gastoC.Categoria = unAdminCategorias.RetornarCategoriaSegunString(cbCategoria.Text);
+                gastoC.Categoria = (Categoria)cbCategoria.SelectedItem;
                 unAdminGastosComun.AgregarGastoComun(gastoC);
-                MessageBox.Show("El gasto ha sido creada con exito " + gastoC.ToString());
+                MessageBox.Show("El gasto ha sido creado con exito ");
+               
             }
-            catch(Exception unaExcepcion)
-            when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException)
+            catch (Exception unaExcepcion)
+            when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException )
             {
                 MessageBox.Show(unaExcepcion.Message);
             }
-           
-
         }
     }
 }
