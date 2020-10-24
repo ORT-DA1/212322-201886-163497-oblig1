@@ -33,14 +33,20 @@ namespace Test
         }
 
         [TestMethod]
-        public void PropertyMontoPrueba()
+        public void PropertyMontoDecimalPrueba()
         {
 
 
-            gasto.Monto = 0 ;
-            int monto = 0;
-            Assert.AreEqual(monto, gasto.Monto);
+            gasto.Monto = 0;
+            Assert.AreEqual(0.00, gasto.Monto);
 
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void PropertyMontoPositivoPrueba()
+        {
+            gasto.Monto = -1;
 
         }
 

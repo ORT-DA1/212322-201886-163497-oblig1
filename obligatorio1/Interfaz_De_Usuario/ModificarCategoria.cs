@@ -30,13 +30,21 @@ namespace Interfaz_De_Usuario
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            
-                
+
+            try
+            {
                 Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
                 AdminCategorias.AgregarPalabraClaveACategoria(categoriaSeleccionada, tbPalabraClave.Text);
                 cbListaPalabrasClave.DataSource = null;
                 cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
-
+                MessageBox.Show("Palabra Clave agregada con exito");
+                tbPalabraClave.Clear();
+            }
+            catch(InvalidOperationException unaExcepcion)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            } 
+         
         }
 
         private void cbCategorias_SelectedIndexChanged(object sender, EventArgs e)
@@ -57,15 +65,6 @@ namespace Interfaz_De_Usuario
             cbListaPalabrasClave.DataSource = null;
             cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
         }
-        /*
-      
-
-
-
-
-        /* String Categoria = cbCategorias.Text;
-         Categoria categoriaSeleccionada = miRepositorio.RetornarCategoriaSegunString(Categoria);
-         cbListaPalabrasClave.DataSource = miRepositorio.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada);
- */
+     
     }
 }

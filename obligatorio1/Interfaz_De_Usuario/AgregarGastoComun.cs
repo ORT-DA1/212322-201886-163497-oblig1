@@ -23,40 +23,13 @@ namespace Interfaz_De_Usuario
             adminGastosComunes = miAdminGastosComunes;
             atrGastosComun = new AdministradorGastosComunes();
             adminCategorias = miAdministradorCategorias;
-
         }
 
         private void btnOkDescripcion_Click(object sender, EventArgs e)
         {
-
-            try
-            {
-                Categoria cat = adminCategorias.RetornarCategoriaDeDescripcion(tbDescripcion.Text);
-                //en categoria tiene que aparecer cat.
-                GastoComun gastoC = new GastoComun { Descripcion = tbDescripcion.Text };
-                pAgregarAtributos.Controls.Clear();
-                UserControl agregarAtributos = new AtributosGastoComun(atrGastosComun);
-                pAgregarAtributos.Controls.Add(agregarAtributos);
-                
-
-            }
-            catch (Exception unaExcepcion)
-            when (unaExcepcion is ExcepcionElementoNoExistente)
-            {
-                MessageBox.Show(unaExcepcion.Message);
-                GastoComun gastoC = new GastoComun { Descripcion = tbDescripcion.Text };
-                pAgregarAtributos.Controls.Clear();
-                UserControl agregarAtributos = new AtributosGastoComun(atrGastosComun);
-                pAgregarAtributos.Controls.Add(agregarAtributos);
-            }
-            finally
-            {
-                
-            }
-            
-
-            //buscar categorias por palabras sa una excepcion. 
-
+            pAgregarAtributos.Controls.Clear();
+            UserControl agregarAtributos = new AtributosGastoComun(atrGastosComun,tbDescripcion.Text, adminCategorias);
+            pAgregarAtributos.Controls.Add(agregarAtributos);
         }
     }
 }

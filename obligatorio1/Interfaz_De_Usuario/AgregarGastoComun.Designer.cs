@@ -31,7 +31,7 @@
             this.tbDescripcion = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.btnOkDescripcion = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.pAgregarAtributos = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
@@ -63,15 +63,15 @@
             this.lblTitulo.TabIndex = 6;
             this.lblTitulo.Text = "Agregar Gasto Comun";
             // 
-            // btnOkDescripcion
+            // btnAgregar
             // 
-            this.btnOkDescripcion.Location = new System.Drawing.Point(547, 139);
-            this.btnOkDescripcion.Name = "btnOkDescripcion";
-            this.btnOkDescripcion.Size = new System.Drawing.Size(102, 36);
-            this.btnOkDescripcion.TabIndex = 18;
-            this.btnOkDescripcion.Text = "Agregar";
-            this.btnOkDescripcion.UseVisualStyleBackColor = true;
-            this.btnOkDescripcion.Click += new System.EventHandler(this.btnOkDescripcion_Click);
+            this.btnAgregar.Location = new System.Drawing.Point(547, 139);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(102, 36);
+            this.btnAgregar.TabIndex = 18;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnOkDescripcion_Click);
             // 
             // pAgregarAtributos
             // 
@@ -85,7 +85,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pAgregarAtributos);
-            this.Controls.Add(this.btnOkDescripcion);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.tbDescripcion);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblTitulo);
@@ -100,7 +100,7 @@
         private System.Windows.Forms.TextBox tbDescripcion;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Button btnOkDescripcion;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Panel pAgregarAtributos;
     }
 }

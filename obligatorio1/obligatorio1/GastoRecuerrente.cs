@@ -15,7 +15,7 @@ namespace Dominio
             {
                 if (value < 1 || value > 28)
                 {
-                    throw new IndexOutOfRangeException();
+                    throw new IndexOutOfRangeException("Ingrese un dia entre el 1-28");
                 }
                 else
                 {
