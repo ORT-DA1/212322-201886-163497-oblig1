@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdministradorGastosComunes.cs" />
+    <Compile Include="AdministradorPresupuesto.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="CategoriaMonto.cs" />
     <Compile Include="Gasto.cs" />

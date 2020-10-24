@@ -24,6 +24,7 @@ namespace Dominio
             ListaCategorias = new List<Categoria>();
             ListaGastosRecurrentes = new List<GastoRecuerrente>();
             ListaGastosComunes = new List<GastoComun>();
+            ListaPresupuestos = new List<Presupuesto>();
 
         }
 

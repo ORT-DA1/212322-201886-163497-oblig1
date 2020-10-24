@@ -13,6 +13,7 @@ namespace Test
     public class AdministradorPresupuestoPrueba
     {
         private AdministradorGastosComunes adminGastosComunes;
+        private AdministradorPresupuesto adminPresupuestos;
         private AdministradorCategorias adminCategorias;
         private GastoComun unGastoComun;
         private Categoria unaCategoria;
@@ -20,21 +21,26 @@ namespace Test
         [TestInitialize]
         public void InitTests()
         {
-            adminPresupuesto = new AdministradorPresupuesto();
+            adminPresupuestos = new AdministradorPresupuesto();
             adminCategorias = new AdministradorCategorias();
             unGastoComun = new GastoComun();
             unaCategoria = new Categoria();
-
         }
 
         [TestMethod]
         public void RetornarListaPresupuestoPrueba()
         {
-
             List<Presupuesto> ListaLocal = new List<Presupuesto>();
-            Assert.IsTrue(adminGastosComunes.RetornarListaGastosComunes().SequenceEqual(ListaLocal));
-
+            Assert.IsTrue(adminPresupuestos.RetornarListaPresupuestos().SequenceEqual(ListaLocal));
         }
+        /*
+        [TestMethod]
+        public void AgregarPresupuestoPrueba()
+        {
+            adminPresupuestos.AgregarPresupuesto(unPresupuesto);
+            Assert.IsFalse(adminPresupuestos.EsVaciaListaPresupuestos());
+        }
+        */
 
     }
 }
