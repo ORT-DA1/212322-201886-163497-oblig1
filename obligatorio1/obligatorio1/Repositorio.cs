@@ -108,7 +108,7 @@ namespace Dominio
             return this.ListaGastosComunes.Contains(unGastoComun);
         }
 
-        public void EliminareGastoComun(GastoComun unGastoComun)
+        public void EliminarGastoComun(GastoComun unGastoComun)
         {
             this.ListaGastosComunes.Remove(unGastoComun);
         }

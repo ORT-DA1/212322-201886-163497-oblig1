@@ -35,5 +35,12 @@ namespace Dominio
         {
             return Repositorio.EsVaciaListaGastosRecurrentes();
         }
+
+        public void EliminarGastoRecurrente(GastoRecuerrente unGastoRecurrente)
+        {
+            Repositorio.EliminarGastoRecuerrente(unGastoRecurrente);
+        }
+
+
     }
 }

@@ -40,5 +40,19 @@ namespace Test
             adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
             Assert.IsFalse(adminGastosRecurrentes.EsVaciaListaGastosRecurrentes());
         }
+
+        [TestMethod]
+        public void EliminarGastoRecurrentePrueba()
+        {
+            unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
+            unGastoRecuerrente.Categoria = unaCategoria;
+            adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
+            adminGastosRecurrentes.EliminarGastoRecurrente(unGastoRecuerrente);
+
+            Assert.IsTrue(adminGastosRecurrentes.EsVaciaListaGastosRecurrentes());
+
+        }
+
+
     }
 }
