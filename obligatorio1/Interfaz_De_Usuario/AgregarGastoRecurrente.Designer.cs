@@ -32,12 +32,14 @@
             this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.tbMonto = new System.Windows.Forms.TextBox();
             this.tbDescripcion = new System.Windows.Forms.TextBox();
             this.lblMonto = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.tbFecha = new System.Windows.Forms.TextBox();
+            this.numMonto = new System.Windows.Forms.NumericUpDown();
+            this.numFecha = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numMonto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFecha)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAceptar
@@ -49,6 +51,7 @@
             this.btnAceptar.TabIndex = 27;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // cbCategoria
             // 
@@ -77,14 +80,6 @@
             this.lblFecha.Size = new System.Drawing.Size(71, 26);
             this.lblFecha.TabIndex = 23;
             this.lblFecha.Text = "Fecha";
-            // 
-            // tbMonto
-            // 
-            this.tbMonto.Location = new System.Drawing.Point(203, 227);
-            this.tbMonto.MaxLength = 20;
-            this.tbMonto.Name = "tbMonto";
-            this.tbMonto.Size = new System.Drawing.Size(317, 26);
-            this.tbMonto.TabIndex = 22;
             // 
             // tbDescripcion
             // 
@@ -124,30 +119,38 @@
             this.lblTitulo.TabIndex = 18;
             this.lblTitulo.Text = "Gasto";
             // 
-            // tbFecha
+            // numMonto
             // 
-            this.tbFecha.Location = new System.Drawing.Point(203, 291);
-            this.tbFecha.MaxLength = 20;
-            this.tbFecha.Name = "tbFecha";
-            this.tbFecha.Size = new System.Drawing.Size(317, 26);
-            this.tbFecha.TabIndex = 28;
+            this.numMonto.Location = new System.Drawing.Point(204, 226);
+            this.numMonto.Name = "numMonto";
+            this.numMonto.Size = new System.Drawing.Size(316, 26);
+            this.numMonto.TabIndex = 29;
+            // 
+            // numFecha
+            // 
+            this.numFecha.Location = new System.Drawing.Point(204, 294);
+            this.numFecha.Name = "numFecha";
+            this.numFecha.Size = new System.Drawing.Size(316, 26);
+            this.numFecha.TabIndex = 30;
             // 
             // AgregarGastoRecurrente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tbFecha);
+            this.Controls.Add(this.numFecha);
+            this.Controls.Add(this.numMonto);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.cbCategoria);
             this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.lblFecha);
-            this.Controls.Add(this.tbMonto);
             this.Controls.Add(this.tbDescripcion);
             this.Controls.Add(this.lblMonto);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblTitulo);
             this.Name = "AgregarGastoRecurrente";
             this.Size = new System.Drawing.Size(610, 528);
+            ((System.ComponentModel.ISupportInitialize)(this.numMonto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFecha)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,11 +162,11 @@
         private System.Windows.Forms.ComboBox cbCategoria;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.TextBox tbMonto;
         private System.Windows.Forms.TextBox tbDescripcion;
         private System.Windows.Forms.Label lblMonto;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.TextBox tbFecha;
+        private System.Windows.Forms.NumericUpDown numMonto;
+        private System.Windows.Forms.NumericUpDown numFecha;
     }
 }

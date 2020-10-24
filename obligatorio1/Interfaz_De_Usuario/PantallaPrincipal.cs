@@ -16,7 +16,6 @@ namespace Interfaz_De_Usuario
 
         public AdministradorCategorias AdminCategorias { get; set; }
         public AdministradorGastosComunes AdminGastoComun { get; set; }
-
         public AdministradorGastosRecurrentes AdminGastoRecurrente { get; set; }
         public PantallaPrincipal()
         {
@@ -52,6 +51,7 @@ namespace Interfaz_De_Usuario
             panelPrincipal.Controls.Clear();
             UserControl agregarGastoRecurrente = new AgregarGastoRecurrente(AdminGastoRecurrente, AdminCategorias);
             panelPrincipal.Controls.Add(agregarGastoRecurrente);
+
         }
     }
 }
