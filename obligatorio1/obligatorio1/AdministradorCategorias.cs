@@ -105,7 +105,7 @@ namespace Dominio
 
                 }
             }
-            throw new ExcepcionElementoNoExistente("Ninguna de las palabras es palabra clave");
+            throw new ExcepcionElementoNoExistente("No se ha encontrado una categoria para sugerirle, seleccione una.");
         }
 
 

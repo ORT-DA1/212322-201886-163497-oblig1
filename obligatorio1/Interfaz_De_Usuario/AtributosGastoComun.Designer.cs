@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnAceptarGastoC = new System.Windows.Forms.Button();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
@@ -38,15 +38,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.numMonto)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnAceptar
+            // btnAceptarGastoC
             // 
-            this.btnAceptar.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(381, 202);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(109, 37);
-            this.btnAceptar.TabIndex = 24;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptarGastoC.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptarGastoC.Location = new System.Drawing.Point(381, 202);
+            this.btnAceptarGastoC.Name = "btnAceptarGastoC";
+            this.btnAceptarGastoC.Size = new System.Drawing.Size(109, 37);
+            this.btnAceptarGastoC.TabIndex = 24;
+            this.btnAceptarGastoC.Text = "Aceptar";
+            this.btnAceptarGastoC.UseVisualStyleBackColor = true;
+            this.btnAceptarGastoC.Click += new System.EventHandler(this.btnAceptarGastoC_Click);
             // 
             // dtFecha
             // 
@@ -108,7 +109,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.numMonto);
-            this.Controls.Add(this.btnAceptar);
+            this.Controls.Add(this.btnAceptarGastoC);
             this.Controls.Add(this.dtFecha);
             this.Controls.Add(this.cbCategoria);
             this.Controls.Add(this.lblCategoria);
@@ -124,7 +125,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnAceptarGastoC;
         private System.Windows.Forms.DateTimePicker dtFecha;
         private System.Windows.Forms.ComboBox cbCategoria;
         private System.Windows.Forms.Label lblCategoria;

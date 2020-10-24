@@ -37,7 +37,8 @@ namespace Interfaz_De_Usuario
                 AdminCategorias.AgregarPalabraClaveACategoria(categoriaSeleccionada, tbPalabraClave.Text);
                 cbListaPalabrasClave.DataSource = null;
                 cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
-
+                MessageBox.Show("Palabra Clave agregada con exito");
+                tbPalabraClave.Clear();
             }
             catch(InvalidOperationException unaExcepcion)
             {
