@@ -12,7 +12,6 @@ namespace Dominio
 
         private Repositorio Repositorio { get; }
 
-
         public AdministradorCategorias()
         {
 
@@ -78,7 +77,7 @@ namespace Dominio
         {
             if (CantDeCategoriasDistintasDondeApareceLaDescripcion(descripcion) > 1)
             {
-                throw new InvalidOperationException("Hay varias palabras clave");
+                throw new InvalidOperationException("No se ha encontrado una categoria para sugerirle, seleccione una.");
             }
             else
             {
@@ -148,11 +147,6 @@ namespace Dominio
 
         public void AgregarPalabraClaveACategoria(Categoria categoria, string unaPalabra)
         {
-
-            if (this.PalabraClaveYaIngresadaEnAlgunaLista(unaPalabra))
-            {
-                throw new ExcepcionElementoRepetido("Esta palabra clave ya fue ingresada");
-            }
             categoria.AgregarPalabraClave(unaPalabra);
 
         }

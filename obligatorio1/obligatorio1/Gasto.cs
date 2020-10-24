@@ -10,10 +10,23 @@ namespace Dominio
 {
     public class Gasto
     {
-
+       
 
         private string desc;
-        public int Monto { get; set; }
+        private double monto;
+        public double Monto 
+        {
+            get {return monto; }
+            set
+
+            {
+                 monto = Math.Round(value,2);
+                if (monto < 0.00)
+                {
+                    throw new IndexOutOfRangeException("Monto debe ser positivo.");
+                }
+            } 
+        }
 
 
         public string Descripcion
@@ -25,7 +38,7 @@ namespace Dominio
             {
                 if (value.Length < 3 || value.Length > 20)
                 {
-                    throw new IndexOutOfRangeException();
+                    throw new IndexOutOfRangeException("muy corta o muy larga");
                 }
                 else
                 {
@@ -43,13 +56,12 @@ namespace Dominio
 
         public Gasto()
         {
-            this.Monto = 0;
+            this.Monto = 0.00;
             this.Descripcion = "No hay descripcion";
             this.Categoria = new Categoria();
 
         }
-
-        public Gasto(int unMonto, string unaDescripcion, Categoria unaCategoria)
+        public Gasto(double unMonto, string unaDescripcion, Categoria unaCategoria)
         {
             Monto = unMonto;
             Descripcion = unaDescripcion;

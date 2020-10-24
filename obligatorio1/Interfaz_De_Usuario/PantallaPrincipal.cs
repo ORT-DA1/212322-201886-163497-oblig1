@@ -20,7 +20,7 @@ namespace Interfaz_De_Usuario
         {
             InitializeComponent();
             AdminCategorias = new AdministradorCategorias();
-            AdminGastoComun = new AdministradorGastosComunes(); 
+            AdminGastoComun = new AdministradorGastosComunes();
         }
 
         private void button1_Click(object sender, EventArgs e)

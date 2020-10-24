@@ -33,8 +33,9 @@
             this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.tbMonto = new System.Windows.Forms.TextBox();
             this.lblMonto = new System.Windows.Forms.Label();
+            this.numMonto = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numMonto)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAceptar
@@ -84,14 +85,6 @@
             this.lblFecha.TabIndex = 20;
             this.lblFecha.Text = "Fecha";
             // 
-            // tbMonto
-            // 
-            this.tbMonto.Location = new System.Drawing.Point(173, 22);
-            this.tbMonto.MaxLength = 20;
-            this.tbMonto.Name = "tbMonto";
-            this.tbMonto.Size = new System.Drawing.Size(317, 26);
-            this.tbMonto.TabIndex = 19;
-            // 
             // lblMonto
             // 
             this.lblMonto.AutoSize = true;
@@ -102,19 +95,28 @@
             this.lblMonto.TabIndex = 18;
             this.lblMonto.Text = "Monto";
             // 
+            // numMonto
+            // 
+            this.numMonto.DecimalPlaces = 2;
+            this.numMonto.Location = new System.Drawing.Point(173, 25);
+            this.numMonto.Name = "numMonto";
+            this.numMonto.Size = new System.Drawing.Size(317, 26);
+            this.numMonto.TabIndex = 25;
+            // 
             // AtributosGastoComun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.numMonto);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dtFecha);
             this.Controls.Add(this.cbCategoria);
             this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.lblFecha);
-            this.Controls.Add(this.tbMonto);
             this.Controls.Add(this.lblMonto);
             this.Name = "AtributosGastoComun";
             this.Size = new System.Drawing.Size(516, 268);
+            ((System.ComponentModel.ISupportInitialize)(this.numMonto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,7 +129,7 @@
         private System.Windows.Forms.ComboBox cbCategoria;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.TextBox tbMonto;
         private System.Windows.Forms.Label lblMonto;
+        private System.Windows.Forms.NumericUpDown numMonto;
     }
 }
