@@ -10,7 +10,6 @@ namespace Interfaz_De_Usuario
     {
         private AdministradorGastosComunes unAdminGastosComun;
         private AdministradorCategorias unAdminCategorias;
-       //public GastoComun gastoC { get; set; }
         private GastoComun gastoC;
         public AtributosGastoComun(AdministradorGastosComunes miAdminGastoComun, String descripcion, AdministradorCategorias miAdministradorCategorias)
         {
@@ -18,11 +17,11 @@ namespace Interfaz_De_Usuario
             unAdminGastosComun = miAdminGastoComun;
             unAdminCategorias = miAdministradorCategorias;
             gastoC = new GastoComun() {Descripcion = descripcion};
-            CargarComboBox(descripcion,gastoC);
-            
+            CargarComboBox(descripcion);
+
         }
 
-        private void CargarComboBox(String descripcion,GastoComun gastoC)
+        private void CargarComboBox(String descripcion)
         {
 
             foreach (Categoria unaCategoria in unAdminCategorias.RetornarListaCategorias())
