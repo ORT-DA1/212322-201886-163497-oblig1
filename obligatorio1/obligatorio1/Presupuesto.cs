@@ -6,7 +6,7 @@ namespace Dominio
 {
     public class Presupuesto
     {
-
+        //al crearlo, por defecto todas las categorias ya existentes.
         private int unAnio;
         public String Mes { get; set; }
         public List <CategoriaMonto> ListaCategoriaMonto { get; }
@@ -45,9 +45,10 @@ namespace Dominio
             return this.ListaCategoriaMonto.Count == 0;
         }
 
-        public void AgregarCategoriaMonto(CategoriaMonto categoriaMonto)
+        public void AgregarCategoriaMonto(Categoria categoria, int monto)
         {
-            this.ListaCategoriaMonto.Add(categoriaMonto);
+            CategoriaMonto catMonto = new CategoriaMonto { Categoria = categoria, Monto = monto };
+            this.ListaCategoriaMonto.Add(catMonto);
         }
 
         //CONSTRUCTOR CON PARAMETROS QUE NO LE PASO LA LISTA DE CATEGORIA MONTO PORQ NO SE COMO HACERLO.
@@ -60,6 +61,17 @@ namespace Dominio
         public override string ToString()
         {
             return String.Format("{0},{1}", this.Anio,this.Mes);
+        }
+
+        public void ModificarMontoACategoria(Categoria unaCategoria, int unMonto)
+        {
+            foreach(CategoriaMonto catMonto in this.ListaCategoriaMonto)
+            {
+                if(catMonto.Categoria == unaCategoria)
+                {
+                    catMonto.Monto = unMonto;
+                }
+            }
         }
     }
 }

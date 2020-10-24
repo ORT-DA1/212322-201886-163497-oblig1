@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Excepciones;
+using obligatorio1;
 
 namespace Dominio
 {
@@ -11,11 +12,13 @@ namespace Dominio
         private const char SEPARADOR = ' ';
 
         private Repositorio Repositorio { get; }
+        private AdministradorPresupuesto AdminPresupuesto { get; }
 
         public AdministradorCategorias()
         {
 
             this.Repositorio = new Repositorio();
+            this.AdminPresupuesto = new AdministradorPresupuesto();
 
         }
         //rari que queda repetido pero no tengo forma de acceder a la lista desde la interfaz
@@ -33,7 +36,12 @@ namespace Dominio
                 throw new ExcepcionElementoRepetido("Categoria ya existente");
 
             }
-            else Repositorio.AgregarCategoria(unaCategoria);
+            else
+            {
+                Repositorio.AgregarCategoria(unaCategoria);
+                //AdminPresupuesto.ActualizarPresupuestosConNuevaCategoria(unaCategoria);
+            }
+
         }
 
 

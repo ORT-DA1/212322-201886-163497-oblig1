@@ -47,7 +47,7 @@ namespace Test
             categoriaMonto.Monto = -1000;
         }
 
-        //en repositorio: Cada vez que se crea una categoria se crea un objeto CategoriaMonto de esa categoria.
+        //Cada vez que se crea una categoria se crea un objeto CategoriaMonto, PARA TODOS LOS PRESUPUESTOS, de esa categoria.
         [TestMethod]
         public void MontoInicialEn0Prueba()
         {

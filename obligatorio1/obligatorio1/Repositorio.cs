@@ -33,6 +33,7 @@ namespace Dominio
             this.ListaCategorias.Add(unaCategoria);
         }
 
+
         public List<Categoria> RetornarListaCategorias()
         {
             return this.ListaCategorias;
@@ -113,6 +114,10 @@ namespace Dominio
         }
 
 
+        public void AgregarPresupuesto(Presupuesto unPresupuesto)
+        {
+            this.ListaPresupuestos.Add(unPresupuesto);
+        }
 
     }
 }
