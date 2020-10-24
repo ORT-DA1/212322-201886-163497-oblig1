@@ -39,7 +39,7 @@ namespace Dominio
             else
             {
                 Repositorio.AgregarCategoria(unaCategoria);
-                //AdminPresupuesto.ActualizarPresupuestosConNuevaCategoria(unaCategoria);
+                AdminPresupuesto.ActualizarPresupuestosConNuevaCategoria(unaCategoria);
             }
 
         }
