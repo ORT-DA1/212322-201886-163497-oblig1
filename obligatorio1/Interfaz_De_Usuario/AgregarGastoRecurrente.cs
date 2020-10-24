@@ -8,67 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
-using Excepciones;
 
 namespace Interfaz_De_Usuario
 {
     public partial class AgregarGastoRecurrente : UserControl
     {
-        private AdministradorGastosRecurrentes unAdminGastosRecurrentes;
-        private AdministradorCategorias unAdminCategorias;
-        public AgregarGastoRecurrente(AdministradorGastosRecurrentes miAdminGastosRecurrentes,AdministradorCategorias miAdminCategorias)
+        private AdministradorGastosRecurrentes adminGastosRecurrentes;
+        private AdministradorCategorias adminCategorias;
+        public AdministradorGastosRecurrentes atrGastosRecurrentes { get; set; }
+        public AgregarGastoRecurrente(AdministradorGastosRecurrentes miAdminGastosRecurrentes ,AdministradorCategorias miAdminCategorias)
         {
             InitializeComponent();
-            unAdminGastosRecurrentes = miAdminGastosRecurrentes;
-            unAdminCategorias = miAdminCategorias;
-            CargarComboBox();
-        }
-        public void CargarComboBox()
-        {
-            String descripcion = tbDescripcion.Text;
-            //unAdminCategorias.CantDeCategoriasDistintasDondeApareceLaDescripcin(descripcion) > 1 ;
-            foreach (Categoria unaCategoria in unAdminCategorias.RetornarListaCategorias())
-            {
-                cbCategoria.Items.Add(unaCategoria);
-            }
-            try
-            {
-               
-                Categoria cat = unAdminCategorias.RetornarCategoriaDeDescripcion(descripcion);
-                cbCategoria.SelectedItem = cat;
-
-            }
-            catch (Exception unaExcepcion)
-           when ( unaExcepcion is IndexOutOfRangeException || unaExcepcion is InvalidOperationException || unaExcepcion is ExcepcionElementoNoExistente)
-            {
-
-                MessageBox.Show(unaExcepcion.Message);
-            }
+            adminCategorias = miAdminCategorias;
+            adminGastosRecurrentes = miAdminGastosRecurrentes;
+            atrGastosRecurrentes = new AdministradorGastosRecurrentes();
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (cbCategoria.SelectedItem == null)
-            {
-                MessageBox.Show("La Categoria no puede quedar vacia");
-                return;
-            }
-
-            try
-            {
-                GastoRecuerrente unGastoRecurrente = new GastoRecuerrente();
-                unGastoRecurrente.Monto = (double)numMonto.Value;
-                unGastoRecurrente.Fecha =(int)numFecha.Value;
-                unGastoRecurrente.Categoria = (Categoria)cbCategoria.SelectedItem;
-                unAdminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecurrente);
-                MessageBox.Show("El gasto recurrente ha sido creado con exito ");
-
-            }
-            catch (Exception unaExcepcion)
-            when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException)
-            {
-                MessageBox.Show(unaExcepcion.Message);
-            }
+            pGastoRecurrente.Controls.Clear();
+            UserControl agregarAtributos = new AtributosGastoRecurrente(adminGastosRecurrentes , adminCategorias,  tbDescripcion.Text);
+            pGastoRecurrente.Controls.Add(agregarAtributos);
         }
     }
 }
