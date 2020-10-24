@@ -10,10 +10,19 @@ namespace Dominio
 {
     public class Gasto
     {
-
+       
 
         private string desc;
-        public int Monto { get; set; }
+        private double monto;
+        public double Monto 
+        {
+            get {return monto; }
+            set
+
+            {
+                 monto = Math.Round(value,2);
+            } 
+        }
 
 
         public string Descripcion
@@ -43,13 +52,12 @@ namespace Dominio
 
         public Gasto()
         {
-            this.Monto = 0;
+            this.Monto = 0.00;
             this.Descripcion = "No hay descripcion";
             this.Categoria = new Categoria();
 
         }
-
-        public Gasto(int unMonto, string unaDescripcion, Categoria unaCategoria)
+        public Gasto(double unMonto, string unaDescripcion, Categoria unaCategoria)
         {
             Monto = unMonto;
             Descripcion = unaDescripcion;

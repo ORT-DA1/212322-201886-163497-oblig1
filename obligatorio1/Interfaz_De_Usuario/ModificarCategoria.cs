@@ -43,9 +43,7 @@ namespace Interfaz_De_Usuario
             {
                 MessageBox.Show(unaExcepcion.Message);
             } 
-            
-
-
+         
         }
 
         private void cbCategorias_SelectedIndexChanged(object sender, EventArgs e)

@@ -10,7 +10,7 @@ namespace Interfaz_De_Usuario
     {
         private AdministradorGastosComunes unAdminGastosComun;
         private AdministradorCategorias unAdminCategorias;
-
+        private GastoComun gastoC;
         public AtributosGastoComun(AdministradorGastosComunes miAdminGastoComun, String descripcion, AdministradorCategorias miAdministradorCategorias)
         {
             InitializeComponent();
@@ -29,16 +29,22 @@ namespace Interfaz_De_Usuario
             try
             {
                 Categoria cat = unAdminCategorias.RetornarCategoriaDeDescripcion(descripcion);
-                GastoComun gastoC = new GastoComun { Descripcion = descripcion };
-            }
-            catch (Exception unaExcepcion)
-            when(unaExcepcion is ExcepcionElementoNoExistente  || unaExcepcion is IndexOutOfRangeException)
+                gastoC = new GastoComun() { Descripcion = descripcion };
+
+            } catch (Exception unaExcepcion)
+             when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException)
             {
                 MessageBox.Show(unaExcepcion.Message);
             }
            
         }
-       
 
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            gastoC.Monto = (double)numMonto.Value;
+            gastoC.Fecha = dtFecha.Value;
+            gastoC.Categoria = unAdminCategorias.RetornarCategoriaSegunString(cbCategoria.Text);
+
+        }
     }
 }

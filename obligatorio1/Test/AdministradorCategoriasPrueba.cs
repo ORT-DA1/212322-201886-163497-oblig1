@@ -207,17 +207,6 @@ namespace Test
             adminCategorias.AgregarPalabraClaveACategoria(unaCategoria, "Peaje");
             Assert.AreEqual(unaCategoria, adminCategorias.CategoriaDePalabraClave("Peaje"));
         }
-        [TestMethod]
-        [ExpectedException(typeof(ExcepcionElementoRepetido))]
-        public void AgregarPalabraCalveRepetidaACategoriaSeleccionadaPrueba()
-        {
-
-            adminCategorias.AgregarCategoria(unaCategoria);
-            adminCategorias.AgregarPalabraClaveACategoria(unaCategoria, "Peaje");
-            adminCategorias.AgregarPalabraClaveACategoria(unaCategoria, "Peaje");
-
-
-        }
 
         [TestMethod]
         public void EliminarPalabraClaveACategoriaPrueba()
