@@ -30,13 +30,14 @@ namespace Dominio
             Repositorio.AgregarPresupuesto(unPresupuesto);
         }
 
+        /*
         public void ActualizarPresupuestosConNuevaCategoria(Categoria unaCategoria)
         {
             foreach(Presupuesto pres in Repositorio.RetornarListaPresupuestos())
             {
                 pres.AgregarCategoriaMonto(unaCategoria, 0);
             }
-        }
+        } */
 
         public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, int unMonto)
         {

@@ -43,7 +43,7 @@ números positivos positivos, con dos decimales.
         public void PropertyMesPrueba()
         {
            
-            string nombreMes = DateTimeFormatInfo.CurrentInfo.GetMonthName(1);
+            string nombreMes = "enero";
             presupuesto.Mes = "enero";
 
             Assert.AreEqual(nombreMes, presupuesto.Mes);

@@ -55,16 +55,15 @@ namespace Test
             Assert.AreEqual(adminPresupuestos.RetornarPresupuestoSegunMes("Marzo", 2020), unPresupuesto);
         }
 
-        /*
+       /* 
         [TestMethod]
         public void ActualizarPresupuestosConNuevaCategoriaPrueba()
         {
-            adminCategorias.AgregarCategoria(unaCategoria); //ahi se crea el categoriaMonto con esa categoria para todas los presupuestos
-                                                            //dado un int anio y un string mes, retornar presupuesto:
+            
+            adminCategorias.AgregarCategoria(unaCategoria); 
 
-//si se agrega una categoria, se tendrian que actualizar todos los categoria montos
-            CategoriaMonto catMontoNuevo = new CategoriaMonto { Categoria = unaCategoria, Monto = 0 };
-            Assert.IsTrue( adminPresupuestos.RetornarPresupuestoSegunMes("Marzo", 2008).ListaCategoriaMonto.Contains(catMontoNuevo));
+            adminPresupuestos.AgregarPresupuesto(unPresupuesto);
+            Assert.IsTrue( adminPresupuestos.RetornarPresupuestoSegunMes("Marzo", 2020).ListaCategoriaMonto.Contains(catMontoNuevo));
 
         }
         */

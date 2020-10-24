@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Excepciones;
-using obligatorio1;
+//using obligatorio1;
+using Dominio;
 
 namespace Dominio
 {
@@ -39,7 +40,7 @@ namespace Dominio
             else
             {
                 Repositorio.AgregarCategoria(unaCategoria);
-                AdminPresupuesto.ActualizarPresupuestosConNuevaCategoria(unaCategoria);
+                //AdminPresupuesto.ActualizarPresupuestosConNuevaCategoria(unaCategoria);
             }
 
         }
