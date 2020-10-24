@@ -52,6 +52,12 @@
     <Compile Include="AgregarCategoria.Designer.cs">
       <DependentUpon>AgregarCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="AgregarGastoRecurrente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AgregarGastoRecurrente.Designer.cs">
+      <DependentUpon>AgregarGastoRecurrente.cs</DependentUpon>
+    </Compile>
     <Compile Include="AtributosGastoComun.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -70,11 +76,11 @@
     <Compile Include="AgregarGastoComun.Designer.cs">
       <DependentUpon>AgregarGastoComun.cs</DependentUpon>
     </Compile>
-    <Compile Include="AgregarGastoRecurrente.cs">
+    <Compile Include="AtributosGastoRecurrente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AgregarGastoRecurrente.Designer.cs">
-      <DependentUpon>AgregarGastoRecurrente.cs</DependentUpon>
+    <Compile Include="AtributosGastoRecurrente.Designer.cs">
+      <DependentUpon>AtributosGastoRecurrente.cs</DependentUpon>
     </Compile>
     <Compile Include="AgregarPresupuesto.cs">
       <SubType>UserControl</SubType>
@@ -105,6 +111,9 @@
     <EmbeddedResource Include="AgregarCategoria.resx">
       <DependentUpon>AgregarCategoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AgregarGastoRecurrente.resx">
+      <DependentUpon>AgregarGastoRecurrente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AtributosGastoComun.resx">
       <DependentUpon>AtributosGastoComun.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,8 +123,8 @@
     <EmbeddedResource Include="AgregarGastoComun.resx">
       <DependentUpon>AgregarGastoComun.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AgregarGastoRecurrente.resx">
-      <DependentUpon>AgregarGastoRecurrente.cs</DependentUpon>
+    <EmbeddedResource Include="AtributosGastoRecurrente.resx">
+      <DependentUpon>AtributosGastoRecurrente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AgregarPresupuesto.resx">
       <DependentUpon>AgregarPresupuesto.cs</DependentUpon>
