@@ -25,11 +25,17 @@ números positivos positivos, con dos decimales.
     public class PresupuestoPrueba
     {
         private Presupuesto presupuesto;
+        private Categoria categoria1;
+        private Categoria categoria2;
+
 
         [TestInitialize]
         public void InitTests()
         {
             presupuesto = new Presupuesto();
+            
+            Categoria categoria1 = new Categoria() { Nombre = "Entretenimiento" };
+            Categoria categoria2 = new Categoria() { Nombre = "Hogar" };
 
         }
 
@@ -73,8 +79,7 @@ números positivos positivos, con dos decimales.
         [TestMethod]
         public void AgregarCategoriaMontoPrueba()
         {
-            CategoriaMonto categoriaMonto = new CategoriaMonto();
-            presupuesto.AgregarCategoriaMonto(categoriaMonto);
+            presupuesto.AgregarCategoriaMonto(categoria1, 100);
 
             Assert.IsFalse(presupuesto.EsVaciaListaCategoriaMonto());
         }
@@ -86,12 +91,23 @@ números positivos positivos, con dos decimales.
             Assert.AreEqual(presupuesto1.Anio, 2019);
 
         }
+        [TestMethod]
+        public void ConstructorPresupuestoAsignarCategoriasExistentesPrueba() 
+ //hacer prueba que verifica que la lista de CategoriaMonto, (constr por defecto), sean todas las categorias existentes, y monto 0.
+ //verificar tambien en categoria que cada vez que se crea una, crear objeto CategoriaMonto para todos los presupuestos, con monto 0.
+        {
+            Presupuesto presupuesto1 = new Presupuesto(2019, "Setiembre");
+            Assert.AreEqual(presupuesto1.Anio, 2019);
+
+        }
 
         [TestMethod]
         public void ToStringPrueba()
         {
             Assert.AreEqual(presupuesto.ToString(),"2019,Setiembre");
         }
+
+        
 
     }
 }
