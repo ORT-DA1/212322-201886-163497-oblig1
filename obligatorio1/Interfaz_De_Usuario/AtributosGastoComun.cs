@@ -10,16 +10,19 @@ namespace Interfaz_De_Usuario
     {
         private AdministradorGastosComunes unAdminGastosComun;
         private AdministradorCategorias unAdminCategorias;
+       //public GastoComun gastoC { get; set; }
         private GastoComun gastoC;
         public AtributosGastoComun(AdministradorGastosComunes miAdminGastoComun, String descripcion, AdministradorCategorias miAdministradorCategorias)
         {
             InitializeComponent();
             unAdminGastosComun = miAdminGastoComun;
             unAdminCategorias = miAdministradorCategorias;
-            CargarComboBox(descripcion);
+            gastoC = new GastoComun() {Descripcion = descripcion};
+            CargarComboBox(descripcion,gastoC);
+            
         }
 
-        private void CargarComboBox(String descripcion)
+        private void CargarComboBox(String descripcion,GastoComun gastoC)
         {
 
             foreach (Categoria unaCategoria in unAdminCategorias.RetornarListaCategorias())
@@ -28,8 +31,9 @@ namespace Interfaz_De_Usuario
             }
             try
             {
+
                 Categoria cat = unAdminCategorias.RetornarCategoriaDeDescripcion(descripcion);
-                gastoC = new GastoComun() { Descripcion = descripcion };
+                //gastoC.Descripcion = descripcion ;
 
             } catch (Exception unaExcepcion)
              when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException)
@@ -41,9 +45,20 @@ namespace Interfaz_De_Usuario
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            gastoC.Monto = (double)numMonto.Value;
-            gastoC.Fecha = dtFecha.Value;
-            gastoC.Categoria = unAdminCategorias.RetornarCategoriaSegunString(cbCategoria.Text);
+            try
+            {
+                gastoC.Monto = (double)numMonto.Value;
+                gastoC.Fecha = dtFecha.Value;
+                gastoC.Categoria = unAdminCategorias.RetornarCategoriaSegunString(cbCategoria.Text);
+                unAdminGastosComun.AgregarGastoComun(gastoC);
+                MessageBox.Show("El gasto ha sido creada con exito " + gastoC.ToString());
+            }
+            catch(Exception unaExcepcion)
+            when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+           
 
         }
     }

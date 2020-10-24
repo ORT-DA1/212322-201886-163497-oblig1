@@ -21,6 +21,10 @@ namespace Dominio
 
             {
                  monto = Math.Round(value,2);
+                if (monto < 0.00)
+                {
+                    throw new IndexOutOfRangeException("Monto debe ser positivo.");
+                }
             } 
         }
 
