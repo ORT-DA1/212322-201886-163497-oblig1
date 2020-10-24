@@ -63,6 +63,9 @@ namespace Test
             Assert.AreEqual(gastoRec2.Descripcion,"Ir a comer");
 
         }
+
+      
+
         [TestMethod]
         public void ToStringGastoComunPrueba()
         {

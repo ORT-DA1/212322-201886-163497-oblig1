@@ -238,6 +238,17 @@ namespace Test
 
         }
 
+        [TestMethod]
+        public void EliminarCategoriaPrueba()
+        {
+            adminCategorias.AgregarCategoria(unaCategoria);
+            adminCategorias.EliminarCategoria(unaCategoria);
+
+            Assert.IsTrue(adminCategorias.EsVaciaListaCategorias());
+          
+
+        }
+
     }
 
 }

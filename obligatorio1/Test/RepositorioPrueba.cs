@@ -138,7 +138,7 @@ namespace Test
         {
 
             Repositorio.AgregarGastoComun(GastoComun);
-            Repositorio.EliminareGastoComun(GastoComun);
+            Repositorio.EliminarGastoComun(GastoComun);
 
             Assert.IsFalse(Repositorio.ExisteGastoComun(GastoComun));
 

@@ -60,5 +60,30 @@ namespace Test
 
         }
 
-    }
+        [TestMethod]
+        public void EliminarGastoComunPrueba()
+        {
+            unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
+            unGastoComun.Categoria = unaCategoria;
+            adminGastosComunes.AgregarGastoComun(unGastoComun);
+            adminGastosComunes.EliminarGastoComun(unGastoComun);
+
+            Assert.IsTrue(adminGastosComunes.EsVaciaListaGastosComunes());
+
+        }
+
+
+        [TestMethod]
+        public void DevolverListaDeGastosSegunFechaPrueba()
+        {
+            unGastoComun.Fecha = new DateTime(2020, 5, 1);
+            adminGastosComunes.AgregarGastoComun(unGastoComun);
+            List<GastoComun> ListaLocal = new List<GastoComun>();
+            ListaLocal.Add(unGastoComun);
+            Assert.IsTrue(adminGastosComunes.DevolverListaDeGastosSegunFecha(unGastoComun.Fecha).SequenceEqual(ListaLocal));
+
+        }
+
+
+     }
 }

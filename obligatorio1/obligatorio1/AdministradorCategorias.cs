@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Excepciones;
-using obligatorio1;
+
 
 namespace Dominio
 {
@@ -43,7 +43,7 @@ namespace Dominio
             }
 
         }
-
+     
 
         public bool EsVaciaListaCategorias()
         {
@@ -186,6 +186,13 @@ namespace Dominio
             }
 
             throw new ExcepcionElementoNoExistente("Categoria no existente");
+
+        }
+
+        public void EliminarCategoria(Categoria unaCategoria)
+        {
+
+            Repositorio.EliminarCategoria(unaCategoria);
 
         }
 

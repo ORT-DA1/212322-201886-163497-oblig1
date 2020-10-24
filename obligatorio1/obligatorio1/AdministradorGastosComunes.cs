@@ -42,8 +42,14 @@ namespace Dominio
             return Repositorio.EsVaciaListaGastosComunes();
         }
 
+        public void EliminarGastoComun(GastoComun unGastoComun)
+        {
+            Repositorio.EliminarGastoComun(unGastoComun);
+        }
 
-
-
+        public List<GastoComun> DevolverListaDeGastosSegunFecha(DateTime unaFecha)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
