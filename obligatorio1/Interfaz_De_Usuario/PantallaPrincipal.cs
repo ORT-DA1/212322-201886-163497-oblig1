@@ -16,11 +16,14 @@ namespace Interfaz_De_Usuario
 
         public AdministradorCategorias AdminCategorias { get; set; }
         public AdministradorGastosComunes AdminGastoComun { get; set; }
+
+        public AdministradorGastosRecurrentes AdminGastoRecurrente { get; set; }
         public PantallaPrincipal()
         {
             InitializeComponent();
             AdminCategorias = new AdministradorCategorias();
             AdminGastoComun = new AdministradorGastosComunes();
+            AdminGastoRecurrente = new AdministradorGastosRecurrentes();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,6 +45,13 @@ namespace Interfaz_De_Usuario
             panelPrincipal.Controls.Clear();
             UserControl agregarGastoComun = new AgregarGastoComun(AdminGastoComun,AdminCategorias);
             panelPrincipal.Controls.Add(agregarGastoComun);
+        }
+
+        private void btnAgregarGastoRecurrente_Click(object sender, EventArgs e)
+        {
+            panelPrincipal.Controls.Clear();
+            UserControl agregarGastoRecurrente = new AgregarGastoRecurrente(AdminGastoRecurrente, AdminCategorias);
+            panelPrincipal.Controls.Add(agregarGastoRecurrente);
         }
     }
 }

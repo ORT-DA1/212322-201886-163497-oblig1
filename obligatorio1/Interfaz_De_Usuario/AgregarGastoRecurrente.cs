@@ -12,6 +12,7 @@ namespace Interfaz_De_Usuario
 {
     public partial class AgregarGastoRecurrente : UserControl
     {
+
         public AgregarGastoRecurrente()
         {
             InitializeComponent();
