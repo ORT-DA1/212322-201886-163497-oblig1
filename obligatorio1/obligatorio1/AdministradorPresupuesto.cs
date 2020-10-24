@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace obligatorio1
+namespace Dominio
 {
     // UN PRESUPUESTO PLANIFICADO PARA CADA MES.
     /* UN MONTO PARA CADA CATEGORIA.

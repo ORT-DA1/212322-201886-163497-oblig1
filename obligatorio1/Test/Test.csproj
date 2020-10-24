@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministradorGastosRecurrentesPrueba.cs" />
     <Compile Include="AdministradorPresupuestoPrueba.cs" />
     <Compile Include="CategoriaMontoPrueba.cs" />
     <Compile Include="CategoriaPrueba.cs" />
