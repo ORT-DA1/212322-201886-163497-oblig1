@@ -35,38 +35,43 @@ namespace Dominio
             Repositorio.AgregarPresupuesto(unPresupuesto);
         }
 
-       /* public void ActualizarPresupuestosConNuevaCategoria(Categoria unaCategoria)
-        {
-            foreach(Presupuesto pres in Repositorio.RetornarListaPresupuestos())
-            {
-                pres.AgregarCategoriaMonto(unaCategoria, 0);
-            }
-        }
-
-/*        public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, int unMonto)
+        public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, int unMonto)
         {
             unPresupuesto.ModificarMontoACategoria(unaCategoria, unMonto);
-        }*/
+        } //HACER PRUEBA!!!!!!!!!!!!
 
         public Presupuesto RetornarPresupuestoSegunMes(String unMes, int unAnio)
         {
-            foreach(Presupuesto p in this.RetornarListaPresupuestos())
+            foreach (Presupuesto p in this.RetornarListaPresupuestos())
             {
-                if(p.Mes == unMes && p.Anio == unAnio)
+                if (p.Mes == unMes && p.Anio == unAnio)
                 {
                     return p;
                 }
             }
             throw new ExcepcionElementoNoExistente("No hay un presupuesto para el mes elegido");
 
-        }
+        } //HACER PRUEBA!!!
 
 
-        /*
-public bool EsVaciaListaPresupuestos()
-{
-   return Repositorio.EsVaciaListaPresupuestos();
-}
-*/
+        /* public void ActualizarPresupuestosConNuevaCategoria(Categoria unaCategoria)
+         {
+             foreach(Presupuesto pres in Repositorio.RetornarListaPresupuestos())
+             {
+                 pres.AgregarCategoriaMonto(unaCategoria, 0);
+             }
+         }
+
+        
+
+         
+
+
+         
+ public bool EsVaciaListaPresupuestos()
+ {
+    return Repositorio.EsVaciaListaPresupuestos();
+ }*/
+
     }
 }
