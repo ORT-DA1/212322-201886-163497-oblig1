@@ -15,6 +15,7 @@ namespace Test
 
 
         private AdministradorCategorias adminCategorias;
+        
         private Categoria unaCategoria;
 
         [TestInitialize]
@@ -248,6 +249,7 @@ namespace Test
           
 
         }
+        
 
     }
 

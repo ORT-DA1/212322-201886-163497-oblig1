@@ -17,6 +17,7 @@ namespace Test
         private AdministradorCategorias adminCategorias;
         private GastoComun unGastoComun;
         private Categoria unaCategoria;
+        private Categoria otraCategoria;
         private Presupuesto unPresupuesto;
 
         [TestInitialize]
@@ -26,6 +27,7 @@ namespace Test
             adminCategorias = new AdministradorCategorias();
             unGastoComun = new GastoComun();
             unaCategoria = new Categoria();
+            otraCategoria = new Categoria();
             unPresupuesto = new Presupuesto();
         }
 
@@ -55,7 +57,34 @@ namespace Test
             Assert.AreEqual(adminPresupuestos.RetornarPresupuestoSegunMes("Marzo", 2020), unPresupuesto);
         }
 
-        /*
+        [TestMethod]
+        public void AsignacionDeCategoriasMontoPrueba()
+        {
+            unPresupuesto.AgregarCategoriaMonto(unaCategoria, 100);
+            unPresupuesto.AgregarCategoriaMonto(otraCategoria, 300);
+
+            Assert.AreEqual(unPresupuesto.ListaCategoriaMonto.Count, 2);
+
+        }
+
+/*        [TestMethod]
+        public void ActualizarPresupuestosConNuevaCategoriaPrueba()
+        {
+            adminPresupuestos.AgregarPresupuesto(unPresupuesto);
+            adminCategorias.AgregarCategoria(unaCategoria);
+
+            Assert.AreEqual( 1, unPresupuesto.ListaCategoriaMonto.Count);
+            
+
+        }*/
+
+
+
+    }
+}
+
+
+/*
         [TestMethod]
         public void ActualizarPresupuestosConNuevaCategoriaPrueba()
         {
@@ -69,21 +98,16 @@ namespace Test
         }
         */
 
-        //dada una categoria, asignar monto.
-        /*
-        [TestMethod]
-        public void ModificarMontoDeCategoriaAPresupuestoPrueba()
-        {
-            adminCategorias.AgregarCategoria(unaCategoria); //ahi se crea el categoriaMonto con esa categoria para todas los presupuestos
-            adminPresupuestos.ModificarMontoACategoria(unPresupuesto, unaCategoria, 200);
-            Assert
-            
-
-        }
-        */
-        //metodo que a un presupuesto, le deje cambiar el monto de esa categoria.
+//dada una categoria, asignar monto.
+/*
+[TestMethod]
+public void ModificarMontoDeCategoriaAPresupuestoPrueba()
+{
+    adminCategorias.AgregarCategoria(unaCategoria); //ahi se crea el categoriaMonto con esa categoria para todas los presupuestos
+    adminPresupuestos.ModificarMontoACategoria(unPresupuesto, unaCategoria, 200);
+    Assert
 
 
-
-    }
 }
+*/
+//metodo que a un presupuesto, le deje cambiar el monto de esa categoria.
