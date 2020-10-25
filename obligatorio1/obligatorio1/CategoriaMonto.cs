@@ -20,29 +20,25 @@ namespace Dominio
 
         public Categoria Categoria { get; set; }
 
-        private float unMonto;
-        public float Monto
+        private double unMonto;
+        public double Monto
         {
-
             get { return unMonto; }
-
             set
             {
-                if (value < 0)
+                if (unMonto < 0.00)
                 {
-                    throw new IndexOutOfRangeException();
+                    throw new IndexOutOfRangeException("Monto debe ser positivo.");
                 }
                 else
                 {
-                    unMonto = value;
+                    unMonto = Math.Round(value, 2);
                 }
-
             }
-
         }
         public CategoriaMonto()
         {
-            this.Monto = 0;
+            this.unMonto = 0;
         }
 
 

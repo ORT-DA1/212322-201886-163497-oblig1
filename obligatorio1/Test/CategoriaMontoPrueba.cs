@@ -41,6 +41,16 @@ namespace Test
         }
 
         [TestMethod]
+        public void PropertyMontoDecimalPrueba()
+        {
+
+
+            categoriaMonto.Monto = 0;
+            Assert.AreEqual(0.00, categoriaMonto.Monto);
+
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(IndexOutOfRangeException))]
         public void MontoMayorA0Prueba()
         {
