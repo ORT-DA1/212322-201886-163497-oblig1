@@ -27,21 +27,26 @@ namespace Dominio
 
         public void AgregarPresupuesto(Presupuesto unPresupuesto)
         {
+            
+            foreach (Categoria cat in Repositorio.RetornarListaCategorias())
+            {
+                unPresupuesto.AgregarCategoriaMonto(cat, 0);
+            }
             Repositorio.AgregarPresupuesto(unPresupuesto);
         }
 
-        public void ActualizarPresupuestosConNuevaCategoria(Categoria unaCategoria)
+/*        public void ActualizarPresupuestosConNuevaCategoria(Categoria unaCategoria)
         {
             foreach(Presupuesto pres in Repositorio.RetornarListaPresupuestos())
             {
                 pres.AgregarCategoriaMonto(unaCategoria, 0);
             }
-        }
+        }*/
 
-        public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, int unMonto)
+/*        public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, int unMonto)
         {
             unPresupuesto.ModificarMontoACategoria(unaCategoria, unMonto);
-        }
+        }*/
 
         public Presupuesto RetornarPresupuestoSegunMes(String unMes, int unAnio)
         {

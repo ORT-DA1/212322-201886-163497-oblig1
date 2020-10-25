@@ -52,11 +52,12 @@ namespace Dominio
         }
 
         //CONSTRUCTOR CON PARAMETROS QUE NO LE PASO LA LISTA DE CATEGORIA MONTO PORQ NO SE COMO HACERLO.
-        public Presupuesto(int unAnio, String unMes)
+       /* public Presupuesto(int unAnio, String unMes)
         {
             Anio = unAnio;
             Mes = unMes;
-        }
+            this.ListaCategoriaMonto = new List<CategoriaMonto>();
+        }*/
 
         public override string ToString()
         {

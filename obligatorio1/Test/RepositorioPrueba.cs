@@ -14,6 +14,7 @@ namespace Test
         private Categoria UnaCategoria { get; set; }
         private GastoRecuerrente GastoRecuerrente { get; set; }
         private GastoComun GastoComun { get; set; }
+        
 
         [TestInitialize]
         public void InitTests()

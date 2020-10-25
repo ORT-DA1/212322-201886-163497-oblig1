@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Globalization;
-using Dominio;
 using Excepciones;
+using Dominio;
+
 
 namespace Test
 {
@@ -43,7 +44,7 @@ números positivos positivos, con dos decimales.
         public void PropertyMesPrueba()
         {
            
-            string nombreMes = DateTimeFormatInfo.CurrentInfo.GetMonthName(1);
+            string nombreMes = "enero";
             presupuesto.Mes = "enero";
 
             Assert.AreEqual(nombreMes, presupuesto.Mes);
@@ -80,23 +81,22 @@ números positivos positivos, con dos decimales.
         public void AgregarCategoriaMontoPrueba()
         {
             presupuesto.AgregarCategoriaMonto(categoria1, 100);
-
             Assert.IsFalse(presupuesto.EsVaciaListaCategoriaMonto());
         }
 
-        [TestMethod]
+       /* [TestMethod]
         public void ConstructorPresupuestoPrueba()
         {
             Presupuesto presupuesto1 = new Presupuesto(2019, "Setiembre");
             Assert.AreEqual(presupuesto1.Anio, 2019);
 
-        }
+        }*/
         [TestMethod]
         public void ConstructorPresupuestoAsignarCategoriasExistentesPrueba() 
  //hacer prueba que verifica que la lista de CategoriaMonto, (constr por defecto), sean todas las categorias existentes, y monto 0.
  //verificar tambien en categoria que cada vez que se crea una, crear objeto CategoriaMonto para todos los presupuestos, con monto 0.
         {
-            Presupuesto presupuesto1 = new Presupuesto(2019, "Setiembre");
+            Presupuesto presupuesto1 = new Presupuesto { Anio=2019, Mes= "Setiembre"};
             Assert.AreEqual(presupuesto1.Anio, 2019);
 
         }
