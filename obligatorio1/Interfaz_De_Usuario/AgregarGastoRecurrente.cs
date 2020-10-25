@@ -27,9 +27,17 @@ namespace Interfaz_De_Usuario
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            pGastoRecurrente.Controls.Clear();
-            UserControl agregarAtributos = new AtributosGastoRecurrente(adminGastosRecurrentes , adminCategorias,  tbDescripcion.Text);
-            pGastoRecurrente.Controls.Add(agregarAtributos);
+            try
+            {
+                pGastoRecurrente.Controls.Clear();
+                UserControl agregarAtributos = new AtributosGastoRecurrente(adminGastosRecurrentes, adminCategorias, tbDescripcion.Text);
+                pGastoRecurrente.Controls.Add(agregarAtributos);
+            }
+            catch (IndexOutOfRangeException unaExcepcion)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+
         }
     }
 }

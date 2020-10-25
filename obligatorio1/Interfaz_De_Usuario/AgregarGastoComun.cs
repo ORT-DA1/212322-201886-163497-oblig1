@@ -27,9 +27,16 @@ namespace Interfaz_De_Usuario
 
         private void btnOkDescripcion_Click(object sender, EventArgs e)
         {
-            pAgregarAtributos.Controls.Clear();
-            UserControl agregarAtributos = new AtributosGastoComun(atrGastosComun,tbDescripcion.Text, adminCategorias);
-            pAgregarAtributos.Controls.Add(agregarAtributos);
+            try
+            {
+                pAgregarAtributos.Controls.Clear();
+                UserControl agregarAtributos = new AtributosGastoComun(atrGastosComun, tbDescripcion.Text, adminCategorias);
+                pAgregarAtributos.Controls.Add(agregarAtributos);
+            }catch(IndexOutOfRangeException unaExcepcion)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+         
         }
     }
 }
