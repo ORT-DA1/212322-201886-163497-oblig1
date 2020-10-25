@@ -16,11 +16,13 @@ namespace Interfaz_De_Usuario
     public partial class AgregarCategoria : UserControl
     {
         private AdministradorCategorias adminCategorias;
+        
 
         public AgregarCategoria(AdministradorCategorias miAdminCategorias)
         {
             InitializeComponent();
             adminCategorias = miAdminCategorias;
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

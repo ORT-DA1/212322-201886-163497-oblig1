@@ -14,11 +14,12 @@ namespace Dominio
         private Repositorio Repositorio { get; }
         private AdministradorPresupuesto AdminPresupuesto { get; }
 
-        public AdministradorCategorias()
+        public AdministradorCategorias(Repositorio unRepositorio, AdministradorPresupuesto unAdministradorPresupuesto)
         {
 
-            this.Repositorio = new Repositorio();
-            this.AdminPresupuesto = new AdministradorPresupuesto();
+            this.Repositorio = unRepositorio;
+            this.AdminPresupuesto = unAdministradorPresupuesto;
+            
 
         }
         //rari que queda repetido pero no tengo forma de acceder a la lista desde la interfaz
@@ -40,6 +41,11 @@ namespace Dominio
             {
                 Repositorio.AgregarCategoria(unaCategoria);
                 //AdminPresupuesto.ActualizarPresupuestosConNuevaCategoria(unaCategoria);
+
+                 foreach (Presupuesto pres in Repositorio.RetornarListaPresupuestos())
+            {
+                pres.AgregarCategoriaMonto(unaCategoria, 0);
+            }
             }
 
         }

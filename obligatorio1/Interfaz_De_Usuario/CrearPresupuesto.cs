@@ -15,11 +15,13 @@ namespace Interfaz_De_Usuario
     {
         private AdministradorCategorias adminCategorias;
         private AdministradorPresupuesto adminPresupuestos;
+        
         public CrearPresupuesto(AdministradorPresupuesto miAdminPresupuestos, AdministradorCategorias miAdminCategorias)
         {
             InitializeComponent();
             adminPresupuestos = miAdminPresupuestos;
             cbMes.SelectedItem = "Enero";
+            
         }
 
         private void btnCrearPresupuesto_Click(object sender, EventArgs e)
