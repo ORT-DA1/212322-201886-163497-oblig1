@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace Interfaz_De_Usuario
 {
-    public partial class ReporteDeGasto : UserControl
+    public partial class ReporteDeGastos : UserControl
     {
-        public ReporteDeGasto()
+        public ReporteDeGastos()
         {
             InitializeComponent();
         }
+
+    
     }
 }

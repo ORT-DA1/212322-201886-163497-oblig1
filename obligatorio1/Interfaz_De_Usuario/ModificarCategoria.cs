@@ -15,18 +15,75 @@ namespace Interfaz_De_Usuario
     public partial class ModificarCategoria : UserControl
     {
         private AdministradorCategorias AdminCategorias;
+        public AdministradorCategorias unAdministrador { get; set; }
         public ModificarCategoria(AdministradorCategorias unAdminCategorias)
         {
             InitializeComponent();
             AdminCategorias = unAdminCategorias;
             CargarComboBoxCategoria();
-            
         }
-
         private void CargarComboBoxCategoria()
         {
-            cbCategorias.DataSource = AdminCategorias.RetornarListaCategorias();  
+            cbCategorias.DataSource = AdminCategorias.RetornarListaCategorias();
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if ( cbCategorias.SelectedItem == null || AdminCategorias.EsVaciaListaCategorias() )
+            {
+                MessageBox.Show("Categoria y palabra clave no pueden quedar vacias");
+                return;
+            }
+            try
+            {
+                Categoria categoriaSeleccionada = (Categoria)cbCategorias.SelectedItem;
+                AdminCategorias.AgregarPalabraClaveACategoria(categoriaSeleccionada, tbPalabraClave.Text);
+                cbListaPalabrasClave.DataSource = null;
+                cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
+                MessageBox.Show("Palabra Clave agregada con exito");
+                tbPalabraClave.Clear();
+            }
+            catch (Exception unaExcepcion)
+            when(unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is InvalidOperationException)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+
+        }
+
+
+        private void cbCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Categoria categoriaSeleccionada = (Categoria)cbCategorias.SelectedItem;
+            cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
+
+            AdminCategorias.BorrarPalabraClaveACategoria(categoriaSeleccionada, cbListaPalabrasClave.Text);
+
+            cbListaPalabrasClave.DataSource = null;
+            cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
+        }
+    }
+}
+
+/*---------------------------------------------------------------------
+
+
+        private void cbCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Categoria categoriaSeleccionada = (Categoria)cbCategorias.SelectedItem;
+            cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
+
+        }
+
+
+
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -40,14 +97,27 @@ namespace Interfaz_De_Usuario
                 MessageBox.Show("Palabra Clave agregada con exito");
                 tbPalabraClave.Clear();
             }
-            catch(InvalidOperationException unaExcepcion)
+            catch (InvalidOperationException unaExcepcion)
             {
                 MessageBox.Show(unaExcepcion.Message);
-            } 
-         
+            }
+
+        }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
+
+            AdminCategorias.BorrarPalabraClaveACategoria(categoriaSeleccionada, cbListaPalabrasClave.Text);
+
+            cbListaPalabrasClave.DataSource = null;
+            cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
         }
 
-        private void cbCategorias_SelectedIndexChanged(object sender, EventArgs e)
+
+
+//------------------------------------------------------------------------------------*/
+/*        private void cbCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
             
             Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
@@ -65,6 +135,86 @@ namespace Interfaz_De_Usuario
             cbListaPalabrasClave.DataSource = null;
             cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
         }
-     
+
     }
 }
+
+
+
+/*        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+           try
+            {
+                Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
+                AdminCategorias.AgregarPalabraClaveACategoria(categoriaSeleccionada, tbPalabraClave.Text);
+                cbListaPalabrasClave.DataSource = null;
+                cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
+                MessageBox.Show("Palabra Clave agregada con exito");
+                tbPalabraClave.Clear();
+            }
+            catch(InvalidOperationException unaExcepcion)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            } 
+         
+        }*/
+
+/*        private void cbCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
+            cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            
+            Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
+            
+            AdminCategorias.BorrarPalabraClaveACategoria(categoriaSeleccionada, cbListaPalabrasClave.Text);
+
+            cbListaPalabrasClave.DataSource = null;
+            cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
+        }*/
+
+/*
+private void CargarComboBoxCategoria()
+{
+    cbCategorias.DataSource = AdminCategorias.RetornarListaCategorias();
+}
+
+
+private void button1_Click(object sender, EventArgs e)
+{
+    try
+    {
+        Categoria catABorrar = (Categoria)cbCategorias.SelectedItem;
+        AdminCategorias.EliminarCategoria(catABorrar);
+        cbCategorias.DataSource = null;
+        cbCategorias.DataSource = cbCategorias.SelectedItem;
+    }
+    catch (Exception unaExcepcion)
+   when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is InvalidOperationException)
+    {
+        MessageBox.Show(unaExcepcion.Message);
+
+    }
+
+}
+
+private void btnSeleccionar_Click(object sender, EventArgs e)
+{
+    if (AdminCategorias.EsVaciaListaCategorias() || cbCategorias.SelectedItem == null)
+    {
+        MessageBox.Show("La Categoria no puede quedar vacia");
+        return;
+    }
+    Categoria categoriaSeleccionada = (Categoria)cbCategorias.SelectedItem;
+    pModificacion.Controls.Clear();
+    UserControl atrCategorias = new AtributosCategoria(AdminCategorias, categoriaSeleccionada);
+    pModificacion.Controls.Add(atrCategorias);
+
+
+}*/

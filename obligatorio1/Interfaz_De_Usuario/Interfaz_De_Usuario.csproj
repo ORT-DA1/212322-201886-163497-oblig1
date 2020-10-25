@@ -96,11 +96,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReporteDeGasto.cs">
+    <Compile Include="ReporteDeGastos.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ReporteDeGasto.Designer.cs">
-      <DependentUpon>ReporteDeGasto.cs</DependentUpon>
+    <Compile Include="ReporteDeGastos.Designer.cs">
+      <DependentUpon>ReporteDeGastos.cs</DependentUpon>
     </Compile>
     <Compile Include="ReporteDePresupuestos.cs">
       <SubType>UserControl</SubType>
@@ -141,8 +141,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ReporteDeGasto.resx">
-      <DependentUpon>ReporteDeGasto.cs</DependentUpon>
+    <EmbeddedResource Include="ReporteDeGastos.resx">
+      <DependentUpon>ReporteDeGastos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteDePresupuestos.resx">
       <DependentUpon>ReporteDePresupuestos.cs</DependentUpon>
