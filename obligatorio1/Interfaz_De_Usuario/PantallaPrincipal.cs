@@ -18,13 +18,17 @@ namespace Interfaz_De_Usuario
         public AdministradorGastosComunes AdminGastoComun { get; set; }
         public AdministradorGastosRecurrentes AdminGastoRecurrente { get; set; }
         public AdministradorPresupuesto AdminPresupuesto { get; set; }
+        public Repositorio Repositorio { get; set; }
         public PantallaPrincipal()
         {
             InitializeComponent();
-            AdminCategorias = new AdministradorCategorias();
+            Repositorio = new Repositorio();
+            AdminPresupuesto = new AdministradorPresupuesto(Repositorio);
+            AdminCategorias = new AdministradorCategorias(Repositorio, AdminPresupuesto);
             AdminGastoComun = new AdministradorGastosComunes();
             AdminGastoRecurrente = new AdministradorGastosRecurrentes();
-            AdminPresupuesto = new AdministradorPresupuesto();
+            
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

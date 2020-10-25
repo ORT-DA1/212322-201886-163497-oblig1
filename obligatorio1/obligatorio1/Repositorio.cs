@@ -31,10 +31,7 @@ namespace Dominio
         public void AgregarCategoria(Categoria unaCategoria)
         {
             this.ListaCategorias.Add(unaCategoria);
-           /* foreach (Presupuesto pres in this.ListaPresupuestos)
-            {
-                pres.AgregarCategoriaMonto(unaCategoria, 0);
-            }*/
+           
         }
 
 

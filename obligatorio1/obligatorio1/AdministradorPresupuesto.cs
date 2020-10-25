@@ -16,9 +16,9 @@ namespace Dominio
     public class AdministradorPresupuesto
     {
         private Repositorio Repositorio { get; }
-        public AdministradorPresupuesto()
+        public AdministradorPresupuesto(Repositorio unRepositorio)
         {
-            this.Repositorio = new Repositorio();
+            this.Repositorio = unRepositorio;
         }
         public List<Presupuesto> RetornarListaPresupuestos()
         {
@@ -35,13 +35,13 @@ namespace Dominio
             Repositorio.AgregarPresupuesto(unPresupuesto);
         }
 
-/*        public void ActualizarPresupuestosConNuevaCategoria(Categoria unaCategoria)
+       /* public void ActualizarPresupuestosConNuevaCategoria(Categoria unaCategoria)
         {
             foreach(Presupuesto pres in Repositorio.RetornarListaPresupuestos())
             {
                 pres.AgregarCategoriaMonto(unaCategoria, 0);
             }
-        }*/
+        }
 
 /*        public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, int unMonto)
         {
