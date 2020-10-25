@@ -47,9 +47,27 @@ namespace Dominio
             Repositorio.EliminarGastoComun(unGastoComun);
         }
 
-        public List<GastoComun> DevolverListaDeGastosSegunFecha(DateTime unaFecha)
+        public List<GastoComun> DevolverListaDeGastosComunesSegunFecha(DateTime unaFecha)
         {
-            throw new NotImplementedException();
+            List<GastoComun> ListaDeGastosSegunFecha = new List<GastoComun>();
+            foreach(GastoComun unGasto in Repositorio.RetornarListaGastosCoumnes())
+            {
+                if (CoincideMesAnioDeFechaRecibidaConGasto(unaFecha, unGasto))
+                {
+                    ListaDeGastosSegunFecha.Add(unGasto);
+                }
+            }
+
+            return ListaDeGastosSegunFecha;
+
+           
         }
+
+        private bool CoincideMesAnioDeFechaRecibidaConGasto(DateTime unaFecha, GastoComun unGasto)
+        {
+            return unGasto.Fecha.Month == unaFecha.Month && unGasto.Fecha.Year == unaFecha.Year;
+        }
+
+
     }
 }

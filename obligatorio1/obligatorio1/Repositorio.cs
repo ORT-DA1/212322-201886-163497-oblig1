@@ -17,7 +17,8 @@ namespace Dominio
         private List<Presupuesto> ListaPresupuestos { get; }
         private List<GastoComun> ListaGastosComunes { get; }
 
-        
+        private List<DateTime> ListaMesesDondeHayGastos { get; }
+
 
         public Repositorio()
         {
@@ -25,6 +26,7 @@ namespace Dominio
             ListaGastosRecurrentes = new List<GastoRecuerrente>();
             ListaGastosComunes = new List<GastoComun>();
             ListaPresupuestos = new List<Presupuesto>();
+            ListaMesesDondeHayGastos = new List<DateTime>();
 
         }
 
@@ -118,6 +120,34 @@ namespace Dominio
         {
             this.ListaPresupuestos.Add(unPresupuesto);
         }
+
+        // METODOS PARA REPORTE GASTO
+
+        public List<DateTime> RetornarListaMesesDondeHayGasto()
+        {
+            return this.ListaMesesDondeHayGastos;
+        }
+        public void AgregarMesDondeHayGasto(DateTime unaFecha)
+        {
+            this.ListaMesesDondeHayGastos.Add(unaFecha);
+        }
+        public bool EsVaciaListaMesesDondeHayGastos()
+        {
+            return this.ListaMesesDondeHayGastos.Count == 0;
+        }
+        public bool ExisteMes(DateTime unaFecha)
+        {
+            return this.ListaMesesDondeHayGastos.Contains(unaFecha);
+        }
+
+        public int CantidadElementosEnListaMesesDondeHayGastos()
+        {
+            return this.ListaMesesDondeHayGastos.Count();
+        }
+
+
+
+
 
     }
 }

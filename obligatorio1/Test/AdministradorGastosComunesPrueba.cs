@@ -23,7 +23,7 @@ namespace Test
             adminGastosComunes = new AdministradorGastosComunes();
             adminCategorias = new AdministradorCategorias();
             unGastoComun = new GastoComun();
-            unaCategoria = new Categoria();
+            unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
 
         }
 
@@ -63,7 +63,7 @@ namespace Test
         [TestMethod]
         public void EliminarGastoComunPrueba()
         {
-            unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
+            //unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
             unGastoComun.Categoria = unaCategoria;
             adminGastosComunes.AgregarGastoComun(unGastoComun);
             adminGastosComunes.EliminarGastoComun(unGastoComun);
@@ -77,10 +77,16 @@ namespace Test
         public void DevolverListaDeGastosSegunFechaPrueba()
         {
             unGastoComun.Fecha = new DateTime(2020, 5, 1);
+            unGastoComun.Categoria = unaCategoria;
             adminGastosComunes.AgregarGastoComun(unGastoComun);
+
+            GastoComun otroGasto = new GastoComun() { Fecha = new DateTime(2020, 6, 1) };
+            otroGasto.Categoria = new Categoria { Nombre = "Auto" };
+            adminGastosComunes.AgregarGastoComun(otroGasto);
+
             List<GastoComun> ListaLocal = new List<GastoComun>();
             ListaLocal.Add(unGastoComun);
-            Assert.IsTrue(adminGastosComunes.DevolverListaDeGastosSegunFecha(unGastoComun.Fecha).SequenceEqual(ListaLocal));
+            Assert.IsTrue(adminGastosComunes.DevolverListaDeGastosComunesSegunFecha(unGastoComun.Fecha).SequenceEqual(ListaLocal));
 
         }
 
