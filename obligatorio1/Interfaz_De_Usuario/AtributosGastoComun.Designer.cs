@@ -45,7 +45,7 @@
             this.btnAceptarGastoC.Name = "btnAceptarGastoC";
             this.btnAceptarGastoC.Size = new System.Drawing.Size(109, 37);
             this.btnAceptarGastoC.TabIndex = 24;
-            this.btnAceptarGastoC.Text = "Aceptar";
+            this.btnAceptarGastoC.Text = "Agregar";
             this.btnAceptarGastoC.UseVisualStyleBackColor = true;
             this.btnAceptarGastoC.Click += new System.EventHandler(this.btnAceptarGastoC_Click);
             // 
