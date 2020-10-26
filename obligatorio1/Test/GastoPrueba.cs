@@ -7,16 +7,7 @@ using Microsoft.Win32.SafeHandles;
 
 namespace Test
 {
-    /*
-     * monto > 0
-     * Si no encuentra una categoria la seleccion queda vacia asi el usuario elija manualmente.
-     * La fecha comprendida entre el 01/01/2018 y el 31/12/2030
-     * categoria queda vacia si: 
-     * -Una palabra clave esta en dos categorias. 
-     * -En la descripcion hay dos palabras claves de distintas categorias. 
-     * 
-     */
-
+    
     [TestClass]
     public class GastoPrueba
     {
