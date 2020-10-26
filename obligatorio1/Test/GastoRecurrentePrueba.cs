@@ -50,7 +50,7 @@ namespace Test
         [TestMethod]
         public void ToStringGastoRecurrentePrueba()
         {
-            Assert.AreEqual(gastoRec.ToString(),"Monto: 0,Descripcion: No hay descripcion,Categoria: No hay nombre,Dia: 1");
+            Assert.AreEqual(gastoRec.ToString(),"0,No hay descripcion,No hay nombre,1");
 
         }
     }

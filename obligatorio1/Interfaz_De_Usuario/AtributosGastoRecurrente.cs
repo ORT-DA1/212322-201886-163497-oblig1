@@ -63,8 +63,6 @@ namespace Interfaz_De_Usuario
                 unAdminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecurrente);
                 MessageBox.Show("El gasto recurrente ha sido creado con exito ");
 
-                
-
             }
             catch (Exception unaExcepcion)
             when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException)
@@ -73,8 +71,6 @@ namespace Interfaz_De_Usuario
             }
             
         }
-
-       
     }
 }
 
