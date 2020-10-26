@@ -81,5 +81,12 @@ namespace Interfaz_De_Usuario
             UserControl reportePresupuesto = new ReportePresupuesto(AdminPresupuesto);
             panelPrincipal.Controls.Add(reportePresupuesto);
         }
+
+        private void btnReporteGastos_Click(object sender, EventArgs e)
+        {
+            panelPrincipal.Controls.Clear();
+            UserControl reporteGastos = new ReporteDeGastos(AdminGastoComun, AdminGastoRecurrente);
+            panelPrincipal.Controls.Add(reporteGastos);
+        }
     }
 }

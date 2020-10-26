@@ -92,7 +92,15 @@ namespace Test
             Assert.IsTrue(adminGastosRecurrentes.RetornarListaGastosRecurrentesConFechaAdecuada(2020, 10).SequenceEqual(listaLocal));
 
         }
+        [TestMethod]
+        public void ElementosEnListaGastosRecurrentesConFechaAdecuadaPrueba()
+        {
+            unGastoRecuerrente.Fecha = 1;
+            adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
+            Assert.AreEqual(1, adminGastosRecurrentes.RetornarListaGastosRecurrentesConFechaAdecuada(2020, 10).Count());
+            
 
+        }
 
 
 

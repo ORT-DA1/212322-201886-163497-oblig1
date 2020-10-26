@@ -68,7 +68,23 @@ namespace Dominio
             return listaGastosRecurrentesConFechaAdecuada;
         }
 
+    /*    public List<GastoComun> UnirListaGastosDelMes(DateTime unaFecha)
+        {
+            List<GastoComun> listaTotal = new List<GastoComun>();
+            foreach (GastoComun gasto in administradorGastosComunes.DevolverListaDeGastosComunesSegunFecha(unaFecha))
+            {
+                listaTotal.Add(gasto);
+            }
 
+            foreach (GastoComun gasto in this.RetornarListaGastosRecurrentesConFechaAdecuada(repositorio, unaFecha.Year, unaFecha.Month))
+            {
+                listaTotal.Add(gasto);
+            }
+
+
+            return listaTotal;
+
+        }*/
 
     }
 }

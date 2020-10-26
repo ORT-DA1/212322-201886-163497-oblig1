@@ -35,6 +35,7 @@
             this.numMonto = new System.Windows.Forms.NumericUpDown();
             this.numFecha = new System.Windows.Forms.NumericUpDown();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.cbPrueba = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numMonto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFecha)).BeginInit();
             this.SuspendLayout();
@@ -102,10 +103,19 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // cbPrueba
+            // 
+            this.cbPrueba.FormattingEnabled = true;
+            this.cbPrueba.Location = new System.Drawing.Point(29, 223);
+            this.cbPrueba.Name = "cbPrueba";
+            this.cbPrueba.Size = new System.Drawing.Size(265, 28);
+            this.cbPrueba.TabIndex = 33;
+            // 
             // AtributosGastoRecurrente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbPrueba);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.numFecha);
             this.Controls.Add(this.numMonto);
@@ -130,5 +140,6 @@
         private System.Windows.Forms.NumericUpDown numMonto;
         private System.Windows.Forms.NumericUpDown numFecha;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.ComboBox cbPrueba;
     }
 }
