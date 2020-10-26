@@ -21,7 +21,10 @@ namespace Interfaz_De_Usuario
         public AgregarGastoComun(AdministradorGastosComunes miAdminGastosComunes,AdministradorCategorias miAdministradorCategorias)
         {
             InitializeComponent();
+            //miRepositorio = unRepositorio;
             adminGastosComunes = miAdminGastosComunes;
+            //atrGastosComun = new AdministradorGastosComunes();
+            
             adminCategorias = miAdministradorCategorias;
         }
 
@@ -30,7 +33,7 @@ namespace Interfaz_De_Usuario
             try
             {
                 pAgregarAtributos.Controls.Clear();
-                UserControl agregarAtributos = new AtributosGastoComun(adminGastosComunes, tbDescripcion.Text, adminCategorias);
+                UserControl agregarAtributos = new AtributosGastoComun(atrGastosComun, tbDescripcion.Text, adminCategorias);
                 pAgregarAtributos.Controls.Add(agregarAtributos);
             }catch(IndexOutOfRangeException unaExcepcion)
             {
