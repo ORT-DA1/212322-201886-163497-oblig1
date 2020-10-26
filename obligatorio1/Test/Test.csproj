@@ -49,16 +49,30 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Gasto.cs" />
+    <Compile Include="AdministradorGastosRecurrentesPrueba.cs" />
+    <Compile Include="AdministradorPresupuestoPrueba.cs" />
+    <Compile Include="CategoriaMontoPrueba.cs" />
+    <Compile Include="CategoriaPrueba.cs" />
+    <Compile Include="AdministradorGastosComunesPrueba.cs" />
+    <Compile Include="RepositorioPrueba.cs" />
+    <Compile Include="GastoComunPrueba.cs" />
+    <Compile Include="GastoRecurrentePrueba.cs" />
+    <Compile Include="AdministradorCategoriasPrueba.cs" />
+    <Compile Include="GastoPrueba.cs" />
+    <Compile Include="PresupuestoPrueba.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\obligatorio1\obligatorio1.csproj">
+    <ProjectReference Include="..\Excepciones\Excepciones.csproj">
+      <Project>{16064D46-CC24-40FF-9C32-5F4FEC52BB70}</Project>
+      <Name>Excepciones</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\obligatorio1\Dominio.csproj">
       <Project>{965ceeae-599e-45f2-bd46-f9381ba42871}</Project>
-      <Name>obligatorio1</Name>
+      <Name>Dominio</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
