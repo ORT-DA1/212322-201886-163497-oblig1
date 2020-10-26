@@ -78,20 +78,24 @@ namespace Test
         }
 
 
+
         [TestMethod]
         public void DevolverListaDeGastosSegunFechaPrueba()
         {
-           // unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
-            //unGastoComun.Categoria = unaCategoria;
             unGastoComun.Fecha = new DateTime(2020, 5, 1);
+            unGastoComun.Categoria = unaCategoria;
             adminGastosComunes.AgregarGastoComun(unGastoComun);
+
+            GastoComun otroGasto = new GastoComun() { Fecha = new DateTime(2020, 6, 1) };
+            otroGasto.Categoria = new Categoria { Nombre = "Auto" };
+            adminGastosComunes.AgregarGastoComun(otroGasto);
 
             List<GastoComun> ListaLocal = new List<GastoComun>();
             ListaLocal.Add(unGastoComun);
-            Assert.IsTrue(adminGastosComunes.DevolverListaDeGastosSegunFecha(unGastoComun.Fecha).SequenceEqual(ListaLocal));
+            Assert.IsTrue(adminGastosComunes.DevolverListaDeGastosComunesSegunFecha(unGastoComun.Fecha).SequenceEqual(ListaLocal));
 
         }
 
 
-     }
+    }
 }
