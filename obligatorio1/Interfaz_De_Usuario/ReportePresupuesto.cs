@@ -37,7 +37,6 @@ namespace Interfaz_De_Usuario
                     lvi.Tag = catMonto;
                     //agrego el item a la list view
                     listView1.Items.Add(lvi);
-
                 }
             }
             catch (Exception ex)
