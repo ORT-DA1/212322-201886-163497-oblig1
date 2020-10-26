@@ -78,7 +78,7 @@ namespace Test
         }
 
 
-        [TestMethod]
+/*        [TestMethod]
         public void DevolverListaDeGastosSegunFechaPrueba()
         {
            // unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
@@ -90,7 +90,7 @@ namespace Test
             ListaLocal.Add(unGastoComun);
             Assert.IsTrue(adminGastosComunes.DevolverListaDeGastosSegunFecha(unGastoComun.Fecha).SequenceEqual(ListaLocal));
 
-        }
+        }*/
 
 
      }
