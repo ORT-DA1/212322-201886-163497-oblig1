@@ -12,16 +12,20 @@ namespace Test
     [TestClass]
     public class AdministradorGastosComunesPrueba
     {
+        private Repositorio miRepositorio;
         private AdministradorGastosComunes adminGastosComunes;
         private AdministradorCategorias adminCategorias;
         private GastoComun unGastoComun;
         private Categoria unaCategoria;
+        private AdministradorPresupuesto adminPresupuesto;
 
         [TestInitialize]
         public void InitTests()
         {
+            miRepositorio = new Repositorio();
             adminGastosComunes = new AdministradorGastosComunes();
-            adminCategorias = new AdministradorCategorias();
+            adminPresupuesto = new AdministradorPresupuesto(miRepositorio);
+            adminCategorias = new AdministradorCategorias(miRepositorio);
             unGastoComun = new GastoComun();
             unaCategoria = new Categoria();
 

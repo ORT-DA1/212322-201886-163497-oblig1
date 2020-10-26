@@ -13,12 +13,14 @@ namespace Dominio
 
         private Repositorio Repositorio { get; }
         private AdministradorPresupuesto AdminPresupuesto { get; }
+        
+        
 
-        public AdministradorCategorias(Repositorio unRepositorio, AdministradorPresupuesto unAdministradorPresupuesto)
+        public AdministradorCategorias(Repositorio unRepositorio)
         {
 
             this.Repositorio = unRepositorio;
-            this.AdminPresupuesto = unAdministradorPresupuesto;
+            this.AdminPresupuesto = new AdministradorPresupuesto(unRepositorio);
             
 
         }

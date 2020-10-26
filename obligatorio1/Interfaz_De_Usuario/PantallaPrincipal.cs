@@ -24,7 +24,7 @@ namespace Interfaz_De_Usuario
             InitializeComponent();
             Repositorio = new Repositorio();
             AdminPresupuesto = new AdministradorPresupuesto(Repositorio);
-            AdminCategorias = new AdministradorCategorias(Repositorio, AdminPresupuesto);
+            AdminCategorias = new AdministradorCategorias(Repositorio);
             AdminGastoComun = new AdministradorGastosComunes();
             AdminGastoRecurrente = new AdministradorGastosRecurrentes();
             

@@ -6,7 +6,7 @@ namespace Dominio
 {
     public class Presupuesto
     {
-        //al crearlo, por defecto todas las categorias ya existentes.
+        
         private int unAnio;
         public String Mes { get; set; }
         public List <CategoriaMonto> ListaCategoriaMonto { get; }

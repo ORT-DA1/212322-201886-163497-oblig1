@@ -19,12 +19,14 @@ namespace Test
         private Categoria unaCategoria;
         private Categoria otraCategoria;
         private Presupuesto unPresupuesto;
+        private Repositorio miRepositorio;
 
         [TestInitialize]
         public void InitTests()
         {
-            adminPresupuestos = new AdministradorPresupuesto();
-            adminCategorias = new AdministradorCategorias();
+            miRepositorio = new Repositorio();
+            adminPresupuestos = new AdministradorPresupuesto(miRepositorio);
+            adminCategorias = new AdministradorCategorias(miRepositorio);
             unGastoComun = new GastoComun();
             unaCategoria = new Categoria();
             otraCategoria = new Categoria();

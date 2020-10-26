@@ -60,7 +60,7 @@ namespace Dominio
 
         private bool PalabraClaveInvalida(string palabraMayuscula)
         {
-            return CantPalabrasClave() == 10 || this.ExistePalabraClave(palabraMayuscula) || EsVacia();
+            return CantPalabrasClave() == 10 || this.ExistePalabraClave(palabraMayuscula);
         }
 
 
