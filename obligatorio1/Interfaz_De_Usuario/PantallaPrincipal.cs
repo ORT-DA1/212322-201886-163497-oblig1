@@ -75,11 +75,27 @@ namespace Interfaz_De_Usuario
             panelPrincipal.Controls.Add(crearPresupuesto);
         }
 
+
+        private void btnEliminarGComun_Click(object sender, EventArgs e)
+        {
+            panelPrincipal.Controls.Clear();
+            UserControl eliminarGastoComun = new EliminarGastoComun(AdminGastoComun);
+            panelPrincipal.Controls.Add(eliminarGastoComun);
+
+        }
+
+        private void btnEliminarGRecurrente_Click(object sender, EventArgs e)
+        {
+            panelPrincipal.Controls.Clear();
+            UserControl eliminarGastoRecurrente = new EliminarGastoRecurrente(AdminGastoRecurrente);
+            panelPrincipal.Controls.Add(eliminarGastoRecurrente);
+
         private void btnReportePresupuesto_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
             UserControl reportePresupuesto = new ReportePresupuesto(AdminPresupuesto);
             panelPrincipal.Controls.Add(reportePresupuesto);
+
         }
     }
 }

@@ -87,7 +87,7 @@ namespace Test
        [TestMethod]
         public void ToStringGastoPrueba()
         {
-            Assert.AreEqual(gasto.ToString(),"0,No hay descripcion,No hay nombre");
+            Assert.AreEqual(gasto.ToString(),"Monto: 0,Descripcion: No hay descripcion,Categoria: No hay nombre");
 
         }
 

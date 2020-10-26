@@ -47,9 +47,9 @@ namespace Dominio
             Repositorio.EliminarGastoComun(unGastoComun);
         }
 
-        public List<GastoComun> DevolverListaDeGastosSegunFecha(DateTime unaFecha)
+      /*  public List<GastoComun> DevolverListaDeGastosSegunFecha(DateTime unaFecha)
         {
             throw new NotImplementedException();
-        }
+        }*/
     }
 }

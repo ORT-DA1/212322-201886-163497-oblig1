@@ -79,6 +79,7 @@
             // 
             // numMonto
             // 
+            this.numMonto.DecimalPlaces = 2;
             this.numMonto.Location = new System.Drawing.Point(204, 23);
             this.numMonto.Name = "numMonto";
             this.numMonto.Size = new System.Drawing.Size(316, 26);
