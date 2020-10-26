@@ -23,11 +23,12 @@ namespace Test
         public void InitTests()
         {
             miRepositorio = new Repositorio();
-            adminGastosComunes = new AdministradorGastosComunes();
+            adminGastosComunes = new AdministradorGastosComunes(miRepositorio);
             adminPresupuesto = new AdministradorPresupuesto(miRepositorio);
             adminCategorias = new AdministradorCategorias(miRepositorio);
-            unGastoComun = new GastoComun();
-            unaCategoria = new Categoria();
+            
+            unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
+            unGastoComun = new GastoComun() { Categoria = unaCategoria};
 
         }
 
@@ -43,8 +44,8 @@ namespace Test
         [TestMethod]
         public void AgregarGastoComunConCategoriaDefinidaPrueba()
         {
-            unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
-            unGastoComun.Categoria = unaCategoria;
+            //unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
+            //unGastoComun.Categoria = unaCategoria;
             adminGastosComunes.AgregarGastoComun(unGastoComun);
             Assert.IsFalse(adminGastosComunes.EsVaciaListaGastosComunes());
         }
@@ -67,8 +68,8 @@ namespace Test
         [TestMethod]
         public void EliminarGastoComunPrueba()
         {
-            unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
-            unGastoComun.Categoria = unaCategoria;
+           // unaCategoria = new Categoria() ;
+            //unGastoComun.Categoria = unaCategoria;
             adminGastosComunes.AgregarGastoComun(unGastoComun);
             adminGastosComunes.EliminarGastoComun(unGastoComun);
 
@@ -80,8 +81,11 @@ namespace Test
         [TestMethod]
         public void DevolverListaDeGastosSegunFechaPrueba()
         {
+           // unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
+            //unGastoComun.Categoria = unaCategoria;
             unGastoComun.Fecha = new DateTime(2020, 5, 1);
             adminGastosComunes.AgregarGastoComun(unGastoComun);
+
             List<GastoComun> ListaLocal = new List<GastoComun>();
             ListaLocal.Add(unGastoComun);
             Assert.IsTrue(adminGastosComunes.DevolverListaDeGastosSegunFecha(unGastoComun.Fecha).SequenceEqual(ListaLocal));

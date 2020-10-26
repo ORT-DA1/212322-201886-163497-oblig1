@@ -25,8 +25,8 @@ namespace Interfaz_De_Usuario
             Repositorio = new Repositorio();
             AdminPresupuesto = new AdministradorPresupuesto(Repositorio);
             AdminCategorias = new AdministradorCategorias(Repositorio);
-            AdminGastoComun = new AdministradorGastosComunes();
-            AdminGastoRecurrente = new AdministradorGastosRecurrentes();
+            AdminGastoComun = new AdministradorGastosComunes(Repositorio);
+            AdminGastoRecurrente = new AdministradorGastosRecurrentes(Repositorio);
             
             
         }
