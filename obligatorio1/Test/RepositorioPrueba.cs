@@ -190,7 +190,39 @@ namespace Test
 
         }
 
+        [TestMethod]
+        public void OrdenarListaMesesDondeHayGastoAnioPrueba()
+        {
+            GastoComun.Fecha = new DateTime(2020, 10, 1);
+            GastoComun otroGasto = new GastoComun { Fecha = new DateTime(2018, 11, 1) };
+            
+            Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
+            Repositorio.AgregarMesDondeHayGasto(otroGasto.Fecha);
+           
+            
+            Assert.AreEqual(Repositorio.RetornarOrdenadaListaMesesDondeHayGasto().First().Year, 2018);
 
+        }
+
+        [TestMethod]
+        public void OrdenarListaDondeHayGastoOrdenDeMesesPrueba()
+        {
+            GastoComun.Fecha = new DateTime(2020, 10, 1);
+            GastoComun unGasto = new GastoComun { Fecha = new DateTime(2020, 5, 1) };
+            GastoComun otroGasto = new GastoComun { Fecha = new DateTime(2020, 6, 1) };
+
+            Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
+            Repositorio.AgregarMesDondeHayGasto(unGasto.Fecha);
+            Repositorio.AgregarMesDondeHayGasto(otroGasto.Fecha);
+
+             List<DateTime> ListaLocal = new List<DateTime>();
+            ListaLocal.Add(new DateTime(2020, 5, 1));
+            ListaLocal.Add(new DateTime(2020, 6, 1));
+            ListaLocal.Add(new DateTime(2020, 10, 1));
+            Assert.IsTrue(Repositorio.RetornarOrdenadaListaMesesDondeHayGasto().SequenceEqual(ListaLocal));
+            
+
+        }
 
 
 

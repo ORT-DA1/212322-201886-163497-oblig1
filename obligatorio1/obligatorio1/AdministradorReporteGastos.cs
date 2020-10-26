@@ -80,6 +80,14 @@ namespace Dominio
 
         }
 
+      /*  public void AgregarMesesAnioDondeHayGasto()
+        {
+            foreach (GastoComun gasto in Repositorio.RetornarListaGastosCoumnes())
+            {
+                listaTotal.Add(gasto);
+            }
+
+        }*/
 
 
 

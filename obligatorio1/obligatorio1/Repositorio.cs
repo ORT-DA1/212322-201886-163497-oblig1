@@ -16,7 +16,7 @@ namespace Dominio
         private List<GastoRecuerrente> ListaGastosRecurrentes { get; }
         private List<Presupuesto> ListaPresupuestos { get; }
         private List<GastoComun> ListaGastosComunes { get; }
-        private List<DateTime> ListaMesesDondeHayGastos { get; }
+        private List<DateTime> ListaMesesDondeHayGastos { get; set; }
 
 
         public Repositorio()
@@ -126,6 +126,15 @@ namespace Dominio
 
         // METODOS PARA REPORTE GASTO
 
+        
+
+
+        public List<DateTime> RetornarOrdenadaListaMesesDondeHayGasto()
+        {
+            ListaMesesDondeHayGastos.Sort();
+            return ListaMesesDondeHayGastos;
+        }
+    
         public List<DateTime> RetornarListaMesesDondeHayGasto()
         {
             return this.ListaMesesDondeHayGastos;
