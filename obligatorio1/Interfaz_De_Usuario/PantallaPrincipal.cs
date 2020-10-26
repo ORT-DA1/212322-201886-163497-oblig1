@@ -74,5 +74,12 @@ namespace Interfaz_De_Usuario
             UserControl crearPresupuesto = new ModificarPresupuesto(AdminPresupuesto);
             panelPrincipal.Controls.Add(crearPresupuesto);
         }
+
+        private void btnReportePresupuesto_Click(object sender, EventArgs e)
+        {
+            panelPrincipal.Controls.Clear();
+            UserControl reportePresupuesto = new ReportePresupuesto(AdminPresupuesto);
+            panelPrincipal.Controls.Add(reportePresupuesto);
+        }
     }
 }
