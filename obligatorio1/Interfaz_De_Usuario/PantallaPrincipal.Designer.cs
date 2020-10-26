@@ -66,7 +66,9 @@
             // btnAgregarGasto
             // 
             this.btnAgregarGasto.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.btnAgregarGasto.Location = new System.Drawing.Point(12, 145);
+
             this.btnAgregarGasto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregarGasto.Name = "btnAgregarGasto";
             this.btnAgregarGasto.Size = new System.Drawing.Size(333, 42);
@@ -78,7 +80,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.button1.Location = new System.Drawing.Point(10, 95);
+
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(333, 46);
@@ -90,10 +94,12 @@
             // btnAgregarGastoRecurrente
             // 
             this.btnAgregarGastoRecurrente.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.btnAgregarGastoRecurrente.Location = new System.Drawing.Point(12, 237);
             this.btnAgregarGastoRecurrente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregarGastoRecurrente.Name = "btnAgregarGastoRecurrente";
             this.btnAgregarGastoRecurrente.Size = new System.Drawing.Size(333, 50);
+
             this.btnAgregarGastoRecurrente.TabIndex = 9;
             this.btnAgregarGastoRecurrente.Text = "Agregar Gasto Recurrente";
             this.btnAgregarGastoRecurrente.UseVisualStyleBackColor = true;
@@ -101,8 +107,10 @@
             // 
             // btnCrearPresupuesto
             // 
+
             this.btnCrearPresupuesto.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearPresupuesto.Location = new System.Drawing.Point(12, 339);
+
             this.btnCrearPresupuesto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCrearPresupuesto.Name = "btnCrearPresupuesto";
             this.btnCrearPresupuesto.Size = new System.Drawing.Size(331, 39);
@@ -114,7 +122,9 @@
             // btnModificarPresupuesto
             // 
             this.btnModificarPresupuesto.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.btnModificarPresupuesto.Location = new System.Drawing.Point(12, 384);
+
             this.btnModificarPresupuesto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificarPresupuesto.Name = "btnModificarPresupuesto";
             this.btnModificarPresupuesto.Size = new System.Drawing.Size(333, 42);
@@ -150,13 +160,14 @@
 
             // btnReportePresupuesto
             // 
-            this.btnReportePresupuesto.Location = new System.Drawing.Point(13, 377);
+            this.btnReportePresupuesto.Location = new System.Drawing.Point(15, 582);
+            this.btnReportePresupuesto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReportePresupuesto.Name = "btnReportePresupuesto";
-            this.btnReportePresupuesto.Size = new System.Drawing.Size(294, 32);
+            this.btnReportePresupuesto.Size = new System.Drawing.Size(331, 40);
             this.btnReportePresupuesto.TabIndex = 12;
             this.btnReportePresupuesto.Text = "Reporte Presupuesto";
             this.btnReportePresupuesto.UseVisualStyleBackColor = true;
-            this.btnReportePresupuesto.Click += new System.EventHandler(this.btnReportePresupuesto_Click);
+          
 
             // 
             // PantallaPrincipal
@@ -164,11 +175,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 
+
             this.ClientSize = new System.Drawing.Size(1127, 702);
             this.Controls.Add(this.btnEliminarGRecurrente);
             this.Controls.Add(this.btnEliminarGComun);
 
             this.ClientSize = new System.Drawing.Size(1002, 562);
+
             this.Controls.Add(this.btnReportePresupuesto);
 
             this.Controls.Add(this.btnModificarPresupuesto);
