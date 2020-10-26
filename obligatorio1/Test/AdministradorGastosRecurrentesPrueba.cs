@@ -14,10 +14,13 @@ namespace Test
         private AdministradorGastosRecurrentes adminGastosRecurrentes;
         private GastoRecuerrente unGastoRecuerrente;
         private Categoria unaCategoria;
+        private Repositorio miRepositorio;
+
         [TestInitialize]
         public void InitTest()
         {
-            adminGastosRecurrentes = new AdministradorGastosRecurrentes();
+            miRepositorio = new Repositorio();
+            adminGastosRecurrentes = new AdministradorGastosRecurrentes(miRepositorio);
             unGastoRecuerrente = new GastoRecuerrente();
             unaCategoria = new Categoria();
 

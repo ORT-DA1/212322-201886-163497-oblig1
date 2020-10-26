@@ -11,9 +11,9 @@ namespace Dominio
     {
         private Repositorio Repositorio { get; }
 
-        public AdministradorGastosComunes()
+        public AdministradorGastosComunes(Repositorio unRepositorio)
         {
-            this.Repositorio = new Repositorio();
+            this.Repositorio = unRepositorio;
 
         }
 

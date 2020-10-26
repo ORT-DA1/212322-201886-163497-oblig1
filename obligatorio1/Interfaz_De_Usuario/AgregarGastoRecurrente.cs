@@ -22,7 +22,7 @@ namespace Interfaz_De_Usuario
             InitializeComponent();
             adminCategorias = miAdminCategorias;
             adminGastosRecurrentes = miAdminGastosRecurrentes;
-            atrGastosRecurrentes = new AdministradorGastosRecurrentes();
+            //atrGastosRecurrentes = new AdministradorGastosRecurrentes();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

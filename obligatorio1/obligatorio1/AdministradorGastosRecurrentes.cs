@@ -7,9 +7,9 @@ namespace Dominio
     public class AdministradorGastosRecurrentes
     {
         private Repositorio Repositorio { get; }
-        public AdministradorGastosRecurrentes()
+        public AdministradorGastosRecurrentes(Repositorio unRepositorio)
         {
-            this.Repositorio = new Repositorio();
+            this.Repositorio = unRepositorio;
 
         }
 

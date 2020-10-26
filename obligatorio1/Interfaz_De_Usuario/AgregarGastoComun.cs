@@ -17,11 +17,14 @@ namespace Interfaz_De_Usuario
         private AdministradorGastosComunes adminGastosComunes;
         private AdministradorCategorias adminCategorias;
         public AdministradorGastosComunes atrGastosComun { get; set; }
+        public Repositorio miRepositorio;
         public AgregarGastoComun(AdministradorGastosComunes miAdminGastosComunes,AdministradorCategorias miAdministradorCategorias)
         {
             InitializeComponent();
+            //miRepositorio = unRepositorio;
             adminGastosComunes = miAdminGastosComunes;
-            atrGastosComun = new AdministradorGastosComunes();
+            //atrGastosComun = new AdministradorGastosComunes();
+            
             adminCategorias = miAdministradorCategorias;
         }
 
