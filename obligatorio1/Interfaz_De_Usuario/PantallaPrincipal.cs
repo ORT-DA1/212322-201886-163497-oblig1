@@ -74,5 +74,24 @@ namespace Interfaz_De_Usuario
             UserControl crearPresupuesto = new ModificarPresupuesto(AdminPresupuesto);
             panelPrincipal.Controls.Add(crearPresupuesto);
         }
+
+
+        private void btnEliminarGComun_Click(object sender, EventArgs e)
+        {
+            panelPrincipal.Controls.Clear();
+            UserControl eliminarGastoComun = new EliminarGastoComun(AdminGastoComun);
+            panelPrincipal.Controls.Add(eliminarGastoComun);
+
+        }
+
+        private void btnEliminarGRecurrente_Click(object sender, EventArgs e)
+        {
+            panelPrincipal.Controls.Clear();
+            UserControl eliminarGastoRecurrente = new EliminarGastoRecurrente(AdminGastoRecurrente);
+            panelPrincipal.Controls.Add(eliminarGastoRecurrente);
+
+
+        }
+     
     }
 }

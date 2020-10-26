@@ -56,43 +56,6 @@ namespace Test
 
         }
 
-        [TestMethod]
-        public void ConvertirGastoRecurrenteMesPrueba()
-        {
-           
-            unGastoComun = new GastoComun { Categoria = unaCategoria };
-            unGastoComun = adminGastosRecurrentes.ConvertirGastoRecurrente(unGastoRecuerrente, 2020, 5);
-            Assert.AreEqual(unGastoComun.Fecha.Month, 5);
-
-        }
-
-
-        [TestMethod]
-        public void ConvertirGastoRecurrenteAnioPrueba()
-        {
-           
-            unGastoComun = new GastoComun { Categoria = unaCategoria };
-            Assert.AreEqual(adminGastosRecurrentes.ConvertirGastoRecurrente(unGastoRecuerrente, 2020, 5).Fecha.Year, 2020);
-
-        }
-
-
-        [TestMethod]
-        public void RetornarListaGastosRecurrentesConFechaAdecuadaPrueba()
-        {
-           
-            unGastoRecuerrente.Fecha = 1;
-            adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
-
-            List<GastoComun> listaLocal = new List<GastoComun>();
-            GastoComun otroGastoComun = new GastoComun {Categoria = unaCategoria};
-            otroGastoComun.Fecha = new DateTime(2020, 10, 1);
-            listaLocal.Add(otroGastoComun);
-
-            Assert.IsTrue(adminGastosRecurrentes.RetornarListaGastosRecurrentesConFechaAdecuada(2020, 10).SequenceEqual(listaLocal));
-
-        }
-
 
 
 

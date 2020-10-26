@@ -143,7 +143,6 @@ namespace Dominio
             return this.ListaMesesDondeHayGastos.Contains(unaFecha);
 
         }
-
         public int CantidadElementosEnListaMesesDondeHayGastos()
         {
             return this.ListaMesesDondeHayGastos.Count();
