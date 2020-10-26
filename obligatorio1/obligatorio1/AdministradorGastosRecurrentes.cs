@@ -42,49 +42,7 @@ namespace Dominio
         }
 
 
-        public GastoComun ConvertirGastoRecurrente(GastoRecuerrente gastoRecurrente, int anio, int mes)
-        {
-            int dia = gastoRecurrente.Fecha;
-            GastoComun gasto = new GastoComun()
-            {
-                Monto = gastoRecurrente.Monto,
-                Descripcion = gastoRecurrente.Descripcion,
-                Categoria = gastoRecurrente.Categoria,
-                Fecha = new DateTime(anio, mes, dia)
-            };
-            return gasto;
-
-        }
-
-
-        public List<GastoComun> RetornarListaGastosRecurrentesConFechaAdecuada(int anio, int mes)
-        {
-            List<GastoComun> listaGastosRecurrentesConFechaAdecuada = new List<GastoComun>();
-            foreach (GastoRecuerrente unGasto in Repositorio.RetornarListaGastosRecurrentes())
-            {
-                listaGastosRecurrentesConFechaAdecuada.Add(ConvertirGastoRecurrente(unGasto, anio, mes));
-            }
-
-            return listaGastosRecurrentesConFechaAdecuada;
-        }
-
-    /*    public List<GastoComun> UnirListaGastosDelMes(DateTime unaFecha)
-        {
-            List<GastoComun> listaTotal = new List<GastoComun>();
-            foreach (GastoComun gasto in administradorGastosComunes.DevolverListaDeGastosComunesSegunFecha(unaFecha))
-            {
-                listaTotal.Add(gasto);
-            }
-
-            foreach (GastoComun gasto in this.RetornarListaGastosRecurrentesConFechaAdecuada(repositorio, unaFecha.Year, unaFecha.Month))
-            {
-                listaTotal.Add(gasto);
-            }
-
-
-            return listaTotal;
-
-        }*/
+      
 
     }
 }

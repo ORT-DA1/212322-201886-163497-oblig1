@@ -70,6 +70,18 @@
     <Compile Include="CrearPresupuesto.Designer.cs">
       <DependentUpon>CrearPresupuesto.cs</DependentUpon>
     </Compile>
+    <Compile Include="EliminarGastoComun.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EliminarGastoComun.Designer.cs">
+      <DependentUpon>EliminarGastoComun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarGastoRecurrente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EliminarGastoRecurrente.Designer.cs">
+      <DependentUpon>EliminarGastoRecurrente.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModificarCategoria.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -137,6 +149,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CrearPresupuesto.resx">
       <DependentUpon>CrearPresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EliminarGastoComun.resx">
+      <DependentUpon>EliminarGastoComun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EliminarGastoRecurrente.resx">
+      <DependentUpon>EliminarGastoRecurrente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarCategoria.resx">
       <DependentUpon>ModificarCategoria.cs</DependentUpon>

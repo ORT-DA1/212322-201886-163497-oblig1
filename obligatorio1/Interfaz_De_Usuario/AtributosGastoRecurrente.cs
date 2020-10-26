@@ -63,7 +63,7 @@ namespace Interfaz_De_Usuario
                 unAdminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecurrente);
                 MessageBox.Show("El gasto recurrente ha sido creado con exito ");
 
-                cbPrueba.DataSource = unAdminGastosRecurrentes.RetornarListaGastosRecurrentesConFechaAdecuada(2020, 10);
+                
 
             }
             catch (Exception unaExcepcion)

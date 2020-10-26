@@ -56,8 +56,6 @@ namespace Interfaz_De_Usuario
             {
                 gastoC.Monto = (double)numMonto.Value;
                 gastoC.Fecha = dtFecha.Value;
-                //No usar esta funcion RetornarCategoriaSegunString, usar las funciones que traen las ventanas tipo .SelectedItem
-                // gastoC.Categoria = unAdminCategorias.RetornarCategoriaSegunString(cbCategoria.Text);
                 gastoC.Categoria = (Categoria)cbCategoria.SelectedItem;
                 unAdminGastosComun.AgregarGastoComun(gastoC);
                 MessageBox.Show("El gasto ha sido creado con exito ");
