@@ -132,6 +132,12 @@
     <Compile Include="ReporteDePresupuestos.Designer.cs">
       <DependentUpon>ReporteDePresupuestos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportePresupuesto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportePresupuesto.Designer.cs">
+      <DependentUpon>ReportePresupuesto.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AgregarCategoria.resx">
       <DependentUpon>AgregarCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteDePresupuestos.resx">
       <DependentUpon>ReporteDePresupuestos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportePresupuesto.resx">
+      <DependentUpon>ReportePresupuesto.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

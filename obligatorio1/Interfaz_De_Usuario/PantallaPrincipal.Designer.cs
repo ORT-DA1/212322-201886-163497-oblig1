@@ -35,8 +35,12 @@
             this.btnAgregarGastoRecurrente = new System.Windows.Forms.Button();
             this.btnCrearPresupuesto = new System.Windows.Forms.Button();
             this.btnModificarPresupuesto = new System.Windows.Forms.Button();
+
             this.btnEliminarGComun = new System.Windows.Forms.Button();
             this.btnEliminarGRecurrente = new System.Windows.Forms.Button();
+
+            this.btnReportePresupuesto = new System.Windows.Forms.Button();
+
             this.SuspendLayout();
             // 
             // panelPrincipal
@@ -119,6 +123,7 @@
             this.btnModificarPresupuesto.UseVisualStyleBackColor = true;
             this.btnModificarPresupuesto.Click += new System.EventHandler(this.btnModificarPresupuesto_Click);
             // 
+
             // btnEliminarGComun
             // 
             this.btnEliminarGComun.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -142,14 +147,30 @@
             this.btnEliminarGRecurrente.Text = "Eliminar Gasto Recurrente";
             this.btnEliminarGRecurrente.UseVisualStyleBackColor = true;
             this.btnEliminarGRecurrente.Click += new System.EventHandler(this.btnEliminarGRecurrente_Click);
+
+            // btnReportePresupuesto
+            // 
+            this.btnReportePresupuesto.Location = new System.Drawing.Point(13, 377);
+            this.btnReportePresupuesto.Name = "btnReportePresupuesto";
+            this.btnReportePresupuesto.Size = new System.Drawing.Size(294, 32);
+            this.btnReportePresupuesto.TabIndex = 12;
+            this.btnReportePresupuesto.Text = "Reporte Presupuesto";
+            this.btnReportePresupuesto.UseVisualStyleBackColor = true;
+            this.btnReportePresupuesto.Click += new System.EventHandler(this.btnReportePresupuesto_Click);
+
             // 
             // PantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.ClientSize = new System.Drawing.Size(1127, 702);
             this.Controls.Add(this.btnEliminarGRecurrente);
             this.Controls.Add(this.btnEliminarGComun);
+
+            this.ClientSize = new System.Drawing.Size(1002, 562);
+            this.Controls.Add(this.btnReportePresupuesto);
+
             this.Controls.Add(this.btnModificarPresupuesto);
             this.Controls.Add(this.btnCrearPresupuesto);
             this.Controls.Add(this.btnAgregarGastoRecurrente);
@@ -175,6 +196,8 @@
         private System.Windows.Forms.Button btnModificarPresupuesto;
         private System.Windows.Forms.Button btnEliminarGComun;
         private System.Windows.Forms.Button btnEliminarGRecurrente;
+        private System.Windows.Forms.Button btnReportePresupuesto;
+
     }
 }
 
