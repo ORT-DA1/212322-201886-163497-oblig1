@@ -36,7 +36,6 @@
             this.btnCrearPresupuesto = new System.Windows.Forms.Button();
             this.btnModificarPresupuesto = new System.Windows.Forms.Button();
             this.btnReportePresupuesto = new System.Windows.Forms.Button();
-            this.btnReporteGastos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panelPrincipal
@@ -129,24 +128,11 @@
             this.btnReportePresupuesto.UseVisualStyleBackColor = true;
             this.btnReportePresupuesto.Click += new System.EventHandler(this.btnReportePresupuesto_Click);
             // 
-            // btnReporteGastos
-            // 
-            this.btnReporteGastos.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporteGastos.Location = new System.Drawing.Point(55, 350);
-            this.btnReporteGastos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReporteGastos.Name = "btnReporteGastos";
-            this.btnReporteGastos.Size = new System.Drawing.Size(333, 42);
-            this.btnReporteGastos.TabIndex = 13;
-            this.btnReporteGastos.Text = "Reporte Gastos";
-            this.btnReporteGastos.UseVisualStyleBackColor = true;
-            this.btnReporteGastos.Click += new System.EventHandler(this.btnReporteGastos_Click);
-            // 
             // PantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1127, 702);
-            this.Controls.Add(this.btnReporteGastos);
             this.Controls.Add(this.btnReportePresupuesto);
             this.Controls.Add(this.btnModificarPresupuesto);
             this.Controls.Add(this.btnCrearPresupuesto);
@@ -172,7 +158,6 @@
         private System.Windows.Forms.Button btnCrearPresupuesto;
         private System.Windows.Forms.Button btnModificarPresupuesto;
         private System.Windows.Forms.Button btnReportePresupuesto;
-        private System.Windows.Forms.Button btnReporteGastos;
     }
 }
 
