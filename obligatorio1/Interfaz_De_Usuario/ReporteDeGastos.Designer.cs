@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.cbMes = new System.Windows.Forms.ComboBox();
+            this.cbMesAnio = new System.Windows.Forms.ComboBox();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.lblMes = new System.Windows.Forms.Label();
             this.tpReporteGastos = new System.Windows.Forms.TableLayoutPanel();
@@ -37,13 +37,13 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.lblMonto = new System.Windows.Forms.Label();
-            this.s = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.cFecha = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cDescripcion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cCategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cMonto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.s = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tpReporteGastos.SuspendLayout();
             this.SuspendLayout();
@@ -58,13 +58,13 @@
             this.lblTitulo.TabIndex = 7;
             this.lblTitulo.Text = "Reporte de Gastos";
             // 
-            // cbMes
+            // cbMesAnio
             // 
-            this.cbMes.FormattingEnabled = true;
-            this.cbMes.Location = new System.Drawing.Point(98, 95);
-            this.cbMes.Name = "cbMes";
-            this.cbMes.Size = new System.Drawing.Size(250, 28);
-            this.cbMes.TabIndex = 11;
+            this.cbMesAnio.FormattingEnabled = true;
+            this.cbMesAnio.Location = new System.Drawing.Point(98, 95);
+            this.cbMesAnio.Name = "cbMesAnio";
+            this.cbMesAnio.Size = new System.Drawing.Size(250, 28);
+            this.cbMesAnio.TabIndex = 11;
             // 
             // btnConsultar
             // 
@@ -161,24 +161,6 @@
             this.lblMonto.TabIndex = 24;
             this.lblMonto.Text = "Monto";
             // 
-            // s
-            // 
-            this.s.AutoSize = true;
-            this.s.Location = new System.Drawing.Point(561, 466);
-            this.s.Name = "s";
-            this.s.Size = new System.Drawing.Size(48, 20);
-            this.s.TabIndex = 15;
-            this.s.Text = "Total:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(615, 466);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 20);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Mostrar Total aqui.";
-            // 
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -200,6 +182,24 @@
             // 
             this.cFecha.Text = "Fecha";
             // 
+            // s
+            // 
+            this.s.AutoSize = true;
+            this.s.Location = new System.Drawing.Point(561, 466);
+            this.s.Name = "s";
+            this.s.Size = new System.Drawing.Size(48, 20);
+            this.s.TabIndex = 15;
+            this.s.Text = "Total:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(615, 466);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(140, 20);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Mostrar Total aqui.";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -220,7 +220,7 @@
             this.Controls.Add(this.tpReporteGastos);
             this.Controls.Add(this.lblMes);
             this.Controls.Add(this.btnConsultar);
-            this.Controls.Add(this.cbMes);
+            this.Controls.Add(this.cbMesAnio);
             this.Controls.Add(this.lblTitulo);
             this.Name = "ReporteDeGastos";
             this.Size = new System.Drawing.Size(846, 532);
@@ -234,7 +234,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.ComboBox cbMes;
+        private System.Windows.Forms.ComboBox cbMesAnio;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Label lblMes;
         private System.Windows.Forms.TableLayoutPanel tpReporteGastos;
