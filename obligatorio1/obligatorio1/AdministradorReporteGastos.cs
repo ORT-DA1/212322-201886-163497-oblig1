@@ -12,33 +12,23 @@ namespace Dominio
         {
             this.Repositorio = unRepositorio;
            
-
         }
 
-        public GastoComun ConvertirGastoRecurrente(GastoRecuerrente gastoRecurrente, int anio, int mes)
+        public List<GastoComun> UnirListaGastosDelMes(int anio, int mes)
         {
-            int dia = gastoRecurrente.Fecha;
-            GastoComun gasto = new GastoComun()
+            List<GastoComun> listaTotal = new List<GastoComun>();
+            foreach (GastoComun gasto in DevolverListaDeGastosComunesSegunFecha(anio, mes))
             {
-                Monto = gastoRecurrente.Monto,
-                Descripcion = gastoRecurrente.Descripcion,
-                Categoria = gastoRecurrente.Categoria,
-                Fecha = new DateTime(anio, mes, dia)
-            };
-            return gasto;
-
-        }
-
-
-        public List<GastoComun> RetornarListaGastosRecurrentesConFechaAdecuada(int anio, int mes)
-        {
-            List<GastoComun> listaGastosRecurrentesConFechaAdecuada = new List<GastoComun>();
-            foreach (GastoRecuerrente unGasto in Repositorio.RetornarListaGastosRecurrentes())
-            {
-                listaGastosRecurrentesConFechaAdecuada.Add(ConvertirGastoRecurrente(unGasto, anio, mes));
+                listaTotal.Add(gasto);
             }
 
-            return listaGastosRecurrentesConFechaAdecuada;
+            foreach (GastoComun gasto in RetornarListaGastosRecurrentesConFechaAdecuada(anio, mes))
+            {
+                listaTotal.Add(gasto);
+            }
+
+            return listaTotal;
+
         }
 
         public List<GastoComun> DevolverListaDeGastosComunesSegunFecha(int anio, int mes)
@@ -54,7 +44,6 @@ namespace Dominio
 
             return listaDeGastosDelMes;
 
-
         }
 
         private bool CoincideMesAnioDeFechaRecibidaConGasto(int anio, int mes, GastoComun unGasto)
@@ -62,25 +51,40 @@ namespace Dominio
             return unGasto.Fecha.Month == mes && unGasto.Fecha.Year == anio;
         }
 
-       
 
-
-        public List<GastoComun> UnirListaGastosDelMes(int anio, int mes)
+        public List<GastoComun> RetornarListaGastosRecurrentesConFechaAdecuada(int anio, int mes)
         {
-            List<GastoComun> listaTotal = new List<GastoComun>();
-            foreach (GastoComun gasto in DevolverListaDeGastosComunesSegunFecha(anio, mes))
+            List<GastoComun> listaGastosRecurrentesConFechaAdecuada = new List<GastoComun>();
+            foreach (GastoRecuerrente unGasto in Repositorio.RetornarListaGastosRecurrentes())
             {
-                listaTotal.Add(gasto);
+                listaGastosRecurrentesConFechaAdecuada.Add(ConvertirGastoRecurrente(unGasto, anio, mes));
             }
 
-            foreach (GastoComun gasto in RetornarListaGastosRecurrentesConFechaAdecuada(anio, mes))
+            return listaGastosRecurrentesConFechaAdecuada;
+        }
+
+
+        public GastoComun ConvertirGastoRecurrente(GastoRecuerrente gastoRecurrente, int anio, int mes)
+        {
+            int dia = gastoRecurrente.Fecha;
+            GastoComun gasto = new GastoComun()
             {
-                listaTotal.Add(gasto);
-            }
-           
-            return listaTotal;
+                Monto = gastoRecurrente.Monto,
+                Descripcion = gastoRecurrente.Descripcion,
+                Categoria = gastoRecurrente.Categoria,
+                Fecha = new DateTime(anio, mes, dia)
+            };
+            return gasto;
 
         }
+
+        public List<DateTime> AgregarYRetornalListaDeMesesDondeHayGastoOrdenada()
+        {
+            this.AgregarMesesAnioDondeHayGasto();
+            Repositorio.RetornarListaMesesDondeHayGasto().Sort();
+            return Repositorio.RetornarListaMesesDondeHayGasto();
+        }
+
         public double CalcularMontoDeReporte(List<GastoComun> ListaDeGastosReporte)
         {
             double total = 0;
@@ -91,15 +95,6 @@ namespace Dominio
             return total;
         }
 
-
-        public List<DateTime> AgregarYRetornalListaDeMesesDondeHayGastoOrdenada()
-        {
-            this.AgregarMesesAnioDondeHayGasto();
-            Repositorio.RetornarListaMesesDondeHayGasto().Sort();
-            return Repositorio.RetornarListaMesesDondeHayGasto();
-        }
-
-
         public void AgregarMesesAnioDondeHayGasto()
         {
             foreach (GastoComun gasto in Repositorio.RetornarListaGastosCoumnes())
@@ -109,7 +104,6 @@ namespace Dominio
                 {
                   Repositorio.AgregarMesDondeHayGasto(fecha);
                 }
-                
             }
 
         }
