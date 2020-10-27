@@ -38,17 +38,17 @@
             // 
             this.lbNombre.AutoSize = true;
             this.lbNombre.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNombre.Location = new System.Drawing.Point(15, 127);
+            this.lbNombre.Location = new System.Drawing.Point(44, 90);
             this.lbNombre.Name = "lbNombre";
-            this.lbNombre.Size = new System.Drawing.Size(91, 26);
+            this.lbNombre.Size = new System.Drawing.Size(247, 26);
             this.lbNombre.TabIndex = 20;
-            this.lbNombre.Text = "Nombre";
+            this.lbNombre.Text = "Nombre de la categoria";
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("MS Reference Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(85, 18);
+            this.lblTitulo.Location = new System.Drawing.Point(43, 21);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(290, 35);
             this.lblTitulo.TabIndex = 18;
@@ -56,17 +56,17 @@
             // 
             // tbNombre
             // 
-            this.tbNombre.Location = new System.Drawing.Point(162, 127);
+            this.tbNombre.Location = new System.Drawing.Point(49, 132);
             this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(218, 26);
+            this.tbNombre.Size = new System.Drawing.Size(356, 26);
             this.tbNombre.TabIndex = 21;
             // 
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(271, 172);
+            this.btnAgregar.Location = new System.Drawing.Point(438, 120);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(109, 49);
+            this.btnAgregar.Size = new System.Drawing.Size(109, 47);
             this.btnAgregar.TabIndex = 22;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -81,7 +81,7 @@
             this.Controls.Add(this.lbNombre);
             this.Controls.Add(this.lblTitulo);
             this.Name = "AgregarCategoria";
-            this.Size = new System.Drawing.Size(461, 268);
+            this.Size = new System.Drawing.Size(585, 304);
             this.ResumeLayout(false);
             this.PerformLayout();
 

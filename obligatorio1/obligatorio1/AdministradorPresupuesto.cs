@@ -5,13 +5,7 @@ using System.Collections.Generic;
 
 namespace Dominio
 {
-    // UN PRESUPUESTO PLANIFICADO PARA CADA MES.
-    /* UN MONTO PARA CADA CATEGORIA.
-     * 
-     * . se crea: se le asignan todas las categorias que existen en CategoriaMonto
- *  si se crea una categoria, se le agrega a la lista de CategoriasMonto con Monto 0.
-     * 
-    */
+   
 
     public class AdministradorPresupuesto
     {
@@ -51,27 +45,9 @@ namespace Dominio
             }
             throw new ExcepcionElementoNoExistente("No hay un presupuesto para el mes elegido");
 
-        } //HACER PRUEBA!!!
+        } 
 
 
-        /* public void ActualizarPresupuestosConNuevaCategoria(Categoria unaCategoria)
-         {
-             foreach(Presupuesto pres in Repositorio.RetornarListaPresupuestos())
-             {
-                 pres.AgregarCategoriaMonto(unaCategoria, 0);
-             }
-         }
-
-        
-
-         
-
-
-         
- public bool EsVaciaListaPresupuestos()
- {
-    return Repositorio.EsVaciaListaPresupuestos();
- }*/
 
     }
 }

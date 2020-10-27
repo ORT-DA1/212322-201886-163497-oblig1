@@ -13,23 +13,22 @@ namespace Dominio
 
         private Repositorio Repositorio { get; }
         private AdministradorPresupuesto AdminPresupuesto { get; }
-        
-        
+
+
 
         public AdministradorCategorias(Repositorio unRepositorio)
         {
 
             this.Repositorio = unRepositorio;
             this.AdminPresupuesto = new AdministradorPresupuesto(unRepositorio);
-            
+
 
         }
-        //rari que queda repetido pero no tengo forma de acceder a la lista desde la interfaz
+
         public List<Categoria> RetornarListaCategorias()
         {
             return Repositorio.RetornarListaCategorias();
         }
-
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
@@ -42,16 +41,15 @@ namespace Dominio
             else
             {
                 Repositorio.AgregarCategoria(unaCategoria);
-                //AdminPresupuesto.ActualizarPresupuestosConNuevaCategoria(unaCategoria);
 
-                 foreach (Presupuesto pres in Repositorio.RetornarListaPresupuestos())
-            {
-                pres.AgregarCategoriaMonto(unaCategoria, 0);
-            }
+                foreach (Presupuesto pres in Repositorio.RetornarListaPresupuestos())
+                {
+                    pres.AgregarCategoriaMonto(unaCategoria, 0);
+                }
             }
 
         }
-     
+
 
         public bool EsVaciaListaCategorias()
         {
@@ -103,6 +101,7 @@ namespace Dominio
             }
 
         }
+
         private string[] SepararPalabras(string descripcion)
         {
             return descripcion.Split(SEPARADOR);
@@ -137,8 +136,7 @@ namespace Dominio
                 {
                     if (unaCategoria.ExistePalabraClave(palabra))
                     {
-                        // si es la primera vuelta, guardarCategoria va a ser distinta a unaCategoria
-                        // en la segunda vuelta si es la misma categoria no entra aqui y no suma cant
+                       
                         if (LaCategoriaEsDistinta(unaCategoria, categoriaYaContada))
                         {
                             cantDeCategoriasDistintas++;
@@ -173,24 +171,19 @@ namespace Dominio
 
         }
 
-
-
         //NUEVO
         public List<String> RetornarPalabrasClaveDeCategoria(Categoria unaCategoria)
         {
             return unaCategoria.PalabrasClave;
         }
 
-
-
-      
         //metodo que dado un string (el del combobox)cretorne el objeto categoria con ese mismo nombre
         public Categoria RetornarCategoriaSegunString(string unNombre)
         {
-            
+
             foreach (Categoria categoria in Repositorio.RetornarListaCategorias())
             {
-                if (categoria.Nombre == unNombre) return categoria; 
+                if (categoria.Nombre == unNombre) return categoria;
             }
 
             throw new ExcepcionElementoNoExistente("Categoria no existente");
@@ -199,9 +192,7 @@ namespace Dominio
 
         public void EliminarCategoria(Categoria unaCategoria)
         {
-
             Repositorio.EliminarCategoria(unaCategoria);
-
         }
 
 

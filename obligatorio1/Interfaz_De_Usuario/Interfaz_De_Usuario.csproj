@@ -82,6 +82,12 @@
     <Compile Include="EliminarGastoRecurrente.Designer.cs">
       <DependentUpon>EliminarGastoRecurrente.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuArriba.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuArriba.Designer.cs">
+      <DependentUpon>MenuArriba.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModificarCategoria.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -138,6 +144,24 @@
     <Compile Include="ReportePresupuesto.Designer.cs">
       <DependentUpon>ReportePresupuesto.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuArribaGasto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuArribaGasto.Designer.cs">
+      <DependentUpon>MenuArribaGasto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuArribaGastoRecurrente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuArribaGastoRecurrente.Designer.cs">
+      <DependentUpon>MenuArribaGastoRecurrente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuArribaPresupuesto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuArribaPresupuesto.Designer.cs">
+      <DependentUpon>MenuArribaPresupuesto.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AgregarCategoria.resx">
       <DependentUpon>AgregarCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EliminarGastoRecurrente.resx">
       <DependentUpon>EliminarGastoRecurrente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuArriba.resx">
+      <DependentUpon>MenuArriba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarCategoria.resx">
       <DependentUpon>ModificarCategoria.cs</DependentUpon>
@@ -191,6 +218,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportePresupuesto.resx">
       <DependentUpon>ReportePresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuArribaGasto.resx">
+      <DependentUpon>MenuArribaGasto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuArribaGastoRecurrente.resx">
+      <DependentUpon>MenuArribaGastoRecurrente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuArribaPresupuesto.resx">
+      <DependentUpon>MenuArribaPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

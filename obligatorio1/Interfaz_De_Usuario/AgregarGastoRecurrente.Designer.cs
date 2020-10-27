@@ -37,7 +37,7 @@
             // 
             // tbDescripcion
             // 
-            this.tbDescripcion.Location = new System.Drawing.Point(200, 145);
+            this.tbDescripcion.Location = new System.Drawing.Point(188, 101);
             this.tbDescripcion.MaxLength = 20;
             this.tbDescripcion.Name = "tbDescripcion";
             this.tbDescripcion.Size = new System.Drawing.Size(317, 26);
@@ -47,7 +47,7 @@
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(46, 143);
+            this.lblDescripcion.Location = new System.Drawing.Point(33, 99);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(127, 26);
             this.lblDescripcion.TabIndex = 29;
@@ -57,7 +57,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("MS Reference Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(46, 56);
+            this.lblTitulo.Location = new System.Drawing.Point(30, 30);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(279, 35);
             this.lblTitulo.TabIndex = 28;
@@ -65,14 +65,14 @@
             // 
             // pGastoRecurrente
             // 
-            this.pGastoRecurrente.Location = new System.Drawing.Point(21, 187);
+            this.pGastoRecurrente.Location = new System.Drawing.Point(36, 164);
             this.pGastoRecurrente.Name = "pGastoRecurrente";
             this.pGastoRecurrente.Size = new System.Drawing.Size(633, 410);
             this.pGastoRecurrente.TabIndex = 32;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(552, 145);
+            this.btnAgregar.Location = new System.Drawing.Point(537, 96);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(102, 36);
             this.btnAgregar.TabIndex = 33;
@@ -90,7 +90,7 @@
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblTitulo);
             this.Name = "AgregarGastoRecurrente";
-            this.Size = new System.Drawing.Size(701, 611);
+            this.Size = new System.Drawing.Size(792, 615);
             this.ResumeLayout(false);
             this.PerformLayout();
 

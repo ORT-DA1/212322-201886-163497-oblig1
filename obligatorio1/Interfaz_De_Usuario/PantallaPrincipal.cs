@@ -33,65 +33,36 @@ namespace Interfaz_De_Usuario
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            panelPrincipal.Controls.Clear();
-            UserControl modificarCategoria = new ModificarCategoria(AdminCategorias);
-            panelPrincipal.Controls.Add(modificarCategoria);
-        }
 
         private void btnAgregarCategoria_Click(object sender, EventArgs e)
         {
+            
             panelPrincipal.Controls.Clear();
-            UserControl agregarCategoria = new AgregarCategoria(AdminCategorias);
-            panelPrincipal.Controls.Add(agregarCategoria);
+            UserControl menuArriba = new MenuArribaCategoria(AdminCategorias);
+            panelPrincipal.Controls.Add(menuArriba);
+
         }
 
-        private void btnAgregarGasto_Click(object sender, EventArgs e)
+        private void btnGastoComun_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
-            UserControl agregarGastoComun = new AgregarGastoComun(AdminGastoComun,AdminCategorias);
-            panelPrincipal.Controls.Add(agregarGastoComun);
+            UserControl menuArriba = new MenuArribaGasto(AdminGastoComun, AdminCategorias);
+            panelPrincipal.Controls.Add(menuArriba);
         }
 
-        private void btnAgregarGastoRecurrente_Click(object sender, EventArgs e)
+        private void btGastoRecurrente_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
-            UserControl agregarGastoRecurrente = new AgregarGastoRecurrente(AdminGastoRecurrente, AdminCategorias);
-            panelPrincipal.Controls.Add(agregarGastoRecurrente);
-
+            UserControl gastoRecurrente = new MenuArribaGastoRecurrente(AdminGastoRecurrente, AdminCategorias);
+            panelPrincipal.Controls.Add(gastoRecurrente);
         }
 
         private void btnCrearPresupuesto_Click(object sender, EventArgs e)
         {
+           
             panelPrincipal.Controls.Clear();
-            UserControl crearPresupuesto = new CrearPresupuesto(AdminPresupuesto, AdminCategorias);
-            panelPrincipal.Controls.Add(crearPresupuesto);
-
-        }
-
-        private void btnModificarPresupuesto_Click(object sender, EventArgs e)
-        {
-            panelPrincipal.Controls.Clear();
-            UserControl crearPresupuesto = new ModificarPresupuesto(AdminPresupuesto);
-            panelPrincipal.Controls.Add(crearPresupuesto);
-        }
-
-
-        private void btnEliminarGComun_Click(object sender, EventArgs e)
-        {
-            panelPrincipal.Controls.Clear();
-            UserControl eliminarGastoComun = new EliminarGastoComun(AdminGastoComun);
-            panelPrincipal.Controls.Add(eliminarGastoComun);
-
-        }
-
-        private void btnEliminarGRecurrente_Click(object sender, EventArgs e)
-        {
-            panelPrincipal.Controls.Clear();
-            UserControl eliminarGastoRecurrente = new EliminarGastoRecurrente(AdminGastoRecurrente);
-            panelPrincipal.Controls.Add(eliminarGastoRecurrente);
-
+            UserControl presupuesto = new MenuArribaPresupuesto(AdminPresupuesto, AdminCategorias);
+            panelPrincipal.Controls.Add(presupuesto);
 
         }
 
@@ -100,6 +71,13 @@ namespace Interfaz_De_Usuario
             panelPrincipal.Controls.Clear();
             UserControl reporteGastos = new ReporteDeGastos(AdminReporteGastos);
             panelPrincipal.Controls.Add(reporteGastos);
+        }
+
+        private void btnReportePres_Click(object sender, EventArgs e)
+        {
+            panelPrincipal.Controls.Clear();
+            UserControl reportePresupuesto = new ReporteDePresupuestos();
+            panelPrincipal.Controls.Add(reportePresupuesto);
         }
     }
 }

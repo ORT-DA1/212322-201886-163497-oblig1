@@ -1,17 +1,12 @@
 ﻿
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System;
 
-
 namespace Dominio
-
 {
     public class Repositorio
     {
-
         private List<Categoria> ListaCategorias { get; }
         private List<GastoRecuerrente> ListaGastosRecurrentes { get; }
         private List<Presupuesto> ListaPresupuestos { get; }
@@ -32,9 +27,7 @@ namespace Dominio
         public void AgregarCategoria(Categoria unaCategoria)
         {
             this.ListaCategorias.Add(unaCategoria);
-           
         }
-
 
         public List<Categoria> RetornarListaCategorias()
         {
@@ -61,7 +54,8 @@ namespace Dominio
             this.ListaCategorias.Remove(unaCategoria);
         }
 
-        // METODOS DE LISTAS DE GASTOS RECURRENTES
+        
+
 
         public void AgregarGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
@@ -88,7 +82,8 @@ namespace Dominio
             this.ListaGastosRecurrentes.Remove(unGastoRecurrente);
         }
 
-        // METODOS DE LISTAS DE GASTOS COUMNES
+      
+
 
         public void AgregarGastoComun(GastoComun unGastoComun)
         {
@@ -109,28 +104,18 @@ namespace Dominio
         {
             return this.ListaGastosComunes.Contains(unGastoComun);
         }
-
         public void EliminarGastoComun(GastoComun unGastoComun)
         {
             this.ListaGastosComunes.Remove(unGastoComun);
         }
 
-
         public void AgregarPresupuesto(Presupuesto unPresupuesto)
         {
-            
-
-            this.ListaPresupuestos.Add(unPresupuesto);
-            
+            this.ListaPresupuestos.Add(unPresupuesto);   
         }
-
-        // METODOS PARA REPORTE GASTO
 
         
 
-
-     
-    
         public List<DateTime> RetornarListaMesesDondeHayGasto()
         {
             return this.ListaMesesDondeHayGastos;
@@ -146,15 +131,11 @@ namespace Dominio
         public bool ExisteMes(DateTime unaFecha)
         {
             return this.ListaMesesDondeHayGastos.Contains(unaFecha);
-
         }
         public int CantidadElementosEnListaMesesDondeHayGastos()
         {
             return this.ListaMesesDondeHayGastos.Count();
         }
-
-
-
 
 
     }
