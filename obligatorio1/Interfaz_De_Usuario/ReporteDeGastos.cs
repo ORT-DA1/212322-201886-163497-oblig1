@@ -8,14 +8,23 @@ namespace Interfaz_De_Usuario
     {
         private AdministradorGastosComunes adminGastoComun;
         private AdministradorGastosRecurrentes adminGastoRecurrente;
+        private AdministradorReporteGastos adminReporteGastos;
 
-        public ReporteDeGastos(AdministradorGastosComunes AdminGastoComun, AdministradorGastosRecurrentes AdminGastoRecurrente)
+        public ReporteDeGastos(AdministradorGastosComunes AdminGastoComun, AdministradorGastosRecurrentes AdminGastoRecurrente, AdministradorReporteGastos AdminReporteGastos)
         {
             InitializeComponent();
             adminGastoComun = AdminGastoComun;
             adminGastoRecurrente = AdminGastoRecurrente;
+            adminReporteGastos = AdminReporteGastos;
+
+            cbMesAnio.DataSource = adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada();
+            /*foreach (DateTime unMesAnio in adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada())
+            {
+                cbMesAnio.Items.Add(unMesAnio);
+            }*/
         }
 
-    
+
+        
     }
 }

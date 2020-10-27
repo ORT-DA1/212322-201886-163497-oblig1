@@ -61,6 +61,7 @@ namespace Dominio
             return unGasto.Fecha.Month == mes && unGasto.Fecha.Year == anio;
         }
 
+       
 
 
         public List<GastoComun> UnirListaGastosDelMes(int anio, int mes)
@@ -80,15 +81,33 @@ namespace Dominio
 
         }
 
-      /*  public void AgregarMesesAnioDondeHayGasto()
+        public List<DateTime> AgregarYRetornalListaDeMesesDondeHayGastoOrdenada()
+        {
+            this.AgregarMesesAnioDondeHayGasto();
+            Repositorio.RetornarListaMesesDondeHayGasto().Sort();
+            return Repositorio.RetornarListaMesesDondeHayGasto();
+        }
+
+        public void AgregarMesesAnioDondeHayGasto()
         {
             foreach (GastoComun gasto in Repositorio.RetornarListaGastosCoumnes())
             {
-                listaTotal.Add(gasto);
+                DateTime fecha = ConvertirFechaQuitarElDia(gasto);
+                if (!Repositorio.RetornarListaMesesDondeHayGasto().Contains(fecha))
+                {
+                  Repositorio.AgregarMesDondeHayGasto(fecha);
+                }
+                
             }
 
-        }*/
+        }
 
+        public DateTime ConvertirFechaQuitarElDia(GastoComun gasto)
+        {
+            return new DateTime(gasto.Fecha.Year, gasto.Fecha.Month, 1);
+        }
+
+      
 
 
 

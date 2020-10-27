@@ -19,6 +19,7 @@ namespace Interfaz_De_Usuario
         public AdministradorGastosRecurrentes AdminGastoRecurrente { get; set; }
         public AdministradorPresupuesto AdminPresupuesto { get; set; }
         public Repositorio Repositorio { get; set; }
+        public AdministradorReporteGastos AdminReporteGastos { get; set; }
         public PantallaPrincipal()
         {
             InitializeComponent();
@@ -27,8 +28,9 @@ namespace Interfaz_De_Usuario
             AdminCategorias = new AdministradorCategorias(Repositorio);
             AdminGastoComun = new AdministradorGastosComunes(Repositorio);
             AdminGastoRecurrente = new AdministradorGastosRecurrentes(Repositorio);
-            
-            
+            AdminReporteGastos = new AdministradorReporteGastos(Repositorio);
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -92,6 +94,12 @@ namespace Interfaz_De_Usuario
 
 
         }
-     
+
+        private void btnReporteGastos_Click(object sender, EventArgs e)
+        {
+            panelPrincipal.Controls.Clear();
+            UserControl reporteGastos = new ReporteDeGastos(AdminGastoComun, AdminGastoRecurrente, AdminReporteGastos);
+            panelPrincipal.Controls.Add(reporteGastos);
+        }
     }
 }
