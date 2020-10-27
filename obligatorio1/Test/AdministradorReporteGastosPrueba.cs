@@ -54,21 +54,6 @@ namespace Test
         }
 
 
-       /* [TestMethod]
-        public void RetornarListaGastosRecurrentesConFechaAdecuadaPrueba()
-        {
-
-            unGastoRecuerrente.Fecha = 1;
-            adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
-
-            List<GastoComun> listaLocal = new List<GastoComun>();
-            GastoComun otroGastoComun = new GastoComun { Categoria = unaCategoria };
-            otroGastoComun.Fecha = new DateTime(2020, 10, 1);
-            listaLocal.Add(otroGastoComun);
-
-            Assert.IsTrue(adminReporteGastos.RetornarListaGastosRecurrentesConFechaAdecuada(2020, 10).SequenceEqual(listaLocal));
-
-        }*/
         [TestMethod]
         public void ElementosEnListaGastosRecurrentesConFechaAdecuadaPrueba()
         {
@@ -108,6 +93,84 @@ namespace Test
 
 
         }
+
+        [TestMethod]
+        public void OrdenarListaMesesDondeHayGastoAnioPrueba()
+        {
+            unGastoComun.Fecha = new DateTime(2020, 10, 1);
+            GastoComun otroGasto = new GastoComun { Fecha = new DateTime(2018, 11, 1) };
+
+            miRepositorio.AgregarMesDondeHayGasto(unGastoComun.Fecha);
+            miRepositorio.AgregarMesDondeHayGasto(otroGasto.Fecha);
+
+
+            Assert.AreEqual(adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada().First().Year, 2018);
+
+        }
+
+        [TestMethod]
+        public void OrdenarListaDondeHayGastoOrdenDeMesesPrueba()
+        {
+            unGastoComun.Fecha = new DateTime(2020, 10, 1);
+            GastoComun unGasto = new GastoComun { Fecha = new DateTime(2020, 5, 1) };
+            GastoComun otroGasto = new GastoComun { Fecha = new DateTime(2020, 6, 1) };
+
+            miRepositorio.AgregarMesDondeHayGasto(unGastoComun.Fecha);
+            miRepositorio.AgregarMesDondeHayGasto(unGasto.Fecha);
+            miRepositorio.AgregarMesDondeHayGasto(otroGasto.Fecha);
+
+            List<DateTime> ListaLocal = new List<DateTime>();
+            ListaLocal.Add(new DateTime(2020, 5, 1));
+            ListaLocal.Add(new DateTime(2020, 6, 1));
+            ListaLocal.Add(new DateTime(2020, 10, 1));
+            Assert.IsTrue(adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada().SequenceEqual(ListaLocal));
+
+
+        }
+
+
+        [TestMethod]
+        public void AgregarListaDeMesesDondeHayGastoPrueba()
+        {
+            unGastoComun.Fecha = new DateTime(2020, 10, 2);
+            adminGastosComunes.AgregarGastoComun(unGastoComun);
+            Assert.AreEqual(1, adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada().Count());
+        }
+
+        [TestMethod]
+        public void AgregarDosRepetidosListaDeMesesDondeHayGastoPrueba()
+        {
+            unGastoComun.Fecha = new DateTime(2020, 10, 2);
+            adminGastosComunes.AgregarGastoComun(unGastoComun);
+            GastoComun unGasto = new GastoComun { Categoria = unaCategoria, Fecha = new DateTime(2020, 10, 2) };
+            adminGastosComunes.AgregarGastoComun(unGasto);
+            Assert.AreEqual(1, adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada().Count());
+        }
+
+
+        [TestMethod]
+        public void AgregarMesesAnioDondeHayGastoPrueba()
+        {
+            unGastoComun.Fecha = new DateTime(2020, 10, 2);
+            adminGastosComunes.AgregarGastoComun(unGastoComun);
+            adminReporteGastos.AgregarMesesAnioDondeHayGasto();
+            Assert.AreEqual(1, adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada().Count());
+
+        }
+           
+        [TestMethod]
+        public void ConvertirFechaQuitarElDiaPrueba()
+        {
+            unGastoComun.Fecha = new DateTime(2020, 5, 28);
+            DateTime convertido = adminReporteGastos.ConvertirFechaQuitarElDia(unGastoComun);
+            Assert.IsFalse(convertido.Equals(unGastoComun.Fecha));
+           
+        }
+
+
+
+
+
 
 
 

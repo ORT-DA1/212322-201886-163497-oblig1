@@ -129,11 +129,7 @@ namespace Dominio
         
 
 
-        public List<DateTime> RetornarOrdenadaListaMesesDondeHayGasto()
-        {
-            ListaMesesDondeHayGastos.Sort();
-            return ListaMesesDondeHayGastos;
-        }
+     
     
         public List<DateTime> RetornarListaMesesDondeHayGasto()
         {
