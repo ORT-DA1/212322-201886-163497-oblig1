@@ -125,9 +125,7 @@ namespace Test
             ListaLocal.Add(new DateTime(2020, 10, 1));
             Assert.IsTrue(adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada().SequenceEqual(ListaLocal));
 
-
         }
-
 
         [TestMethod]
         public void AgregarListaDeMesesDondeHayGastoPrueba()

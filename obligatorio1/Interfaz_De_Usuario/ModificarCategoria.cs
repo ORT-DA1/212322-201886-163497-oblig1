@@ -69,5 +69,7 @@ namespace Interfaz_De_Usuario
             cbListaPalabrasClave.DataSource = null;
             cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
         }
+
+      
     }
 }

@@ -37,16 +37,16 @@
             // cbGastoRecurrente
             // 
             this.cbGastoRecurrente.FormattingEnabled = true;
-            this.cbGastoRecurrente.Location = new System.Drawing.Point(235, 101);
+            this.cbGastoRecurrente.Location = new System.Drawing.Point(253, 101);
             this.cbGastoRecurrente.Name = "cbGastoRecurrente";
             this.cbGastoRecurrente.Size = new System.Drawing.Size(300, 28);
             this.cbGastoRecurrente.TabIndex = 35;
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(552, 101);
+            this.btnEliminar.Location = new System.Drawing.Point(586, 101);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(102, 36);
+            this.btnEliminar.Size = new System.Drawing.Size(102, 30);
             this.btnEliminar.TabIndex = 34;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -56,7 +56,7 @@
             // 
             this.lblSeleccionarGasto.AutoSize = true;
             this.lblSeleccionarGasto.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeleccionarGasto.Location = new System.Drawing.Point(17, 99);
+            this.lblSeleccionarGasto.Location = new System.Drawing.Point(36, 99);
             this.lblSeleccionarGasto.Name = "lblSeleccionarGasto";
             this.lblSeleccionarGasto.Size = new System.Drawing.Size(193, 26);
             this.lblSeleccionarGasto.TabIndex = 33;
@@ -66,7 +66,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("MS Reference Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(44, 24);
+            this.lblTitulo.Location = new System.Drawing.Point(35, 30);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(417, 35);
             this.lblTitulo.TabIndex = 32;
@@ -81,7 +81,7 @@
             this.Controls.Add(this.lblSeleccionarGasto);
             this.Controls.Add(this.lblTitulo);
             this.Name = "EliminarGastoRecurrente";
-            this.Size = new System.Drawing.Size(693, 206);
+            this.Size = new System.Drawing.Size(759, 206);
             this.ResumeLayout(false);
             this.PerformLayout();
 

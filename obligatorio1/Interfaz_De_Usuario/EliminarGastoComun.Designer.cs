@@ -37,14 +37,14 @@
             // cbGastoComun
             // 
             this.cbGastoComun.FormattingEnabled = true;
-            this.cbGastoComun.Location = new System.Drawing.Point(245, 127);
+            this.cbGastoComun.Location = new System.Drawing.Point(251, 108);
             this.cbGastoComun.Name = "cbGastoComun";
             this.cbGastoComun.Size = new System.Drawing.Size(300, 28);
             this.cbGastoComun.TabIndex = 31;
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(561, 122);
+            this.btnEliminar.Location = new System.Drawing.Point(602, 103);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(102, 36);
             this.btnEliminar.TabIndex = 30;
@@ -56,7 +56,7 @@
             // 
             this.lblSeleccionarGasto.AutoSize = true;
             this.lblSeleccionarGasto.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeleccionarGasto.Location = new System.Drawing.Point(21, 129);
+            this.lblSeleccionarGasto.Location = new System.Drawing.Point(40, 110);
             this.lblSeleccionarGasto.Name = "lblSeleccionarGasto";
             this.lblSeleccionarGasto.Size = new System.Drawing.Size(193, 26);
             this.lblSeleccionarGasto.TabIndex = 29;
@@ -66,7 +66,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("MS Reference Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(54, 50);
+            this.lblTitulo.Location = new System.Drawing.Point(35, 30);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(356, 35);
             this.lblTitulo.TabIndex = 28;
@@ -81,7 +81,7 @@
             this.Controls.Add(this.lblSeleccionarGasto);
             this.Controls.Add(this.lblTitulo);
             this.Name = "EliminarGastoComun";
-            this.Size = new System.Drawing.Size(717, 208);
+            this.Size = new System.Drawing.Size(775, 208);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -5,13 +5,11 @@ namespace Dominio
     public class GastoComun : Gasto
     {
 
-        private DateTime fechaMin;
-
-   
+        private DateTime unaFecha;
 
         public DateTime Fecha
         {
-            get { return fechaMin; }
+            get { return unaFecha; }
 
 
             set
@@ -29,12 +27,11 @@ namespace Dominio
                 }
                 else
                 {
-                    fechaMin = value;
+                    unaFecha = value;
                 }
             }
-
-
         }
+
         public GastoComun()
         {
             this.Fecha = new DateTime(2020, 5, 1);

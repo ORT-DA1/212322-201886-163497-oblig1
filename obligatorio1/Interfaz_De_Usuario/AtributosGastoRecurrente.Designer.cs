@@ -100,7 +100,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(411, 206);
+            this.btnAceptar.Location = new System.Drawing.Point(411, 195);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(109, 45);
             this.btnAceptar.TabIndex = 32;
@@ -120,7 +120,7 @@
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblMonto);
             this.Name = "AtributosGastoRecurrente";
-            this.Size = new System.Drawing.Size(602, 281);
+            this.Size = new System.Drawing.Size(602, 254);
             ((System.ComponentModel.ISupportInitialize)(this.numMonto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFecha)).EndInit();
             this.ResumeLayout(false);

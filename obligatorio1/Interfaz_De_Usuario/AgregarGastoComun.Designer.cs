@@ -37,7 +37,7 @@
             // 
             // tbDescripcion
             // 
-            this.tbDescripcion.Location = new System.Drawing.Point(202, 144);
+            this.tbDescripcion.Location = new System.Drawing.Point(192, 94);
             this.tbDescripcion.MaxLength = 20;
             this.tbDescripcion.Name = "tbDescripcion";
             this.tbDescripcion.Size = new System.Drawing.Size(317, 26);
@@ -47,7 +47,7 @@
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(41, 142);
+            this.lblDescripcion.Location = new System.Drawing.Point(35, 94);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(127, 26);
             this.lblDescripcion.TabIndex = 7;
@@ -57,7 +57,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("MS Reference Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(48, 46);
+            this.lblTitulo.Location = new System.Drawing.Point(35, 30);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(347, 35);
             this.lblTitulo.TabIndex = 6;
@@ -65,7 +65,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(547, 139);
+            this.btnAgregar.Location = new System.Drawing.Point(548, 89);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(102, 36);
             this.btnAgregar.TabIndex = 18;
@@ -75,7 +75,7 @@
             // 
             // pAgregarAtributos
             // 
-            this.pAgregarAtributos.Location = new System.Drawing.Point(37, 184);
+            this.pAgregarAtributos.Location = new System.Drawing.Point(37, 145);
             this.pAgregarAtributos.Name = "pAgregarAtributos";
             this.pAgregarAtributos.Size = new System.Drawing.Size(656, 311);
             this.pAgregarAtributos.TabIndex = 19;
@@ -90,7 +90,7 @@
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblTitulo);
             this.Name = "AgregarGastoComun";
-            this.Size = new System.Drawing.Size(769, 549);
+            this.Size = new System.Drawing.Size(769, 481);
             this.ResumeLayout(false);
             this.PerformLayout();
 

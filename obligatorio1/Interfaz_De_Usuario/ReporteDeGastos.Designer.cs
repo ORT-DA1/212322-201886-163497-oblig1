@@ -84,7 +84,7 @@
             // s
             // 
             this.s.AutoSize = true;
-            this.s.Location = new System.Drawing.Point(468, 466);
+            this.s.Location = new System.Drawing.Point(480, 466);
             this.s.Name = "s";
             this.s.Size = new System.Drawing.Size(107, 20);
             this.s.TabIndex = 15;
@@ -127,7 +127,7 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Categoria";
-            this.columnHeader3.Width = 184;
+            this.columnHeader3.Width = 154;
             // 
             // columnHeader4
             // 
@@ -140,9 +140,9 @@
             this.lbTotal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbTotal.Location = new System.Drawing.Point(599, 466);
             this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(51, 20);
+            this.lbTotal.Size = new System.Drawing.Size(54, 20);
             this.lbTotal.TabIndex = 18;
-            this.lbTotal.Text = "label1";
+            this.lbTotal.Text = "monto";
             // 
             // ReporteDeGastos
             // 

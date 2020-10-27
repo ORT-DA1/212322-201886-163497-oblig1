@@ -41,7 +41,7 @@
             // btnAceptarGastoC
             // 
             this.btnAceptarGastoC.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptarGastoC.Location = new System.Drawing.Point(381, 202);
+            this.btnAceptarGastoC.Location = new System.Drawing.Point(361, 202);
             this.btnAceptarGastoC.Name = "btnAceptarGastoC";
             this.btnAceptarGastoC.Size = new System.Drawing.Size(109, 37);
             this.btnAceptarGastoC.TabIndex = 24;
@@ -51,7 +51,7 @@
             // 
             // dtFecha
             // 
-            this.dtFecha.Location = new System.Drawing.Point(173, 86);
+            this.dtFecha.Location = new System.Drawing.Point(153, 84);
             this.dtFecha.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.dtFecha.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             this.dtFecha.Name = "dtFecha";
@@ -61,7 +61,7 @@
             // cbCategoria
             // 
             this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(173, 147);
+            this.cbCategoria.Location = new System.Drawing.Point(153, 145);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(317, 28);
             this.cbCategoria.TabIndex = 22;
@@ -70,7 +70,7 @@
             // 
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(12, 149);
+            this.lblCategoria.Location = new System.Drawing.Point(15, 143);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(109, 26);
             this.lblCategoria.TabIndex = 21;
@@ -80,7 +80,7 @@
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(15, 86);
+            this.lblFecha.Location = new System.Drawing.Point(15, 84);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(71, 26);
             this.lblFecha.TabIndex = 20;
@@ -99,7 +99,7 @@
             // numMonto
             // 
             this.numMonto.DecimalPlaces = 2;
-            this.numMonto.Location = new System.Drawing.Point(173, 25);
+            this.numMonto.Location = new System.Drawing.Point(153, 25);
             this.numMonto.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -121,7 +121,7 @@
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblMonto);
             this.Name = "AtributosGastoComun";
-            this.Size = new System.Drawing.Size(516, 268);
+            this.Size = new System.Drawing.Size(576, 268);
             ((System.ComponentModel.ISupportInitialize)(this.numMonto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -110,7 +110,8 @@ namespace Dominio
 
         public DateTime ConvertirFechaDejarSoloAnioMes(GastoComun gasto)
         {
-            return new DateTime(gasto.Fecha.Year, gasto.Fecha.Month, 1);
+           return new DateTime(gasto.Fecha.Year, gasto.Fecha.Month, 1);
+          
         }
 
       
