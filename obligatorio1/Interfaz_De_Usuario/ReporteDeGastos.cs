@@ -16,15 +16,29 @@ namespace Interfaz_De_Usuario
             adminGastoComun = AdminGastoComun;
             adminGastoRecurrente = AdminGastoRecurrente;
             adminReporteGastos = AdminReporteGastos;
-
             cbMesAnio.DataSource = adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada();
-            /*foreach (DateTime unMesAnio in adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada())
-            {
-                cbMesAnio.Items.Add(unMesAnio);
-            }*/
+            
         }
 
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            DateTime fecha = Convert.ToDateTime(cbMesAnio.SelectedItem);
+            
+            var listaGastos = adminReporteGastos.UnirListaGastosDelMes(fecha.Year, fecha.Month);
+            tablaGastos.Items.Clear();
+            foreach (var gasto in listaGastos)
+            {
+                var row = new string[] { gasto.Fecha.ToString(), gasto.Descripcion.ToString(), gasto.Categoria.ToString(), gasto.Monto.ToString() };
+                var lvi = new ListViewItem(row);
+                lvi.Tag = listaGastos;
+                
+                tablaGastos.Items.Add(lvi);
 
-        
+            }
+
+            lbTotal.Text= adminReporteGastos.CalcularMontoDeReporte(listaGastos).ToString();
+
+
+        }
     }
 }

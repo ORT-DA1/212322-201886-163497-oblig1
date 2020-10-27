@@ -11,6 +11,7 @@ namespace Dominio
         public AdministradorReporteGastos(Repositorio unRepositorio)
         {
             this.Repositorio = unRepositorio;
+           
 
         }
 
@@ -76,10 +77,20 @@ namespace Dominio
             {
                 listaTotal.Add(gasto);
             }
-
+           
             return listaTotal;
 
         }
+        public double CalcularMontoDeReporte(List<GastoComun> ListaDeGastosReporte)
+        {
+            double total = 0;
+            foreach (GastoComun gasto in ListaDeGastosReporte)
+            {
+                total += gasto.Monto;
+            }
+            return total;
+        }
+
 
         public List<DateTime> AgregarYRetornalListaDeMesesDondeHayGastoOrdenada()
         {
@@ -88,11 +99,12 @@ namespace Dominio
             return Repositorio.RetornarListaMesesDondeHayGasto();
         }
 
+
         public void AgregarMesesAnioDondeHayGasto()
         {
             foreach (GastoComun gasto in Repositorio.RetornarListaGastosCoumnes())
             {
-                DateTime fecha = ConvertirFechaQuitarElDia(gasto);
+                DateTime fecha = ConvertirFechaDejarSoloAnioMes(gasto);
                 if (!Repositorio.RetornarListaMesesDondeHayGasto().Contains(fecha))
                 {
                   Repositorio.AgregarMesDondeHayGasto(fecha);
@@ -102,7 +114,7 @@ namespace Dominio
 
         }
 
-        public DateTime ConvertirFechaQuitarElDia(GastoComun gasto)
+        public DateTime ConvertirFechaDejarSoloAnioMes(GastoComun gasto)
         {
             return new DateTime(gasto.Fecha.Year, gasto.Fecha.Month, 1);
         }
