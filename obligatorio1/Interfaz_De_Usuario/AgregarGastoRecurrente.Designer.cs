@@ -37,7 +37,7 @@
             // 
             // tbDescripcion
             // 
-            this.tbDescripcion.Location = new System.Drawing.Point(188, 101);
+            this.tbDescripcion.Location = new System.Drawing.Point(215, 101);
             this.tbDescripcion.MaxLength = 20;
             this.tbDescripcion.Name = "tbDescripcion";
             this.tbDescripcion.Size = new System.Drawing.Size(317, 26);
@@ -65,16 +65,16 @@
             // 
             // pGastoRecurrente
             // 
-            this.pGastoRecurrente.Location = new System.Drawing.Point(36, 164);
+            this.pGastoRecurrente.Location = new System.Drawing.Point(6, 164);
             this.pGastoRecurrente.Name = "pGastoRecurrente";
             this.pGastoRecurrente.Size = new System.Drawing.Size(633, 410);
             this.pGastoRecurrente.TabIndex = 32;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(537, 96);
+            this.btnAgregar.Location = new System.Drawing.Point(562, 99);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(102, 36);
+            this.btnAgregar.Size = new System.Drawing.Size(77, 33);
             this.btnAgregar.TabIndex = 33;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;

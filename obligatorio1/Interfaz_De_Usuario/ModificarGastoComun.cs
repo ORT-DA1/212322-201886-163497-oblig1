@@ -11,11 +11,11 @@ using Dominio;
 
 namespace Interfaz_De_Usuario
 {
-    public partial class EliminarGastoComun : UserControl
+    public partial class ModificarGastoComun : UserControl
     {
         private AdministradorGastosComunes unAdminGastoComun;
 
-        public EliminarGastoComun(AdministradorGastosComunes miAdminGastoComun)
+        public ModificarGastoComun(AdministradorGastosComunes miAdminGastoComun)
         {
             InitializeComponent();
             unAdminGastoComun = miAdminGastoComun;
@@ -40,6 +40,16 @@ namespace Interfaz_De_Usuario
             {
                 MessageBox.Show(unaExcepcion.Message);
             }
+        }
+
+        private void btnModificarGasto_Click(object sender, EventArgs e)
+        {
+            GastoComun gastoAmodificar = (GastoComun)cbGastoComun.SelectedItem;
+            gastoAmodificar.Descripcion = tbDescripcion.Text;
+            gastoAmodificar.Monto = (double)numMonto.Value;
+            gastoAmodificar.Fecha = dtFecha.Value;
+            gastoAmodificar.Categoria = (Categoria)cbCategoria.SelectedItem;
+            MessageBox.Show("El gasto ha modificado con exito ");
         }
     }
 }

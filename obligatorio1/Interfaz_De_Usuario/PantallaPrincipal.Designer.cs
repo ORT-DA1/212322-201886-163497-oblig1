@@ -35,6 +35,7 @@
             this.btnGastoComun = new System.Windows.Forms.Button();
             this.btGastoRecurrente = new System.Windows.Forms.Button();
             this.btnReportePres = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnAgregarCategoria
@@ -77,7 +78,7 @@
             // 
             this.panelPrincipal.Location = new System.Drawing.Point(466, 126);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1195, 741);
+            this.panelPrincipal.Size = new System.Drawing.Size(1195, 764);
             this.panelPrincipal.TabIndex = 0;
             // 
             // btnGastoComun
@@ -116,11 +117,19 @@
             this.btnReportePres.UseVisualStyleBackColor = true;
             this.btnReportePres.Click += new System.EventHandler(this.btnReportePres_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(87, 13);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(331, 100);
+            this.panel1.TabIndex = 21;
+            // 
             // PantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1770, 902);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnReportePres);
             this.Controls.Add(this.btGastoRecurrente);
             this.Controls.Add(this.btnGastoComun);
@@ -143,6 +152,7 @@
         private System.Windows.Forms.Button btnGastoComun;
         private System.Windows.Forms.Button btGastoRecurrente;
         private System.Windows.Forms.Button btnReportePres;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

@@ -31,47 +31,64 @@
             this.btnAgregarGastoC = new System.Windows.Forms.Button();
             this.panelGastoComun = new System.Windows.Forms.Panel();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnListadoGastos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAgregarGastoC
             // 
-            this.btnAgregarGastoC.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarGastoC.BackColor = System.Drawing.Color.Wheat;
+            this.btnAgregarGastoC.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarGastoC.Location = new System.Drawing.Point(82, 21);
             this.btnAgregarGastoC.Name = "btnAgregarGastoC";
             this.btnAgregarGastoC.Size = new System.Drawing.Size(273, 42);
             this.btnAgregarGastoC.TabIndex = 0;
             this.btnAgregarGastoC.Text = "Agregar Gasto Comun";
-            this.btnAgregarGastoC.UseVisualStyleBackColor = true;
+            this.btnAgregarGastoC.UseVisualStyleBackColor = false;
             this.btnAgregarGastoC.Click += new System.EventHandler(this.btnAgregarGastoC_Click);
             // 
             // panelGastoComun
             // 
             this.panelGastoComun.Location = new System.Drawing.Point(82, 86);
             this.panelGastoComun.Name = "panelGastoComun";
-            this.panelGastoComun.Size = new System.Drawing.Size(743, 427);
+            this.panelGastoComun.Size = new System.Drawing.Size(834, 487);
             this.panelGastoComun.TabIndex = 1;
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(397, 21);
+            this.btnEliminar.BackColor = System.Drawing.Color.Wheat;
+            this.btnEliminar.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(372, 21);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(268, 42);
             this.btnEliminar.TabIndex = 18;
-            this.btnEliminar.Text = "Eliminar Gasto";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Text = "Modificar Gasto";
+            this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnListadoGastos
+            // 
+            this.btnListadoGastos.BackColor = System.Drawing.Color.Wheat;
+            this.btnListadoGastos.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListadoGastos.Location = new System.Drawing.Point(659, 21);
+            this.btnListadoGastos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnListadoGastos.Name = "btnListadoGastos";
+            this.btnListadoGastos.Size = new System.Drawing.Size(257, 42);
+            this.btnListadoGastos.TabIndex = 19;
+            this.btnListadoGastos.Text = "Ver Listado de Gastos";
+            this.btnListadoGastos.UseVisualStyleBackColor = false;
+            this.btnListadoGastos.Click += new System.EventHandler(this.btnListadoGastos_Click);
             // 
             // MenuArribaGasto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnListadoGastos);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.panelGastoComun);
             this.Controls.Add(this.btnAgregarGastoC);
             this.Name = "MenuArribaGasto";
-            this.Size = new System.Drawing.Size(930, 534);
+            this.Size = new System.Drawing.Size(1026, 599);
             this.ResumeLayout(false);
 
         }
@@ -81,5 +98,6 @@
         private System.Windows.Forms.Button btnAgregarGastoC;
         private System.Windows.Forms.Panel panelGastoComun;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnListadoGastos;
     }
 }

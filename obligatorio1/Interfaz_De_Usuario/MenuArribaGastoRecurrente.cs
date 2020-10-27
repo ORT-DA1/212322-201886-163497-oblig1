@@ -27,5 +27,12 @@ namespace Interfaz_De_Usuario
             UserControl eliminarGastoRecurrente = new EliminarGastoRecurrente(adminGastosRecurrentes);
             panelGRecurrente.Controls.Add(eliminarGastoRecurrente);
         }
+
+        private void btnListadoGastos_Click(object sender, System.EventArgs e)
+        {
+            panelGRecurrente.Controls.Clear();
+            UserControl listadoGastos = new ListadoGastosRecurrentes(adminGastosRecurrentes);
+            panelGRecurrente.Controls.Add(listadoGastos);
+        }
     }
 }
