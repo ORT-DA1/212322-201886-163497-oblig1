@@ -45,6 +45,7 @@
     <Compile Include="AdministradorGastosRecurrentes.cs" />
     <Compile Include="AdministradorPresupuesto.cs" />
     <Compile Include="AdministradorReporteGastos.cs" />
+    <Compile Include="AdministradorReportePresupuestos.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="CategoriaMonto.cs" />
     <Compile Include="Gasto.cs" />

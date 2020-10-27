@@ -26,14 +26,12 @@ namespace Dominio
             get { return unMonto; }
             set
             {
+                unMonto = Math.Round(value, 2);
                 if (unMonto < 0.00)
                 {
                     throw new IndexOutOfRangeException("Monto debe ser positivo.");
                 }
-                else
-                {
-                    unMonto = Math.Round(value, 2);
-                }
+                
             }
         }
         public CategoriaMonto()

@@ -12,6 +12,7 @@ namespace Dominio
         private List<Presupuesto> ListaPresupuestos { get; }
         private List<GastoComun> ListaGastosComunes { get; }
         private List<DateTime> ListaMesesDondeHayGastos { get; set; }
+        private List<DateTime> ListaMesesDondeHayPresupuestos { get; set; }
 
 
         public Repositorio()
@@ -21,6 +22,7 @@ namespace Dominio
             ListaGastosComunes = new List<GastoComun>();
             ListaPresupuestos = new List<Presupuesto>();
             ListaMesesDondeHayGastos = new List<DateTime>();
+            ListaMesesDondeHayPresupuestos = new List<DateTime>();
 
         }
 
@@ -34,10 +36,7 @@ namespace Dominio
             return this.ListaCategorias;
         }
 
-        public List<Presupuesto> RetornarListaPresupuestos()
-        {
-            return this.ListaPresupuestos;
-        }
+       
 
         public bool EsVaciaListaCategorias()
         {
@@ -136,6 +135,24 @@ namespace Dominio
         {
             return this.ListaMesesDondeHayGastos.Count();
         }
+
+
+
+        public List<Presupuesto> RetornarListaPresupuestos()
+        {
+            return this.ListaPresupuestos;
+        }
+        public List<DateTime> RetornarListaMesesDondeHayPresupuesto()
+        {
+            return this.ListaMesesDondeHayPresupuestos;
+        }
+
+        internal void AgregarMesDondeHayPresupuesto(DateTime unaFecha)
+        {
+            this.ListaMesesDondeHayPresupuestos.Add(unaFecha);
+        }
+
+        
 
 
     }

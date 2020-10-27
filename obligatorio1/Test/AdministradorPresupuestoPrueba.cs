@@ -53,10 +53,13 @@ namespace Test
         [TestMethod]
         public void RetornarPresupuestoSegunMesPrueba()
         {
-            unPresupuesto.Anio = 2020;
-            unPresupuesto.Mes = "Marzo";
+            DateTime fecha = new DateTime(2020, 1, 1);
+            //unGasto.Fecha.Month == mes && unGasto.Fecha.Year == anio;
+
+            unPresupuesto.Fecha = fecha;
+            
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
-            Assert.AreEqual(adminPresupuestos.RetornarPresupuestoSegunMes("Marzo", 2020), unPresupuesto);
+            Assert.AreEqual(adminPresupuestos.RetornarPresupuestoSegunMes(1, 2020), unPresupuesto);
         }
 
         [TestMethod]
@@ -69,16 +72,7 @@ namespace Test
 
         }
 
-/*        [TestMethod]
-        public void ActualizarPresupuestosConNuevaCategoriaPrueba()
-        {
-            adminPresupuestos.AgregarPresupuesto(unPresupuesto);
-            adminCategorias.AgregarCategoria(unaCategoria);
 
-            Assert.AreEqual( 1, unPresupuesto.ListaCategoriaMonto.Count);
-            
-
-        }*/
 
 
 

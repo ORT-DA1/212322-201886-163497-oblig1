@@ -52,12 +52,12 @@ namespace Test
 
         [TestMethod]
         [ExpectedException(typeof(IndexOutOfRangeException))]
-        public void MontoMayorA0Prueba()
+        public void MontoMenorA0Prueba()
         {
-            categoriaMonto.Monto = -1000;
+            categoriaMonto.Monto = -1000.00;
         }
 
-        //Cada vez que se crea una categoria se crea un objeto CategoriaMonto, PARA TODOS LOS PRESUPUESTOS, de esa categoria.
+        
         [TestMethod]
         public void MontoInicialEn0Prueba()
         {

@@ -28,98 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbMes = new System.Windows.Forms.ComboBox();
-            this.nudAnio = new System.Windows.Forms.NumericUpDown();
-            this.btnCrearPresupuesto = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAnio)).BeginInit();
+            this.dtFecha = new System.Windows.Forms.DateTimePicker();
+            this.btnCrearPresupuesto2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // dtFecha
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(197, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Crear presupuesto para mes: ";
+            this.dtFecha.Location = new System.Drawing.Point(18, 65);
+            this.dtFecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtFecha.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
+            this.dtFecha.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
+            this.dtFecha.Name = "dtFecha";
+            this.dtFecha.Size = new System.Drawing.Size(212, 20);
+            this.dtFecha.TabIndex = 24;
             // 
-            // label2
+            // btnCrearPresupuesto2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(183, 89);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Anio:";
-            // 
-            // cbMes
-            // 
-            this.cbMes.FormattingEnabled = true;
-            this.cbMes.Items.AddRange(new object[] {
-            "Enero",
-            "Febrero",
-            "Marzo",
-            "Abril",
-            "Mayo",
-            "Junio",
-            "Julio",
-            "Agosto",
-            "Setiembre",
-            "Octubre",
-            "Noviembre",
-            "Diciembre"});
-            this.cbMes.Location = new System.Drawing.Point(230, 44);
-            this.cbMes.Name = "cbMes";
-            this.cbMes.Size = new System.Drawing.Size(86, 24);
-            this.cbMes.TabIndex = 2;
-            // 
-            // nudAnio
-            // 
-            this.nudAnio.Location = new System.Drawing.Point(230, 89);
-            this.nudAnio.Maximum = new decimal(new int[] {
-            2030,
-            0,
-            0,
-            0});
-            this.nudAnio.Name = "nudAnio";
-            this.nudAnio.Size = new System.Drawing.Size(86, 22);
-            this.nudAnio.TabIndex = 3;
-            // 
-            // btnCrearPresupuesto
-            // 
-            this.btnCrearPresupuesto.Location = new System.Drawing.Point(344, 89);
-            this.btnCrearPresupuesto.Name = "btnCrearPresupuesto";
-            this.btnCrearPresupuesto.Size = new System.Drawing.Size(143, 28);
-            this.btnCrearPresupuesto.TabIndex = 4;
-            this.btnCrearPresupuesto.Text = "Crear presupuesto";
-            this.btnCrearPresupuesto.UseVisualStyleBackColor = true;
-            this.btnCrearPresupuesto.Click += new System.EventHandler(this.btnCrearPresupuesto_Click);
+            this.btnCrearPresupuesto2.Location = new System.Drawing.Point(262, 66);
+            this.btnCrearPresupuesto2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCrearPresupuesto2.Name = "btnCrearPresupuesto2";
+            this.btnCrearPresupuesto2.Size = new System.Drawing.Size(107, 23);
+            this.btnCrearPresupuesto2.TabIndex = 26;
+            this.btnCrearPresupuesto2.Text = "Crear presupuesto";
+            this.btnCrearPresupuesto2.UseVisualStyleBackColor = true;
+            this.btnCrearPresupuesto2.Click += new System.EventHandler(this.btnCrearPresupuesto2_Click);
             // 
             // CrearPresupuesto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnCrearPresupuesto);
-            this.Controls.Add(this.nudAnio);
-            this.Controls.Add(this.cbMes);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnCrearPresupuesto2);
+            this.Controls.Add(this.dtFecha);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CrearPresupuesto";
-            this.Size = new System.Drawing.Size(522, 431);
-            ((System.ComponentModel.ISupportInitialize)(this.nudAnio)).EndInit();
+            this.Size = new System.Drawing.Size(392, 165);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbMes;
-        private System.Windows.Forms.NumericUpDown nudAnio;
-        private System.Windows.Forms.Button btnCrearPresupuesto;
+        private System.Windows.Forms.DateTimePicker dtFecha;
+        private System.Windows.Forms.Button btnCrearPresupuesto2;
     }
 }

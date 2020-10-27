@@ -34,11 +34,11 @@ namespace Dominio
             unPresupuesto.ModificarMontoACategoria(unaCategoria, unMonto);
         } //HACER PRUEBA!!!!!!!!!!!!
 
-        public Presupuesto RetornarPresupuestoSegunMes(String unMes, int unAnio)
+        public Presupuesto RetornarPresupuestoSegunMes(int unMes, int unAnio)
         {
             foreach (Presupuesto p in this.RetornarListaPresupuestos())
             {
-                if (p.Mes == unMes && p.Anio == unAnio)
+                if (p.Fecha.Month == unMes && p.Fecha.Year == unAnio)
                 {
                     return p;
                 }

@@ -29,7 +29,6 @@ namespace Test
             
             unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
             unGastoComun = new GastoComun() { Categoria = unaCategoria};
-
         }
 
         [TestMethod]
@@ -67,21 +66,13 @@ namespace Test
 
         [TestMethod]
         public void EliminarGastoComunPrueba()
-        {
-           // unaCategoria = new Categoria() ;
-            //unGastoComun.Categoria = unaCategoria;
+        {           
             adminGastosComunes.AgregarGastoComun(unGastoComun);
             adminGastosComunes.EliminarGastoComun(unGastoComun);
 
             Assert.IsTrue(adminGastosComunes.EsVaciaListaGastosComunes());
 
         }
-
-
-
-
-      
-
 
     }
 }
