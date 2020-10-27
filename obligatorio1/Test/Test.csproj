@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="AdministradorGastosRecurrentesPrueba.cs" />
     <Compile Include="AdministradorPresupuestoPrueba.cs" />
+    <Compile Include="AdministradorReportePresupuestosPrueba.cs" />
     <Compile Include="CategoriaMontoPrueba.cs" />
     <Compile Include="CategoriaPrueba.cs" />
     <Compile Include="AdministradorGastosComunesPrueba.cs" />

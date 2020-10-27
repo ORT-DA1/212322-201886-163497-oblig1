@@ -5,36 +5,40 @@ using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
 using Dominio;
+using Excepciones;
 
 namespace Interfaz_De_Usuario
 {
     public partial class CrearPresupuesto : UserControl
     {
        private AdministradorPresupuesto adminPresupuestos;
+       private Presupuesto presupuesto;
         
         public CrearPresupuesto(AdministradorPresupuesto miAdminPresupuestos)
         {
             InitializeComponent();
             adminPresupuestos = miAdminPresupuestos;
-            cbMes.SelectedItem = "Enero";
-            
+            presupuesto = new Presupuesto();
         }
 
-        private void btnCrearPresupuesto_Click(object sender, EventArgs e)
+        
+
+        private void btnCrearPresupuesto2_Click(object sender, EventArgs e)
         {
             try
             {
-                Presupuesto presupuesto = new Presupuesto() { Mes = (String)cbMes.SelectedItem, Anio = (int)nudAnio.Value };
+                
+                presupuesto.Fecha = dtFecha.Value;
                 adminPresupuestos.AgregarPresupuesto(presupuesto);
-                MessageBox.Show("Presupuesto para Mes: " + presupuesto.Mes + " Anio:" + nudAnio.Value + " ha sido creado con exito");
+                MessageBox.Show("Presupuesto para Mes: " + presupuesto.Fecha + " ha sido creado con exito");
 
             }
-            catch (Exception unaExepcion)
-            //when (unaExepcion is ExcepcionElementoRepetido )
+            catch (Exception unaExcepcion)
+            when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException)
             {
-                MessageBox.Show(unaExepcion.Message);
-
+                MessageBox.Show(unaExcepcion.Message);
             }
         }
+
     }
 }

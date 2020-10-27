@@ -114,9 +114,16 @@ namespace Dominio
           
         }
 
-      
-
-
-
+        public double CalcularGastoTotalDeCategoriaEnMes(int anio, int mes, Categoria unaCategoria)
+        {
+            List<GastoComun> listaGastosDelMes = this.UnirListaGastosDelMes(anio, mes);
+            //tengo lista de gastos del mes, tengo que: para todos esos gastos, si la categoria es Cat, irle sumando
+            double gastoTotalDeCategoriaEnMes = 0;
+            foreach(Gasto gasto in listaGastosDelMes)
+            {
+                if (gasto.Categoria == unaCategoria) gastoTotalDeCategoriaEnMes += gasto.Monto;                              
+            }
+            return gastoTotalDeCategoriaEnMes;
+        }
     }
 }

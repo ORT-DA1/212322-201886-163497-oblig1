@@ -178,7 +178,20 @@ namespace Test
 
         }
 
+        [TestMethod]
+        public void CalcularGastoTotalDeCategoriaEnMesPrueba()
+        {
+            
+            GastoComun unGasto = new GastoComun { Categoria = unaCategoria, Monto = 100, Fecha = new DateTime(2020, 10, 2) };
+            GastoComun otroGasto = new GastoComun { Categoria = unaCategoria, Monto = 200, Fecha = new DateTime(2020, 10, 2) };
+            adminGastosComunes.AgregarGastoComun(unGasto);
+            adminGastosComunes.AgregarGastoComun(otroGasto);
 
+            double gastoTotalDeCategoriaEnMes = adminReporteGastos.CalcularGastoTotalDeCategoriaEnMes(2020, 10, unaCategoria);
+
+            Assert.AreEqual(gastoTotalDeCategoriaEnMes, 300);
+
+        }
 
 
 
