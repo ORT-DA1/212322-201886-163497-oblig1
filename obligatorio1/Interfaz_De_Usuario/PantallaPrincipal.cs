@@ -98,7 +98,7 @@ namespace Interfaz_De_Usuario
         private void btnReporteGastos_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
-            UserControl reporteGastos = new ReporteDeGastos(AdminGastoComun, AdminGastoRecurrente, AdminReporteGastos);
+            UserControl reporteGastos = new ReporteDeGastos(AdminReporteGastos);
             panelPrincipal.Controls.Add(reporteGastos);
         }
     }

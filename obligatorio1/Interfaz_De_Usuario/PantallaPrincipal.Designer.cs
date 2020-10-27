@@ -46,7 +46,7 @@
             this.panelPrincipal.Location = new System.Drawing.Point(394, 29);
             this.panelPrincipal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(663, 581);
+            this.panelPrincipal.Size = new System.Drawing.Size(745, 581);
             this.panelPrincipal.TabIndex = 0;
             // 
             // btnAgregarCategoria
@@ -171,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 640);
+            this.ClientSize = new System.Drawing.Size(1606, 786);
             this.Controls.Add(this.btnReporteGastos);
             this.Controls.Add(this.btnEliminarGRecurrente);
             this.Controls.Add(this.btnEliminarGComun);

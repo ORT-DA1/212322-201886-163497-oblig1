@@ -162,12 +162,23 @@ namespace Test
         public void ConvertirFechaQuitarElDiaPrueba()
         {
             unGastoComun.Fecha = new DateTime(2020, 5, 28);
-            DateTime convertido = adminReporteGastos.ConvertirFechaQuitarElDia(unGastoComun);
+            DateTime convertido = adminReporteGastos.ConvertirFechaDejarSoloAnioMes(unGastoComun);
             Assert.IsFalse(convertido.Equals(unGastoComun.Fecha));
            
         }
 
+        [TestMethod]
+        public void CalcularMontoDeReportePrueba()
+        {
+            unGastoComun.Fecha = new DateTime(2020, 10, 28);
+            unGastoComun.Monto = 100;
+            GastoComun unGasto = new GastoComun { Categoria = unaCategoria, Monto = 100, Fecha = new DateTime(2020, 10, 2) };
+            adminGastosComunes.AgregarGastoComun(unGastoComun);
+            adminGastosComunes.AgregarGastoComun(unGasto);
+            double resultado = 200;
+            Assert.AreEqual(resultado, adminReporteGastos.CalcularMontoDeReporte(adminReporteGastos.UnirListaGastosDelMes(2020, 10)));
 
+        }
 
 
 
