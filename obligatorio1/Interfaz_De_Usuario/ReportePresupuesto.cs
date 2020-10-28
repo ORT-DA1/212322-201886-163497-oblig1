@@ -44,7 +44,7 @@ namespace Interfaz_De_Usuario
                     var lvi = new ListViewItem(row);
                    
                     ///* COLOR ROJO:
-                    MessageBox.Show(lvi.SubItems[3].ToString());
+                   
                     if (diferenciaTotalPlanificado < 0.00)
                     {
                         lvi.SubItems[3].ForeColor = Color.Red;

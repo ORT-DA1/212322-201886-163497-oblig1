@@ -28,13 +28,9 @@ namespace Interfaz_De_Usuario
         {
             try
             {
-                //para un presupuesto(cbMes), mostrar su lista de CategoriaMonto....
+                
                 DateTime fecha = Convert.ToDateTime(cbMesAnio.SelectedItem);
                 Presupuesto presupuesto = adminPresupuestos.RetornarPresupuestoSegunMes(fecha.Month, fecha.Year);
-
-                MessageBox.Show("presupuesto elegido: " + presupuesto.Fecha.Month); //solo para ver
-
-                MessageBox.Show("CatMonto " + presupuesto.ListaCategoriaMonto.First().ToString()); //presupuesto nuevo tendria que llenarse automaticamente con todas las cats
 
                 var listaCatMonto = presupuesto.ListaCategoriaMonto;
                 listView1.Items.Clear();
@@ -43,13 +39,13 @@ namespace Interfaz_De_Usuario
                     var row = new string[] { catMonto.Categoria.ToString(), catMonto.Monto.ToString() };
                     var lvi = new ListViewItem(row);
                     lvi.Tag = catMonto;
-                    //agrego el item a la list view
+                   
                     listView1.Items.Add(lvi);
 
                 }
             }
             catch (Exception ex)
-            //when (ex is ArgumentOutOfRangeException)
+          
             {
                 MessageBox.Show(ex.Message);
             }
@@ -74,7 +70,7 @@ namespace Interfaz_De_Usuario
                     var row = new string[] { catMonto.Categoria.ToString(), catMonto.Monto.ToString() };
                     var lvi = new ListViewItem(row);
                     lvi.Tag = catMonto;
-                    //agrego el item a la list view
+                  
                     listView1.Items.Add(lvi);
 
                 }
