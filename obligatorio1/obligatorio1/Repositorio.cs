@@ -152,7 +152,14 @@ namespace Dominio
             this.ListaMesesDondeHayPresupuestos.Add(unaFecha);
         }
 
-        
+        public bool ExisteUnPresupuesto(DateTime unaFecha)
+        {
+            foreach (Presupuesto presu in this.ListaPresupuestos)
+            {
+                if (presu.Fecha == unaFecha) return true;
+            }
+            return false;
+        }
 
 
     }

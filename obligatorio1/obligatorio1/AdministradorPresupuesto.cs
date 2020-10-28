@@ -21,13 +21,22 @@ namespace Dominio
 
         public void AgregarPresupuesto(Presupuesto unPresupuesto)
         {
-            
-            foreach (Categoria cat in Repositorio.RetornarListaCategorias())
+            if (!Repositorio.ExisteUnPresupuesto(unPresupuesto.Fecha))
             {
-                unPresupuesto.AgregarCategoriaMonto(cat, 0);
+                foreach (Categoria cat in Repositorio.RetornarListaCategorias())
+                {
+                    unPresupuesto.AgregarCategoriaMonto(cat, 0);
+                }
+                Repositorio.AgregarPresupuesto(unPresupuesto);
             }
-            Repositorio.AgregarPresupuesto(unPresupuesto);
+            else
+            {
+                throw new ExcepcionElementoRepetido("Ya existe un presupuesto para el mes elegido");
+            }
+
+
         }
+
 
         public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, int unMonto)
         {
