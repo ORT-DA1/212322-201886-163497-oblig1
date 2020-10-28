@@ -39,17 +39,16 @@ namespace Interfaz_De_Usuario
                 cbCategoria.SelectedItem = cat;
 
             }
-            catch (Exception unaExcepcion)
+           catch (Exception unaExcepcion)
            when ( unaExcepcion is IndexOutOfRangeException || unaExcepcion is InvalidOperationException || unaExcepcion is ExcepcionElementoNoExistente)
             {
-
                 MessageBox.Show(unaExcepcion.Message);
             }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (cbCategoria.SelectedItem == null)
+            if (CampoCategoriaEsVacia())
             {
                 MessageBox.Show("La Categoria no puede quedar vacia");
                 return;
@@ -61,9 +60,7 @@ namespace Interfaz_De_Usuario
                 unGastoRecurrente.Fecha = (int)numFecha.Value;
                 unGastoRecurrente.Categoria = (Categoria)cbCategoria.SelectedItem;
                 unAdminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecurrente);
-                MessageBox.Show("El gasto recurrente ha sido creado con exito ");
-
-                
+                MessageBox.Show("El gasto recurrente ha sido creado con exito");
 
             }
             catch (Exception unaExcepcion)
@@ -71,10 +68,14 @@ namespace Interfaz_De_Usuario
             {
                 MessageBox.Show(unaExcepcion.Message);
             }
-            
+
         }
 
-       
+        private bool CampoCategoriaEsVacia()
+        {
+            return cbCategoria.SelectedItem == null;
+        }
+
     }
 }
 

@@ -82,11 +82,11 @@
     <Compile Include="ModificarGastoComun.Designer.cs">
       <DependentUpon>ModificarGastoComun.cs</DependentUpon>
     </Compile>
-    <Compile Include="EliminarGastoRecurrente.cs">
+    <Compile Include="ModificarGastoRecurrente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EliminarGastoRecurrente.Designer.cs">
-      <DependentUpon>EliminarGastoRecurrente.cs</DependentUpon>
+    <Compile Include="ModificarGastoRecurrente.Designer.cs">
+      <DependentUpon>ModificarGastoRecurrente.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuArriba.cs">
       <SubType>UserControl</SubType>
@@ -192,8 +192,8 @@
     <EmbeddedResource Include="ModificarGastoComun.resx">
       <DependentUpon>ModificarGastoComun.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EliminarGastoRecurrente.resx">
-      <DependentUpon>EliminarGastoRecurrente.cs</DependentUpon>
+    <EmbeddedResource Include="ModificarGastoRecurrente.resx">
+      <DependentUpon>ModificarGastoRecurrente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuArriba.resx">
       <DependentUpon>MenuArriba.cs</DependentUpon>

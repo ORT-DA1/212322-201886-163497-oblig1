@@ -63,9 +63,9 @@
             this.lblFecha.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.Location = new System.Drawing.Point(24, 88);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(71, 26);
+            this.lblFecha.Size = new System.Drawing.Size(130, 26);
             this.lblFecha.TabIndex = 23;
-            this.lblFecha.Text = "Fecha";
+            this.lblFecha.Text = "Dia del mes";
             // 
             // lblMonto
             // 

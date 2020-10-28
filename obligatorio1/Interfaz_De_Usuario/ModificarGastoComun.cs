@@ -14,16 +14,19 @@ namespace Interfaz_De_Usuario
     public partial class ModificarGastoComun : UserControl
     {
         private AdministradorGastosComunes unAdminGastoComun;
+        private AdministradorCategorias unAdminCategorias;
 
-        public ModificarGastoComun(AdministradorGastosComunes miAdminGastoComun)
+        public ModificarGastoComun(AdministradorGastosComunes miAdminGastoComun, AdministradorCategorias miAdminCategorias)
         {
             InitializeComponent();
             unAdminGastoComun = miAdminGastoComun;
+            unAdminCategorias = miAdminCategorias;
             CargarComboBox();
         }
         public void CargarComboBox()
         {
             cbGastoComun.DataSource = unAdminGastoComun.RetornarListaGastosComunes();
+            cbCategoria.DataSource = unAdminCategorias.RetornarListaCategorias();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -44,12 +47,24 @@ namespace Interfaz_De_Usuario
 
         private void btnModificarGasto_Click(object sender, EventArgs e)
         {
+            if (HayCamposVacios())
+            {
+                MessageBox.Show("Categoria y Descripción no pueden quedar vacias");
+                return;
+            }
+
             GastoComun gastoAmodificar = (GastoComun)cbGastoComun.SelectedItem;
             gastoAmodificar.Descripcion = tbDescripcion.Text;
             gastoAmodificar.Monto = (double)numMonto.Value;
             gastoAmodificar.Fecha = dtFecha.Value;
             gastoAmodificar.Categoria = (Categoria)cbCategoria.SelectedItem;
             MessageBox.Show("El gasto ha modificado con exito ");
+
+        }
+
+        private bool HayCamposVacios()
+        {
+            return cbGastoComun.SelectedItem == null || string.IsNullOrEmpty(tbDescripcion.Text);
         }
     }
 }
