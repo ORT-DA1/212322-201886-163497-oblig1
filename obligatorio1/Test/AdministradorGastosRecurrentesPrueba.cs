@@ -15,7 +15,6 @@ namespace Test
         private GastoRecuerrente unGastoRecuerrente;
         private Categoria unaCategoria;
         private Repositorio miRepositorio;
-        private GastoComun unGastoComun;
 
         [TestInitialize]
         public void InitTest()
@@ -55,12 +54,6 @@ namespace Test
             Assert.IsTrue(adminGastosRecurrentes.EsVaciaListaGastosRecurrentes());
 
         }
-
-
-
-
-
-
 
     }
 }

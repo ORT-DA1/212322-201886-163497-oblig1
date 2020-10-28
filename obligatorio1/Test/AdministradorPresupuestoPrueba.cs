@@ -1,6 +1,5 @@
 ﻿using Dominio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Dominio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +14,6 @@ namespace Test
     {
         
         private AdministradorPresupuesto adminPresupuestos;
-        private AdministradorCategorias adminCategorias;
-        private GastoComun unGastoComun;
         private Categoria unaCategoria;
         private Categoria otraCategoria;
         private CategoriaMonto unaCategoriaMonto;
@@ -27,9 +24,7 @@ namespace Test
         public void InitTests()
         {
             miRepositorio = new Repositorio();
-            adminPresupuestos = new AdministradorPresupuesto(miRepositorio);
-            adminCategorias = new AdministradorCategorias(miRepositorio);
-            unGastoComun = new GastoComun();
+            adminPresupuestos = new AdministradorPresupuesto(miRepositorio);           
             unaCategoria = new Categoria();
             otraCategoria = new Categoria();
             unPresupuesto = new Presupuesto();
@@ -57,7 +52,7 @@ namespace Test
         public void RetornarPresupuestoSegunMesPrueba()
         {
             DateTime fecha = new DateTime(2020, 1, 1);
-            //unGasto.Fecha.Month == mes && unGasto.Fecha.Year == anio;
+            
 
             unPresupuesto.Fecha = fecha;
             
@@ -85,7 +80,6 @@ namespace Test
         [TestMethod]
         public void ModificarMontoACategoriaPrueba()
         {
-            //modifica monto de la categoria de un prsupuesto.
             unPresupuesto.AgregarCategoriaMonto(unaCategoria, 200);
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
             adminPresupuestos.ModificarMontoACategoria(unPresupuesto, unaCategoria, 300);
@@ -99,32 +93,3 @@ namespace Test
 
     }
 }
-
-
-/*
-        [TestMethod]
-        public void ActualizarPresupuestosConNuevaCategoriaPrueba()
-        {
-            adminCategorias.AgregarCategoria(unaCategoria); //ahi se crea el categoriaMonto con esa categoria para todas los presupuestos
-                                                            //dado un int anio y un string mes, retornar presupuesto:
-
-//si se agrega una categoria, se tendrian que actualizar todos los categoria montos
-            CategoriaMonto catMontoNuevo = new CategoriaMonto { Categoria = unaCategoria, Monto = 0 };
-            Assert.IsTrue( adminPresupuestos.RetornarPresupuestoSegunMes("Marzo", 2008).ListaCategoriaMonto.Contains(catMontoNuevo));
-
-        }
-        */
-
-//dada una categoria, asignar monto.
-/*
-[TestMethod]
-public void ModificarMontoDeCategoriaAPresupuestoPrueba()
-{
-    adminCategorias.AgregarCategoria(unaCategoria); //ahi se crea el categoriaMonto con esa categoria para todas los presupuestos
-    adminPresupuestos.ModificarMontoACategoria(unPresupuesto, unaCategoria, 200);
-    Assert
-
-
-}
-*/
-//metodo que a un presupuesto, le deje cambiar el monto de esa categoria.

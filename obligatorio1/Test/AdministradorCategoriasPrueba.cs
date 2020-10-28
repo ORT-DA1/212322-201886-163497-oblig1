@@ -16,13 +16,11 @@ namespace Test
         private Repositorio miRepositorio;
         private AdministradorCategorias adminCategorias;
         private Categoria unaCategoria;
-        private AdministradorPresupuesto adminPresupuesto;
 
         [TestInitialize]
         public void InitTests()
         {
             miRepositorio = new Repositorio();
-            adminPresupuesto = new AdministradorPresupuesto(miRepositorio);
             adminCategorias = new AdministradorCategorias(miRepositorio);
             unaCategoria = new Categoria();
         }
