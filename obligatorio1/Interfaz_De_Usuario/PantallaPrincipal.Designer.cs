@@ -76,9 +76,9 @@
             // 
             // panelPrincipal
             // 
-            this.panelPrincipal.Location = new System.Drawing.Point(466, 126);
+            this.panelPrincipal.Location = new System.Drawing.Point(456, 103);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1195, 764);
+            this.panelPrincipal.Size = new System.Drawing.Size(1753, 952);
             this.panelPrincipal.TabIndex = 0;
             // 
             // btnGastoComun
@@ -128,7 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1770, 902);
+            this.ClientSize = new System.Drawing.Size(2149, 1054);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnReportePres);
             this.Controls.Add(this.btGastoRecurrente);
