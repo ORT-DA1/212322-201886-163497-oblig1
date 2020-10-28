@@ -14,14 +14,11 @@ namespace Dominio
         private Repositorio Repositorio { get; }
         private AdministradorPresupuesto AdminPresupuesto { get; }
 
-
-
         public AdministradorCategorias(Repositorio unRepositorio)
         {
 
             this.Repositorio = unRepositorio;
             this.AdminPresupuesto = new AdministradorPresupuesto(unRepositorio);
-
 
         }
 
@@ -84,7 +81,6 @@ namespace Dominio
             }
             return false;
         }
-
 
 
         public Categoria RetornarCategoriaDeDescripcion(string descripcion)
@@ -171,13 +167,13 @@ namespace Dominio
 
         }
 
-        //NUEVO
+       
         public List<String> RetornarPalabrasClaveDeCategoria(Categoria unaCategoria)
         {
             return unaCategoria.PalabrasClave;
         }
 
-        //metodo que dado un string (el del combobox)cretorne el objeto categoria con ese mismo nombre
+      
         public Categoria RetornarCategoriaSegunString(string unNombre)
         {
 

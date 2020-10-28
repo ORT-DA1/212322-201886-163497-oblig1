@@ -19,13 +19,11 @@ namespace Test
     public class CategoriaPrueba
     {
         private Categoria categoria;
-     /*   Repositorio listaCategorias;*/
 
         [TestInitialize]
         public void InitTests()
         {
             categoria = new Categoria();
-            /*listaCategorias = new Repositorio();*/
         }
 
         [TestMethod]
@@ -90,7 +88,6 @@ namespace Test
 
 
 
-        //NUEVO DEFINIR EL EQUALS EN CATGORIA 
 
         [TestMethod]
         public void EqualsPrueba()

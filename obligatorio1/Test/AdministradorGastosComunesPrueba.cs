@@ -43,8 +43,6 @@ namespace Test
         [TestMethod]
         public void AgregarGastoComunConCategoriaDefinidaPrueba()
         {
-            //unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
-            //unGastoComun.Categoria = unaCategoria;
             adminGastosComunes.AgregarGastoComun(unGastoComun);
             Assert.IsFalse(adminGastosComunes.EsVaciaListaGastosComunes());
         }

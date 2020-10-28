@@ -62,8 +62,6 @@ namespace Dominio
 
         public Presupuesto()
         {
-            this.Anio = 2019;
-            this.Mes = "Setiembre";
             this.ListaCategoriaMonto = new List<CategoriaMonto>();
             this.Fecha = new DateTime(2020, 5, 1);
         }
