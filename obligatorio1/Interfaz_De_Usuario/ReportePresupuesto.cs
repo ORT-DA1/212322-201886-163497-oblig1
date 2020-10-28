@@ -18,12 +18,19 @@ namespace Interfaz_De_Usuario
             adminPresupuestos = miAdminPresupuesto;
             adminReportePresupuestos = miAdminReportePresupuestos;
             adminReporteGastos = miAdminReporteGastos;
-
-            cbMesAnio.DataSource = adminReportePresupuestos.AgregarYRetornalListaDeMesesDondeHayPresupuestosOrdenada();
-            //cargarGraficas();
+            cargarComboBox(); 
+           
         }
 
+        public void cargarComboBox()
+        {
+            foreach(DateTime fecha in adminReportePresupuestos.AgregarYRetornalListaDeMesesDondeHayPresupuestosOrdenada())
+            {
+                cbMesAnio.Items.Add(fecha.ToString("yyyy/MM"));
+            }
+          
 
+        }
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             

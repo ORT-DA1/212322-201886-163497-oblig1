@@ -22,7 +22,17 @@ namespace Interfaz_De_Usuario
             InitializeComponent();
             adminPresupuestos = miAdminPresupuesto;
             adminReportePresupuestos = miAdminReportePresupuestos;
-            cbMesAnio.DataSource = adminReportePresupuestos.AgregarYRetornalListaDeMesesDondeHayPresupuestosOrdenada();
+            cargarComboBox();
+
+        }
+        public void cargarComboBox()
+        {
+            foreach (DateTime fecha in adminReportePresupuestos.AgregarYRetornalListaDeMesesDondeHayPresupuestosOrdenada())
+            {
+                cbMesAnio.Items.Add(fecha.ToString("yyyy/MM"));
+            }
+
+
         }
         private void btnConsultar_Click(object sender, EventArgs e)
         {

@@ -11,9 +11,9 @@ namespace Interfaz_De_Usuario
 {
     public partial class CrearPresupuesto : UserControl
     {
-       private AdministradorPresupuesto adminPresupuestos;
-       private Presupuesto presupuesto;
-        
+        private AdministradorPresupuesto adminPresupuestos;
+        private Presupuesto presupuesto;
+
         public CrearPresupuesto(AdministradorPresupuesto miAdminPresupuestos)
         {
             InitializeComponent();
@@ -40,3 +40,4 @@ namespace Interfaz_De_Usuario
         }
 
     }
+}

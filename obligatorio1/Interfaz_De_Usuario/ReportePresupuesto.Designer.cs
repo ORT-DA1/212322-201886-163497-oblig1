@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.lblReportePresupuesto = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.hdrCategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -117,54 +117,54 @@
             // 
             // chartPresupuesto
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartPresupuesto.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartPresupuesto.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chartPresupuesto.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartPresupuesto.Legends.Add(legend1);
             this.chartPresupuesto.Location = new System.Drawing.Point(818, 71);
             this.chartPresupuesto.Name = "chartPresupuesto";
-            series4.ChartArea = "ChartArea1";
-            series4.LabelBorderColor = System.Drawing.Color.Transparent;
-            series4.Legend = "Legend1";
-            series4.LegendText = "Planificado";
-            series4.Name = "Planificado";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Real";
-            this.chartPresupuesto.Series.Add(series4);
-            this.chartPresupuesto.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.LabelBorderColor = System.Drawing.Color.Transparent;
+            series1.Legend = "Legend1";
+            series1.LegendText = "Planificado";
+            series1.Name = "Planificado";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Real";
+            this.chartPresupuesto.Series.Add(series1);
+            this.chartPresupuesto.Series.Add(series2);
             this.chartPresupuesto.Size = new System.Drawing.Size(633, 416);
             this.chartPresupuesto.TabIndex = 14;
             this.chartPresupuesto.Text = "chartPresupuesto";
-            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title3.Name = "Presupuesto";
-            title3.Text = "Presupuesto";
-            title3.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
-            this.chartPresupuesto.Titles.Add(title3);
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.Name = "Presupuesto";
+            title1.Text = "Presupuesto";
+            title1.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
+            this.chartPresupuesto.Titles.Add(title1);
             // 
             // chartPresupuesto2
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chartPresupuesto2.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chartPresupuesto2.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.chartPresupuesto2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartPresupuesto2.Legends.Add(legend2);
             this.chartPresupuesto2.Location = new System.Drawing.Point(818, 496);
             this.chartPresupuesto2.Name = "chartPresupuesto2";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series6.IsValueShownAsLabel = true;
-            series6.Label = "#PERCENT{P0}";
-            series6.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            series6.Legend = "Legend1";
-            series6.Name = "s1";
-            this.chartPresupuesto2.Series.Add(series6);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.IsValueShownAsLabel = true;
+            series3.Label = "#PERCENT{P0}";
+            series3.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            series3.Legend = "Legend1";
+            series3.Name = "s1";
+            this.chartPresupuesto2.Series.Add(series3);
             this.chartPresupuesto2.Size = new System.Drawing.Size(633, 456);
             this.chartPresupuesto2.TabIndex = 15;
             this.chartPresupuesto2.Text = "chartPresupuesto2";
-            title4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title4.Name = "Title1";
-            title4.Text = "Presupuesto";
-            this.chartPresupuesto2.Titles.Add(title4);
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title2.Name = "Title1";
+            title2.Text = "Presupuesto";
+            this.chartPresupuesto2.Titles.Add(title2);
             // 
             // ReportePresupuesto
             // 
@@ -179,7 +179,7 @@
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.lblReportePresupuesto);
             this.Name = "ReportePresupuesto";
-            this.Size = new System.Drawing.Size(1601, 1048);
+            this.Size = new System.Drawing.Size(1602, 1048);
             ((System.ComponentModel.ISupportInitialize)(this.chartPresupuesto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartPresupuesto2)).EndInit();
             this.ResumeLayout(false);
