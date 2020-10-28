@@ -16,7 +16,7 @@ namespace Interfaz_De_Usuario
             InitializeComponent();
             unAdminGastosComun = miAdminGastoComun;
             unAdminCategorias = miAdministradorCategorias;
-            gastoC = new GastoComun() {Descripcion = descripcion};
+            gastoC = new GastoComun() { Descripcion = descripcion };
             CargarComboBox(descripcion);
 
         }
@@ -30,20 +30,19 @@ namespace Interfaz_De_Usuario
             }
             try
             {
-
                 Categoria cat = unAdminCategorias.RetornarCategoriaDeDescripcion(descripcion);
                 cbCategoria.SelectedItem = cat;
 
-            } catch (Exception unaExcepcion)
-             when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException || unaExcepcion is InvalidOperationException)
+            }
+            catch (Exception unaExcepcion)
+            when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException || unaExcepcion is InvalidOperationException)
             {
-                
                 MessageBox.Show(unaExcepcion.Message);
             }
-           
+
         }
 
-     
+
         private void btnAceptarGastoC_Click(object sender, EventArgs e)
         {
             if (cbCategoria.SelectedItem == null)
@@ -59,10 +58,10 @@ namespace Interfaz_De_Usuario
                 gastoC.Categoria = (Categoria)cbCategoria.SelectedItem;
                 unAdminGastosComun.AgregarGastoComun(gastoC);
                 MessageBox.Show("El gasto ha sido creado con exito ");
-               
+
             }
             catch (Exception unaExcepcion)
-            when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException )
+            when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException)
             {
                 MessageBox.Show(unaExcepcion.Message);
             }

@@ -42,7 +42,7 @@
             // cbCategoria
             // 
             this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(203, 149);
+            this.cbCategoria.Location = new System.Drawing.Point(214, 149);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(317, 28);
             this.cbCategoria.TabIndex = 25;
@@ -63,9 +63,9 @@
             this.lblFecha.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.Location = new System.Drawing.Point(24, 88);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(71, 26);
+            this.lblFecha.Size = new System.Drawing.Size(130, 26);
             this.lblFecha.TabIndex = 23;
-            this.lblFecha.Text = "Fecha";
+            this.lblFecha.Text = "Dia del mes";
             // 
             // lblMonto
             // 
@@ -80,7 +80,7 @@
             // numMonto
             // 
             this.numMonto.DecimalPlaces = 2;
-            this.numMonto.Location = new System.Drawing.Point(204, 23);
+            this.numMonto.Location = new System.Drawing.Point(215, 24);
             this.numMonto.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -92,7 +92,7 @@
             // 
             // numFecha
             // 
-            this.numFecha.Location = new System.Drawing.Point(204, 91);
+            this.numFecha.Location = new System.Drawing.Point(215, 91);
             this.numFecha.Name = "numFecha";
             this.numFecha.Size = new System.Drawing.Size(316, 26);
             this.numFecha.TabIndex = 30;
@@ -100,7 +100,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(411, 195);
+            this.btnAceptar.Location = new System.Drawing.Point(422, 195);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(109, 45);
             this.btnAceptar.TabIndex = 32;

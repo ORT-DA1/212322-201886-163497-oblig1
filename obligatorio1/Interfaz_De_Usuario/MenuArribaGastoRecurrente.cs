@@ -21,11 +21,20 @@ namespace Interfaz_De_Usuario
             panelGRecurrente.Controls.Add(agregarGastoRecurrente);
         }
 
-        private void btnEliminarGRecurrente_Click(object sender, System.EventArgs e)
+        private void btnModificarGastoRecurrente_Click(object sender, System.EventArgs e)
         {
             panelGRecurrente.Controls.Clear();
-            UserControl eliminarGastoRecurrente = new EliminarGastoRecurrente(adminGastosRecurrentes);
+            UserControl eliminarGastoRecurrente = new ModificarGastoRecurrente(adminGastosRecurrentes, adminCategorias);
             panelGRecurrente.Controls.Add(eliminarGastoRecurrente);
         }
+
+        private void btnListadoGastos_Click(object sender, System.EventArgs e)
+        {
+            panelGRecurrente.Controls.Clear();
+            UserControl listadoGastos = new ListadoGastosRecurrentes(adminGastosRecurrentes);
+            panelGRecurrente.Controls.Add(listadoGastos);
+        }
+
+
     }
 }

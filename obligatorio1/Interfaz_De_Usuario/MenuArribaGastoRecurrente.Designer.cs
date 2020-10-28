@@ -30,49 +30,66 @@
         {
             this.panelGRecurrente = new System.Windows.Forms.Panel();
             this.btnAgregarGastoRecurrente = new System.Windows.Forms.Button();
-            this.btnEliminarGRecurrente = new System.Windows.Forms.Button();
+            this.btnListadoGastos = new System.Windows.Forms.Button();
+            this.btnModificarGastoRecurrente = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panelGRecurrente
             // 
             this.panelGRecurrente.Location = new System.Drawing.Point(57, 76);
             this.panelGRecurrente.Name = "panelGRecurrente";
-            this.panelGRecurrente.Size = new System.Drawing.Size(792, 434);
+            this.panelGRecurrente.Size = new System.Drawing.Size(792, 493);
             this.panelGRecurrente.TabIndex = 0;
             // 
             // btnAgregarGastoRecurrente
             // 
-            this.btnAgregarGastoRecurrente.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarGastoRecurrente.BackColor = System.Drawing.Color.Wheat;
+            this.btnAgregarGastoRecurrente.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarGastoRecurrente.Location = new System.Drawing.Point(57, 29);
             this.btnAgregarGastoRecurrente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregarGastoRecurrente.Name = "btnAgregarGastoRecurrente";
-            this.btnAgregarGastoRecurrente.Size = new System.Drawing.Size(305, 42);
+            this.btnAgregarGastoRecurrente.Size = new System.Drawing.Size(320, 42);
             this.btnAgregarGastoRecurrente.TabIndex = 10;
             this.btnAgregarGastoRecurrente.Text = "Agregar Gasto Recurrente";
-            this.btnAgregarGastoRecurrente.UseVisualStyleBackColor = true;
+            this.btnAgregarGastoRecurrente.UseVisualStyleBackColor = false;
             this.btnAgregarGastoRecurrente.Click += new System.EventHandler(this.btnAgregarGastoRecurrente_Click);
             // 
-            // btnEliminarGRecurrente
+            // btnListadoGastos
             // 
-            this.btnEliminarGRecurrente.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarGRecurrente.Location = new System.Drawing.Point(402, 29);
-            this.btnEliminarGRecurrente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEliminarGRecurrente.Name = "btnEliminarGRecurrente";
-            this.btnEliminarGRecurrente.Size = new System.Drawing.Size(333, 42);
-            this.btnEliminarGRecurrente.TabIndex = 16;
-            this.btnEliminarGRecurrente.Text = "Eliminar Gasto Recurrente";
-            this.btnEliminarGRecurrente.UseVisualStyleBackColor = true;
-            this.btnEliminarGRecurrente.Click += new System.EventHandler(this.btnEliminarGRecurrente_Click);
+            this.btnListadoGastos.BackColor = System.Drawing.Color.Wheat;
+            this.btnListadoGastos.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListadoGastos.Location = new System.Drawing.Point(761, 29);
+            this.btnListadoGastos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnListadoGastos.Name = "btnListadoGastos";
+            this.btnListadoGastos.Size = new System.Drawing.Size(375, 42);
+            this.btnListadoGastos.TabIndex = 21;
+            this.btnListadoGastos.Text = "Listado de Gasto Recurrente";
+            this.btnListadoGastos.UseVisualStyleBackColor = false;
+            this.btnListadoGastos.Click += new System.EventHandler(this.btnListadoGastos_Click);
+            // 
+            // btnModificarGastoRecurrente
+            // 
+            this.btnModificarGastoRecurrente.BackColor = System.Drawing.Color.Wheat;
+            this.btnModificarGastoRecurrente.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarGastoRecurrente.Location = new System.Drawing.Point(394, 29);
+            this.btnModificarGastoRecurrente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnModificarGastoRecurrente.Name = "btnModificarGastoRecurrente";
+            this.btnModificarGastoRecurrente.Size = new System.Drawing.Size(352, 42);
+            this.btnModificarGastoRecurrente.TabIndex = 17;
+            this.btnModificarGastoRecurrente.Text = "Modificar Gasto Recurrente";
+            this.btnModificarGastoRecurrente.UseVisualStyleBackColor = false;
+            this.btnModificarGastoRecurrente.Click += new System.EventHandler(this.btnModificarGastoRecurrente_Click);
             // 
             // MenuArribaGastoRecurrente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnEliminarGRecurrente);
+            this.Controls.Add(this.btnModificarGastoRecurrente);
+            this.Controls.Add(this.btnListadoGastos);
             this.Controls.Add(this.btnAgregarGastoRecurrente);
             this.Controls.Add(this.panelGRecurrente);
             this.Name = "MenuArribaGastoRecurrente";
-            this.Size = new System.Drawing.Size(921, 532);
+            this.Size = new System.Drawing.Size(1148, 585);
             this.ResumeLayout(false);
 
         }
@@ -81,6 +98,7 @@
 
         private System.Windows.Forms.Panel panelGRecurrente;
         private System.Windows.Forms.Button btnAgregarGastoRecurrente;
-        private System.Windows.Forms.Button btnEliminarGRecurrente;
+        private System.Windows.Forms.Button btnListadoGastos;
+        private System.Windows.Forms.Button btnModificarGastoRecurrente;
     }
 }

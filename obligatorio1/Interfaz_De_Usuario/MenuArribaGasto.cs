@@ -25,8 +25,16 @@ namespace Interfaz_De_Usuario
         private void btnEliminar_Click(object sender, System.EventArgs e)
         {
             panelGastoComun.Controls.Clear();
-            UserControl eliminarGastoComun = new EliminarGastoComun(adminGastosComunes);
-            panelGastoComun.Controls.Add(eliminarGastoComun);
+            UserControl modificarGastoComun = new ModificarGastoComun(adminGastosComunes, adminCategorias);
+            panelGastoComun.Controls.Add(modificarGastoComun);
+        }
+
+        private void btnListadoGastos_Click(object sender, System.EventArgs e)
+        {
+            panelGastoComun.Controls.Clear();
+            UserControl listadoGastos = new ListadoGastosComunes(adminGastosComunes);
+            panelGastoComun.Controls.Add(listadoGastos);
+            
         }
     }
 }

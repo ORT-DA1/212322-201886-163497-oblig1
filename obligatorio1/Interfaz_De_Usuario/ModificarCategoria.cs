@@ -29,7 +29,7 @@ namespace Interfaz_De_Usuario
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if ( cbCategorias.SelectedItem == null || AdminCategorias.EsVaciaListaCategorias() )
+            if (cbCategorias.SelectedItem == null || AdminCategorias.EsVaciaListaCategorias())
             {
                 MessageBox.Show("Categoria y palabra clave no pueden quedar vacias");
                 return;
@@ -44,7 +44,7 @@ namespace Interfaz_De_Usuario
                 tbPalabraClave.Clear();
             }
             catch (Exception unaExcepcion)
-            when(unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is InvalidOperationException)
+            when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is InvalidOperationException)
             {
                 MessageBox.Show(unaExcepcion.Message);
             }
@@ -61,15 +61,21 @@ namespace Interfaz_De_Usuario
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
+                AdminCategorias.BorrarPalabraClaveACategoria(categoriaSeleccionada, cbListaPalabrasClave.Text);
+                cbListaPalabrasClave.DataSource = null;
+                cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
+            }
 
-            Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
+            catch (ExcepcionElementoNoExistente unaExcepcion)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
 
-            AdminCategorias.BorrarPalabraClaveACategoria(categoriaSeleccionada, cbListaPalabrasClave.Text);
-
-            cbListaPalabrasClave.DataSource = null;
-            cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
         }
 
-      
+
     }
 }
