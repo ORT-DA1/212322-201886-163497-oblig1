@@ -33,7 +33,6 @@ namespace Interfaz_De_Usuario
 
             try
             {
-
                 DateTime fecha = Convert.ToDateTime(cbMesAnio.SelectedItem);
                 Presupuesto presupuesto = adminPresupuestos.RetornarPresupuestoSegunMes(fecha.Month, fecha.Year);
 

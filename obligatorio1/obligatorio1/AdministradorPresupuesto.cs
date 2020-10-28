@@ -32,7 +32,7 @@ namespace Dominio
         public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, int unMonto)
         {
             unPresupuesto.ModificarMontoACategoria(unaCategoria, unMonto);
-        } //HACER PRUEBA!!!!!!!!!!!!
+        } 
 
         public Presupuesto RetornarPresupuestoSegunMes(int unMes, int unAnio)
         {

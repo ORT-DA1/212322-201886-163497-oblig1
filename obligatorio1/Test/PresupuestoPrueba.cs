@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Globalization;
 using Excepciones;
 using Dominio;
-
+using System.Linq;
 
 namespace Test
 {
@@ -28,6 +28,7 @@ números positivos positivos, con dos decimales.
         private Presupuesto presupuesto;
         private Categoria categoria1;
         private Categoria categoria2;
+        private CategoriaMonto categoriaMonto;
 
 
         [TestInitialize]
@@ -37,6 +38,7 @@ números positivos positivos, con dos decimales.
             
             Categoria categoria1 = new Categoria() { Nombre = "Entretenimiento" };
             Categoria categoria2 = new Categoria() { Nombre = "Hogar" };
+            CategoriaMonto categoriaMonto = new CategoriaMonto { Categoria = categoria1, Monto = 100 };
 
         }
 
@@ -107,7 +109,16 @@ números positivos positivos, con dos decimales.
             Assert.AreEqual(presupuesto.ToString(),"2019,Setiembre");
         }
 
-        
+
+        [TestMethod]
+        public void ModificarMontoACategoriaPrueba()
+        {
+
+            presupuesto.AgregarCategoriaMonto(categoria1, 100);
+            presupuesto.ModificarMontoACategoria(categoria1, 300);
+            Assert.AreEqual(presupuesto.ListaCategoriaMonto.First().Monto , 300);
+
+        }
 
     }
 }
