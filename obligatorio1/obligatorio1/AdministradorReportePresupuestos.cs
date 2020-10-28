@@ -47,32 +47,3 @@ namespace Dominio
 }
 
 
-/*
-    public double CalcularMontoDeReporte(List<GastoComun> ListaDeGastosReporte)
-        {
-            double total = 0;
-            foreach (GastoComun gasto in ListaDeGastosReporte)
-            {
-                total += gasto.Monto;
-            }
-            return total;
-        }
-
-        public void AgregarMesesAnioDondeHayGasto()
-        {
-            foreach (GastoComun gasto in Repositorio.RetornarListaGastosCoumnes())
-            {
-                DateTime fecha = ConvertirFechaDejarSoloAnioMes(gasto);
-                if (!Repositorio.RetornarListaMesesDondeHayGasto().Contains(fecha))
-                {
-                  Repositorio.AgregarMesDondeHayGasto(fecha);
-                }
-            }
-
-        }
-
-        public DateTime ConvertirFechaDejarSoloAnioMes(GastoComun gasto)
-        {
-           return new DateTime(gasto.Fecha.Year, gasto.Fecha.Month, 1);
-          
-        }*/

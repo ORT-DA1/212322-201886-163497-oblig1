@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Excepciones;
 
 namespace Test
 {
@@ -18,6 +19,7 @@ namespace Test
         private GastoComun unGastoComun;
         private Categoria unaCategoria;
         private Categoria otraCategoria;
+        private CategoriaMonto unaCategoriaMonto;
         private Presupuesto unPresupuesto;
         private Repositorio miRepositorio;
 
@@ -31,6 +33,7 @@ namespace Test
             unaCategoria = new Categoria();
             otraCategoria = new Categoria();
             unPresupuesto = new Presupuesto();
+            unaCategoriaMonto = new CategoriaMonto();
         }
 
         [TestMethod]
@@ -63,6 +66,13 @@ namespace Test
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ExcepcionElementoNoExistente))]
+        public void PresupuestoNoExistentePrueba()
+        {            
+            adminPresupuestos.RetornarPresupuestoSegunMes(1, 2019);
+        }
+
+        [TestMethod]
         public void AsignacionDeCategoriasMontoPrueba()
         {
             unPresupuesto.AgregarCategoriaMonto(unaCategoria, 100);
@@ -71,6 +81,17 @@ namespace Test
             Assert.AreEqual(unPresupuesto.ListaCategoriaMonto.Count, 2);
 
         }
+
+        [TestMethod]
+        public void ModificarMontoACategoriaPrueba()
+        {
+            //modifica monto de la categoria de un prsupuesto.
+            unPresupuesto.AgregarCategoriaMonto(unaCategoria, 200);
+            adminPresupuestos.AgregarPresupuesto(unPresupuesto);
+            adminPresupuestos.ModificarMontoACategoria(unPresupuesto, unaCategoria, 300);
+            Assert.AreEqual(unPresupuesto.ListaCategoriaMonto.First().Monto, 300);
+        }
+
 
 
 
