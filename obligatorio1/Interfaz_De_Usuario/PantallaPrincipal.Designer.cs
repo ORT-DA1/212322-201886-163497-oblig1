@@ -31,11 +31,11 @@
             this.btnAgregarCategoria = new System.Windows.Forms.Button();
             this.btnCrearPresupuesto = new System.Windows.Forms.Button();
             this.btnReporteGastos = new System.Windows.Forms.Button();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
             this.btnGastoComun = new System.Windows.Forms.Button();
             this.btGastoRecurrente = new System.Windows.Forms.Button();
             this.btnReportePres = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.logo = new System.Windows.Forms.Panel();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnAgregarCategoria
@@ -74,13 +74,6 @@
             this.btnReporteGastos.UseVisualStyleBackColor = true;
             this.btnReporteGastos.Click += new System.EventHandler(this.btnReporteGastos_Click);
             // 
-            // panelPrincipal
-            // 
-            this.panelPrincipal.Location = new System.Drawing.Point(466, 126);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1195, 764);
-            this.panelPrincipal.TabIndex = 0;
-            // 
             // btnGastoComun
             // 
             this.btnGastoComun.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,19 +110,28 @@
             this.btnReportePres.UseVisualStyleBackColor = true;
             this.btnReportePres.Click += new System.EventHandler(this.btnReportePres_Click);
             // 
-            // panel1
+            // logo
             // 
-            this.panel1.Location = new System.Drawing.Point(87, 13);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(331, 100);
-            this.panel1.TabIndex = 21;
+            this.logo.BackgroundImage = global::Interfaz_De_Usuario.Properties.Resources.Logo_misfinanzas_02;
+            this.logo.Location = new System.Drawing.Point(87, 27);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(331, 117);
+            this.logo.TabIndex = 21;
+            // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.BackgroundImage = global::Interfaz_De_Usuario.Properties.Resources.Logo_misfinanzas_04;
+            this.panelPrincipal.Location = new System.Drawing.Point(466, 126);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(1195, 764);
+            this.panelPrincipal.TabIndex = 0;
             // 
             // PantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1770, 902);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.logo);
             this.Controls.Add(this.btnReportePres);
             this.Controls.Add(this.btGastoRecurrente);
             this.Controls.Add(this.btnGastoComun);
@@ -152,7 +154,7 @@
         private System.Windows.Forms.Button btnGastoComun;
         private System.Windows.Forms.Button btGastoRecurrente;
         private System.Windows.Forms.Button btnReportePres;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel logo;
     }
 }
 

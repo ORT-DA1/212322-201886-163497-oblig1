@@ -117,6 +117,11 @@ namespace Dominio
 
         public List<DateTime> RetornarListaMesesDondeHayGasto()
         {
+           /* foreach(DateTime fecha in ListaMesesDondeHayGastos)
+            {
+                fecha.ToString("yyyy/MM");
+            }*/
+      
             return this.ListaMesesDondeHayGastos;
         }
         public void AgregarMesDondeHayGasto(DateTime unaFecha)
@@ -136,7 +141,7 @@ namespace Dominio
             return this.ListaMesesDondeHayGastos.Count();
         }
 
-
+        
 
         public List<Presupuesto> RetornarListaPresupuestos()
         {
