@@ -44,8 +44,6 @@ namespace Dominio
             this.Nombre = "No hay nombre";
         }
         
-     
-        //hacer refactor para que este metodo haga solo una cosa.
         public void AgregarPalabraClave(string palabra)
         {
 
@@ -70,9 +68,6 @@ namespace Dominio
           
         }
 
-     
-
-
         public void BorrarPalabraClave(string palabra)
         {
             String palabraMayuscula = palabra.ToUpper();
@@ -90,7 +85,6 @@ namespace Dominio
             
             return PalabrasClave.Contains(PasarAMayuscula(unaPalabra));
         }
-
 
         private string PasarAMayuscula(string unaPalabra)
         {

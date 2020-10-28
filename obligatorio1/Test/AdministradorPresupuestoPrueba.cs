@@ -1,11 +1,11 @@
 ﻿using Dominio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Dominio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Excepciones;
 
 namespace Test
 {
@@ -14,10 +14,9 @@ namespace Test
     {
         
         private AdministradorPresupuesto adminPresupuestos;
-        private AdministradorCategorias adminCategorias;
-        private GastoComun unGastoComun;
         private Categoria unaCategoria;
         private Categoria otraCategoria;
+        private CategoriaMonto unaCategoriaMonto;
         private Presupuesto unPresupuesto;
         private Repositorio miRepositorio;
 
@@ -25,12 +24,11 @@ namespace Test
         public void InitTests()
         {
             miRepositorio = new Repositorio();
-            adminPresupuestos = new AdministradorPresupuesto(miRepositorio);
-            adminCategorias = new AdministradorCategorias(miRepositorio);
-            unGastoComun = new GastoComun();
+            adminPresupuestos = new AdministradorPresupuesto(miRepositorio);           
             unaCategoria = new Categoria();
             otraCategoria = new Categoria();
             unPresupuesto = new Presupuesto();
+            unaCategoriaMonto = new CategoriaMonto();
         }
 
         [TestMethod]
@@ -53,10 +51,20 @@ namespace Test
         [TestMethod]
         public void RetornarPresupuestoSegunMesPrueba()
         {
-            unPresupuesto.Anio = 2020;
-            unPresupuesto.Mes = "Marzo";
+            DateTime fecha = new DateTime(2020, 1, 1);
+            
+
+            unPresupuesto.Fecha = fecha;
+            
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
-            Assert.AreEqual(adminPresupuestos.RetornarPresupuestoSegunMes("Marzo", 2020), unPresupuesto);
+            Assert.AreEqual(adminPresupuestos.RetornarPresupuestoSegunMes(1, 2020), unPresupuesto);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ExcepcionElementoNoExistente))]
+        public void PresupuestoNoExistentePrueba()
+        {            
+            adminPresupuestos.RetornarPresupuestoSegunMes(1, 2019);
         }
 
         [TestMethod]
@@ -69,47 +77,19 @@ namespace Test
 
         }
 
-/*        [TestMethod]
-        public void ActualizarPresupuestosConNuevaCategoriaPrueba()
+        [TestMethod]
+        public void ModificarMontoACategoriaPrueba()
         {
+            unPresupuesto.AgregarCategoriaMonto(unaCategoria, 200);
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
-            adminCategorias.AgregarCategoria(unaCategoria);
+            adminPresupuestos.ModificarMontoACategoria(unPresupuesto, unaCategoria, 300);
+            Assert.AreEqual(unPresupuesto.ListaCategoriaMonto.First().Monto, 300);
+        }
 
-            Assert.AreEqual( 1, unPresupuesto.ListaCategoriaMonto.Count);
-            
 
-        }*/
+
 
 
 
     }
 }
-
-
-/*
-        [TestMethod]
-        public void ActualizarPresupuestosConNuevaCategoriaPrueba()
-        {
-            adminCategorias.AgregarCategoria(unaCategoria); //ahi se crea el categoriaMonto con esa categoria para todas los presupuestos
-                                                            //dado un int anio y un string mes, retornar presupuesto:
-
-//si se agrega una categoria, se tendrian que actualizar todos los categoria montos
-            CategoriaMonto catMontoNuevo = new CategoriaMonto { Categoria = unaCategoria, Monto = 0 };
-            Assert.IsTrue( adminPresupuestos.RetornarPresupuestoSegunMes("Marzo", 2008).ListaCategoriaMonto.Contains(catMontoNuevo));
-
-        }
-        */
-
-//dada una categoria, asignar monto.
-/*
-[TestMethod]
-public void ModificarMontoDeCategoriaAPresupuestoPrueba()
-{
-    adminCategorias.AgregarCategoria(unaCategoria); //ahi se crea el categoriaMonto con esa categoria para todas los presupuestos
-    adminPresupuestos.ModificarMontoACategoria(unPresupuesto, unaCategoria, 200);
-    Assert
-
-
-}
-*/
-//metodo que a un presupuesto, le deje cambiar el monto de esa categoria.

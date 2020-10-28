@@ -10,6 +10,33 @@ namespace Dominio
         private int unAnio;
         public String Mes { get; set; }
         public List <CategoriaMonto> ListaCategoriaMonto { get; }
+        
+        private DateTime unaFecha;
+
+        public DateTime Fecha
+        {
+            get { return unaFecha; }
+
+
+            set
+            {
+                DateTime fechaAntigua = new DateTime(2018, 1, 1);
+
+                DateTime fechaFuturo = new DateTime(2030, 12, 31);
+
+                int resultado = DateTime.Compare(value, fechaAntigua);
+                int resultado2 = DateTime.Compare(value, fechaFuturo);
+
+                if (resultado < 0 || resultado2 > 0)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                else
+                {
+                    unaFecha = value;
+                }
+            }
+        }
 
 
 
@@ -35,9 +62,8 @@ namespace Dominio
 
         public Presupuesto()
         {
-            this.Anio = 2019;
-            this.Mes = "Setiembre";
             this.ListaCategoriaMonto = new List<CategoriaMonto>();
+            this.Fecha = new DateTime(2020, 5, 1);
         }
 
         public bool EsVaciaListaCategoriaMonto()
@@ -51,13 +77,7 @@ namespace Dominio
             this.ListaCategoriaMonto.Add(catMonto);
         }
 
-        //CONSTRUCTOR CON PARAMETROS QUE NO LE PASO LA LISTA DE CATEGORIA MONTO PORQ NO SE COMO HACERLO.
-       /* public Presupuesto(int unAnio, String unMes)
-        {
-            Anio = unAnio;
-            Mes = unMes;
-            this.ListaCategoriaMonto = new List<CategoriaMonto>();
-        }*/
+        
 
         public override string ToString()
         {

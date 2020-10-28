@@ -29,78 +29,24 @@
         private void InitializeComponent()
         {
             this.lblReportePresupuesto = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbMes = new System.Windows.Forms.ComboBox();
-            this.nudAnio = new System.Windows.Forms.NumericUpDown();
             this.listView1 = new System.Windows.Forms.ListView();
             this.hdrCategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdrMonto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdrReal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdrDiferencia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnVerReporte = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAnio)).BeginInit();
+            this.cbMesAnio = new System.Windows.Forms.ComboBox();
+            this.btnConsultar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblReportePresupuesto
             // 
             this.lblReportePresupuesto.AutoSize = true;
-            this.lblReportePresupuesto.Location = new System.Drawing.Point(32, 19);
+            this.lblReportePresupuesto.Location = new System.Drawing.Point(24, 15);
+            this.lblReportePresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblReportePresupuesto.Name = "lblReportePresupuesto";
-            this.lblReportePresupuesto.Size = new System.Drawing.Size(162, 17);
+            this.lblReportePresupuesto.Size = new System.Drawing.Size(121, 13);
             this.lblReportePresupuesto.TabIndex = 0;
             this.lblReportePresupuesto.Text = "Reporte de presupuesto";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Mes";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(182, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Ano";
-            // 
-            // cbMes
-            // 
-            this.cbMes.FormattingEnabled = true;
-            this.cbMes.Items.AddRange(new object[] {
-            "Enero",
-            "Febrero",
-            "Marzo",
-            "Abril",
-            "Mayo",
-            "Junio",
-            "Julio",
-            "Agosto",
-            "Setiembre",
-            "Octubre",
-            "Noviembre",
-            "Diciembre"});
-            this.cbMes.Location = new System.Drawing.Point(35, 81);
-            this.cbMes.Name = "cbMes";
-            this.cbMes.Size = new System.Drawing.Size(120, 24);
-            this.cbMes.TabIndex = 4;
-            // 
-            // nudAnio
-            // 
-            this.nudAnio.Location = new System.Drawing.Point(185, 81);
-            this.nudAnio.Maximum = new decimal(new int[] {
-            2030,
-            0,
-            0,
-            0});
-            this.nudAnio.Name = "nudAnio";
-            this.nudAnio.Size = new System.Drawing.Size(136, 22);
-            this.nudAnio.TabIndex = 5;
             // 
             // listView1
             // 
@@ -112,9 +58,10 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(35, 121);
+            this.listView1.Location = new System.Drawing.Point(26, 98);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(480, 261);
+            this.listView1.Size = new System.Drawing.Size(492, 222);
             this.listView1.TabIndex = 7;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -139,30 +86,37 @@
             this.hdrDiferencia.Text = "Diferencia";
             this.hdrDiferencia.Width = 150;
             // 
-            // btnVerReporte
+            // cbMesAnio
             // 
-            this.btnVerReporte.Location = new System.Drawing.Point(353, 81);
-            this.btnVerReporte.Name = "btnVerReporte";
-            this.btnVerReporte.Size = new System.Drawing.Size(142, 23);
-            this.btnVerReporte.TabIndex = 8;
-            this.btnVerReporte.Text = "Ver reporte";
-            this.btnVerReporte.UseVisualStyleBackColor = true;
-            this.btnVerReporte.Click += new System.EventHandler(this.btnVerReporte_Click);
+            this.cbMesAnio.FormattingEnabled = true;
+            this.cbMesAnio.Location = new System.Drawing.Point(26, 46);
+            this.cbMesAnio.Margin = new System.Windows.Forms.Padding(2);
+            this.cbMesAnio.Name = "cbMesAnio";
+            this.cbMesAnio.Size = new System.Drawing.Size(168, 21);
+            this.cbMesAnio.TabIndex = 12;
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(218, 48);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(106, 19);
+            this.btnConsultar.TabIndex = 13;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // ReportePresupuesto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnVerReporte);
+            this.Controls.Add(this.btnConsultar);
+            this.Controls.Add(this.cbMesAnio);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.nudAnio);
-            this.Controls.Add(this.cbMes);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblReportePresupuesto);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ReportePresupuesto";
-            this.Size = new System.Drawing.Size(725, 443);
-            ((System.ComponentModel.ISupportInitialize)(this.nudAnio)).EndInit();
+            this.Size = new System.Drawing.Size(544, 360);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,15 +125,12 @@
         #endregion
 
         private System.Windows.Forms.Label lblReportePresupuesto;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbMes;
-        private System.Windows.Forms.NumericUpDown nudAnio;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader hdrCategoria;
         private System.Windows.Forms.ColumnHeader hdrMonto;
         private System.Windows.Forms.ColumnHeader hdrReal;
         private System.Windows.Forms.ColumnHeader hdrDiferencia;
-        private System.Windows.Forms.Button btnVerReporte;
+        private System.Windows.Forms.ComboBox cbMesAnio;
+        private System.Windows.Forms.Button btnConsultar;
     }
 }

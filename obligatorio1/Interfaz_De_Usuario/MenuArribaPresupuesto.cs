@@ -6,11 +6,14 @@ namespace Interfaz_De_Usuario
     public partial class MenuArribaPresupuesto : UserControl
     {
         private AdministradorPresupuesto adminPresupuestos;
-        public MenuArribaPresupuesto(AdministradorPresupuesto miAdminPresupuestos, AdministradorCategorias miAdminCategorias)
+        private AdministradorReportePresupuestos adminReportePresupuestos;
+        public MenuArribaPresupuesto(AdministradorPresupuesto miAdminPresupuestos, AdministradorCategorias miAdminCategorias, AdministradorReportePresupuestos miAdminReportePresupuestos)
         {
             InitializeComponent();
             adminPresupuestos = miAdminPresupuestos;
-            
+            adminReportePresupuestos = miAdminReportePresupuestos;
+
+
         }
 
         private void btnCrearPresupuesto_Click(object sender, System.EventArgs e)
@@ -23,7 +26,7 @@ namespace Interfaz_De_Usuario
         private void btnModificarPresupuesto_Click(object sender, System.EventArgs e)
         {
             panelPresupuesto.Controls.Clear();
-            UserControl crearPresupuesto = new ModificarPresupuesto(adminPresupuestos);
+            UserControl crearPresupuesto = new ModificarPresupuesto(adminPresupuestos, adminReportePresupuestos);
             panelPresupuesto.Controls.Add(crearPresupuesto);
         }
     }

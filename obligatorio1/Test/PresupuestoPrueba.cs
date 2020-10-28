@@ -3,40 +3,26 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Globalization;
 using Excepciones;
 using Dominio;
-
+using System.Linq;
 
 namespace Test
 {
 
-    /*
-     *Alta y Modificación de Presupuesto: Esta opción permite establecer el
-presupuesto para un mes particular. Es decir que se introduce el monto
-planificado a gastar en cada categoría durante el mes elegido. El mes se
-selecciona de una lista de posibilidades. El anio es un entero entre 2018 y
-2030. En la modificación no se puede cambiar el mes, pero sí el monto de
-una o varias categorías. Si se agrega una categoría luego de haber creado el
-presupuesto, el valor para la categoría nueva será inicialmente cero,
-pudiendo el usuario cambiarlo después. Los montos por categoría son
-números positivos positivos, con dos decimales.
-
-     * 
-     */
 
     [TestClass]
     public class PresupuestoPrueba
     {
         private Presupuesto presupuesto;
         private Categoria categoria1;
-        private Categoria categoria2;
+
 
 
         [TestInitialize]
         public void InitTests()
         {
             presupuesto = new Presupuesto();
-            
             Categoria categoria1 = new Categoria() { Nombre = "Entretenimiento" };
-            Categoria categoria2 = new Categoria() { Nombre = "Hogar" };
+
 
         }
 
@@ -107,7 +93,16 @@ números positivos positivos, con dos decimales.
             Assert.AreEqual(presupuesto.ToString(),"2019,Setiembre");
         }
 
-        
+
+        [TestMethod]
+        public void ModificarMontoACategoriaPrueba()
+        {
+
+            presupuesto.AgregarCategoriaMonto(categoria1, 100);
+            presupuesto.ModificarMontoACategoria(categoria1, 300);
+            Assert.AreEqual(presupuesto.ListaCategoriaMonto.First().Monto , 300);
+
+        }
 
     }
 }

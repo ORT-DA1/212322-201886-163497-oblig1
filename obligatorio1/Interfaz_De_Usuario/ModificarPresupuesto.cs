@@ -16,20 +16,26 @@ namespace Interfaz_De_Usuario
     public partial class ModificarPresupuesto : UserControl
     {
         private AdministradorPresupuesto adminPresupuestos;
-        public ModificarPresupuesto(AdministradorPresupuesto miAdminPresupuesto)
+        private AdministradorReportePresupuestos adminReportePresupuestos;
+        public ModificarPresupuesto(AdministradorPresupuesto miAdminPresupuesto, AdministradorReportePresupuestos miAdminReportePresupuestos)
         {
             InitializeComponent();
             adminPresupuestos = miAdminPresupuesto;
-            cbMes.SelectedItem = "Enero";
+            adminReportePresupuestos = miAdminReportePresupuestos;
+            cbMesAnio.DataSource = adminReportePresupuestos.AgregarYRetornalListaDeMesesDondeHayPresupuestosOrdenada();
         }
-
-        private void btnVerPresupuesto_Click(object sender, EventArgs e)
+        private void btnConsultar_Click(object sender, EventArgs e)
         {
             try
             {
-                Presupuesto presupuesto = adminPresupuestos.RetornarPresupuestoSegunMes((String)cbMes.SelectedItem, (int)nudAnio.Value);
-                MessageBox.Show("presupuesto elegido: " + presupuesto.ToString()); //solo para ver
+                //para un presupuesto(cbMes), mostrar su lista de CategoriaMonto....
+                DateTime fecha = Convert.ToDateTime(cbMesAnio.SelectedItem);
+                Presupuesto presupuesto = adminPresupuestos.RetornarPresupuestoSegunMes(fecha.Month, fecha.Year);
+
+                MessageBox.Show("presupuesto elegido: " + presupuesto.Fecha.Month); //solo para ver
+
                 MessageBox.Show("CatMonto " + presupuesto.ListaCategoriaMonto.First().ToString()); //presupuesto nuevo tendria que llenarse automaticamente con todas las cats
+
                 var listaCatMonto = presupuesto.ListaCategoriaMonto;
                 listView1.Items.Clear();
                 foreach (var catMonto in listaCatMonto)
@@ -41,21 +47,22 @@ namespace Interfaz_De_Usuario
                     listView1.Items.Add(lvi);
 
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             //when (ex is ArgumentOutOfRangeException)
             {
                 MessageBox.Show(ex.Message);
             }
-
-
-
         }
 
+       
+
         private void btnModificarMonto_Click(object sender, EventArgs e)
-        {
+        { 
             try
             {
-                Presupuesto presupuesto = adminPresupuestos.RetornarPresupuestoSegunMes((String)cbMes.SelectedItem, (int)nudAnio.Value);
+                DateTime fecha = Convert.ToDateTime(cbMesAnio.SelectedItem);
+                Presupuesto presupuesto = adminPresupuestos.RetornarPresupuestoSegunMes(fecha.Month, fecha.Year);
                 var categoriaMontoSeleccionado = (CategoriaMonto)listView1.SelectedItems[0].Tag;
                 int nuevoMonto = (int)nudMonto.Value;
                 adminPresupuestos.ModificarMontoACategoria(presupuesto, categoriaMontoSeleccionado.Categoria, nuevoMonto);
@@ -79,8 +86,11 @@ namespace Interfaz_De_Usuario
                 MessageBox.Show("Seleccione una categoria para modificar el monto.");
             }
             
-
+              
 
         }
+
+        
     }
+
 }

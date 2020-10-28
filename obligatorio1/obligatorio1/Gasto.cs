@@ -11,7 +11,6 @@ namespace Dominio
     public class Gasto
     {
        
-
         private string desc;
         private double monto;
         public double Monto 
