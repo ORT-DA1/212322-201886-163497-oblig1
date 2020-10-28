@@ -81,5 +81,7 @@ namespace Interfaz_De_Usuario
             UserControl reportePresupuesto = new ReportePresupuesto(AdminPresupuesto, AdminReportePresupuestos, AdminReporteGastos);
             panelPrincipal.Controls.Add(reportePresupuesto);
         }
+
+       
     }
 }

@@ -69,7 +69,7 @@ namespace Test
         [TestMethod]
         public void ToStringGastoComunPrueba()
         {
-            Assert.AreEqual(gasto.ToString(), "Monto: 0,Descripcion: No hay descripcion,Categoria: No hay nombre,Fecha: 5/1/2020");
+            Assert.AreEqual(gasto.ToString(), "Monto: 0, Descripcion: No hay descripcion, Categoria: No hay nombre, Fecha: 5/1/2020");
 
         }
 

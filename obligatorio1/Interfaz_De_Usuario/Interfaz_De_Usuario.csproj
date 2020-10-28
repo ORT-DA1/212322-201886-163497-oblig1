@@ -225,6 +225,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ReporteDeGastos.resx">
       <DependentUpon>ReporteDeGastos.cs</DependentUpon>
@@ -269,6 +270,12 @@
       <Project>{965ceeae-599e-45f2-bd46-f9381ba42871}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_misfinanzas-02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_misfinanzas-04.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

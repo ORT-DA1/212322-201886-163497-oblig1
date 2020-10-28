@@ -12,8 +12,17 @@ namespace Interfaz_De_Usuario
         {
             InitializeComponent();
             adminReporteGastos = AdminReporteGastos;
-            cbMesAnio.DataSource = adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada();
-            
+            CargarComboBoxFechas();
+
+        }
+
+        private void CargarComboBoxFechas()
+        {
+            foreach (DateTime fecha in adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada())
+            {
+                cbMesAnio.Items.Add(fecha.ToString("yyyy/MM"));
+
+            }
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)

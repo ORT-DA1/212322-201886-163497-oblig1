@@ -26,7 +26,6 @@ namespace Dominio
             {
                 listaTotal.Add(gasto);
             }
-
             return listaTotal;
 
         }

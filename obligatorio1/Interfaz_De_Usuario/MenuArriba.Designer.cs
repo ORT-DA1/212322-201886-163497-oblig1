@@ -35,7 +35,7 @@
             // 
             // btnAgregarCatMenuArriba
             // 
-            this.btnAgregarCatMenuArriba.BackColor = System.Drawing.Color.Wheat;
+            this.btnAgregarCatMenuArriba.BackColor = System.Drawing.Color.Beige;
             this.btnAgregarCatMenuArriba.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarCatMenuArriba.Location = new System.Drawing.Point(59, 27);
             this.btnAgregarCatMenuArriba.Name = "btnAgregarCatMenuArriba";
@@ -54,7 +54,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.Wheat;
+            this.btnModificar.BackColor = System.Drawing.Color.Beige;
             this.btnModificar.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Location = new System.Drawing.Point(373, 27);
             this.btnModificar.Name = "btnModificar";
