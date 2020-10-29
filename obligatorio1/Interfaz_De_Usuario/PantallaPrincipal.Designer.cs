@@ -121,9 +121,9 @@
             // panelPrincipal
             // 
             this.panelPrincipal.BackgroundImage = global::Interfaz_De_Usuario.Properties.Resources.Logo_misfinanzas_04;
-            this.panelPrincipal.Location = new System.Drawing.Point(466, 126);
+            this.panelPrincipal.Location = new System.Drawing.Point(469, 110);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1195, 764);
+            this.panelPrincipal.Size = new System.Drawing.Size(1195, 938);
             this.panelPrincipal.TabIndex = 0;
             // 
             // PantallaPrincipal
