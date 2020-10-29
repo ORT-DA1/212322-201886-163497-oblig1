@@ -37,9 +37,10 @@
             // 
             this.btnAgregarCatMenuArriba.BackColor = System.Drawing.Color.Beige;
             this.btnAgregarCatMenuArriba.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarCatMenuArriba.Location = new System.Drawing.Point(59, 27);
+            this.btnAgregarCatMenuArriba.Location = new System.Drawing.Point(39, 18);
+            this.btnAgregarCatMenuArriba.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAgregarCatMenuArriba.Name = "btnAgregarCatMenuArriba";
-            this.btnAgregarCatMenuArriba.Size = new System.Drawing.Size(266, 41);
+            this.btnAgregarCatMenuArriba.Size = new System.Drawing.Size(177, 27);
             this.btnAgregarCatMenuArriba.TabIndex = 0;
             this.btnAgregarCatMenuArriba.Text = "Agregar Categoria";
             this.btnAgregarCatMenuArriba.UseVisualStyleBackColor = false;
@@ -47,18 +48,20 @@
             // 
             // panelNuevo
             // 
-            this.panelNuevo.Location = new System.Drawing.Point(59, 103);
+            this.panelNuevo.Location = new System.Drawing.Point(39, 67);
+            this.panelNuevo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelNuevo.Name = "panelNuevo";
-            this.panelNuevo.Size = new System.Drawing.Size(946, 538);
+            this.panelNuevo.Size = new System.Drawing.Size(631, 350);
             this.panelNuevo.TabIndex = 1;
             // 
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.Beige;
             this.btnModificar.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(373, 27);
+            this.btnModificar.Location = new System.Drawing.Point(249, 18);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(261, 41);
+            this.btnModificar.Size = new System.Drawing.Size(174, 27);
             this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar Categoria";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -66,13 +69,14 @@
             // 
             // MenuArribaCategoria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.panelNuevo);
             this.Controls.Add(this.btnAgregarCatMenuArriba);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MenuArribaCategoria";
-            this.Size = new System.Drawing.Size(1069, 687);
+            this.Size = new System.Drawing.Size(1200, 700);
             this.ResumeLayout(false);
 
         }
