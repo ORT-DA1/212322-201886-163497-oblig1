@@ -4,7 +4,6 @@ namespace Excepciones
 {
     public class ExcepcionPalabraLarga : Exception
     {
-
         public ExcepcionPalabraLarga() : base() { }
 
         public ExcepcionPalabraLarga(string message) : base(message) { }

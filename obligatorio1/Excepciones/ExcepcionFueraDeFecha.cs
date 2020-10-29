@@ -4,7 +4,6 @@ namespace Excepciones
 {
     public class ExcepcionFueraDeFecha : Exception
     {
-
         public ExcepcionFueraDeFecha() : base() { }
 
         public ExcepcionFueraDeFecha(string message) : base(message) { }

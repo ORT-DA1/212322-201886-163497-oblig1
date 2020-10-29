@@ -5,12 +5,10 @@ namespace Dominio
     public class GastoComun : Gasto
     {
 
-        private DateTime unaFecha;
-
-        public DateTime Fecha
+         private DateTime unaFecha;
+         public DateTime Fecha
         {
             get { return unaFecha; }
-
 
             set
             {

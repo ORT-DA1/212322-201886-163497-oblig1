@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System;
 
@@ -30,75 +29,60 @@ namespace Dominio
         {
             this.ListaCategorias.Add(unaCategoria);
         }
-
         public List<Categoria> RetornarListaCategorias()
         {
             return this.ListaCategorias;
         }
-
-       
-
         public bool EsVaciaListaCategorias()
         {
             return this.ListaCategorias.Count == 0;
         }
-
         public bool ExisteCategoria(Categoria unaCategoria)
         {
             return this.ListaCategorias.Contains(unaCategoria);
         }
-
         public void EliminarCategoria(Categoria unaCategoria)
         {
             this.ListaCategorias.Remove(unaCategoria);
         }
-
         
 
-
+        
         public void AgregarGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
             ListaGastosRecurrentes.Add(unGastoRecurrente);
         }
-
         public List<GastoRecuerrente> RetornarListaGastosRecurrentes()
         {
             return this.ListaGastosRecurrentes;
         }
-
         public bool EsVaciaListaGastosRecurrentes()
         {
             return this.ListaGastosRecurrentes.Count == 0;
         }
-
         public bool ExisteGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
             return this.ListaGastosRecurrentes.Contains(unGastoRecurrente);
         }
-
         public void EliminarGastoRecuerrente(GastoRecuerrente unGastoRecurrente)
         {
             this.ListaGastosRecurrentes.Remove(unGastoRecurrente);
         }
 
-      
 
 
         public void AgregarGastoComun(GastoComun unGastoComun)
         {
             ListaGastosComunes.Add(unGastoComun);
         }
-
         public List<GastoComun> RetornarListaGastosCoumnes()
         {
             return this.ListaGastosComunes;
         }
-
         public bool EsVaciaListaGastosComunes()
         {
             return this.ListaGastosComunes.Count == 0;
         }
-
         public bool ExisteGastoComun(GastoComun unGastoComun)
         {
             return this.ListaGastosComunes.Contains(unGastoComun);
@@ -107,22 +91,16 @@ namespace Dominio
         {
             this.ListaGastosComunes.Remove(unGastoComun);
         }
-
         public void AgregarPresupuesto(Presupuesto unPresupuesto)
         {
             this.ListaPresupuestos.Add(unPresupuesto);   
         }
 
-        
 
+        
         public List<DateTime> RetornarListaMesesDondeHayGasto()
         {
-           /* foreach(DateTime fecha in ListaMesesDondeHayGastos)
-            {
-                fecha.ToString("yyyy/MM");
-            }*/
-      
-            return this.ListaMesesDondeHayGastos;
+           return this.ListaMesesDondeHayGastos;
         }
         public void AgregarMesDondeHayGasto(DateTime unaFecha)
         {
@@ -141,7 +119,7 @@ namespace Dominio
             return this.ListaMesesDondeHayGastos.Count();
         }
 
-        
+
 
         public List<Presupuesto> RetornarListaPresupuestos()
         {
@@ -151,12 +129,10 @@ namespace Dominio
         {
             return this.ListaMesesDondeHayPresupuestos;
         }
-
         internal void AgregarMesDondeHayPresupuesto(DateTime unaFecha)
         {
             this.ListaMesesDondeHayPresupuestos.Add(unaFecha);
         }
-
         public bool ExisteUnPresupuesto(DateTime unaFecha)
         {
             foreach (Presupuesto presu in this.ListaPresupuestos)

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Excepciones;
@@ -50,7 +43,6 @@ namespace Interfaz_De_Usuario
             }
 
         }
-
 
         private void cbCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {

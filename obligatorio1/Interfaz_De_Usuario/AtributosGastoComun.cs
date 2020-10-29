@@ -42,7 +42,6 @@ namespace Interfaz_De_Usuario
 
         }
 
-
         private void btnAceptarGastoC_Click(object sender, EventArgs e)
         {
             if (cbCategoria.SelectedItem == null)

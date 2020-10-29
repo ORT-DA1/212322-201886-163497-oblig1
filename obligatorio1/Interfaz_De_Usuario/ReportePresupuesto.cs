@@ -47,19 +47,26 @@ namespace Interfaz_De_Usuario
                     double gastoTotalDeCatEnMes = adminReporteGastos.CalcularGastoTotalDeCategoriaEnMes(fecha.Year, fecha.Month, catMonto.Categoria);
                     double diferenciaTotalPlanificado = catMonto.Monto - gastoTotalDeCatEnMes;
                     String diferenciaTotalPlanificadoString = diferenciaTotalPlanificado.ToString();
-                  
-                    var row = new string[] { catMonto.Categoria.ToString(), catMonto.Monto.ToString(), gastoTotalDeCatEnMes.ToString(), diferenciaTotalPlanificadoString };
-                    var lvi = new ListViewItem(row);
 
-                    if (diferenciaTotalPlanificado < 0.00)
+                    if(diferenciaTotalPlanificado > 0.00)
                     {
+                        diferenciaTotalPlanificadoString = diferenciaTotalPlanificado.ToString();
+                        var row = new string[] { catMonto.Categoria.ToString(), catMonto.Monto.ToString(), gastoTotalDeCatEnMes.ToString(), diferenciaTotalPlanificadoString };
+                        var lvi = new ListViewItem(row);
+                        lvi.UseItemStyleForSubItems = false;
+                        listView1.Items.Add(lvi);
+                    }
+                    else 
+                    {
+                        diferenciaTotalPlanificadoString = "(" + diferenciaTotalPlanificado + ")";
+                        var row = new string[] { catMonto.Categoria.ToString(), catMonto.Monto.ToString(), gastoTotalDeCatEnMes.ToString(), diferenciaTotalPlanificadoString };
+                        var lvi = new ListViewItem(row);
                         lvi.UseItemStyleForSubItems = false;
                         lvi.SubItems[3].ForeColor = Color.Red;
+                        listView1.Items.Add(lvi);
 
                     }
-
-                    listView1.Items.Add(lvi);
-
+                   
                        this.chartPresupuesto.Series["Planificado"].Points.AddXY(catMonto.Categoria.ToString(), catMonto.Monto);
                        this.chartPresupuesto.Series["Real"].Points.AddXY(catMonto.Categoria.ToString(), gastoTotalDeCatEnMes.ToString());
                        this. chartPresupuesto2.Series["s2"].Points.AddXY(catMonto.Categoria.ToString(), gastoTotalDeCatEnMes);                      
