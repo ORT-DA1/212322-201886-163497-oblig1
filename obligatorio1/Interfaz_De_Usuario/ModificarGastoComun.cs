@@ -31,6 +31,7 @@ namespace Interfaz_De_Usuario
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            VerificarSiElCampocbGastoComunEsVacio();
             try
             {
                 GastoComun gastoEliminar = (GastoComun)cbGastoComun.SelectedItem;
@@ -42,6 +43,14 @@ namespace Interfaz_De_Usuario
             catch (Exception unaExcepcion)
             {
                 MessageBox.Show(unaExcepcion.Message);
+            }
+        }
+
+        private void VerificarSiElCampocbGastoComunEsVacio()
+        {
+            if (cbGastoComun.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione un gasto a eliminar");
             }
         }
 

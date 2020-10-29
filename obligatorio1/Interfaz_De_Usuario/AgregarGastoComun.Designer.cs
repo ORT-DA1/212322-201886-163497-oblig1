@@ -38,7 +38,7 @@
             // tbDescripcion
             // 
             this.tbDescripcion.Location = new System.Drawing.Point(192, 94);
-            this.tbDescripcion.MaxLength = 20;
+            this.tbDescripcion.MaxLength = 21;
             this.tbDescripcion.Name = "tbDescripcion";
             this.tbDescripcion.Size = new System.Drawing.Size(317, 26);
             this.tbDescripcion.TabIndex = 9;
