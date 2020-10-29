@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
 using Dominio;
 using Excepciones;
@@ -21,15 +17,13 @@ namespace Interfaz_De_Usuario
             presupuesto = new Presupuesto();
         }
 
-
-
         private void btnCrearPresupuesto2_Click(object sender, EventArgs e)
         {
             try
             {
                 presupuesto.Fecha = dtFecha.Value;
                 adminPresupuestos.AgregarPresupuesto(presupuesto);
-                MessageBox.Show("Presupuesto creado con éxito");
+                MessageBox.Show("Presupuesto creado con éxito, ir a Modificar Presupuesto para asignarle un monto");
 
             }
             catch (Exception unaExcepcion)

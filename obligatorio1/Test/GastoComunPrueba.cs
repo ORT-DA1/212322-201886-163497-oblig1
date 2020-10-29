@@ -1,10 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Dominio;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Test
 {
@@ -19,7 +16,6 @@ namespace Test
         {
             gasto = new GastoComun();
             cat = new Categoria();
-
         }
 
         [TestMethod]
@@ -28,7 +24,6 @@ namespace Test
             gasto.Fecha = new DateTime(2020, 5, 1);
             DateTime fecha = new DateTime(2020, 5, 1);
             Assert.AreEqual(fecha, gasto.Fecha);
-
         }
 
         [TestMethod]
@@ -36,7 +31,6 @@ namespace Test
         public void RangoInferiorFechaPrueba()
         {
             gasto.Fecha = new DateTime(2017, 12, 31);
-
         }
 
         [TestMethod]
@@ -44,7 +38,6 @@ namespace Test
         public void RangoInferiorFechaGastoComunPrueba()
         {
             gasto.Fecha = new DateTime(2017, 12, 31);
-
         }
 
         [TestMethod]
@@ -52,7 +45,6 @@ namespace Test
         public void RangoSuperiorFechaGastoComunPrueba()
         {
             gasto.Fecha = new DateTime(2031, 1, 1);
-
         }
         
         [TestMethod]
@@ -61,10 +53,7 @@ namespace Test
             DateTime fecha = new DateTime(2020, 5, 1);
             GastoComun gastoRec2 = new GastoComun(1000, "Ir a comer", cat,fecha);
             Assert.AreEqual(gastoRec2.Descripcion,"Ir a comer");
-
         }
-
-      
 
         [TestMethod]
         public void ToStringGastoComunPrueba()

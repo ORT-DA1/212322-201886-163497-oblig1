@@ -1,10 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Dominio;
 
 namespace Test
@@ -14,8 +9,6 @@ namespace Test
     {
         private CategoriaMonto categoriaMonto;
         private Categoria categoria;
-
-
 
         [TestInitialize]
         public void InitTests()
@@ -43,8 +36,6 @@ namespace Test
         [TestMethod]
         public void PropertyMontoDecimalPrueba()
         {
-
-
             categoriaMonto.Monto = 0;
             Assert.AreEqual(0.00, categoriaMonto.Monto);
 

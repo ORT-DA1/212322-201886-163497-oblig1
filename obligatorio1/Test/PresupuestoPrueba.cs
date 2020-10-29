@@ -1,7 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Globalization;
-using Excepciones;
 using Dominio;
 using System.Linq;
 
@@ -13,20 +11,16 @@ namespace Test
     public class PresupuestoPrueba
     {
         private Presupuesto presupuesto;
-        private Categoria categoria1;
-
+        private Categoria unaCategoria;
 
 
         [TestInitialize]
         public void InitTests()
         {
             presupuesto = new Presupuesto();
-            Categoria categoria1 = new Categoria() { Nombre = "Entretenimiento" };
-
-
+            Categoria unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
         }
      
-
         [TestMethod]
         [ExpectedException(typeof(IndexOutOfRangeException))]
         public void RangoAnioPrueba()
@@ -37,19 +31,16 @@ namespace Test
         [TestMethod]
         public void CrearListaCategoriaMontoVaciaPrueba()
         {
-
             Assert.IsTrue(presupuesto.EsVaciaListaCategoriaMonto());
-
         }
 
         [TestMethod]
         public void AgregarCategoriaMontoPrueba()
         {
-            presupuesto.AgregarCategoriaMonto(categoria1, 100);
+            presupuesto.AgregarCategoriaMonto(unaCategoria, 100);
             Assert.IsFalse(presupuesto.EsVaciaListaCategoriaMonto());
         }
 
-       
         [TestMethod]
         public void ConstructorPresupuestoAsignarCategoriasExistentesPrueba() 
         {
@@ -64,13 +55,11 @@ namespace Test
             Assert.AreEqual(presupuesto.ToString(),"2020,5");
         }
 
-
         [TestMethod]
         public void ModificarMontoACategoriaPrueba()
         {
-
-            presupuesto.AgregarCategoriaMonto(categoria1, 100);
-            presupuesto.ModificarMontoACategoria(categoria1, 300);
+            presupuesto.AgregarCategoriaMonto(unaCategoria, 100);
+            presupuesto.ModificarMontoACategoria(unaCategoria, 300);
             Assert.AreEqual(presupuesto.ListaCategoriaMonto.First().Monto , 300);
 
         }

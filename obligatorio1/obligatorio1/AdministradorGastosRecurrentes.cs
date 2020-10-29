@@ -1,5 +1,4 @@
 ﻿using Excepciones;
-using System;
 using System.Collections.Generic;
 
 namespace Dominio
@@ -10,13 +9,13 @@ namespace Dominio
         public AdministradorGastosRecurrentes(Repositorio unRepositorio)
         {
             this.Repositorio = unRepositorio;
-
         }
 
         public List<GastoRecuerrente> RetornarListaGastosRecurrentes()
         {
             return Repositorio.RetornarListaGastosRecurrentes();
         }
+
         public void AgregarGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
             if (NoHayCategoriaDefinida(unGastoRecurrente))
@@ -41,8 +40,6 @@ namespace Dominio
             Repositorio.EliminarGastoRecuerrente(unGastoRecurrente);
         }
 
-
-      
 
     }
 }

@@ -4,7 +4,6 @@ namespace Excepciones
 {
     public class ExcepcionElementoRepetido : Exception
     {
-
         public ExcepcionElementoRepetido() : base() { }
        
         public ExcepcionElementoRepetido(string message) : base(message) { }

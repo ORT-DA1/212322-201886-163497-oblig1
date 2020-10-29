@@ -1,11 +1,4 @@
-﻿using Dominio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
+﻿using System;
 
 namespace Dominio
 {
@@ -13,7 +6,7 @@ namespace Dominio
     {
 
         public Categoria Categoria { get; set; }
-
+        
         private double unMonto;
         public double Monto
         {
@@ -25,7 +18,6 @@ namespace Dominio
                 {
                     throw new IndexOutOfRangeException("Monto debe ser positivo.");
                 }
-                
             }
         }
         public CategoriaMonto()

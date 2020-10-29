@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Dominio;
+﻿using Dominio;
 using System.Windows.Forms;
 
 namespace Interfaz_De_Usuario
@@ -9,7 +7,6 @@ namespace Interfaz_De_Usuario
     {
 
         private AdministradorGastosComunes unAdminGastoComun;
-
         public ListadoGastosComunes(AdministradorGastosComunes miAdminGastoComun)
         {
             InitializeComponent();

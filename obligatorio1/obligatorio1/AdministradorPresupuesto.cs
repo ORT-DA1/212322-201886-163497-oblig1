@@ -1,12 +1,8 @@
-﻿using Dominio;
-using Excepciones;
-using System;
+﻿using Excepciones;
 using System.Collections.Generic;
 
 namespace Dominio
 {
-   
-
     public class AdministradorPresupuesto
     {
         private Repositorio Repositorio { get; }
@@ -21,7 +17,7 @@ namespace Dominio
 
         public void AgregarPresupuesto(Presupuesto unPresupuesto)
         {
-            if (!Repositorio.ExisteUnPresupuesto(unPresupuesto.Fecha))
+            if (NoExiste(unPresupuesto))
             {
                 foreach (Categoria cat in Repositorio.RetornarListaCategorias())
                 {
@@ -34,29 +30,35 @@ namespace Dominio
                 throw new ExcepcionElementoRepetido("Ya existe un presupuesto para el mes elegido");
             }
 
-
         }
 
+        private bool NoExiste(Presupuesto unPresupuesto)
+        {
+            return !Repositorio.ExisteUnPresupuesto(unPresupuesto.Fecha);
+        }
 
         public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, int unMonto)
         {
             unPresupuesto.ModificarMontoACategoria(unaCategoria, unMonto);
-        } 
+        }
 
         public Presupuesto RetornarPresupuestoSegunMes(int unMes, int unAnio)
         {
-            foreach (Presupuesto p in this.RetornarListaPresupuestos())
+            foreach (Presupuesto presupuesto in this.RetornarListaPresupuestos())
             {
-                if (p.Fecha.Month == unMes && p.Fecha.Year == unAnio)
+                if (CoincideMesYAnio(unMes, unAnio, presupuesto))
                 {
-                    return p;
+                    return presupuesto;
                 }
             }
             throw new ExcepcionElementoNoExistente("No hay un presupuesto para el mes elegido");
 
-        } 
+        }
 
-
+        private bool CoincideMesYAnio(int unMes, int unAnio, Presupuesto presupuesto)
+        {
+            return presupuesto.Fecha.Month == unMes && presupuesto.Fecha.Year == unAnio;
+        }
 
     }
 }

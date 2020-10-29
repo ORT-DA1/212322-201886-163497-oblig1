@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
-using Excepciones;
+
 
 namespace Interfaz_De_Usuario
 {
@@ -31,7 +24,8 @@ namespace Interfaz_De_Usuario
                 pAgregarAtributos.Controls.Clear();
                 UserControl agregarAtributos = new AtributosGastoComun(adminGastosComunes, tbDescripcion.Text, adminCategorias);
                 pAgregarAtributos.Controls.Add(agregarAtributos);
-            }catch(IndexOutOfRangeException unaExcepcion)
+            }
+            catch(IndexOutOfRangeException unaExcepcion)
             {
                 MessageBox.Show(unaExcepcion.Message);
             }

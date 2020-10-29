@@ -4,7 +4,6 @@ namespace Excepciones
 {
     public class ExcepcionElementoNoExistente: Exception
     {
-
         public ExcepcionElementoNoExistente() : base() { }
 
         public ExcepcionElementoNoExistente(string message) : base(message) { }

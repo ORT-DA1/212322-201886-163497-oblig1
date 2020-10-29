@@ -2,7 +2,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Dominio;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using System.Linq;
 using Excepciones;
 
@@ -29,7 +28,6 @@ namespace Test
         [TestMethod]
         public void RetornarListaCategoriasPrueba()
         {
-
             List<Categoria> ListaLocal = new List<Categoria>();
             Assert.IsTrue(adminCategorias.RetornarListaCategorias().SequenceEqual(ListaLocal));
 
@@ -60,13 +58,9 @@ namespace Test
         [TestMethod]
         public void PalabraClaveYaIngresadaEnAlgunaListaPrueba()
         {
-
             Categoria cat = new Categoria { Nombre = "Auto" };
             cat.AgregarPalabraClave("Nafta");
-
             adminCategorias.AgregarCategoria(cat);
-
-
             Assert.IsTrue(adminCategorias.PalabraClaveYaIngresadaEnAlgunaLista("Nafta"));
 
         }
@@ -75,7 +69,6 @@ namespace Test
         [ExpectedException(typeof(ExcepcionElementoNoExistente))]
         public void BuscarPalabraQueNoEstaCateogiraPrueba()
         {
-
             adminCategorias.CategoriaDePalabraClave("Manzana");
 
         }
@@ -104,9 +97,6 @@ namespace Test
             adminCategorias.AgregarCategoria(otraCategoria);
         }
 
-
-
-        // PRUEBAS PARA IDENTIFICAR LA CATEGORIA DE LA DESCRIPCION 
 
         [TestMethod]
         public void CantDeCategoriasDistintasDondeApareceLaDescripcionPrueba()
@@ -137,9 +127,6 @@ namespace Test
 
         }
 
-
-
-
         [TestMethod]
         public void CantDeCategoriasDistintasDeDescripcionPrueba()
         {
@@ -154,7 +141,6 @@ namespace Test
             Assert.AreEqual(1, adminCategorias.CantDeCategoriasDistintasDondeApareceLaDescripcion(descripcion));
 
         }
-
 
 
         [TestMethod]
@@ -184,7 +170,6 @@ namespace Test
 
 
         }
-
 
         [TestMethod]
         public void AgregarCategoriaPrueba()

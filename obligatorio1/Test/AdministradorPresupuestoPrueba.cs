@@ -3,8 +3,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Excepciones;
 
 namespace Test
@@ -52,10 +50,7 @@ namespace Test
         public void RetornarPresupuestoSegunMesPrueba()
         {
             DateTime fecha = new DateTime(2020, 1, 1);
-            
-
             unPresupuesto.Fecha = fecha;
-            
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
             Assert.AreEqual(adminPresupuestos.RetornarPresupuestoSegunMes(1, 2020), unPresupuesto);
         }
@@ -86,6 +81,35 @@ namespace Test
             Assert.AreEqual(unPresupuesto.ListaCategoriaMonto.First().Monto, 300);
         }
 
+       
+        [TestMethod]
+        [ExpectedException(typeof(ExcepcionElementoRepetido))]
+        public void AgregarPresupuestoRepetidoPrueba()
+        {
+            unPresupuesto.AgregarCategoriaMonto(unaCategoria, 200);
+            adminPresupuestos.AgregarPresupuesto(unPresupuesto);
+
+            adminPresupuestos.AgregarPresupuesto(unPresupuesto);
+
+        }
+
+        [TestMethod]
+        public void PresupuestoSegunMesPrueba()
+        {
+            DateTime fecha = new DateTime(2020, 1, 1);
+            unPresupuesto.Fecha = fecha;
+            adminPresupuestos.AgregarPresupuesto(unPresupuesto);
+            Assert.AreEqual(adminPresupuestos.RetornarPresupuestoSegunMes(1, 2020).Fecha.Month, 1);
+        }
+
+        [TestMethod]
+        public void RetornarPresupuestoSegunAnioPrueba()
+        {
+            DateTime fecha = new DateTime(2020, 1, 1);
+            unPresupuesto.Fecha = fecha;
+            adminPresupuestos.AgregarPresupuesto(unPresupuesto);
+            Assert.AreEqual(adminPresupuestos.RetornarPresupuestoSegunMes(1, 2020).Fecha.Year, 2020);
+        }
 
 
 

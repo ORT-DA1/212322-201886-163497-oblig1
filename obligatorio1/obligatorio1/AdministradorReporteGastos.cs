@@ -1,5 +1,4 @@
-﻿using Excepciones;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 
@@ -11,7 +10,6 @@ namespace Dominio
         public AdministradorReporteGastos(Repositorio unRepositorio)
         {
             this.Repositorio = unRepositorio;
-           
         }
 
         public List<GastoComun> UnirListaGastosDelMes(int anio, int mes)
@@ -50,7 +48,6 @@ namespace Dominio
             return unGasto.Fecha.Month == mes && unGasto.Fecha.Year == anio;
         }
 
-
         public List<GastoComun> RetornarListaGastosRecurrentesConFechaAdecuada(int anio, int mes)
         {
             List<GastoComun> listaGastosRecurrentesConFechaAdecuada = new List<GastoComun>();
@@ -61,7 +58,6 @@ namespace Dominio
 
             return listaGastosRecurrentesConFechaAdecuada;
         }
-
 
         public GastoComun ConvertirGastoRecurrente(GastoRecuerrente gastoRecurrente, int anio, int mes)
         {
@@ -101,7 +97,7 @@ namespace Dominio
                 DateTime fecha = ConvertirFechaDejarSoloAnioMes(gasto);
                 if (!Repositorio.RetornarListaMesesDondeHayGasto().Contains(fecha))
                 {
-                  Repositorio.AgregarMesDondeHayGasto(fecha);
+                    Repositorio.AgregarMesDondeHayGasto(fecha);
                 }
             }
 
@@ -109,20 +105,37 @@ namespace Dominio
 
         public DateTime ConvertirFechaDejarSoloAnioMes(GastoComun gasto)
         {
-           return new DateTime(gasto.Fecha.Year, gasto.Fecha.Month, 1);
-          
+            return new DateTime(gasto.Fecha.Year, gasto.Fecha.Month, 1);
+
         }
 
         public double CalcularGastoTotalDeCategoriaEnMes(int anio, int mes, Categoria unaCategoria)
         {
             List<GastoComun> listaGastosDelMes = this.UnirListaGastosDelMes(anio, mes);
-          
+
+            return SumaGastoTotal(unaCategoria, listaGastosDelMes);
+        }
+
+        private static double SumaGastoTotal(Categoria unaCategoria, List<GastoComun> listaGastosDelMes)
+        {
             double gastoTotalDeCategoriaEnMes = 0;
-            foreach(Gasto gasto in listaGastosDelMes)
+            foreach (Gasto gasto in listaGastosDelMes)
             {
-                if (gasto.Categoria == unaCategoria) gastoTotalDeCategoriaEnMes += gasto.Monto;                              
+                if (GastoIgualACategoria(unaCategoria, gasto))
+                {
+                    gastoTotalDeCategoriaEnMes += gasto.Monto;
+                }
             }
             return gastoTotalDeCategoriaEnMes;
         }
+
+        private static bool GastoIgualACategoria(Categoria unaCategoria, Gasto gasto)
+        {
+            return gasto.Categoria == unaCategoria;
+        }
+
+
+
+
     }
 }

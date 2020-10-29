@@ -1,6 +1,5 @@
 ﻿using Dominio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +27,6 @@ namespace Test
             unGastoRecuerrente = new GastoRecuerrente() { Categoria = unaCategoria };
             unGastoComun = new GastoComun() { Categoria = unaCategoria };
             adminReporteGastos = new AdministradorReporteGastos(miRepositorio);
-
-
         }
 
 
@@ -61,7 +58,6 @@ namespace Test
             adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
             Assert.AreEqual(1, adminReporteGastos.RetornarListaGastosRecurrentesConFechaAdecuada(2020, 10).Count());
 
-
         }
 
         [TestMethod]
@@ -80,8 +76,8 @@ namespace Test
             Assert.IsTrue(adminReporteGastos.DevolverListaDeGastosComunesSegunFecha(2020,6).SequenceEqual(ListaLocal));
 
         }
+        
         [TestMethod]
-
         public void UnirListaGastosDelMesPrueba()
         {
             unGastoComun.Fecha = new DateTime(2020, 5, 1);

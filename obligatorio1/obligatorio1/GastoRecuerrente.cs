@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 
 namespace Dominio
 {
     public class GastoRecuerrente : Gasto
     {
         private int fecha;
-
         public int Fecha
         {
             get { return fecha; }
-
             set
             {
                 if (value < 1 || value > 28)

@@ -3,8 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Test
 {
@@ -12,8 +11,6 @@ namespace Test
 
     public class AdministradorReportePresupuestosPrueba
     {
-
-        
         private Categoria unaCategoria;
         private Repositorio miRepositorio;
         private AdministradorReportePresupuestos adminReportePresupuestos;
@@ -55,9 +52,8 @@ namespace Test
             ListaLocal.Add(new DateTime(2020, 11, 1));
 
             Assert.IsTrue(adminReportePresupuestos.AgregarYRetornalListaDeMesesDondeHayPresupuestosOrdenada().SequenceEqual(ListaLocal));
-
-
         }
+
         [TestMethod]
         public void AgregarAListaDeMesesDondeHayPresupuestoPrueba()
         {
@@ -73,8 +69,6 @@ namespace Test
             DateTime unaFecha = new DateTime(2020, 10, 1);
             Assert.AreEqual(unaFecha, adminReportePresupuestos.ConvertirFechaDejarSoloAnioMes(unPresupuesto));
         }
-
-        
 
         [TestMethod]
         public void ConvertirFechaQuitarElDiaPrueba()

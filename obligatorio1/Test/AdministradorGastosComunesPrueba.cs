@@ -2,7 +2,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Dominio;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using System.Linq;
 using Excepciones;
 
@@ -34,10 +33,8 @@ namespace Test
         [TestMethod]
         public void RetornarListaGastosComunes()
         {
-
             List<GastoComun> ListaLocal = new List<GastoComun>();
             Assert.IsTrue(adminGastosComunes.RetornarListaGastosComunes().SequenceEqual(ListaLocal));
-
         }
 
         [TestMethod]

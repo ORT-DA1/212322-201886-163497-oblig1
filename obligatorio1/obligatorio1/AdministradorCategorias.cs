@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using Excepciones;
 
 
@@ -16,10 +14,8 @@ namespace Dominio
 
         public AdministradorCategorias(Repositorio unRepositorio)
         {
-
             this.Repositorio = unRepositorio;
             this.AdminPresupuesto = new AdministradorPresupuesto(unRepositorio);
-
         }
 
         public List<Categoria> RetornarListaCategorias()
@@ -54,10 +50,8 @@ namespace Dominio
 
         public Categoria CategoriaDePalabraClave(String palabraClave)
         {
-
             foreach (Categoria unaCategoria in Repositorio.RetornarListaCategorias())
             {
-
                 if (unaCategoria.ExistePalabraClave(palabraClave))
                 {
                     return unaCategoria;
@@ -81,7 +75,6 @@ namespace Dominio
             return false;
         }
 
-
         public Categoria RetornarCategoriaDeDescripcion(string descripcion)
         {
             if (CantDeCategoriasDistintasDondeApareceLaDescripcion(descripcion) > 1)
@@ -96,7 +89,6 @@ namespace Dominio
             }
 
         }
-
         private string[] SepararPalabras(string descripcion)
         {
             return descripcion.Split(SEPARADOR);
@@ -117,8 +109,6 @@ namespace Dominio
             }
             throw new ExcepcionElementoNoExistente("No se ha encontrado una categoria para sugerirle, seleccione una.");
         }
-
-
         public int CantDeCategoriasDistintasDondeApareceLaDescripcion(string descripcion)
         {
             int cantDeCategoriasDistintas = 0;
@@ -131,7 +121,6 @@ namespace Dominio
                 {
                     if (unaCategoria.ExistePalabraClave(palabra))
                     {
-                       
                         if (LaCategoriaEsDistinta(unaCategoria, categoriaYaContada))
                         {
                             cantDeCategoriasDistintas++;
@@ -147,7 +136,6 @@ namespace Dominio
 
         }
 
-
         private bool LaCategoriaEsDistinta(Categoria unaCategoria, Categoria otraCategoria)
         {
             return !unaCategoria.Equals(otraCategoria);
@@ -156,29 +144,26 @@ namespace Dominio
 
         public void AgregarPalabraClaveACategoria(Categoria categoria, string unaPalabra)
         {
-            if(this.RetornarPalabrasClaveDeCategoria(categoria).Count == 10)
+            if (this.RetornarPalabrasClaveDeCategoria(categoria).Count == 10)
                 throw new IndexOutOfRangeException("Ya existen 10 palabras clave para esta categoría.");
             else
             {
                 categoria.AgregarPalabraClave(unaPalabra);
-               
+
             }
 
         }
-
         public void BorrarPalabraClaveACategoria(Categoria categoria, String palabra)
         {
             categoria.BorrarPalabraClave(palabra);
 
         }
 
-       
         public List<String> RetornarPalabrasClaveDeCategoria(Categoria unaCategoria)
         {
             return unaCategoria.PalabrasClave;
         }
 
-      
         public Categoria RetornarCategoriaSegunString(string unNombre)
         {
 
@@ -190,7 +175,6 @@ namespace Dominio
             throw new ExcepcionElementoNoExistente("Categoria no existente");
 
         }
-
         public void EliminarCategoria(Categoria unaCategoria)
         {
             Repositorio.EliminarCategoria(unaCategoria);

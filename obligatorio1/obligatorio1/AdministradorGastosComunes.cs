@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
+﻿using System.Collections.Generic;
 using Excepciones;
 
 
@@ -14,7 +11,6 @@ namespace Dominio
         public AdministradorGastosComunes(Repositorio unRepositorio)
         {
             this.Repositorio = unRepositorio;
-
         }
 
         public List<GastoComun> RetornarListaGastosComunes()
@@ -31,7 +27,6 @@ namespace Dominio
             else Repositorio.AgregarGastoComun(unGastoComun);
 
         }
-
         private bool NoHayCategoriaDefinida(GastoComun unGastoComun)
         {
             return unGastoComun.Categoria.Nombre == "No hay nombre";
