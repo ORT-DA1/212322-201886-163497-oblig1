@@ -89,11 +89,11 @@
     <Compile Include="ModificarGastoRecurrente.Designer.cs">
       <DependentUpon>ModificarGastoRecurrente.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuArriba.cs">
+    <Compile Include="MenuArribaCategoria.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MenuArriba.Designer.cs">
-      <DependentUpon>MenuArriba.cs</DependentUpon>
+    <Compile Include="MenuArribaCategoria.Designer.cs">
+      <DependentUpon>MenuArribaCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="ModificarCategoria.cs">
       <SubType>UserControl</SubType>
@@ -112,12 +112,6 @@
     </Compile>
     <Compile Include="AtributosGastoRecurrente.Designer.cs">
       <DependentUpon>AtributosGastoRecurrente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AgregarPresupuesto.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="AgregarPresupuesto.Designer.cs">
-      <DependentUpon>AgregarPresupuesto.cs</DependentUpon>
     </Compile>
     <Compile Include="ModificarPresupuesto.cs">
       <SubType>UserControl</SubType>
@@ -190,8 +184,8 @@
     <EmbeddedResource Include="ModificarGastoRecurrente.resx">
       <DependentUpon>ModificarGastoRecurrente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuArriba.resx">
-      <DependentUpon>MenuArriba.cs</DependentUpon>
+    <EmbeddedResource Include="MenuArribaCategoria.resx">
+      <DependentUpon>MenuArribaCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarCategoria.resx">
       <DependentUpon>ModificarCategoria.cs</DependentUpon>
@@ -201,9 +195,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AtributosGastoRecurrente.resx">
       <DependentUpon>AtributosGastoRecurrente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AgregarPresupuesto.resx">
-      <DependentUpon>AgregarPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarPresupuesto.resx">
       <DependentUpon>ModificarPresupuesto.cs</DependentUpon>

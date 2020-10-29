@@ -18,18 +18,20 @@ namespace Interfaz_De_Usuario
             adminPresupuestos = miAdminPresupuesto;
             adminReportePresupuestos = miAdminReportePresupuestos;
             adminReporteGastos = miAdminReporteGastos;
-            //chartPresupuesto2.Titles.Add("Gasto real por categoría");
-
             Title title = new Title();
             title.Font = new Font("Arial", 14);
             title.Text = "Gasto real por categoría";
             chartPresupuesto2.Titles.Add(title);
-
-            cbMesAnio.DataSource = adminReportePresupuestos.AgregarYRetornalListaDeMesesDondeHayPresupuestosOrdenada();
+            cargarComboBox();
            
         }
-
-
+        public void cargarComboBox()
+        {
+            foreach(DateTime fecha in adminReportePresupuestos.AgregarYRetornalListaDeMesesDondeHayPresupuestosOrdenada())
+            {
+                cbMesAnio.Items.Add(fecha.ToString("yyyy/MM"));
+            }
+        }
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             
@@ -48,12 +50,18 @@ namespace Interfaz_De_Usuario
                   
                     var row = new string[] { catMonto.Categoria.ToString(), catMonto.Monto.ToString(), gastoTotalDeCatEnMes.ToString(), diferenciaTotalPlanificadoString };
                     var lvi = new ListViewItem(row);
-                   
+
+                    if (diferenciaTotalPlanificado < 0.00)
+                    {
+                        lvi.UseItemStyleForSubItems = false;
+                        lvi.SubItems[3].ForeColor = Color.Red;
+
+                    }
+
                     listView1.Items.Add(lvi);
 
                        this.chartPresupuesto.Series["Planificado"].Points.AddXY(catMonto.Categoria.ToString(), catMonto.Monto);
                        this.chartPresupuesto.Series["Real"].Points.AddXY(catMonto.Categoria.ToString(), gastoTotalDeCatEnMes.ToString());
-
                        this. chartPresupuesto2.Series["s2"].Points.AddXY(catMonto.Categoria.ToString(), gastoTotalDeCatEnMes);                      
                 }
             }
