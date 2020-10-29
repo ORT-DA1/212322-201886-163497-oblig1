@@ -141,7 +141,7 @@
             this.Controls.Add(this.btnAgregarCategoria);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PantallaPrincipal";
-            this.Text = "Form1";
+            this.Text = "Mis Finanzas Personales";
             this.ResumeLayout(false);
 
         }
