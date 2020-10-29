@@ -77,7 +77,7 @@ namespace Interfaz_De_Usuario
 
             }
             catch(Exception ex)
-            when(ex is ArgumentOutOfRangeException)
+            when(ex is ArgumentOutOfRangeException || ex is ExcepcionElementoNoExistente)
             {
                 MessageBox.Show("Seleccione una categoria para modificar el monto.");
             }

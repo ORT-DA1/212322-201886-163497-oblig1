@@ -36,7 +36,6 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.lblReportePresupuesto = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.hdrCategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -72,7 +71,7 @@
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(26, 71);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(492, 222);
             this.listView1.TabIndex = 7;
@@ -103,7 +102,7 @@
             // 
             this.cbMesAnio.FormattingEnabled = true;
             this.cbMesAnio.Location = new System.Drawing.Point(26, 46);
-            this.cbMesAnio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbMesAnio.Margin = new System.Windows.Forms.Padding(2);
             this.cbMesAnio.Name = "cbMesAnio";
             this.cbMesAnio.Size = new System.Drawing.Size(168, 21);
             this.cbMesAnio.TabIndex = 12;
@@ -111,7 +110,7 @@
             // btnConsultar
             // 
             this.btnConsultar.Location = new System.Drawing.Point(218, 48);
-            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(106, 19);
             this.btnConsultar.TabIndex = 13;
@@ -126,7 +125,7 @@
             legend1.Name = "Legend1";
             this.chartPresupuesto.Legends.Add(legend1);
             this.chartPresupuesto.Location = new System.Drawing.Point(545, 46);
-            this.chartPresupuesto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chartPresupuesto.Margin = new System.Windows.Forms.Padding(2);
             this.chartPresupuesto.Name = "chartPresupuesto";
             series1.ChartArea = "ChartArea1";
             series1.LabelBorderColor = System.Drawing.Color.Transparent;
@@ -151,26 +150,19 @@
             // 
             chartArea2.Name = "ChartArea1";
             this.chartPresupuesto2.ChartAreas.Add(chartArea2);
+            this.chartPresupuesto2.IsSoftShadows = false;
             legend2.Name = "Legend1";
             this.chartPresupuesto2.Legends.Add(legend2);
-            this.chartPresupuesto2.Location = new System.Drawing.Point(545, 292);
-            this.chartPresupuesto2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chartPresupuesto2.Location = new System.Drawing.Point(545, 281);
             this.chartPresupuesto2.Name = "chartPresupuesto2";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.IsValueShownAsLabel = true;
-            series3.Label = "#PERCENT{P0}";
-            series3.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             series3.Legend = "Legend1";
-            series3.Name = "s1";
+            series3.Name = "s2";
             this.chartPresupuesto2.Series.Add(series3);
-            this.chartPresupuesto2.Size = new System.Drawing.Size(353, 222);
+            this.chartPresupuesto2.Size = new System.Drawing.Size(353, 300);
             this.chartPresupuesto2.TabIndex = 15;
             this.chartPresupuesto2.Text = "chartPresupuesto2";
-            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title2.Name = "Title1";
-            title2.Text = "Presupuesto";
-            this.chartPresupuesto2.Titles.Add(title2);
             // 
             // ReportePresupuesto
             // 
@@ -184,7 +176,7 @@
             this.Controls.Add(this.cbMesAnio);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.lblReportePresupuesto);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ReportePresupuesto";
             this.Size = new System.Drawing.Size(1067, 681);
             ((System.ComponentModel.ISupportInitialize)(this.chartPresupuesto)).EndInit();
