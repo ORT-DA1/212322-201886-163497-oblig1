@@ -7,8 +7,7 @@ namespace Dominio
     public class Presupuesto
     {
         
-        private int unAnio;
-        public String Mes { get; set; }
+        
         public List <CategoriaMonto> ListaCategoriaMonto { get; }
         
         private DateTime unaFecha;
@@ -40,25 +39,7 @@ namespace Dominio
 
 
 
-        public int Anio
-        {
-
-            get { return unAnio; }
-
-            set
-            {
-                if (value < 2018 || value > 2030)
-                {
-                    throw new ExcepcionFueraDeFecha();
-                }
-                else
-                {
-                    unAnio = value;
-                }
-
-            }
-
-        }
+        
 
         public Presupuesto()
         {
@@ -81,7 +62,7 @@ namespace Dominio
 
         public override string ToString()
         {
-            return String.Format("{0},{1}", this.Anio,this.Mes);
+            return String.Format("{0},{1}", this.Fecha.Year, this.Fecha.Month);
         }
 
         public void ModificarMontoACategoria(Categoria unaCategoria, int unMonto)

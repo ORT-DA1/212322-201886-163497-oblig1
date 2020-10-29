@@ -29,7 +29,7 @@ namespace Interfaz_De_Usuario
             {
                 presupuesto.Fecha = dtFecha.Value;
                 adminPresupuestos.AgregarPresupuesto(presupuesto);
-                MessageBox.Show("Presupuesto para Mes: " + presupuesto.Fecha + " ha sido creado con exito");
+                MessageBox.Show("Presupuesto creado con éxito");
 
             }
             catch (Exception unaExcepcion)

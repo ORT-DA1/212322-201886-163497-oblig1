@@ -25,34 +25,13 @@ namespace Test
 
 
         }
+     
 
         [TestMethod]
-        public void PropertyMesPrueba()
-        {
-           
-            string nombreMes = "enero";
-            presupuesto.Mes = "enero";
-
-            Assert.AreEqual(nombreMes, presupuesto.Mes);
-
-        }
-
-        [TestMethod]
-        public void PropertyAnioPrueba()
-        {
-            int anio = 2019;
-            presupuesto.Anio = 2019;
-
-            Assert.AreEqual(anio, presupuesto.Anio);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ExcepcionFueraDeFecha))]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
         public void RangoAnioPrueba()
         {
-            
-            presupuesto.Anio = 2031;
-
+            presupuesto.Fecha = new DateTime(2070, 12, 31);
         }
 
         [TestMethod]
@@ -70,27 +49,19 @@ namespace Test
             Assert.IsFalse(presupuesto.EsVaciaListaCategoriaMonto());
         }
 
-       /* [TestMethod]
-        public void ConstructorPresupuestoPrueba()
-        {
-            Presupuesto presupuesto1 = new Presupuesto(2019, "Setiembre");
-            Assert.AreEqual(presupuesto1.Anio, 2019);
-
-        }*/
+       
         [TestMethod]
         public void ConstructorPresupuestoAsignarCategoriasExistentesPrueba() 
- //hacer prueba que verifica que la lista de CategoriaMonto, (constr por defecto), sean todas las categorias existentes, y monto 0.
- //verificar tambien en categoria que cada vez que se crea una, crear objeto CategoriaMonto para todos los presupuestos, con monto 0.
         {
-            Presupuesto presupuesto1 = new Presupuesto { Anio=2019, Mes= "Setiembre"};
-            Assert.AreEqual(presupuesto1.Anio, 2019);
-
+            DateTime unaFecha = new DateTime(2020, 12, 31);
+            Presupuesto presupuesto1 = new Presupuesto { Fecha = unaFecha};
+            Assert.AreEqual(presupuesto1.Fecha, unaFecha);
         }
 
         [TestMethod]
         public void ToStringPrueba()
         {
-            Assert.AreEqual(presupuesto.ToString(),"2019,Setiembre");
+            Assert.AreEqual(presupuesto.ToString(),"2020,5");
         }
 
 

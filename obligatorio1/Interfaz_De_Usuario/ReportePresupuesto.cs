@@ -44,7 +44,7 @@ namespace Interfaz_De_Usuario
                     var lvi = new ListViewItem(row);
                    
                     ///* COLOR ROJO:
-                    MessageBox.Show(lvi.SubItems[3].ToString());
+                   
                     if (diferenciaTotalPlanificado < 0.00)
                     {
                         lvi.SubItems[3].ForeColor = Color.Red;
@@ -55,7 +55,9 @@ namespace Interfaz_De_Usuario
 
                        this.chartPresupuesto.Series["Planificado"].Points.AddXY(catMonto.Categoria.ToString(), catMonto.Monto);
                        this.chartPresupuesto.Series["Real"].Points.AddXY(catMonto.Categoria.ToString(), gastoTotalDeCatEnMes.ToString());
-                       this. chartPresupuesto2.Series["s1"].Points.AddXY(catMonto.Categoria.ToString(), gastoTotalDeCatEnMes);
+
+                       this. chartPresupuesto2.Series["s2"].Points.AddXY(catMonto.Categoria.ToString(), gastoTotalDeCatEnMes);
+                      
                 }
             }
             catch (Exception ex)
@@ -66,6 +68,7 @@ namespace Interfaz_De_Usuario
 
         }
 
+        
     }
 }
 

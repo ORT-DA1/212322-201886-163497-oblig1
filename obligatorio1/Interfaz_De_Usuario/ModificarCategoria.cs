@@ -44,7 +44,7 @@ namespace Interfaz_De_Usuario
                 tbPalabraClave.Clear();
             }
             catch (Exception unaExcepcion)
-            when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is InvalidOperationException)
+            when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is InvalidOperationException || unaExcepcion is IndexOutOfRangeException)
             {
                 MessageBox.Show(unaExcepcion.Message);
             }

@@ -139,12 +139,6 @@
     <Compile Include="ReporteDeGastos.Designer.cs">
       <DependentUpon>ReporteDeGastos.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReporteDePresupuestos.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ReporteDePresupuestos.Designer.cs">
-      <DependentUpon>ReporteDePresupuestos.cs</DependentUpon>
-    </Compile>
     <Compile Include="ReportePresupuesto.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -229,9 +223,6 @@
     </Compile>
     <EmbeddedResource Include="ReporteDeGastos.resx">
       <DependentUpon>ReporteDeGastos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReporteDePresupuestos.resx">
-      <DependentUpon>ReporteDePresupuestos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportePresupuesto.resx">
       <DependentUpon>ReportePresupuesto.cs</DependentUpon>

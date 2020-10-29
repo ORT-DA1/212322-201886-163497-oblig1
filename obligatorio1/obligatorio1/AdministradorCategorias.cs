@@ -156,7 +156,13 @@ namespace Dominio
 
         public void AgregarPalabraClaveACategoria(Categoria categoria, string unaPalabra)
         {
-            categoria.AgregarPalabraClave(unaPalabra);
+            if(this.RetornarPalabrasClaveDeCategoria(categoria).Count == 10)
+                throw new IndexOutOfRangeException("Ya existen 10 palabras clave para esta categoría.");
+            else
+            {
+                categoria.AgregarPalabraClave(unaPalabra);
+               
+            }
 
         }
 
