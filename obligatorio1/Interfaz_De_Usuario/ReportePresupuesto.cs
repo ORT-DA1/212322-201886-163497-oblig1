@@ -18,9 +18,15 @@ namespace Interfaz_De_Usuario
             adminPresupuestos = miAdminPresupuesto;
             adminReportePresupuestos = miAdminReportePresupuestos;
             adminReporteGastos = miAdminReporteGastos;
+            //chartPresupuesto2.Titles.Add("Gasto real por categoría");
+
+            Title title = new Title();
+            title.Font = new Font("Arial", 14);
+            title.Text = "Gasto real por categoría";
+            chartPresupuesto2.Titles.Add(title);
 
             cbMesAnio.DataSource = adminReportePresupuestos.AgregarYRetornalListaDeMesesDondeHayPresupuestosOrdenada();
-            //cargarGraficas();
+           
         }
 
 
@@ -43,21 +49,12 @@ namespace Interfaz_De_Usuario
                     var row = new string[] { catMonto.Categoria.ToString(), catMonto.Monto.ToString(), gastoTotalDeCatEnMes.ToString(), diferenciaTotalPlanificadoString };
                     var lvi = new ListViewItem(row);
                    
-                    ///* COLOR ROJO:
-                   
-                    if (diferenciaTotalPlanificado < 0.00)
-                    {
-                        lvi.SubItems[3].ForeColor = Color.Red;
-                        lvi.SubItems[3].BackColor = Color.Red;
-                    }
-                    //*/
                     listView1.Items.Add(lvi);
 
                        this.chartPresupuesto.Series["Planificado"].Points.AddXY(catMonto.Categoria.ToString(), catMonto.Monto);
                        this.chartPresupuesto.Series["Real"].Points.AddXY(catMonto.Categoria.ToString(), gastoTotalDeCatEnMes.ToString());
 
-                       this. chartPresupuesto2.Series["s2"].Points.AddXY(catMonto.Categoria.ToString(), gastoTotalDeCatEnMes);
-                      
+                       this. chartPresupuesto2.Series["s2"].Points.AddXY(catMonto.Categoria.ToString(), gastoTotalDeCatEnMes);                      
                 }
             }
             catch (Exception ex)

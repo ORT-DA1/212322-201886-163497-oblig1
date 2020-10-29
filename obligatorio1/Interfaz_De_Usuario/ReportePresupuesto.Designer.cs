@@ -73,7 +73,7 @@
             this.listView1.Location = new System.Drawing.Point(26, 71);
             this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(492, 222);
+            this.listView1.Size = new System.Drawing.Size(389, 222);
             this.listView1.TabIndex = 7;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -81,22 +81,22 @@
             // hdrCategoria
             // 
             this.hdrCategoria.Text = "Categoria";
-            this.hdrCategoria.Width = 117;
+            this.hdrCategoria.Width = 100;
             // 
             // hdrMonto
             // 
             this.hdrMonto.Text = "Planificado";
-            this.hdrMonto.Width = 122;
+            this.hdrMonto.Width = 94;
             // 
             // hdrReal
             // 
             this.hdrReal.Text = "Real";
-            this.hdrReal.Width = 117;
+            this.hdrReal.Width = 98;
             // 
             // hdrDiferencia
             // 
             this.hdrDiferencia.Text = "Diferencia";
-            this.hdrDiferencia.Width = 150;
+            this.hdrDiferencia.Width = 97;
             // 
             // cbMesAnio
             // 
@@ -124,7 +124,7 @@
             this.chartPresupuesto.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartPresupuesto.Legends.Add(legend1);
-            this.chartPresupuesto.Location = new System.Drawing.Point(545, 46);
+            this.chartPresupuesto.Location = new System.Drawing.Point(440, 46);
             this.chartPresupuesto.Margin = new System.Windows.Forms.Padding(2);
             this.chartPresupuesto.Name = "chartPresupuesto";
             series1.ChartArea = "ChartArea1";
@@ -153,7 +153,7 @@
             this.chartPresupuesto2.IsSoftShadows = false;
             legend2.Name = "Legend1";
             this.chartPresupuesto2.Legends.Add(legend2);
-            this.chartPresupuesto2.Location = new System.Drawing.Point(545, 281);
+            this.chartPresupuesto2.Location = new System.Drawing.Point(440, 281);
             this.chartPresupuesto2.Name = "chartPresupuesto2";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -178,7 +178,7 @@
             this.Controls.Add(this.lblReportePresupuesto);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ReportePresupuesto";
-            this.Size = new System.Drawing.Size(1067, 681);
+            this.Size = new System.Drawing.Size(2000, 700);
             ((System.ComponentModel.ISupportInitialize)(this.chartPresupuesto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartPresupuesto2)).EndInit();
             this.ResumeLayout(false);
