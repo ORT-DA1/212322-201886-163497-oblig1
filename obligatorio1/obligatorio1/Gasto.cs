@@ -33,7 +33,7 @@ namespace Dominio
             {
                 if (value.Length < 3 || value.Length > 20)
                 {
-                    throw new IndexOutOfRangeException("Descripcion invalida");
+                    throw new IndexOutOfRangeException("Descripción demasiado corta o larga");
                 }
                 else
                 {
