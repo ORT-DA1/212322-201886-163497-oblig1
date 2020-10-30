@@ -79,6 +79,7 @@
             // 
             // numMonto
             // 
+
             this.numMonto.DecimalPlaces = 2;
             this.numMonto.Location = new System.Drawing.Point(215, 24);
             this.numMonto.Maximum = new decimal(new int[] {
@@ -86,6 +87,7 @@
             0,
             0,
             0});
+
             this.numMonto.Name = "numMonto";
             this.numMonto.Size = new System.Drawing.Size(316, 26);
             this.numMonto.TabIndex = 29;

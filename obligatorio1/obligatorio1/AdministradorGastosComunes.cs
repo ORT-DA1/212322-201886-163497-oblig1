@@ -42,6 +42,6 @@ namespace Dominio
             Repositorio.EliminarGastoComun(unGastoComun);
         }
 
-        
+
     }
 }

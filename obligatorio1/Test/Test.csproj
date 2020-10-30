@@ -55,7 +55,6 @@
     <Compile Include="CategoriaMontoPrueba.cs" />
     <Compile Include="CategoriaPrueba.cs" />
     <Compile Include="AdministradorGastosComunesPrueba.cs" />
-    <Compile Include="AdministradorReporteGastosPrueba.cs" />
     <Compile Include="RepositorioPrueba.cs" />
     <Compile Include="GastoComunPrueba.cs" />
     <Compile Include="GastoRecurrentePrueba.cs" />

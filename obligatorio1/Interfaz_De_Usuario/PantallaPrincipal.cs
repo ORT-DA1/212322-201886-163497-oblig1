@@ -68,6 +68,7 @@ namespace Interfaz_De_Usuario
             panelPrincipal.Controls.Add(reporteGastos);
         }
 
+
         private void btnReportePres_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
@@ -76,5 +77,6 @@ namespace Interfaz_De_Usuario
         }
 
        
+
     }
 }

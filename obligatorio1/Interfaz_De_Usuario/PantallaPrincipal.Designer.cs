@@ -44,7 +44,7 @@
             this.btnAgregarCategoria.Location = new System.Drawing.Point(85, 168);
             this.btnAgregarCategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregarCategoria.Name = "btnAgregarCategoria";
-            this.btnAgregarCategoria.Size = new System.Drawing.Size(333, 46);
+            this.btnAgregarCategoria.Size = new System.Drawing.Size(296, 37);
             this.btnAgregarCategoria.TabIndex = 6;
             this.btnAgregarCategoria.Text = "Categoria";
             this.btnAgregarCategoria.UseVisualStyleBackColor = true;
@@ -56,7 +56,7 @@
             this.btnCrearPresupuesto.Location = new System.Drawing.Point(87, 403);
             this.btnCrearPresupuesto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCrearPresupuesto.Name = "btnCrearPresupuesto";
-            this.btnCrearPresupuesto.Size = new System.Drawing.Size(331, 39);
+            this.btnCrearPresupuesto.Size = new System.Drawing.Size(294, 31);
             this.btnCrearPresupuesto.TabIndex = 10;
             this.btnCrearPresupuesto.Text = "Presupuesto";
             this.btnCrearPresupuesto.UseVisualStyleBackColor = true;
@@ -128,7 +128,7 @@
             // 
             // PantallaPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1770, 902);
             this.Controls.Add(this.logo);
@@ -137,6 +137,7 @@
             this.Controls.Add(this.btnGastoComun);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.btnReporteGastos);
+
             this.Controls.Add(this.btnCrearPresupuesto);
             this.Controls.Add(this.btnAgregarCategoria);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -155,6 +156,7 @@
         private System.Windows.Forms.Button btGastoRecurrente;
         private System.Windows.Forms.Button btnReportePres;
         private System.Windows.Forms.Panel logo;
+
     }
 }
 

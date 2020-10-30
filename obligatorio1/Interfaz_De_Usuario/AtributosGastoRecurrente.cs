@@ -53,7 +53,9 @@ namespace Interfaz_De_Usuario
                 unGastoRecurrente.Fecha = (int)numFecha.Value;
                 unGastoRecurrente.Categoria = (Categoria)cbCategoria.SelectedItem;
                 unAdminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecurrente);
+
                 MessageBox.Show("El gasto recurrente ha sido creado con exito");
+
 
             }
             catch (Exception unaExcepcion)

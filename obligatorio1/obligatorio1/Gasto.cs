@@ -49,7 +49,9 @@ namespace Dominio
         }
         public override string ToString()
         {
+
             return String.Format("Monto: {0}, Descripcion: {1}, Categoria: {2}", this.Monto, this.Descripcion, this.Categoria);
+
         }
     }
 

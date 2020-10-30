@@ -71,6 +71,7 @@
     <Compile Include="CrearPresupuesto.Designer.cs">
       <DependentUpon>CrearPresupuesto.cs</DependentUpon>
     </Compile>
+
     <Compile Include="ListadoGastosRecurrentes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,6 +96,7 @@
     <Compile Include="MenuArribaCategoria.Designer.cs">
       <DependentUpon>MenuArribaCategoria.cs</DependentUpon>
     </Compile>
+
     <Compile Include="ModificarCategoria.cs">
       <SubType>UserControl</SubType>
     </Compile>
