@@ -13,6 +13,7 @@ namespace Dominio
         private List<DateTime> ListaMesesDondeHayGastos { get; set; }
         private List<DateTime> ListaMesesDondeHayPresupuestos { get; set; }
 
+        private Persistencia context;
 
         public Repositorio()
         {
@@ -23,15 +24,20 @@ namespace Dominio
             ListaMesesDondeHayGastos = new List<DateTime>();
             ListaMesesDondeHayPresupuestos = new List<DateTime>();
 
+            context = new Persistencia();
         }
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
-            this.ListaCategorias.Add(unaCategoria);
+            //this.ListaCategorias.Add(unaCategoria);
+            context.Categorias.Add(unaCategoria);
+            context.SaveChanges();
+
         }
         public List<Categoria> RetornarListaCategorias()
         {
-            return this.ListaCategorias;
+            //return this.ListaCategorias;
+            return context.Categorias.ToList();
         }
         public bool EsVaciaListaCategorias()
         {
@@ -43,7 +49,9 @@ namespace Dominio
         }
         public void EliminarCategoria(Categoria unaCategoria)
         {
-            this.ListaCategorias.Remove(unaCategoria);
+            //this.ListaCategorias.Remove(unaCategoria);
+            context.Categorias.Remove(unaCategoria);
+            context.SaveChanges();
         }
         
 
