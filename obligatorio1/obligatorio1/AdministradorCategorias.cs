@@ -115,7 +115,7 @@ namespace Dominio
         }
 
 
-/*        public int CantDeCategoriasDistintasDondeApareceLaDescripcion(string descripcion)
+/*       public int CantDeCategoriasDistintasDondeApareceLaDescripcion(string descripcion)
         {
             int cantDeCategoriasDistintas = 0;
             string[] palabras = SepararPalabras(descripcion);
@@ -140,8 +140,8 @@ namespace Dominio
 
             return cantDeCategoriasDistintas;
 
-        }
-*/
+        }*/
+
 
         private bool LaCategoriaEsDistinta(Categoria unaCategoria, Categoria otraCategoria)
         {

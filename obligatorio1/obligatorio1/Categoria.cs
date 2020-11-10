@@ -9,6 +9,7 @@ namespace Dominio
     {
         public int Id { get; set; }
         public List<PalabraClave> PalabrasClave { get; }
+        public List<string> PalabrasYaUsadas { get; }
 
         private String nombre;
 
@@ -70,7 +71,8 @@ namespace Dominio
 
         public bool ExistePalabraClave(PalabraClave unaPalabra)
         {
-            return PalabrasClave.Contains(unaPalabra/*PasarAMayuscula(unaPalabra)*/);
+            string palabra = unaPalabra.ToString();
+            return PalabrasClave.Contains(palabra /*unaPalabra*//*PasarAMayuscula(unaPalabra)*/);
         }
 
        /* private string PasarAMayuscula(string unaPalabra)
