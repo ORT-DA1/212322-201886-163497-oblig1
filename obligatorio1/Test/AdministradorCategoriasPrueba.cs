@@ -12,14 +12,14 @@ namespace Test
     public class AdministradorCategoriasPrueba
     {
 
-        private Repositorio miRepositorio;
+        private IRepositorio miRepositorio;
         private AdministradorCategorias adminCategorias;
         private Categoria unaCategoria;
 
         [TestInitialize]
         public void InitTests()
         {
-            miRepositorio = new Repositorio();
+            miRepositorio = new RepositorioMemoria();
             adminCategorias = new AdministradorCategorias(miRepositorio);
             unaCategoria = new Categoria();
         }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Excepciones;
-
+using obligatorio1;
 
 namespace Dominio
 {
@@ -9,10 +9,10 @@ namespace Dominio
     {
         private const char SEPARADOR = ' ';
 
-        private Repositorio Repositorio { get; }
+        private IRepositorio Repositorio { get; }
         private AdministradorPresupuesto AdminPresupuesto { get; }
 
-        public AdministradorCategorias(Repositorio unRepositorio)
+        public AdministradorCategorias(IRepositorio unRepositorio)
         {
             this.Repositorio = unRepositorio;
             this.AdminPresupuesto = new AdministradorPresupuesto(unRepositorio);
@@ -48,7 +48,7 @@ namespace Dominio
             return Repositorio.EsVaciaListaCategorias();
         }
 
-        public Categoria CategoriaDePalabraClave(String palabraClave)
+        public Categoria CategoriaDePalabraClave(PalabraClave palabraClave)
         {
             foreach (Categoria unaCategoria in Repositorio.RetornarListaCategorias())
             {
@@ -63,7 +63,7 @@ namespace Dominio
 
         }
 
-        public bool PalabraClaveYaIngresadaEnAlgunaLista(string palabreClave)
+        public bool PalabraClaveYaIngresadaEnAlgunaLista(PalabraClave palabreClave)
         {
             foreach (Categoria unaCategoria in Repositorio.RetornarListaCategorias())
             {
@@ -75,6 +75,7 @@ namespace Dominio
             return false;
         }
 
+/*
         public Categoria RetornarCategoriaDeDescripcion(string descripcion)
         {
             if (CantDeCategoriasDistintasDondeApareceLaDescripcion(descripcion) > 1)
@@ -89,14 +90,17 @@ namespace Dominio
             }
 
         }
+*/
+
+
         private string[] SepararPalabras(string descripcion)
         {
             return descripcion.Split(SEPARADOR);
         }
 
-        private Categoria BuscarCategoriaPorPalabras(string[] algunasPalabras)
+        private Categoria BuscarCategoriaPorPalabras(PalabraClave[] algunasPalabras)
         {
-            foreach (string unaPalabra in algunasPalabras)
+            foreach (PalabraClave unaPalabra in algunasPalabras)
             {
                 foreach (Categoria unaCategoria in Repositorio.RetornarListaCategorias())
                 {
@@ -109,13 +113,15 @@ namespace Dominio
             }
             throw new ExcepcionElementoNoExistente("No se ha encontrado una categoria para sugerirle, seleccione una.");
         }
-        public int CantDeCategoriasDistintasDondeApareceLaDescripcion(string descripcion)
+
+
+/*        public int CantDeCategoriasDistintasDondeApareceLaDescripcion(string descripcion)
         {
             int cantDeCategoriasDistintas = 0;
             string[] palabras = SepararPalabras(descripcion);
             Categoria categoriaYaContada = new Categoria();
 
-            foreach (String palabra in palabras)
+            foreach (string palabra in palabras)
             {
                 foreach (Categoria unaCategoria in Repositorio.RetornarListaCategorias())
                 {
@@ -135,6 +141,7 @@ namespace Dominio
             return cantDeCategoriasDistintas;
 
         }
+*/
 
         private bool LaCategoriaEsDistinta(Categoria unaCategoria, Categoria otraCategoria)
         {
@@ -142,7 +149,7 @@ namespace Dominio
 
         }
 
-        public void AgregarPalabraClaveACategoria(Categoria categoria, string unaPalabra)
+        public void AgregarPalabraClaveACategoria(Categoria categoria, PalabraClave unaPalabra)
         {
             if (this.RetornarPalabrasClaveDeCategoria(categoria).Count == 10)
                 throw new IndexOutOfRangeException("Ya existen 10 palabras clave para esta categoría.");
@@ -153,13 +160,13 @@ namespace Dominio
             }
 
         }
-        public void BorrarPalabraClaveACategoria(Categoria categoria, String palabra)
+        public void BorrarPalabraClaveACategoria(Categoria categoria, PalabraClave palabra)
         {
             categoria.BorrarPalabraClave(palabra);
 
         }
 
-        public List<String> RetornarPalabrasClaveDeCategoria(Categoria unaCategoria)
+        public List<PalabraClave> RetornarPalabrasClaveDeCategoria(Categoria unaCategoria)
         {
             return unaCategoria.PalabrasClave;
         }

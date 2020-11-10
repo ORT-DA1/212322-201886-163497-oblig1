@@ -4,7 +4,7 @@ using System;
 
 namespace Dominio
 {
-    public class Repositorio
+    public class RepositorioMemoria : IRepositorio
     {
         private List<Categoria> ListaCategorias { get; }
         private List<GastoRecuerrente> ListaGastosRecurrentes { get; }
@@ -13,9 +13,7 @@ namespace Dominio
         private List<DateTime> ListaMesesDondeHayGastos { get; set; }
         private List<DateTime> ListaMesesDondeHayPresupuestos { get; set; }
 
-        private Persistencia context;
-
-        public Repositorio()
+        public RepositorioMemoria()
         {
             ListaCategorias = new List<Categoria>();
             ListaGastosRecurrentes = new List<GastoRecuerrente>();
@@ -24,20 +22,16 @@ namespace Dominio
             ListaMesesDondeHayGastos = new List<DateTime>();
             ListaMesesDondeHayPresupuestos = new List<DateTime>();
 
-            context = new Persistencia();
+            
         }
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
-            //this.ListaCategorias.Add(unaCategoria);
-            context.Categorias.Add(unaCategoria);
-            context.SaveChanges();
-
+            this.ListaCategorias.Add(unaCategoria);
         }
         public List<Categoria> RetornarListaCategorias()
         {
-            //return this.ListaCategorias;
-            return context.Categorias.ToList();
+            return this.ListaCategorias;
         }
         public bool EsVaciaListaCategorias()
         {
@@ -49,9 +43,7 @@ namespace Dominio
         }
         public void EliminarCategoria(Categoria unaCategoria)
         {
-            //this.ListaCategorias.Remove(unaCategoria);
-            context.Categorias.Remove(unaCategoria);
-            context.SaveChanges();
+            this.ListaCategorias.Remove(unaCategoria);
         }
         
 
@@ -138,7 +130,7 @@ namespace Dominio
         {
             return this.ListaMesesDondeHayPresupuestos;
         }
-        internal void AgregarMesDondeHayPresupuesto(DateTime unaFecha)
+        public void AgregarMesDondeHayPresupuesto(DateTime unaFecha)
         {
             this.ListaMesesDondeHayPresupuestos.Add(unaFecha);
         }
