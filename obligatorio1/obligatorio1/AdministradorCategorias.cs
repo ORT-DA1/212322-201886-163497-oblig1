@@ -48,7 +48,7 @@ namespace Dominio
             return Repositorio.EsVaciaListaCategorias();
         }
 
-        public Categoria CategoriaDePalabraClave(String palabraClave)
+        public Categoria CategoriaDePalabraClave(PalabraClave palabraClave)
         {
             foreach (Categoria unaCategoria in Repositorio.RetornarListaCategorias())
             {
@@ -63,7 +63,7 @@ namespace Dominio
 
         }
 
-        public bool PalabraClaveYaIngresadaEnAlgunaLista(string palabreClave)
+        public bool PalabraClaveYaIngresadaEnAlgunaLista(PalabraClave palabreClave)
         {
             foreach (Categoria unaCategoria in Repositorio.RetornarListaCategorias())
             {
@@ -100,7 +100,8 @@ namespace Dominio
             {
                 foreach (Categoria unaCategoria in Repositorio.RetornarListaCategorias())
                 {
-                    if (unaCategoria.ExistePalabraClave(unaPalabra))
+                    PalabraClave palabraConvertida = new PalabraClave { Palabra = unaPalabra };
+                    if (unaCategoria.ExistePalabraClave(palabraConvertida))
                     {
                         return unaCategoria;
                     }
@@ -115,11 +116,12 @@ namespace Dominio
             string[] palabras = SepararPalabras(descripcion);
             Categoria categoriaYaContada = new Categoria();
 
-            foreach (String palabra in palabras)
+            foreach (string unaPalabra in palabras)
             {
                 foreach (Categoria unaCategoria in Repositorio.RetornarListaCategorias())
                 {
-                    if (unaCategoria.ExistePalabraClave(palabra))
+                    PalabraClave palabraConvertida = new PalabraClave { Palabra = unaPalabra };
+                    if (unaCategoria.ExistePalabraClave((palabraConvertida)))
                     {
                         if (LaCategoriaEsDistinta(unaCategoria, categoriaYaContada))
                         {
@@ -142,7 +144,7 @@ namespace Dominio
 
         }
 
-        public void AgregarPalabraClaveACategoria(Categoria categoria, string unaPalabra)
+        public void AgregarPalabraClaveACategoria(Categoria categoria, PalabraClave unaPalabra)
         {
             if (this.RetornarPalabrasClaveDeCategoria(categoria).Count == 10)
                 throw new IndexOutOfRangeException("Ya existen 10 palabras clave para esta categoría.");
@@ -153,13 +155,13 @@ namespace Dominio
             }
 
         }
-        public void BorrarPalabraClaveACategoria(Categoria categoria, String palabra)
+        public void BorrarPalabraClaveACategoria(Categoria categoria, PalabraClave palabra)
         {
             categoria.BorrarPalabraClave(palabra);
 
         }
 
-        public List<String> RetornarPalabrasClaveDeCategoria(Categoria unaCategoria)
+        public List<PalabraClave> RetornarPalabrasClaveDeCategoria(Categoria unaCategoria)
         {
             return unaCategoria.PalabrasClave;
         }

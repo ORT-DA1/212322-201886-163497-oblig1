@@ -10,11 +10,14 @@ namespace Test
     public class CategoriaPrueba
     {
         private Categoria categoria;
+        private PalabraClave palabraClaveUno;
+        
 
         [TestInitialize]
         public void InitTests()
         {
             categoria = new Categoria();
+            palabraClaveUno = new PalabraClave();
         }
 
         [TestMethod]
@@ -34,15 +37,17 @@ namespace Test
         [TestMethod]
         public void AgregarPalabraClavePrueba()
         {
-            categoria.AgregarPalabraClave("Cine");
+            palabraClaveUno.Palabra = "Cine";
+            categoria.AgregarPalabraClave(palabraClaveUno);
             Assert.IsFalse(categoria.EsVacia());
         }
 
         [TestMethod]
         public void EliminarPalabraClavePrueba()
         {
-            categoria.AgregarPalabraClave("Cine");
-            categoria.BorrarPalabraClave("Cine");
+            palabraClaveUno.Palabra = "Cine";
+            categoria.AgregarPalabraClave(palabraClaveUno);
+            categoria.BorrarPalabraClave(palabraClaveUno);
             Assert.IsTrue(categoria.EsVacia());
         }
 
@@ -50,9 +55,10 @@ namespace Test
         [ExpectedException(typeof(InvalidOperationException))]
         public void ListaMax10PalabrasPrueba()
         {
+            palabraClaveUno.Palabra = "Manzana";
             for (int i = 0; i < 11; i++)
             {
-                categoria.AgregarPalabraClave("Manzana");
+                categoria.AgregarPalabraClave(palabraClaveUno);
             }
         }
 
@@ -73,24 +79,28 @@ namespace Test
         [TestMethod]
         public void EqualsPrueba()
         {
-            Categoria categoria1 = new Categoria { Nombre = "Entretenimiento" };
-            Categoria categoria2 = new Categoria { Nombre = "Entretenimiento" };
-            Assert.AreEqual(categoria1, categoria2);
+            Categoria unaCategoria = new Categoria { Nombre = "Entretenimiento" };
+            Categoria otraCategoria = new Categoria { Nombre = "Entretenimiento" };
+            Assert.AreEqual(unaCategoria, otraCategoria);
         }
 
         [TestMethod]
         public void ExistePalabraClavePrueba()
         {
-            categoria.AgregarPalabraClave("Cine");
-            Assert.IsTrue(categoria.ExistePalabraClave("cine"));
+            palabraClaveUno.Palabra = "Cine";
+            categoria.AgregarPalabraClave(palabraClaveUno);
+            PalabraClave palabraClaveDos = new PalabraClave { Palabra = "cInE" };
+            Assert.IsTrue(categoria.ExistePalabraClave(palabraClaveDos));
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
         public void NoRepetirPalabraClavePrueba()
         {
-            categoria.AgregarPalabraClave("Cine");
-            categoria.AgregarPalabraClave("Cine");
+            palabraClaveUno.Palabra = "Cine";
+            PalabraClave palabraClaveDos = new PalabraClave { Palabra = "Cine" };
+            categoria.AgregarPalabraClave(palabraClaveUno);
+            categoria.AgregarPalabraClave(palabraClaveDos);
         }
 
         [TestMethod]
