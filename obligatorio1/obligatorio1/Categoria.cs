@@ -6,7 +6,8 @@ namespace Dominio
 {
     public class Categoria
     {
-        public List<PalabraClave> PalabrasClave { get; }
+        public int Id { get; set; }
+        public List<PalabraClave> PalabrasClave { get; set; }
 
         private String nombre;
 

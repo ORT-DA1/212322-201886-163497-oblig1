@@ -9,10 +9,10 @@ namespace Dominio
     {
         private const char SEPARADOR = ' ';
 
-        private Repositorio Repositorio { get; }
+        private IRepositorio Repositorio { get; }
         private AdministradorPresupuesto AdminPresupuesto { get; }
 
-        public AdministradorCategorias(Repositorio unRepositorio)
+        public AdministradorCategorias(IRepositorio unRepositorio)
         {
             this.Repositorio = unRepositorio;
             this.AdminPresupuesto = new AdministradorPresupuesto(unRepositorio);
@@ -45,6 +45,7 @@ namespace Dominio
 
         public bool EsVaciaListaCategorias()
         {
+            
             return Repositorio.EsVaciaListaCategorias();
         }
 

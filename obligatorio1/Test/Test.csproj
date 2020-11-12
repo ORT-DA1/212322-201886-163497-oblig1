@@ -56,7 +56,7 @@
     <Compile Include="CategoriaPrueba.cs" />
     <Compile Include="AdministradorGastosComunesPrueba.cs" />
     <Compile Include="PalabraClavePrueba.cs" />
-    <Compile Include="RepositorioPrueba.cs" />
+    <Compile Include="RepositorioMemoriaPrueba.cs" />
     <Compile Include="GastoComunPrueba.cs" />
     <Compile Include="GastoRecurrentePrueba.cs" />
     <Compile Include="AdministradorCategoriasPrueba.cs" />

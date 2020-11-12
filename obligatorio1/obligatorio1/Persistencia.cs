@@ -11,5 +11,6 @@ namespace Dominio
     {
         public DbSet<Categoria> Categorias { get; set; }
 
+        public DbSet <PalabraClave> PalabraClaves { get; set; }
     }
 }
