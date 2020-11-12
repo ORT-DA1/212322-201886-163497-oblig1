@@ -63,6 +63,10 @@
     <Compile Include="Migrations\202011061229048_AgregarCategoria.designer.cs">
       <DependentUpon>202011061229048_AgregarCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011122113010_AgregarPalabrasClave.cs" />
+    <Compile Include="Migrations\202011122113010_AgregarPalabrasClave.designer.cs">
+      <DependentUpon>202011122113010_AgregarPalabrasClave.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PalabraClave.cs" />
     <Compile Include="Persistencia.cs" />
@@ -88,6 +92,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011061229048_AgregarCategoria.resx">
       <DependentUpon>202011061229048_AgregarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011122113010_AgregarPalabrasClave.resx">
+      <DependentUpon>202011122113010_AgregarPalabrasClave.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

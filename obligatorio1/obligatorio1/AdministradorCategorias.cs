@@ -45,6 +45,7 @@ namespace Dominio
 
         public bool EsVaciaListaCategorias()
         {
+            
             return Repositorio.EsVaciaListaCategorias();
         }
 

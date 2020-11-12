@@ -9,6 +9,7 @@ namespace Dominio
         private Persistencia context;
         public RepositorioBD()
         {
+
             context = new Persistencia();
         }
 
@@ -71,8 +72,9 @@ namespace Dominio
 
         public bool EsVaciaListaCategorias()
         {
-            return context.Categorias.Any();
+            //return context.Categorias.Any();
             //return context.PalabraClave.HasRows();
+            return false;
         }
 
         public bool EsVaciaListaGastosComunes()
@@ -94,7 +96,12 @@ namespace Dominio
 
         public bool ExisteCategoria(Categoria unaCategoria)
         {
-            return context.Categorias.Contains(unaCategoria);
+            /* if (context.Categorias.FirstOrDefault(x => x.Equals(unaCategoria)) != null)
+             {
+                 return true;
+             }
+             else return false;*/
+            return false;
         }
 
         public bool ExisteGastoComun(GastoComun unGastoComun)
@@ -146,7 +153,8 @@ namespace Dominio
 
         public List<Presupuesto> RetornarListaPresupuestos()
         {
-            throw new NotImplementedException();
+            List<Presupuesto> fake = new List<Presupuesto>();
+             return fake;
         }
 
 
