@@ -10,13 +10,17 @@ namespace Dominio
         public RepositorioBD()
         {
 
-            context = new Persistencia();
+            
         }
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
-            context.Categorias.Add(unaCategoria);
-            context.SaveChanges();
+            using (var context = new Persistencia())
+            {
+                context.Categorias.Add(unaCategoria);
+                context.SaveChanges();
+            }
+           
         }
 
         public void AgregarGastoComun(GastoComun unGastoComun)
@@ -52,12 +56,14 @@ namespace Dominio
         }
 
 
-
         public void EliminarCategoria(Categoria unaCategoria)
         {
-
-            context.Categorias.Remove(unaCategoria);
-            context.SaveChanges();
+            using (var context = new Persistencia())
+            {
+                context.Categorias.Remove(unaCategoria);
+                context.SaveChanges();
+            }
+           
         }
 
         public void EliminarGastoComun(GastoComun unGastoComun)
@@ -72,9 +78,12 @@ namespace Dominio
 
         public bool EsVaciaListaCategorias()
         {
-            //return context.Categorias.Any();
-            //return context.PalabraClave.HasRows();
-            return false;
+            
+            using (var context = new Persistencia())
+            {
+               return context.Categorias == null;
+                
+            }
         }
 
         public bool EsVaciaListaGastosComunes()
@@ -96,12 +105,13 @@ namespace Dominio
 
         public bool ExisteCategoria(Categoria unaCategoria)
         {
-            /* if (context.Categorias.FirstOrDefault(x => x.Equals(unaCategoria)) != null)
-             {
-                 return true;
-             }
-             else return false;*/
-            return false;
+
+            using (var context = new Persistencia())
+            {
+               return context.Categorias.FirstOrDefault(x => x.Nombre == unaCategoria.Nombre) != null;
+            }
+           
+            
         }
 
         public bool ExisteGastoComun(GastoComun unGastoComun)
@@ -128,7 +138,11 @@ namespace Dominio
 
         public List<Categoria> RetornarListaCategorias()
         {
-            return context.Categorias.ToList();
+            using (var context = new Persistencia())
+            {
+                return context.Categorias.ToList();
+            }
+            
         }
 
         public List<GastoComun> RetornarListaGastosCoumnes()
