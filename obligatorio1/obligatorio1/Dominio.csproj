@@ -63,6 +63,7 @@
       <DependentUpon>202011061229048_AgregarCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="PalabraClave.cs" />
     <Compile Include="Persistencia.cs" />
     <Compile Include="Gasto.cs" />
     <Compile Include="GastoComun.cs" />

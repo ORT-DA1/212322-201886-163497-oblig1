@@ -15,6 +15,10 @@ namespace Test
         private Repositorio miRepositorio;
         private AdministradorCategorias adminCategorias;
         private Categoria unaCategoria;
+        private PalabraClave palabraClaveUno;
+        private PalabraClave palabraClaveDos;
+        private PalabraClave palabraClaveTres;
+        private PalabraClave palabraClaveCuatro;
 
         [TestInitialize]
         public void InitTests()
@@ -22,6 +26,10 @@ namespace Test
             miRepositorio = new Repositorio();
             adminCategorias = new AdministradorCategorias(miRepositorio);
             unaCategoria = new Categoria();
+            palabraClaveUno = new PalabraClave();
+            palabraClaveDos = new PalabraClave();
+            palabraClaveTres = new PalabraClave();
+            palabraClaveCuatro = new PalabraClave();
         }
 
 
@@ -38,17 +46,21 @@ namespace Test
         {
 
             Categoria c1 = new Categoria { Nombre = "Entretenimiento" };
-            c1.AgregarPalabraClave("Cine");
-            c1.AgregarPalabraClave("Serie");
+            palabraClaveUno.Palabra = "Cine";
+            palabraClaveDos.Palabra = "Serie";
+            c1.AgregarPalabraClave(palabraClaveUno);
+            c1.AgregarPalabraClave(palabraClaveDos);
             adminCategorias.AgregarCategoria(c1);
 
             Categoria c2 = new Categoria { Nombre = "Gastronimia" };
-            c2.AgregarPalabraClave("Salir");
-            c2.AgregarPalabraClave("Demorondanga");
+            palabraClaveTres.Palabra = "Salir";
+            palabraClaveCuatro.Palabra = "Demorondanga";
+            c2.AgregarPalabraClave(palabraClaveTres);
+            c2.AgregarPalabraClave(palabraClaveCuatro);
             adminCategorias.AgregarCategoria(c2);
 
 
-            unaCategoria = adminCategorias.CategoriaDePalabraClave("Cine");
+            unaCategoria = adminCategorias.CategoriaDePalabraClave(palabraClaveUno);
 
             Assert.AreEqual(c1, unaCategoria);
 
@@ -59,9 +71,10 @@ namespace Test
         public void PalabraClaveYaIngresadaEnAlgunaListaPrueba()
         {
             Categoria cat = new Categoria { Nombre = "Auto" };
-            cat.AgregarPalabraClave("Nafta");
+            palabraClaveUno.Palabra = "Nafta";
+            cat.AgregarPalabraClave(palabraClaveUno);
             adminCategorias.AgregarCategoria(cat);
-            Assert.IsTrue(adminCategorias.PalabraClaveYaIngresadaEnAlgunaLista("Nafta"));
+            Assert.IsTrue(adminCategorias.PalabraClaveYaIngresadaEnAlgunaLista(palabraClaveUno));
 
         }
 
@@ -69,7 +82,8 @@ namespace Test
         [ExpectedException(typeof(ExcepcionElementoNoExistente))]
         public void BuscarPalabraQueNoEstaCateogiraPrueba()
         {
-            adminCategorias.CategoriaDePalabraClave("Manzana");
+            palabraClaveUno.Palabra = "Manzana";
+            adminCategorias.CategoriaDePalabraClave(palabraClaveUno);
 
         }
 
@@ -78,11 +92,14 @@ namespace Test
         {
 
             Categoria c1 = new Categoria { Nombre = "Auto" };
-            c1.AgregarPalabraClave("Nafta");
-            c1.AgregarPalabraClave("Patente");
+            palabraClaveUno.Palabra = "Nafta";
+            palabraClaveDos.Palabra = "Patente";
+            c1.AgregarPalabraClave(palabraClaveUno);
+            c1.AgregarPalabraClave(palabraClaveDos);
             adminCategorias.AgregarCategoria(c1);
 
-            unaCategoria = adminCategorias.CategoriaDePalabraClave("nAfta");
+            palabraClaveTres.Palabra = "nAfta";
+            unaCategoria = adminCategorias.CategoriaDePalabraClave(palabraClaveTres);
             Assert.AreEqual(c1, unaCategoria);
 
         }
@@ -102,11 +119,13 @@ namespace Test
         public void CantDeCategoriasDistintasDondeApareceLaDescripcionPrueba()
         {
             Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
-            catrgoria.AgregarPalabraClave("Cine");
+            palabraClaveUno.Palabra = "Cine";
+            catrgoria.AgregarPalabraClave(palabraClaveUno);
             adminCategorias.AgregarCategoria(catrgoria);
 
             Categoria otraCatrgoria = new Categoria { Nombre = "GoingOut" };
-            otraCatrgoria.AgregarPalabraClave("Salida");
+            palabraClaveDos.Palabra = "Salida";
+            otraCatrgoria.AgregarPalabraClave(palabraClaveDos);
             adminCategorias.AgregarCategoria(otraCatrgoria);
 
             string descripcion = "Salida al Cine";
@@ -119,7 +138,8 @@ namespace Test
         public void RetornarCategoriaDeDescripcionPrueba()
         {
             Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
-            catrgoria.AgregarPalabraClave("Cine");
+            palabraClaveUno.Palabra = "Cine";
+            catrgoria.AgregarPalabraClave(palabraClaveUno);
             adminCategorias.AgregarCategoria(catrgoria);
 
 
@@ -131,8 +151,10 @@ namespace Test
         public void CantDeCategoriasDistintasDeDescripcionPrueba()
         {
             Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
-            catrgoria.AgregarPalabraClave("Cine");
-            catrgoria.AgregarPalabraClave("Peli");
+            palabraClaveUno.Palabra = "Cine";
+            catrgoria.AgregarPalabraClave(palabraClaveUno);
+            palabraClaveDos.Palabra = "Peli";
+            catrgoria.AgregarPalabraClave(palabraClaveDos);
             adminCategorias.AgregarCategoria(catrgoria);
 
 
@@ -148,7 +170,6 @@ namespace Test
         public void RetornarCategoriaDeDescripcionQueNoEstaPrueba()
         {
 
-
             adminCategorias.RetornarCategoriaDeDescripcion("Manzana");
 
         }
@@ -159,11 +180,13 @@ namespace Test
         public void RetornarCategoriaDeDescripcionConVariasPalabrasClavesPrueba()
         {
             Categoria catrgoria = new Categoria { Nombre = "Entretenimiento" };
-            catrgoria.AgregarPalabraClave("Cine");
+            palabraClaveUno.Palabra = "Cine";
+            catrgoria.AgregarPalabraClave(palabraClaveUno);
             adminCategorias.AgregarCategoria(catrgoria);
 
             Categoria otraCatrgoria = new Categoria { Nombre = "GoingOut" };
-            otraCatrgoria.AgregarPalabraClave("Salida");
+            palabraClaveDos.Palabra = "Salida";
+            otraCatrgoria.AgregarPalabraClave(palabraClaveDos);
             adminCategorias.AgregarCategoria(otraCatrgoria);
 
             adminCategorias.RetornarCategoriaDeDescripcion("Salida al Cine");
@@ -181,7 +204,6 @@ namespace Test
         [TestMethod]
         public void EsVaciaListaCategoriasPrueba()
         {
-
             Assert.IsTrue(adminCategorias.EsVaciaListaCategorias());
         }
 
@@ -190,8 +212,9 @@ namespace Test
         {
 
             adminCategorias.AgregarCategoria(unaCategoria);
-            adminCategorias.AgregarPalabraClaveACategoria(unaCategoria, "Peaje");
-            Assert.AreEqual(unaCategoria, adminCategorias.CategoriaDePalabraClave("Peaje"));
+            palabraClaveUno.Palabra = "Peaje";
+            adminCategorias.AgregarPalabraClaveACategoria(unaCategoria, palabraClaveUno);
+            Assert.AreEqual(unaCategoria, adminCategorias.CategoriaDePalabraClave(palabraClaveUno));
         }
 
         [TestMethod]
@@ -199,8 +222,9 @@ namespace Test
         {
 
             adminCategorias.AgregarCategoria(unaCategoria);
-            adminCategorias.AgregarPalabraClaveACategoria(unaCategoria, "PEAJE");
-            adminCategorias.BorrarPalabraClaveACategoria(unaCategoria, "PEAJE");
+            palabraClaveUno.Palabra = "Peaje";
+            adminCategorias.AgregarPalabraClaveACategoria(unaCategoria, palabraClaveUno);
+            adminCategorias.BorrarPalabraClaveACategoria(unaCategoria, palabraClaveUno);
             Assert.IsTrue(unaCategoria.EsVacia());
         }
 
@@ -209,7 +233,8 @@ namespace Test
         public void RetornarPalabrasClaveCategoriaPrueba()
         {
             adminCategorias.AgregarCategoria(unaCategoria);
-            adminCategorias.AgregarPalabraClaveACategoria(unaCategoria, "PEAJE");
+            palabraClaveUno.Palabra = "PEAJE";
+            adminCategorias.AgregarPalabraClaveACategoria(unaCategoria, palabraClaveUno);
             adminCategorias.RetornarPalabrasClaveDeCategoria(unaCategoria);
             Assert.IsFalse(unaCategoria.EsVacia());
         }
@@ -231,10 +256,10 @@ namespace Test
             adminCategorias.EliminarCategoria(unaCategoria);
 
             Assert.IsTrue(adminCategorias.EsVaciaListaCategorias());
-          
+
 
         }
-        
+
 
     }
 

@@ -30,7 +30,8 @@ namespace Interfaz_De_Usuario
             try
             {
                 Categoria categoriaSeleccionada = (Categoria)cbCategorias.SelectedItem;
-                AdminCategorias.AgregarPalabraClaveACategoria(categoriaSeleccionada, tbPalabraClave.Text);
+                PalabraClave palabra = new PalabraClave() { Palabra = tbPalabraClave.Text };
+                AdminCategorias.AgregarPalabraClaveACategoria(categoriaSeleccionada, palabra);
                 cbListaPalabrasClave.DataSource = null;
                 cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
                 MessageBox.Show("Palabra Clave agregada con exito");
@@ -56,7 +57,8 @@ namespace Interfaz_De_Usuario
             try
             {
                 Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
-                AdminCategorias.BorrarPalabraClaveACategoria(categoriaSeleccionada, cbListaPalabrasClave.Text);
+                PalabraClave palabraSeleccionada = (PalabraClave)cbListaPalabrasClave.SelectedItem;
+                AdminCategorias.BorrarPalabraClaveACategoria(categoriaSeleccionada, palabraSeleccionada);
                 cbListaPalabrasClave.DataSource = null;
                 cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
             }

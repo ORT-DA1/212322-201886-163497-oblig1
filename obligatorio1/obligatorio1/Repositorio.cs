@@ -29,15 +29,15 @@ namespace Dominio
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
-            //this.ListaCategorias.Add(unaCategoria);
-            context.Categorias.Add(unaCategoria);
-            context.SaveChanges();
+            this.ListaCategorias.Add(unaCategoria);
+            //context.Categorias.Add(unaCategoria);
+            //context.SaveChanges();
 
         }
         public List<Categoria> RetornarListaCategorias()
         {
-            //return this.ListaCategorias;
-            return context.Categorias.ToList();
+            return this.ListaCategorias;
+            //return context.Categorias.ToList();
         }
         public bool EsVaciaListaCategorias()
         {
@@ -49,9 +49,9 @@ namespace Dominio
         }
         public void EliminarCategoria(Categoria unaCategoria)
         {
-            //this.ListaCategorias.Remove(unaCategoria);
-            context.Categorias.Remove(unaCategoria);
-            context.SaveChanges();
+            this.ListaCategorias.Remove(unaCategoria);
+            //context.Categorias.Remove(unaCategoria);
+            //context.SaveChanges();
         }
         
 
