@@ -7,10 +7,10 @@ using System;
 namespace Test
 {
     [TestClass]
-    public class RepositorioPrueba
+    public class RepositorioMemoriaPrueba
     {
 
-        private Repositorio Repositorio { get; set; }
+        private IRepositorio Repositorio { get; set; }
         private Categoria UnaCategoria { get; set; }
         private GastoRecuerrente GastoRecuerrente { get; set; }
         private GastoComun GastoComun { get; set; }
@@ -19,7 +19,7 @@ namespace Test
         [TestInitialize]
         public void InitTests()
         {
-            Repositorio = new Repositorio();
+            Repositorio = new RepositorioMemoria();
             UnaCategoria = new Categoria();
             GastoRecuerrente = new GastoRecuerrente();
             GastoComun = new GastoComun();

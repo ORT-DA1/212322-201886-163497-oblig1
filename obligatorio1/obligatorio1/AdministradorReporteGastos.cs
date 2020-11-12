@@ -6,8 +6,8 @@ namespace Dominio
 {
     public class AdministradorReporteGastos
     {
-        private Repositorio Repositorio { get; }
-        public AdministradorReporteGastos(Repositorio unRepositorio)
+        private IRepositorio Repositorio { get; }
+        public AdministradorReporteGastos(IRepositorio unRepositorio)
         {
             this.Repositorio = unRepositorio;
         }

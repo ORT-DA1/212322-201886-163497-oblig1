@@ -11,14 +11,14 @@ namespace Interfaz_De_Usuario
         public AdministradorGastosComunes AdminGastoComun { get; set; }
         public AdministradorGastosRecurrentes AdminGastoRecurrente { get; set; }
         public AdministradorPresupuesto AdminPresupuesto { get; set; }
-        public Repositorio Repositorio { get; set; }
+        public IRepositorio Repositorio { get; set; }
         public AdministradorReporteGastos AdminReporteGastos { get; set; }
         public AdministradorReportePresupuestos AdminReportePresupuestos { get; set; }
 
         public PantallaPrincipal()
         {
             InitializeComponent();
-            Repositorio = new Repositorio();
+            Repositorio = new RepositorioBD();
             AdminPresupuesto = new AdministradorPresupuesto(Repositorio);
             AdminCategorias = new AdministradorCategorias(Repositorio);
             AdminGastoComun = new AdministradorGastosComunes(Repositorio);
