@@ -42,7 +42,7 @@ namespace Dominio
             this.Monto = 0.00;
             this.Descripcion = "No hay descripcion";
             this.Categoria = new Categoria();
-            this.Moneda = new Moneda() {Simbolo = "UYU" };
+            this.Moneda = new Moneda();
         }
         public Gasto(double unMonto, string unaDescripcion, Categoria unaCategoria, Moneda moneda)
         {
