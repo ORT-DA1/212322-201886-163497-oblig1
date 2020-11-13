@@ -156,6 +156,11 @@ namespace Dominio
             return this.ListaMonedas;
         }
 
+        public bool ExisteMoneda(Moneda unaMoneda)
+        {
+            return this.ListaMonedas.Contains(unaMoneda);
+        }
+
 
     }
 }
