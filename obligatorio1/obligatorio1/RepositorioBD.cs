@@ -157,6 +157,15 @@ namespace Dominio
              return fake;
         }
 
+        public void AgregarMoneda(Moneda unaMoneda)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Moneda> RetornarListaMonedas()
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

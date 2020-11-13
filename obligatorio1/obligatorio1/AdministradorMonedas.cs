@@ -16,16 +16,22 @@ namespace Dominio
             this.Repositorio = unRepositorio;
         }
 
-        public void AgregarMoneda(Moneda unaMoneda)
+        
+          public void AgregarMoneda(Moneda unaMoneda)
+          {
+              /* if (Repositorio.ExisteMoneda(unaMoneda))
+              {
+                  throw new ExcepcionElementoRepetido("Moneda ya existente");
+              }
+              else
+              { */
+                  Repositorio.AgregarMoneda(unaMoneda);
+             // }
+          }
+
+        public List<Moneda> RetornarListaMonedas()
         {
-            if (Repositorio.ExisteMoneda(unaMoneda))
-            {
-                throw new ExcepcionElementoRepetido("Moneda ya existente");
-            }
-            else
-            {
-                Repositorio.AgregarMoneda(unaMoneda);
-            }
+            return Repositorio.RetornarListaMonedas();
         }
     }
 }

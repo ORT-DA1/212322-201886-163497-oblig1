@@ -16,8 +16,10 @@ namespace Dominio
         bool EsVaciaListaGastosRecurrentes();
         bool ExisteGastoRecurrente(GastoRecuerrente unGastoRecurrente);
         void EliminarGastoRecuerrente(GastoRecuerrente unGastoRecurrente);
+        void AgregarMoneda(Moneda unaMoneda);
         void AgregarGastoComun(GastoComun unGastoComun);
         List<GastoComun> RetornarListaGastosCoumnes();
+        List<Moneda> RetornarListaMonedas();
         bool EsVaciaListaGastosComunes();
         bool ExisteGastoComun(GastoComun unGastoComun);
         void EliminarGastoComun(GastoComun unGastoComun);
