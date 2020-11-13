@@ -29,16 +29,16 @@ namespace Test
         [TestMethod]
         public void AgregarMonedaPrueba()
         {
-            AdministradorMonedas.AgregarMoneda(unaMoneda);
+            adminMonedas.AgregarMoneda(unaMoneda);
             List<Moneda> ListaLocal = new List<Moneda>();
             ListaLocal.Add(unaMoneda);
-            Assert.AreEqual(ListaLocal, AdministradorMonedas.RetornarListaMonedas());
+            Assert.AreEqual(ListaLocal, adminMonedas.RetornarListaMonedas());
         }
 
         [TestMethod]
         public void NoAgregarMonedaRepetidaPrueba()
         {
-            AdministradorMonedas.AgregarMoneda(unaMoneda);
+            adminMonedas.AgregarMoneda(unaMoneda);
 
         }
     }
