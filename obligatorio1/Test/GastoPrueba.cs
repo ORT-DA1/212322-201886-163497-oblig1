@@ -11,13 +11,22 @@ namespace Test
     {
         private Gasto gasto;
         private Categoria cat;
-      
+        private Moneda moneda;
 
         [TestInitialize]
         public void InitTests()
         {
             gasto = new Gasto();
             cat = new Categoria();
+            moneda = new Moneda();
+        }
+
+        [TestMethod]
+        public void PropertyMonedaPrueba()
+        {
+            gasto.Moneda = moneda;
+            moneda.Simbolo = "UYU";
+            Assert.AreEqual(moneda.Simbolo, gasto.Moneda);
         }
 
         [TestMethod]
@@ -62,7 +71,7 @@ namespace Test
         [TestMethod]
         public void ConstructorPrueba()
         {
-            Gasto gasto2 = new Gasto(1000, "Ir a comer", cat);
+            Gasto gasto2 = new Gasto(1000, "Ir a comer", cat , moneda);
             Assert.AreEqual(gasto2.Monto,1000);
         }
 
@@ -70,7 +79,7 @@ namespace Test
         public void ToStringGastoPrueba()
         {
 
-            Assert.AreEqual(gasto.ToString(),"Monto: 0, Descripcion: No hay descripcion, Categoria: No hay nombre");
+            Assert.AreEqual(gasto.ToString(),"Monto: 0, Descripcion: No hay descripcion, Categoria: No hay nombre, Moneda: UYU");
 
         }
 

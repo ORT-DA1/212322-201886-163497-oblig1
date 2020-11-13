@@ -68,6 +68,10 @@
     <Compile Include="Migrations\202011122113010_AgregarPalabrasClave.designer.cs">
       <DependentUpon>202011122113010_AgregarPalabrasClave.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011122252073_PClaves.cs" />
+    <Compile Include="Migrations\202011122252073_PClaves.designer.cs">
+      <DependentUpon>202011122252073_PClaves.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Moneda.cs" />
     <Compile Include="PalabraClave.cs" />
@@ -97,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011122113010_AgregarPalabrasClave.resx">
       <DependentUpon>202011122113010_AgregarPalabrasClave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011122252073_PClaves.resx">
+      <DependentUpon>202011122252073_PClaves.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
