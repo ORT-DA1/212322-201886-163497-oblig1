@@ -24,9 +24,9 @@ namespace Test
         [TestMethod]
         public void PropertyMonedaPrueba()
         {
-            gasto.Moneda = moneda;
+            gasto.Moneda.Simbolo ="UYU";
             moneda.Simbolo = "UYU";
-            Assert.AreEqual(moneda.Simbolo, gasto.Moneda);
+            Assert.AreEqual(moneda.Simbolo, gasto.Moneda.Simbolo);
         }
 
         [TestMethod]
