@@ -29,7 +29,7 @@ namespace Dominio
         public String Simbolo
         {
 
-            get { return nombre; }
+            get { return simbolo; }
 
             set
             {
@@ -39,7 +39,7 @@ namespace Dominio
                 }
                 else
                 {
-                    nombre = value;
+                    simbolo = value;
                 }
 
             }
@@ -63,6 +63,10 @@ namespace Dominio
         {
             this.Nombre = "Peso Uruguayo";
             this.Simbolo = "UYU";
+        }
+        public override string ToString()
+        {
+            return String.Format("Nombre: {0}, Simbolo: {1}",this.Nombre,this.Simbolo);
         }
     }
 }

@@ -42,7 +42,7 @@ namespace Dominio
             this.Monto = 0.00;
             this.Descripcion = "No hay descripcion";
             this.Categoria = new Categoria();
-            this.Moneda = new Moneda() { Simbolo = "UYU"};
+            this.Moneda = new Moneda() {Simbolo = "UYU" };
         }
         public Gasto(double unMonto, string unaDescripcion, Categoria unaCategoria, Moneda moneda)
         {
@@ -54,7 +54,7 @@ namespace Dominio
         public override string ToString()
         {
 
-            return String.Format("Monto: {0}, Descripcion: {1}, Categoria: {2}, Moneda {3}", this.Monto, this.Descripcion, this.Categoria, this.Moneda);
+            return String.Format("Monto: {0}, Descripcion: {1}, Categoria: {2}, Moneda: {3}", this.Monto, this.Descripcion, this.Categoria, this.Moneda.Simbolo);
 
         }
     }
