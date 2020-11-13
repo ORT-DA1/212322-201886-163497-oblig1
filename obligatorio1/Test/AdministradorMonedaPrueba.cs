@@ -1,4 +1,5 @@
 ﻿using Dominio;
+using Excepciones;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using obligatorio1;
 using System;
@@ -32,14 +33,15 @@ namespace Test
             adminMonedas.AgregarMoneda(unaMoneda);
             List<Moneda> ListaLocal = new List<Moneda>();
             ListaLocal.Add(unaMoneda);
-            Assert.AreEqual(ListaLocal, adminMonedas.RetornarListaMonedas());
+            Assert.IsTrue(adminMonedas.RetornarListaMonedas().SequenceEqual(ListaLocal));
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ExcepcionElementoRepetido))]
         public void NoAgregarMonedaRepetidaPrueba()
         {
             adminMonedas.AgregarMoneda(unaMoneda);
-
+            adminMonedas.AgregarMoneda(unaMoneda);
         }
     }
 

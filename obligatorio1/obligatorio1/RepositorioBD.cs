@@ -161,11 +161,15 @@ namespace Dominio
         {
             throw new NotImplementedException();
         }
-
         public List<Moneda> RetornarListaMonedas()
         {
             throw new NotImplementedException();
         }
+        public bool ExisteMoneda(Moneda unaMoneda)
+        {
+            throw new NotImplementedException();
+        }
+
 
     }
 }
