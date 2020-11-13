@@ -177,7 +177,7 @@ namespace Dominio
 
         public void AgregarMoneda(Moneda unaMoneda)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
         public List<Moneda> RetornarListaMonedas()
         {

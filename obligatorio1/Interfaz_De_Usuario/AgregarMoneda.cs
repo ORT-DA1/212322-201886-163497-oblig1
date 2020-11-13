@@ -19,5 +19,21 @@ namespace Interfaz_De_Usuario
             InitializeComponent();
             adminMonedas = miAdminMonedas;
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Moneda moneda = new Moneda() { Nombre = tbNombre.Text, simbolo = tbSimbolo.Text, Cotizacion = (double)numCotizacion.Value };
+                adminMonedas.AgregarMoneda(moneda);
+                MessageBox.Show("Moneda " + tbNombre.Text + " ha sido creada con exito");
+                tbNombre.Clear();
+            }
+            catch (Exception unaExcepcion)
+            //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+        }
     }
 }
