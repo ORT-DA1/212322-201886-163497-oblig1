@@ -66,6 +66,14 @@ namespace Test
             moneda.Cotizacion = -3;
         }
 
+        [TestMethod]
+        public void ToStringMonedaPrueba()
+        {
+
+            Assert.AreEqual(moneda.ToString(), "Nombre: Peso Uruguayo, Simbolo: UYU");
+
+        }
+
         // La moneda por defecto es el ‘Peso
         //Uruguayo’, con símbolo ‘UYU’. Esta moneda debe estar disponible en el
         //sistema, sin necesidad de ingresarla manualmente, a la vez no se puede

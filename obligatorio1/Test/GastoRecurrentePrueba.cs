@@ -9,12 +9,14 @@ namespace Test
     {
         private GastoRecuerrente gastoRec;
         private Categoria cat;
+        private Moneda moneda;
 
         [TestInitialize]
         public void InitTests()
         {
             gastoRec = new GastoRecuerrente();
             cat = new Categoria();
+            moneda = new Moneda();
 
         }
 
@@ -35,7 +37,7 @@ namespace Test
         [TestMethod]
         public void ConstructorGastoRecurrentePrueba()
         {
-           GastoRecuerrente gastoRec2 = new GastoRecuerrente(1000 , "Ir a comer", cat ,10);
+           GastoRecuerrente gastoRec2 = new GastoRecuerrente(1000 , "Ir a comer", cat ,10,moneda);
            Assert.AreEqual(gastoRec2.Fecha, 10);
         }
 
@@ -43,7 +45,7 @@ namespace Test
         public void ToStringGastoRecurrentePrueba()
         {
 
-            Assert.AreEqual(gastoRec.ToString(),"Monto: 0, Descripcion: No hay descripcion, Categoria: No hay nombre,Dia: 1");
+            Assert.AreEqual(gastoRec.ToString(), "Monto: 0, Descripcion: No hay descripcion, Categoria: No hay nombre, Moneda: UYU,1");
        }
 
     }
