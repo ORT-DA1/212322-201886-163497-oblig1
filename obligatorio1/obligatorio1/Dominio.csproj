@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="AdministradorGastosComunes.cs" />
     <Compile Include="AdministradorGastosRecurrentes.cs" />
+    <Compile Include="AdministradorMonedas.cs" />
     <Compile Include="AdministradorPresupuesto.cs" />
     <Compile Include="AdministradorReporteGastos.cs" />
     <Compile Include="AdministradorReportePresupuestos.cs" />
@@ -72,6 +73,7 @@
       <DependentUpon>202011122252073_PClaves.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Moneda.cs" />
     <Compile Include="PalabraClave.cs" />
     <Compile Include="Persistencia.cs" />
     <Compile Include="Gasto.cs" />
