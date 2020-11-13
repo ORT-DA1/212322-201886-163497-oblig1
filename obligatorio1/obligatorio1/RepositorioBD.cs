@@ -108,7 +108,11 @@ namespace Dominio
 
             using (var context = new Persistencia())
             {
-               return context.Categorias.FirstOrDefault(x => x.Nombre == unaCategoria.Nombre) != null;
+              if(context.Categorias.FirstOrDefault(x => x.Nombre == unaCategoria.Nombre) != null)
+                {
+                    return true;
+                }
+                return false;
             }
            
             

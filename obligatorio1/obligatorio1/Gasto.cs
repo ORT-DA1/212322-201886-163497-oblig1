@@ -35,22 +35,26 @@ namespace Dominio
 
         }
         public Categoria Categoria { get; set; }
+        public Moneda Moneda { get; set; }
+
         public Gasto()
         {
             this.Monto = 0.00;
             this.Descripcion = "No hay descripcion";
             this.Categoria = new Categoria();
+            this.Moneda = new Moneda() { Simbolo = "UYU"};
         }
-        public Gasto(double unMonto, string unaDescripcion, Categoria unaCategoria)
+        public Gasto(double unMonto, string unaDescripcion, Categoria unaCategoria, Moneda moneda)
         {
             Monto = unMonto;
             Descripcion = unaDescripcion;
             Categoria = unaCategoria;
+            Moneda = moneda;
         }
         public override string ToString()
         {
 
-            return String.Format("Monto: {0}, Descripcion: {1}, Categoria: {2}", this.Monto, this.Descripcion, this.Categoria);
+            return String.Format("Monto: {0}, Descripcion: {1}, Categoria: {2}, Moneda {3}", this.Monto, this.Descripcion, this.Categoria, this.Moneda);
 
         }
     }
