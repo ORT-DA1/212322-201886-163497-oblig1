@@ -69,6 +69,12 @@
     <Compile Include="AgregarGastoRecurrente.Designer.cs">
       <DependentUpon>AgregarGastoRecurrente.cs</DependentUpon>
     </Compile>
+    <Compile Include="AgregarMoneda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AgregarMoneda.Designer.cs">
+      <DependentUpon>AgregarMoneda.cs</DependentUpon>
+    </Compile>
     <Compile Include="AtributosGastoComun.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -86,6 +92,12 @@
     </Compile>
     <Compile Include="ListadoGastosRecurrentes.Designer.cs">
       <DependentUpon>ListadoGastosRecurrentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuArribaMoneda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuArribaMoneda.Designer.cs">
+      <DependentUpon>MenuArribaMoneda.cs</DependentUpon>
     </Compile>
     <Compile Include="ModificarGastoComun.cs">
       <SubType>UserControl</SubType>
@@ -179,6 +191,9 @@
     <EmbeddedResource Include="AgregarGastoRecurrente.resx">
       <DependentUpon>AgregarGastoRecurrente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AgregarMoneda.resx">
+      <DependentUpon>AgregarMoneda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AtributosGastoComun.resx">
       <DependentUpon>AtributosGastoComun.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListadoGastosRecurrentes.resx">
       <DependentUpon>ListadoGastosRecurrentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuArribaMoneda.resx">
+      <DependentUpon>MenuArribaMoneda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarGastoComun.resx">
       <DependentUpon>ModificarGastoComun.cs</DependentUpon>
