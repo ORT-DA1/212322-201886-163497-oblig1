@@ -1,20 +1,24 @@
-﻿
-using Dominio;
+﻿using Excepciones;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace obligatorio1
+namespace Dominio
 {
+
     public class AdministradorMonedas
     {
-        private Repositorio Repositorio { get; }
-        public AdministradorMonedas(Repositorio unRepositorio)
+        private IRepositorio Repositorio { get;  }
+        public AdministradorMonedas(IRepositorio unRepositorio)
         {
             this.Repositorio = unRepositorio;
         }
 
-        public static void AgregarMoneda(Moneda unaMoneda)
+        public void AgregarMoneda(Moneda unaMoneda)
         {
-            if (this.Repositorio.ExisteMoneda(unaMoneda))
+            if (Repositorio.ExisteMoneda(unaMoneda))
             {
                 throw new ExcepcionElementoRepetido("Moneda ya existente");
             }

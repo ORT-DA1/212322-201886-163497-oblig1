@@ -12,7 +12,7 @@ namespace Test
     [TestClass]
     public class AdministradorMonedaPrueba
     {
-        private Repositorio miRepositorio;
+        private IRepositorio miRepositorio;
         private AdministradorMonedas adminMonedas;
         private Moneda unaMoneda;
         private Moneda otraMoneda;
@@ -20,7 +20,7 @@ namespace Test
         [TestInitialize]
         public void InitTests()
         {
-            miRepositorio = new Repositorio();
+            miRepositorio = new RepositorioMemoria();
             adminMonedas = new AdministradorMonedas(miRepositorio);
             unaMoneda = new Moneda();
             otraMoneda = new Moneda();
