@@ -11,7 +11,7 @@ namespace Test
     [TestClass]
     public class AdministradorGastosComunesPrueba
     {
-        private Repositorio miRepositorio;
+        private IRepositorio miRepositorio;
         private AdministradorGastosComunes adminGastosComunes;
         private AdministradorCategorias adminCategorias;
         private GastoComun unGastoComun;
@@ -21,7 +21,7 @@ namespace Test
         [TestInitialize]
         public void InitTests()
         {
-            miRepositorio = new Repositorio();
+            miRepositorio = new RepositorioMemoria();
             adminGastosComunes = new AdministradorGastosComunes(miRepositorio);
             adminPresupuesto = new AdministradorPresupuesto(miRepositorio);
             adminCategorias = new AdministradorCategorias(miRepositorio);

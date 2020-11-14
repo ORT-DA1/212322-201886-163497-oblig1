@@ -12,12 +12,12 @@ namespace Test
         private AdministradorGastosRecurrentes adminGastosRecurrentes;
         private GastoRecuerrente unGastoRecuerrente;
         private Categoria unaCategoria;
-        private Repositorio miRepositorio;
+        private IRepositorio miRepositorio;
 
         [TestInitialize]
         public void InitTest()
         {
-            miRepositorio = new Repositorio();
+            miRepositorio = new RepositorioMemoria();
             adminGastosRecurrentes = new AdministradorGastosRecurrentes(miRepositorio);
             unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
             unGastoRecuerrente = new GastoRecuerrente() {Categoria = unaCategoria};

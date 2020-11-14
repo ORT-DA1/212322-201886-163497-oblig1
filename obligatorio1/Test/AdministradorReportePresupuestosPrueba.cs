@@ -12,7 +12,7 @@ namespace Test
     public class AdministradorReportePresupuestosPrueba
     {
         private Categoria unaCategoria;
-        private Repositorio miRepositorio;
+        private IRepositorio miRepositorio;
         private AdministradorReportePresupuestos adminReportePresupuestos;
         private Presupuesto unPresupuesto;
         private AdministradorPresupuesto adminPresupuestos;
@@ -20,7 +20,7 @@ namespace Test
         [TestInitialize]
         public void InitTest()
         {
-            miRepositorio = new Repositorio();
+            miRepositorio = new RepositorioMemoria();
             adminPresupuestos = new AdministradorPresupuesto(miRepositorio);
             unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
             adminReportePresupuestos = new AdministradorReportePresupuestos(miRepositorio);
