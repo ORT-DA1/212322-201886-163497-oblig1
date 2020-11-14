@@ -41,7 +41,7 @@ namespace Interfaz_De_Usuario
             tablaGastos.Items.Clear();
             foreach (var gasto in listaGastos)
             {
-                var row = new string[] { gasto.Fecha.ToShortDateString(), gasto.Descripcion.ToString(), gasto.Categoria.ToString(), gasto.Moneda.ToString() ,gasto.Monto.ToString() };
+                var row = new string[] { gasto.Fecha.ToShortDateString(), gasto.Descripcion.ToString(), gasto.Categoria.ToString(),gasto.Monto.ToString(), gasto.Moneda.ToString()};
                 var lvi = new ListViewItem(row);
                 lvi.Tag = listaGastos;
                 

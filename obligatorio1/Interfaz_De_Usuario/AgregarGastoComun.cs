@@ -9,12 +9,15 @@ namespace Interfaz_De_Usuario
     {
         private AdministradorGastosComunes adminGastosComunes;
         private AdministradorCategorias adminCategorias;
-       
-        public AgregarGastoComun(AdministradorGastosComunes miAdminGastosComunes,AdministradorCategorias miAdministradorCategorias)
+        private AdministradorMonedas adminMonedas;
+
+        public AgregarGastoComun(AdministradorGastosComunes miAdminGastosComunes,AdministradorCategorias miAdministradorCategorias
+            , AdministradorMonedas miAdminMonedas)
         {
             InitializeComponent();
             adminGastosComunes = miAdminGastosComunes;
             adminCategorias = miAdministradorCategorias;
+            adminMonedas = miAdminMonedas;
         }
 
         private void btnOkDescripcion_Click(object sender, EventArgs e)
@@ -22,7 +25,7 @@ namespace Interfaz_De_Usuario
             try
             {
                 pAgregarAtributos.Controls.Clear();
-                UserControl agregarAtributos = new AtributosGastoComun(adminGastosComunes,tbDescripcion.Text, adminCategorias);
+                UserControl agregarAtributos = new AtributosGastoComun(adminGastosComunes,tbDescripcion.Text, adminCategorias,adminMonedas);
                 pAgregarAtributos.Controls.Add(agregarAtributos);
             }
             catch(IndexOutOfRangeException unaExcepcion)

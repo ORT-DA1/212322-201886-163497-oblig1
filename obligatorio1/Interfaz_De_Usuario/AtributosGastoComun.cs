@@ -11,17 +11,25 @@ namespace Interfaz_De_Usuario
         private AdministradorGastosComunes unAdminGastosComun;
         private AdministradorCategorias unAdminCategorias;
         private GastoComun gastoC;
-        public AtributosGastoComun(AdministradorGastosComunes miAdminGastoComun, String descripcion, AdministradorCategorias miAdministradorCategorias)
+        private AdministradorMonedas unAdminMonedas;
+        public AtributosGastoComun(AdministradorGastosComunes miAdminGastoComun, String descripcion, 
+                                   AdministradorCategorias miAdministradorCategorias,AdministradorMonedas miAdminMonedas)
         {
             InitializeComponent();
             unAdminGastosComun = miAdminGastoComun;
             unAdminCategorias = miAdministradorCategorias;
+            unAdminMonedas = miAdminMonedas;
             gastoC = new GastoComun() { Descripcion = descripcion };
-            CargarComboBox(descripcion);
+            CargarComboBoxCategoria(descripcion);
+            CargarComboBoxMoneda();
 
         }
+        private void CargarComboBoxMoneda()
+        {
+            cbMoneda.DataSource = unAdminMonedas.RetornarListaMonedas();
+        }
 
-        private void CargarComboBox(String descripcion)
+        private void CargarComboBoxCategoria(String descripcion)
         {
 
             foreach (Categoria unaCategoria in unAdminCategorias.RetornarListaCategorias())
