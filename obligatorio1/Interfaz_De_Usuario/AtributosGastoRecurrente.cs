@@ -10,15 +10,23 @@ namespace Interfaz_De_Usuario
         private AdministradorGastosRecurrentes unAdminGastosRecurrentes;
         private AdministradorCategorias unAdminCategorias;
         private GastoRecuerrente unGastoRecurrente;
-        public AtributosGastoRecurrente(AdministradorGastosRecurrentes miAdminGastosRecurrentes,AdministradorCategorias miAdminCategorias,String descripcion)
+        private AdministradorMonedas unAdminMonedas;
+        public AtributosGastoRecurrente(AdministradorGastosRecurrentes miAdminGastosRecurrentes,AdministradorCategorias miAdminCategorias
+                ,String descripcion,AdministradorMonedas miAdminMonedas)
         {
             InitializeComponent();
             unAdminGastosRecurrentes = miAdminGastosRecurrentes;
             unAdminCategorias = miAdminCategorias;
+            unAdminMonedas = miAdminMonedas;
             unGastoRecurrente = new GastoRecuerrente() { Descripcion = descripcion };
-            CargarComboBox(descripcion);
+            CargarComboBoxCategorias(descripcion);
+            CargarComboBoxMoneda();
         }
-        public void CargarComboBox(String descripcion)
+        public void CargarComboBoxMoneda()
+        {
+            cbMoneda.DataSource = unAdminMonedas.RetornarListaMonedas();
+        }
+        public void CargarComboBoxCategorias(String descripcion)
         {
             
             foreach (Categoria unaCategoria in unAdminCategorias.RetornarListaCategorias())
