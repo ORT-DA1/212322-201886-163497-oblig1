@@ -151,8 +151,8 @@ namespace Dominio
                 throw new IndexOutOfRangeException("Ya existen 10 palabras clave para esta categoría.");
             else
             {
-                categoria.AgregarPalabraClave(unaPalabra);
-
+                Repositorio.AgregarPalabraClaveNuevo(categoria,unaPalabra);
+            
             }
 
         }
@@ -164,7 +164,9 @@ namespace Dominio
 
         public List<PalabraClave> RetornarPalabrasClaveDeCategoria(Categoria unaCategoria)
         {
+            //
             return unaCategoria.PalabrasClave;
+
         }
 
         public Categoria RetornarCategoriaSegunString(string unNombre)

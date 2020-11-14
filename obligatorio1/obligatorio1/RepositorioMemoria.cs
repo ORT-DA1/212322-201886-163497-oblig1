@@ -27,6 +27,19 @@ namespace Dominio
 
         }
 
+        public void AgregarPalabraClaveNuevo(Categoria categoria, PalabraClave unaPalabra)
+        {
+            
+            foreach (Categoria cat in RetornarListaCategorias())
+            {
+                if (cat.Nombre == categoria.Nombre)
+                {
+                    cat.AgregarPalabraClave(unaPalabra);
+                }
+            }
+            
+        }
+
         public void AgregarCategoria(Categoria unaCategoria)
         {
             this.ListaCategorias.Add(unaCategoria);
