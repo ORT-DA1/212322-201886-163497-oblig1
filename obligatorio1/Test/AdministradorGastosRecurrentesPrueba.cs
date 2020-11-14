@@ -12,7 +12,8 @@ namespace Test
         private AdministradorGastosRecurrentes adminGastosRecurrentes;
         private GastoRecuerrente unGastoRecuerrente;
         private Categoria unaCategoria;
-        private RepositorioMemoria miRepositorio;
+        private IRepositorio miRepositorio;
+
 
         [TestInitialize]
         public void InitTest()

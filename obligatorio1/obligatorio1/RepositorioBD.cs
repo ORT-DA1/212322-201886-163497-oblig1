@@ -13,6 +13,17 @@ namespace Dominio
             
         }
 
+        public void AgregarPalabraClaveNuevo(Categoria categoria, PalabraClave unaPalabra)
+        {
+            using (var context = new Persistencia())
+            {
+                Categoria cat = context.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
+                cat.PalabrasClave.Add(unaPalabra);
+                context.SaveChanges();
+            }
+
+        }
+
         public void AgregarCategoria(Categoria unaCategoria)
         {
             using (var context = new Persistencia())
