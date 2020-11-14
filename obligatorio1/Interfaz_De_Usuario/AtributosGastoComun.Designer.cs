@@ -35,6 +35,8 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblMonto = new System.Windows.Forms.Label();
             this.numMonto = new System.Windows.Forms.NumericUpDown();
+            this.lblMoneda = new System.Windows.Forms.Label();
+            this.cbMoneda = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numMonto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +53,7 @@
             // 
             // dtFecha
             // 
-            this.dtFecha.Location = new System.Drawing.Point(153, 84);
+            this.dtFecha.Location = new System.Drawing.Point(153, 126);
             this.dtFecha.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.dtFecha.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             this.dtFecha.Name = "dtFecha";
@@ -61,7 +63,7 @@
             // cbCategoria
             // 
             this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(153, 145);
+            this.cbCategoria.Location = new System.Drawing.Point(153, 168);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(317, 28);
             this.cbCategoria.TabIndex = 22;
@@ -70,7 +72,7 @@
             // 
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(15, 143);
+            this.lblCategoria.Location = new System.Drawing.Point(15, 166);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(109, 26);
             this.lblCategoria.TabIndex = 21;
@@ -80,7 +82,7 @@
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(15, 84);
+            this.lblFecha.Location = new System.Drawing.Point(18, 126);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(71, 26);
             this.lblFecha.TabIndex = 20;
@@ -90,7 +92,7 @@
             // 
             this.lblMonto.AutoSize = true;
             this.lblMonto.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonto.Location = new System.Drawing.Point(15, 22);
+            this.lblMonto.Location = new System.Drawing.Point(18, 85);
             this.lblMonto.Name = "lblMonto";
             this.lblMonto.Size = new System.Drawing.Size(74, 26);
             this.lblMonto.TabIndex = 18;
@@ -99,7 +101,7 @@
             // numMonto
             // 
             this.numMonto.DecimalPlaces = 2;
-            this.numMonto.Location = new System.Drawing.Point(153, 25);
+            this.numMonto.Location = new System.Drawing.Point(153, 85);
             this.numMonto.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -109,10 +111,30 @@
             this.numMonto.Size = new System.Drawing.Size(317, 26);
             this.numMonto.TabIndex = 25;
             // 
+            // lblMoneda
+            // 
+            this.lblMoneda.AutoSize = true;
+            this.lblMoneda.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoneda.Location = new System.Drawing.Point(18, 42);
+            this.lblMoneda.Name = "lblMoneda";
+            this.lblMoneda.Size = new System.Drawing.Size(90, 26);
+            this.lblMoneda.TabIndex = 26;
+            this.lblMoneda.Text = "Moneda";
+            // 
+            // cbMoneda
+            // 
+            this.cbMoneda.FormattingEnabled = true;
+            this.cbMoneda.Location = new System.Drawing.Point(153, 42);
+            this.cbMoneda.Name = "cbMoneda";
+            this.cbMoneda.Size = new System.Drawing.Size(317, 28);
+            this.cbMoneda.TabIndex = 27;
+            // 
             // AtributosGastoComun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbMoneda);
+            this.Controls.Add(this.lblMoneda);
             this.Controls.Add(this.numMonto);
             this.Controls.Add(this.btnAceptarGastoC);
             this.Controls.Add(this.dtFecha);
@@ -137,5 +159,7 @@
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblMonto;
         private System.Windows.Forms.NumericUpDown numMonto;
+        private System.Windows.Forms.Label lblMoneda;
+        private System.Windows.Forms.ComboBox cbMoneda;
     }
 }

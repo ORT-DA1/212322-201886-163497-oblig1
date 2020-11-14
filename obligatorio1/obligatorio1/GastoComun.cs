@@ -34,7 +34,7 @@ namespace Dominio
         {
             this.Fecha = new DateTime(2020, 5, 1);
         }
-        public GastoComun(int unMonto, string unaDescripcion, Categoria unaCategoria, DateTime fecha):base(unMonto, unaDescripcion, unaCategoria)
+        public GastoComun(int unMonto, string unaDescripcion, Categoria unaCategoria, DateTime fecha , Moneda unaMoneda):base(unMonto, unaDescripcion, unaCategoria , unaMoneda)
         {
             Fecha = fecha;
         }

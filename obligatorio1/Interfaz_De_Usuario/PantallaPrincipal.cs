@@ -14,6 +14,7 @@ namespace Interfaz_De_Usuario
         public IRepositorio Repositorio { get; set; }
         public AdministradorReporteGastos AdminReporteGastos { get; set; }
         public AdministradorReportePresupuestos AdminReportePresupuestos { get; set; }
+        public AdministradorMonedas AdminMonedas { get; set; }
 
         public PantallaPrincipal()
         {
@@ -25,7 +26,7 @@ namespace Interfaz_De_Usuario
             AdminGastoRecurrente = new AdministradorGastosRecurrentes(Repositorio);
             AdminReporteGastos = new AdministradorReporteGastos(Repositorio);
             AdminReportePresupuestos = new AdministradorReportePresupuestos(Repositorio);
-
+            AdminMonedas = new AdministradorMonedas(Repositorio);
         }
 
 
@@ -36,6 +37,13 @@ namespace Interfaz_De_Usuario
             UserControl menuArriba = new MenuArribaCategoria(AdminCategorias);
             panelPrincipal.Controls.Add(menuArriba);
 
+        }
+
+        private void btnMoneda_Click(object sender, EventArgs e)
+        {
+            panelPrincipal.Controls.Clear();
+            UserControl menuArriba = new MenuArribaMoneda(AdminMonedas);
+            panelPrincipal.Controls.Add(menuArriba);
         }
 
         private void btnGastoComun_Click(object sender, EventArgs e)
@@ -76,7 +84,6 @@ namespace Interfaz_De_Usuario
             panelPrincipal.Controls.Add(reportePresupuesto);
         }
 
-       
-
+        
     }
 }

@@ -49,14 +49,18 @@ namespace Interfaz_De_Usuario
                 MessageBox.Show("La Categoria no puede quedar vacia");
                 return;
             }
+            if (cbMoneda.SelectedItem == null)
+            {
+                MessageBox.Show("La Moneda no puede quedar vacia");
+                return;
+            }
 
             try
             {
                 gastoC.Monto = (double)numMonto.Value;
                 gastoC.Fecha = dtFecha.Value;
-                //No usar esta funcion RetornarCategoriaSegunString, usar las funciones que traen las ventanas tipo .SelectedItem
-                // gastoC.Categoria = unAdminCategorias.RetornarCategoriaSegunString(cbCategoria.Text);
                 gastoC.Categoria = (Categoria)cbCategoria.SelectedItem;
+                gastoC.Moneda = (Moneda)cbMoneda.SelectedItem;
                 unAdminGastosComun.AgregarGastoComun(gastoC);
                 MessageBox.Show("El gasto ha sido creado con exito ");
 

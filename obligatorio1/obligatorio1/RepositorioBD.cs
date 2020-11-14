@@ -119,7 +119,11 @@ namespace Dominio
 
             using (var context = new Persistencia())
             {
-               return context.Categorias.FirstOrDefault(x => x.Nombre == unaCategoria.Nombre) != null;
+              if(context.Categorias.FirstOrDefault(x => x.Nombre == unaCategoria.Nombre) != null)
+                {
+                    return true;
+                }
+                return false;
             }
            
             
@@ -180,6 +184,19 @@ namespace Dominio
         {
             List<Presupuesto> fake = new List<Presupuesto>();
              return fake;
+        }
+
+        public void AgregarMoneda(Moneda unaMoneda)
+        {
+            //throw new NotImplementedException();
+        }
+        public List<Moneda> RetornarListaMonedas()
+        {
+            throw new NotImplementedException();
+        }
+        public bool ExisteMoneda(Moneda unaMoneda)
+        {
+            throw new NotImplementedException();
         }
 
 
