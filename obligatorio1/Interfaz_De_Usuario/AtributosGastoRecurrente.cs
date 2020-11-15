@@ -58,6 +58,7 @@ namespace Interfaz_De_Usuario
             try
             {
                 unGastoRecurrente.Monto = (double)numMonto.Value;
+                //unAdminGastosRecurrentes.AgregarMontoEnPesos(unGastoRecurrente);
                 unGastoRecurrente.Fecha = (int)numFecha.Value;
                 unGastoRecurrente.Categoria = (Categoria)cbCategoria.SelectedItem;
                 unGastoRecurrente.Moneda = (Moneda)cbMoneda.SelectedItem;
@@ -79,6 +80,8 @@ namespace Interfaz_De_Usuario
         {
             return cbCategoria.SelectedItem == null;
         }
+
+        
 
     }
 }
