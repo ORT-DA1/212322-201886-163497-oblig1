@@ -51,6 +51,7 @@ namespace Dominio
                     else
                     {
                         context.PalabraClaves.Attach(palabra);
+                       
                     }
                 }
                 context.Categorias.Attach(unaCategoria);
@@ -65,17 +66,11 @@ namespace Dominio
             using (var context = new Persistencia())
             {
 
-                 Categoria cat = context.Categorias.FirstOrDefault(x=> x.Id == unaCategoria.Id);
-                 return cat.PalabrasClave.ToList();
-
-                //Categoria cat = context.Categorias.Where(x => x.Id == unaCategoria.Id).Include(PalabrasClave);
-               // return cat.PalabrasClave.ToList();
-
+                Categoria cat = context.Categorias.FirstOrDefault(x=> x.Id == unaCategoria.Id);
+                return cat.PalabrasClave.ToList();
 
             }
         }
-
-        //
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
@@ -84,8 +79,39 @@ namespace Dominio
                 context.Categorias.Add(unaCategoria);
                 context.SaveChanges();
 
-                
+            }
 
+        }
+        public bool ExisteCategoria(Categoria unaCategoria)
+        {
+
+            using (var context = new Persistencia())
+            {
+                if (context.Categorias.FirstOrDefault(x => x.Nombre == unaCategoria.Nombre) != null)
+                {
+                    return true;
+                }
+                return false;
+            }
+
+
+        }
+
+        public void EliminarCategoria(Categoria unaCategoria)
+        {
+            using (var context = new Persistencia())
+            {
+                context.Categorias.Remove(unaCategoria);
+                context.SaveChanges();
+            }
+
+        }
+
+        public List<Categoria> RetornarListaCategorias()
+        {
+            using (var context = new Persistencia())
+            {
+                return context.Categorias.Include("PalabrasClave").ToList();
             }
 
         }
@@ -115,23 +141,11 @@ namespace Dominio
             throw new NotImplementedException();
         }
 
-
-
         public int CantidadElementosEnListaMesesDondeHayGastos()
         {
             throw new NotImplementedException();
         }
 
-
-        public void EliminarCategoria(Categoria unaCategoria)
-        {
-            using (var context = new Persistencia())
-            {
-                context.Categorias.Remove(unaCategoria);
-                context.SaveChanges();
-            }
-           
-        }
 
         public void EliminarGastoComun(GastoComun unGastoComun)
         {
@@ -168,23 +182,6 @@ namespace Dominio
             throw new NotImplementedException();
         }
 
-
-
-        public bool ExisteCategoria(Categoria unaCategoria)
-        {
-
-            using (var context = new Persistencia())
-            {
-              if(context.Categorias.FirstOrDefault(x => x.Nombre == unaCategoria.Nombre) != null)
-                {
-                    return true;
-                }
-                return false;
-            }
-           
-            
-        }
-
         public bool ExisteGastoComun(GastoComun unGastoComun)
         {
             throw new NotImplementedException();
@@ -207,14 +204,7 @@ namespace Dominio
 
 
 
-        public List<Categoria> RetornarListaCategorias()
-        {
-            using (var context = new Persistencia())
-            {
-                return context.Categorias.ToList();
-            }
-            
-        }
+
 
         public List<GastoComun> RetornarListaGastosCoumnes()
         {

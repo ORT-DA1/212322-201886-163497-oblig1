@@ -64,6 +64,7 @@ namespace Dominio
         {
             this.PalabrasClave.Remove(palabra);
         }
+
         private int CantPalabrasClave()
         {
             return this.PalabrasClave.Count;
