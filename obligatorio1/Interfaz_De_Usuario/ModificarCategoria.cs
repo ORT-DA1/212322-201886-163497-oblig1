@@ -77,6 +77,10 @@ namespace Interfaz_De_Usuario
 
         }
 
-        
+        private void btnBorrarCategoria_Click(object sender, EventArgs e)
+        {
+            Categoria categoriaSeleccionada = (Categoria)cbCategorias.SelectedItem;
+            AdminCategorias.EliminarCategoria(categoriaSeleccionada);
+        }
     }
 }

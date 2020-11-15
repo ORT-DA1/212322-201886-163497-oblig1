@@ -20,11 +20,7 @@ namespace Dominio
              }*/
 
             //
-
-
         }
-
-
 
         /*  public void ActualizarPalabrasEnBD(Categoria categoria, PalabraClave unaPalabra)
           {
@@ -37,7 +33,7 @@ namespace Dominio
 
           }*/
 
-        // prueba 
+        
         public void ActualizarPalabrasEnBD(Categoria unaCategoria)
         {
             using (var context = new Persistencia())
@@ -56,7 +52,6 @@ namespace Dominio
                 }
                 context.Categorias.Attach(unaCategoria);
                 context.Entry(unaCategoria).State = System.Data.Entity.EntityState.Modified;
-
                 context.SaveChanges();
             }
 
@@ -101,7 +96,8 @@ namespace Dominio
         {
             using (var context = new Persistencia())
             {
-                context.Categorias.Remove(unaCategoria);
+                Categoria cat = context.Categorias.FirstOrDefault(x => x.Id == unaCategoria.Id);
+                context.Categorias.Remove(cat);
                 context.SaveChanges();
             }
 
