@@ -34,6 +34,8 @@ namespace Dominio
         List<DateTime> RetornarListaMesesDondeHayPresupuesto();
         void AgregarMesDondeHayPresupuesto(DateTime unaFecha);
         bool ExisteUnPresupuesto(DateTime unaFecha);
-        void AgregarPalabraClaveNuevo(Categoria categoria, PalabraClave unaPalabra);
+        //void AgregarPalabraClaveNuevo(Categoria categoria, PalabraClave unaPalabra);
+        void ActualizarPalabrasEnBD(Categoria unaCategoria);
+        List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria);
     }
 }

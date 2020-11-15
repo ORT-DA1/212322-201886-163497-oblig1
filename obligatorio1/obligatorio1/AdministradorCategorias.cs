@@ -16,6 +16,7 @@ namespace Dominio
         {
             this.Repositorio = unRepositorio;
             this.AdminPresupuesto = new AdministradorPresupuesto(unRepositorio);
+
         }
 
         public List<Categoria> RetornarListaCategorias()
@@ -151,21 +152,25 @@ namespace Dominio
                 throw new IndexOutOfRangeException("Ya existen 10 palabras clave para esta categoría.");
             else
             {
-                Repositorio.AgregarPalabraClaveNuevo(categoria,unaPalabra);
-            
+                //Repositorio.AgregarPalabraClaveNuevo(categoria,unaPalabra);
+                categoria.AgregarPalabraClave(unaPalabra);
+
+                //PRUEBA
+                Repositorio.ActualizarPalabrasEnBD(categoria);
             }
 
         }
         public void BorrarPalabraClaveACategoria(Categoria categoria, PalabraClave palabra)
         {
             categoria.BorrarPalabraClave(palabra);
+            Repositorio.ActualizarPalabrasEnBD(categoria);
 
         }
 
         public List<PalabraClave> RetornarPalabrasClaveDeCategoria(Categoria unaCategoria)
         {
-            //
-            return unaCategoria.PalabrasClave;
+            return Repositorio.RetornarPalabrasClaveDeCategoriaDelRepo(unaCategoria);
+            //return unaCategoria.PalabrasClave;
 
         }
 

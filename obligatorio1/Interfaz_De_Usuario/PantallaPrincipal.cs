@@ -20,6 +20,7 @@ namespace Interfaz_De_Usuario
         {
             InitializeComponent();
             Repositorio = new RepositorioBD();
+            //Repositorio = new RepositorioMemoria();
             AdminPresupuesto = new AdministradorPresupuesto(Repositorio);
             AdminCategorias = new AdministradorCategorias(Repositorio);
             AdminGastoComun = new AdministradorGastosComunes(Repositorio);
@@ -27,6 +28,9 @@ namespace Interfaz_De_Usuario
             AdminReporteGastos = new AdministradorReporteGastos(Repositorio);
             AdminReportePresupuestos = new AdministradorReportePresupuestos(Repositorio);
             AdminMonedas = new AdministradorMonedas(Repositorio);
+
+
+
         }
 
 
