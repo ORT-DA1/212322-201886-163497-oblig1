@@ -53,14 +53,14 @@ namespace Interfaz_De_Usuario
         private void btnGastoComun_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
-            UserControl menuArriba = new MenuArribaGasto(AdminGastoComun, AdminCategorias);
+            UserControl menuArriba = new MenuArribaGasto(AdminGastoComun, AdminCategorias,AdminMonedas);
             panelPrincipal.Controls.Add(menuArriba);
         }
 
         private void btGastoRecurrente_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
-            UserControl gastoRecurrente = new MenuArribaGastoRecurrente(AdminGastoRecurrente, AdminCategorias);
+            UserControl gastoRecurrente = new MenuArribaGastoRecurrente(AdminGastoRecurrente, AdminCategorias,AdminMonedas);
             panelPrincipal.Controls.Add(gastoRecurrente);
         }
 

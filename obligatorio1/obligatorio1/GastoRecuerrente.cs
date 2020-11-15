@@ -27,7 +27,7 @@ namespace Dominio
         {
             this.Fecha = 1;
         }
-        public GastoRecuerrente(int unMonto, string unaDescripcion, Categoria unaCategoria , int unaFecha ,Moneda unaMoneda):base(unMonto, unaDescripcion, unaCategoria ,unaMoneda)
+        public GastoRecuerrente(int unMonto, string unaDescripcion, Categoria unaCategoria , int unaFecha ,Moneda unaMoneda) :base(unMonto, unaDescripcion, unaCategoria ,unaMoneda)
         {
             Fecha = unaFecha;
         }

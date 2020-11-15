@@ -85,7 +85,7 @@ namespace Dominio
             double total = 0;
             foreach (GastoComun gasto in ListaDeGastosReporte)
             {
-                total += gasto.Monto;
+                total += gasto.MontoEnPesos;
             }
             return total;
         }
