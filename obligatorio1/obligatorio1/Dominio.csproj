@@ -72,6 +72,14 @@
     <Compile Include="Migrations\202011122252073_PClaves.designer.cs">
       <DependentUpon>202011122252073_PClaves.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011142342377_PalabraClave.cs" />
+    <Compile Include="Migrations\202011142342377_PalabraClave.designer.cs">
+      <DependentUpon>202011142342377_PalabraClave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011151348295_Palabras.cs" />
+    <Compile Include="Migrations\202011151348295_Palabras.designer.cs">
+      <DependentUpon>202011151348295_Palabras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Moneda.cs" />
     <Compile Include="PalabraClave.cs" />
@@ -104,6 +112,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011122252073_PClaves.resx">
       <DependentUpon>202011122252073_PClaves.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011142342377_PalabraClave.resx">
+      <DependentUpon>202011142342377_PalabraClave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011151348295_Palabras.resx">
+      <DependentUpon>202011151348295_Palabras.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace Dominio
@@ -9,20 +10,72 @@ namespace Dominio
         private Persistencia context;
         public RepositorioBD()
         {
+            // PRUEBA LEO
+            /*using (Persistencia persistencia = new Persistencia())
+             {
+                 List<PalabraClave> palabras = new List<PalabraClave>()
+                 { new PalabraClave() { Palabra = "uno" } };
+                 Categoria categoria = new Categoria()
+                 { Nombre = "CategoríaTest", PalabrasClave = palabras }; persistencia.Categorias.Add(categoria); persistencia.SaveChanges();
+             }*/
 
-            
+            //
+
+
         }
 
-        public void AgregarPalabraClaveNuevo(Categoria categoria, PalabraClave unaPalabra)
+
+
+        /*  public void ActualizarPalabrasEnBD(Categoria categoria, PalabraClave unaPalabra)
+          {
+              using (var context = new Persistencia())
+              {
+                  Categoria cat = context.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
+                  cat.PalabrasClave.Add(unaPalabra);
+                  context.SaveChanges();
+              }
+
+          }*/
+
+        // prueba 
+        public void ActualizarPalabrasEnBD(Categoria unaCategoria)
         {
             using (var context = new Persistencia())
             {
-                Categoria cat = context.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
-                cat.PalabrasClave.Add(unaPalabra);
+                foreach (PalabraClave palabra in unaCategoria.PalabrasClave)
+                {
+                    if (palabra.Id == 0)
+                    {
+                        context.PalabraClaves.Add(palabra);
+                    }
+                    else
+                    {
+                        context.PalabraClaves.Attach(palabra);
+                    }
+                }
+                context.Categorias.Attach(unaCategoria);
+                context.Entry(unaCategoria).State = System.Data.Entity.EntityState.Modified;
+
                 context.SaveChanges();
             }
 
         }
+        public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
+         {
+            using (var context = new Persistencia())
+            {
+
+                 Categoria cat = context.Categorias.FirstOrDefault(x=> x.Id == unaCategoria.Id);
+                 return cat.PalabrasClave.ToList();
+
+                //Categoria cat = context.Categorias.Where(x => x.Id == unaCategoria.Id).Include(PalabrasClave);
+               // return cat.PalabrasClave.ToList();
+
+
+            }
+        }
+
+        //
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
@@ -30,8 +83,11 @@ namespace Dominio
             {
                 context.Categorias.Add(unaCategoria);
                 context.SaveChanges();
+
+                
+
             }
-           
+
         }
 
         public void AgregarGastoComun(GastoComun unGastoComun)
