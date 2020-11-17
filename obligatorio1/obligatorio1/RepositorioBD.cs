@@ -7,7 +7,7 @@ namespace Dominio
 {
     public class RepositorioBD : IRepositorio
     {
-        private Persistencia context;
+        private Persistencia contexto;
         public RepositorioBD()
         {
             // PRUEBA LEO
@@ -24,57 +24,57 @@ namespace Dominio
 
          public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
           {
-              using (var context = new Persistencia())
+              using (var contextoo = new Persistencia())
               {
-                  Categoria cat = context.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
+                  Categoria cat = contextoo.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
                   cat.PalabrasClave.Add(unaPalabra);
-                  context.SaveChanges();
+                  contextoo.SaveChanges();
               }
 
           }
 
         public void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
         {
-            using (var context = new Persistencia())
+            using (var contextoo = new Persistencia())
             {
-                Categoria cat = context.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
+                Categoria cat = contextoo.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
                 cat.PalabrasClave.Remove(unaPalabra);
                
-                PalabraClave palabra = context.PalabraClaves.FirstOrDefault(x => x.Id == unaPalabra.Id);
-                context.PalabraClaves.Remove(palabra);
-                context.SaveChanges();
+                PalabraClave palabra = contextoo.PalabraClaves.FirstOrDefault(x => x.Id == unaPalabra.Id);
+                contextoo.PalabraClaves.Remove(palabra);
+                contextoo.SaveChanges();
             }
 
         }
 
         /* public void ActualizarPalabrasEnBDLEO(Categoria unaCategoria)
          {
-             using (var context = new Persistencia())
+             using (var contexto = new Persistencia())
              {
                  foreach (PalabraClave palabra in unaCategoria.PalabrasClave)
                  {
                      if (palabra.Id == 0)
                      {
-                         context.PalabraClaves.Add(palabra);
+                         contexto.PalabraClaves.Add(palabra);
                      }
                      else
                      {
-                         context.PalabraClaves.Attach(palabra);
+                         contexto.PalabraClaves.Attach(palabra);
 
                      }
                  }
-                 context.Categorias.Attach(unaCategoria);
-                 context.Entry(unaCategoria).State = System.Data.Entity.EntityState.Modified;
-                 context.SaveChanges();
+                 contexto.Categorias.Attach(unaCategoria);
+                 contexto.Entry(unaCategoria).State = System.Data.Entity.EntityState.Modified;
+                 contexto.SaveChanges();
              }
 
          }*/
         public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
          {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
 
-                Categoria cat = context.Categorias.FirstOrDefault(x=> x.Id == unaCategoria.Id);
+                Categoria cat = contexto.Categorias.FirstOrDefault(x=> x.Id == unaCategoria.Id);
                 return cat.PalabrasClave.ToList();
 
             }
@@ -82,10 +82,10 @@ namespace Dominio
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
-                context.Categorias.Add(unaCategoria);
-                context.SaveChanges();
+                contexto.Categorias.Add(unaCategoria);
+                contexto.SaveChanges();
 
             }
 
@@ -94,28 +94,28 @@ namespace Dominio
 
         public void EliminarCategoria(Categoria unaCategoria)
         {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
-                Categoria cat = context.Categorias.FirstOrDefault(x => x.Id == unaCategoria.Id);
-                context.Categorias.Remove(cat);
-                context.SaveChanges();
+                Categoria cat = contexto.Categorias.FirstOrDefault(x => x.Id == unaCategoria.Id);
+                contexto.Categorias.Remove(cat);
+                contexto.SaveChanges();
             }
 
         }
 
         public List<Categoria> RetornarListaCategorias()
         {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
-                return context.Categorias.Include("PalabrasClave").ToList();
+                return contexto.Categorias.Include("PalabrasClave").ToList();
             }
 
         }
         public bool ExisteCategoria(Categoria unaCategoria)
         {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
-                if (context.Categorias.FirstOrDefault(x => x.Nombre == unaCategoria.Nombre) != null)
+                if (contexto.Categorias.FirstOrDefault(x => x.Nombre == unaCategoria.Nombre) != null)
                 {
                     return true;
                 }
@@ -125,25 +125,25 @@ namespace Dominio
 
         public void AgregarMoneda(Moneda unaMoneda)
         {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
-                context.Monedas.Add(unaMoneda);
-                context.SaveChanges();
+                contexto.Monedas.Add(unaMoneda);
+                contexto.SaveChanges();
 
             }
         }
         public List<Moneda> RetornarListaMonedas()
         {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
-                return context.Monedas.ToList();
+                return contexto.Monedas.ToList();
             }
         }
         public bool ExisteMoneda(Moneda unaMoneda)
         {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
-                if (context.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id) != null)
+                if (contexto.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id) != null)
                 {
                     return true;
                 }
@@ -196,9 +196,9 @@ namespace Dominio
         public bool EsVaciaListaCategorias()
         {
             
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
-               return context.Categorias == null;
+               return contexto.Categorias == null;
                 
             }
         }
