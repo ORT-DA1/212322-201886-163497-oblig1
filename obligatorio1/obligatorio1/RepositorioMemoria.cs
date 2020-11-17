@@ -27,18 +27,26 @@ namespace Dominio
 
         }
 
-        public void AgregarPalabraClaveNuevo(Categoria categoria, PalabraClave unaPalabra)
+         public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
+          {
+
+            
+
+          }
+
+        public void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra) { }
+
+        //PRUEBA
+
+        public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
         {
-            
-            foreach (Categoria cat in RetornarListaCategorias())
-            {
-                if (cat.Nombre == categoria.Nombre)
-                {
-                    cat.AgregarPalabraClave(unaPalabra);
-                }
-            }
-            
+            return unaCategoria.PalabrasClave;
         }
+
+        //
+
+
+      
 
         public void AgregarCategoria(Categoria unaCategoria)
         {

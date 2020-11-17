@@ -7,7 +7,7 @@ namespace Dominio
     public class Categoria
     {
         public int Id { get; set; }
-        public List<PalabraClave> PalabrasClave { get; set; }
+        public virtual List<PalabraClave> PalabrasClave { get; set; }
 
         private String nombre;
 
@@ -40,18 +40,11 @@ namespace Dominio
         public void AgregarPalabraClave(PalabraClave palabra)
         {
 
-            if (PalabraClaveInvalida(palabra))
-            {
-
-                throw new InvalidOperationException("Palabra clave invalida");
-            }
             this.PalabrasClave.Add(palabra);
+            
         }
 
-        private bool PalabraClaveInvalida(PalabraClave palabra)
-        {
-            return CantPalabrasClave() == 10 || this.ExistePalabraClave(palabra);
-        }
+        
 
         public bool EsVacia()
         {
@@ -62,6 +55,7 @@ namespace Dominio
         {
             this.PalabrasClave.Remove(palabra);
         }
+
         private int CantPalabrasClave()
         {
             return this.PalabrasClave.Count;

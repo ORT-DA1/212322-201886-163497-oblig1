@@ -58,7 +58,14 @@ namespace Test
             gasto.Categoria = cat ;
             Assert.AreEqual(cat , gasto.Categoria);
         }
-        
+
+        [TestMethod]
+        public void PropertyMontoEnPesosPrueba()
+        {
+            gasto.MontoEnPesos = 40;
+            Assert.AreEqual(40, gasto.MontoEnPesos);
+        }
+
         [TestMethod]
         [ExpectedException(typeof(IndexOutOfRangeException))]
         public void RangoDescripcionPrueba()

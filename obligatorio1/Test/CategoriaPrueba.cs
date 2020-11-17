@@ -51,17 +51,7 @@ namespace Test
             Assert.IsTrue(categoria.EsVacia());
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void ListaMax10PalabrasPrueba()
-        {
-            palabraClaveUno.Palabra = "Manzana";
-            for (int i = 0; i < 11; i++)
-            {
-                categoria.AgregarPalabraClave(palabraClaveUno);
-            }
-        }
-
+     
         [TestMethod]
         [ExpectedException(typeof(ExcepcionPalabraLarga))]
         public void ValidarNombreCortoPrueba()
@@ -93,15 +83,7 @@ namespace Test
             Assert.IsTrue(categoria.ExistePalabraClave(palabraClaveDos));
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void NoRepetirPalabraClavePrueba()
-        {
-            palabraClaveUno.Palabra = "Cine";
-            PalabraClave palabraClaveDos = new PalabraClave { Palabra = "Cine" };
-            categoria.AgregarPalabraClave(palabraClaveUno);
-            categoria.AgregarPalabraClave(palabraClaveDos);
-        }
+       
 
         [TestMethod]
         public void toStringCategoriaPrueba()

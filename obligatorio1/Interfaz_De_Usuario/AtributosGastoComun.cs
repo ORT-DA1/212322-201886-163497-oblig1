@@ -66,10 +66,12 @@ namespace Interfaz_De_Usuario
             try
             {
                 gastoC.Monto = (double)numMonto.Value;
+                //unAdminGastosComun.AgregarMontoEnPesos(gastoC);
                 gastoC.Fecha = dtFecha.Value;
                 gastoC.Categoria = (Categoria)cbCategoria.SelectedItem;
                 gastoC.Moneda = (Moneda)cbMoneda.SelectedItem;
                 unAdminGastosComun.AgregarGastoComun(gastoC);
+                
                 MessageBox.Show("El gasto ha sido creado con exito ");
 
             }

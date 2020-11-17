@@ -24,7 +24,12 @@ namespace Dominio
             {
                 throw new ExcepcionElementoNoExistente("La categoria no puede quedar vacía");
             }
-            else Repositorio.AgregarGastoComun(unGastoComun);
+            else
+            {
+                AgregarMontoEnPesos(unGastoComun);
+                Repositorio.AgregarGastoComun(unGastoComun);
+            }
+            
 
         }
         private bool NoHayCategoriaDefinida(GastoComun unGastoComun)
@@ -42,6 +47,17 @@ namespace Dominio
             Repositorio.EliminarGastoComun(unGastoComun);
         }
 
+        public void AgregarMontoEnPesos(Gasto unGasto)
+        {
+            if(unGasto.Moneda.simbolo != "UYU")
+            {
+                unGasto.MontoEnPesos = unGasto.Monto * unGasto.Moneda.Cotizacion;
+            }
+            else
+            {
+                unGasto.MontoEnPesos = unGasto.Monto;
+            }
+        }
 
     }
 }

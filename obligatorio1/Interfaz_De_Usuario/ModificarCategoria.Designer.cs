@@ -72,12 +72,12 @@
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(445, 370);
+            this.btnEliminar.Location = new System.Drawing.Point(411, 370);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(129, 35);
+            this.btnEliminar.Size = new System.Drawing.Size(163, 35);
             this.btnEliminar.TabIndex = 30;
-            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Text = "Eliminar palabra";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -92,7 +92,7 @@
             // 
             // tbPalabraClave
             // 
-            this.tbPalabraClave.Location = new System.Drawing.Point(315, 158);
+            this.tbPalabraClave.Location = new System.Drawing.Point(315, 140);
             this.tbPalabraClave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPalabraClave.Name = "tbPalabraClave";
             this.tbPalabraClave.Size = new System.Drawing.Size(259, 26);
@@ -101,7 +101,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(424, 203);
+            this.btnAgregar.Location = new System.Drawing.Point(424, 185);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(150, 39);
@@ -124,7 +124,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 156);
+            this.label1.Location = new System.Drawing.Point(35, 138);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(250, 26);
             this.label1.TabIndex = 31;

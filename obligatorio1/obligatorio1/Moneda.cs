@@ -5,6 +5,8 @@ namespace Dominio
 {
     public class Moneda
     {
+        public int Id { get; set; }
+
         private String nombre;
         public String Nombre
         {
@@ -66,7 +68,7 @@ namespace Dominio
         }
         public override string ToString()
         {
-            return String.Format("Nombre: {0}, Simbolo: {1}",this.Nombre,this.Simbolo);
+            return String.Format(this.Simbolo);
         }
     }
 }

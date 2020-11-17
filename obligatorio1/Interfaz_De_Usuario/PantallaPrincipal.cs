@@ -20,6 +20,7 @@ namespace Interfaz_De_Usuario
         {
             InitializeComponent();
             Repositorio = new RepositorioBD();
+            //Repositorio = new RepositorioMemoria();
             AdminPresupuesto = new AdministradorPresupuesto(Repositorio);
             AdminCategorias = new AdministradorCategorias(Repositorio);
             AdminGastoComun = new AdministradorGastosComunes(Repositorio);
@@ -27,6 +28,9 @@ namespace Interfaz_De_Usuario
             AdminReporteGastos = new AdministradorReporteGastos(Repositorio);
             AdminReportePresupuestos = new AdministradorReportePresupuestos(Repositorio);
             AdminMonedas = new AdministradorMonedas(Repositorio);
+
+
+
         }
 
 
@@ -49,14 +53,14 @@ namespace Interfaz_De_Usuario
         private void btnGastoComun_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
-            UserControl menuArriba = new MenuArribaGasto(AdminGastoComun, AdminCategorias);
+            UserControl menuArriba = new MenuArribaGasto(AdminGastoComun, AdminCategorias,AdminMonedas);
             panelPrincipal.Controls.Add(menuArriba);
         }
 
         private void btGastoRecurrente_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
-            UserControl gastoRecurrente = new MenuArribaGastoRecurrente(AdminGastoRecurrente, AdminCategorias);
+            UserControl gastoRecurrente = new MenuArribaGastoRecurrente(AdminGastoRecurrente, AdminCategorias,AdminMonedas);
             panelPrincipal.Controls.Add(gastoRecurrente);
         }
 
