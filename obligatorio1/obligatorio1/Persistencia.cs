@@ -12,7 +12,10 @@ namespace Dominio
         public DbSet<Categoria> Categorias { get; set; }
 
         public DbSet <PalabraClave> PalabraClaves { get; set; }
-      /*  public Persistencia()
+
+        public DbSet<Moneda> Monedas { get; set; }
+
+        /*  public Persistencia()
         {
             this.Configuration.LazyLoadingEnabled = false;
         }*/

@@ -154,9 +154,7 @@ namespace Dominio
             {
               
                 categoria.AgregarPalabraClave(unaPalabra);
-
-                //PRUEBA
-                Repositorio.ActualizarPalabrasEnRepo(categoria, unaPalabra);
+                Repositorio.AgregarPalabrasEnRepo(categoria, unaPalabra);
             }
 
         }
@@ -164,14 +162,12 @@ namespace Dominio
         {
             categoria.BorrarPalabraClave(palabra);
             Repositorio.EliminarPalabrasEnRepo(categoria, palabra);
-
         }
 
         public List<PalabraClave> RetornarPalabrasClaveDeCategoria(Categoria unaCategoria)
         {
             return Repositorio.RetornarPalabrasClaveDeCategoriaDelRepo(unaCategoria);
-            //return unaCategoria.PalabrasClave;
-
+          
         }
 
         public Categoria RetornarCategoriaSegunString(string unNombre)
