@@ -163,7 +163,7 @@ namespace Dominio
         public void BorrarPalabraClaveACategoria(Categoria categoria, PalabraClave palabra)
         {
             categoria.BorrarPalabraClave(palabra);
-            Repositorio.ActualizarPalabrasEnRepo(categoria, palabra);
+            Repositorio.EliminarPalabrasEnRepo(categoria, palabra);
 
         }
 

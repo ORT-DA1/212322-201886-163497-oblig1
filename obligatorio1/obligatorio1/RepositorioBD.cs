@@ -33,29 +33,39 @@ namespace Dominio
 
           }
 
-        
-       /* public void ActualizarPalabrasEnBDLEO(Categoria unaCategoria)
+        public void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
         {
             using (var context = new Persistencia())
             {
-                foreach (PalabraClave palabra in unaCategoria.PalabrasClave)
-                {
-                    if (palabra.Id == 0)
-                    {
-                        context.PalabraClaves.Add(palabra);
-                    }
-                    else
-                    {
-                        context.PalabraClaves.Attach(palabra);
-                       
-                    }
-                }
-                context.Categorias.Attach(unaCategoria);
-                context.Entry(unaCategoria).State = System.Data.Entity.EntityState.Modified;
+                Categoria cat = context.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
+                cat.PalabrasClave.Remove(unaPalabra);
                 context.SaveChanges();
             }
 
-        }*/
+        }
+
+        /* public void ActualizarPalabrasEnBDLEO(Categoria unaCategoria)
+         {
+             using (var context = new Persistencia())
+             {
+                 foreach (PalabraClave palabra in unaCategoria.PalabrasClave)
+                 {
+                     if (palabra.Id == 0)
+                     {
+                         context.PalabraClaves.Add(palabra);
+                     }
+                     else
+                     {
+                         context.PalabraClaves.Attach(palabra);
+
+                     }
+                 }
+                 context.Categorias.Attach(unaCategoria);
+                 context.Entry(unaCategoria).State = System.Data.Entity.EntityState.Modified;
+                 context.SaveChanges();
+             }
+
+         }*/
         public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
          {
             using (var context = new Persistencia())
@@ -97,6 +107,17 @@ namespace Dominio
                 return context.Categorias.Include("PalabrasClave").ToList();
             }
 
+        }
+        public bool ExisteCategoria(Categoria unaCategoria)
+        {
+            using (var context = new Persistencia())
+            {
+                if (context.Categorias.FirstOrDefault(x => x.Nombre == unaCategoria.Nombre) != null)
+                {
+                    return true;
+                }
+                return false;
+            }
         }
 
         public void AgregarGastoComun(GastoComun unGastoComun)
@@ -228,9 +249,6 @@ namespace Dominio
             throw new NotImplementedException();
         }
 
-        public bool ExisteCategoria(Categoria unaCategoria)
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }

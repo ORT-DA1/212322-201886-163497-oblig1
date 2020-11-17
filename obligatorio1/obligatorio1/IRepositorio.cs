@@ -38,5 +38,7 @@ namespace Dominio
         void ActualizarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra);
 
         List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria);
+
+        void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra);
     }
 }

@@ -37,7 +37,6 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblPalabrasClave = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBorrarCategoria = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -131,21 +130,10 @@
             this.label1.TabIndex = 31;
             this.label1.Text = "Palabra clave a agregar";
             // 
-            // btnBorrarCategoria
-            // 
-            this.btnBorrarCategoria.Location = new System.Drawing.Point(603, 87);
-            this.btnBorrarCategoria.Name = "btnBorrarCategoria";
-            this.btnBorrarCategoria.Size = new System.Drawing.Size(136, 30);
-            this.btnBorrarCategoria.TabIndex = 32;
-            this.btnBorrarCategoria.Text = "Borrar Categoria";
-            this.btnBorrarCategoria.UseVisualStyleBackColor = true;
-            this.btnBorrarCategoria.Click += new System.EventHandler(this.btnBorrarCategoria_Click);
-            // 
             // ModificarCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnBorrarCategoria);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.cbListaPalabrasClave);
@@ -174,6 +162,5 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label lblPalabrasClave;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnBorrarCategoria;
     }
 }

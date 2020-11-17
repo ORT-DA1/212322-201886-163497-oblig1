@@ -34,6 +34,8 @@ namespace Dominio
 
           }
 
+        public void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra) { }
+
         //PRUEBA
 
         public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
