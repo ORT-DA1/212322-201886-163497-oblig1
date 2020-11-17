@@ -7,10 +7,11 @@ namespace Dominio
 {
     public class RepositorioBD : IRepositorio
     {
-        private Persistencia context;
+        private Persistencia contexto;
         public RepositorioBD()
         {
             // PRUEBA LEO
+            
             /*using (Persistencia persistencia = new Persistencia())
              {
                  List<PalabraClave> palabras = new List<PalabraClave>()
@@ -22,128 +23,135 @@ namespace Dominio
             //
         }
 
-         public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
+
+        //CATEGORIA
+        public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
           {
-              using (var context = new Persistencia())
+              using (var contexto = new Persistencia())
               {
-                  Categoria cat = context.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
+                  Categoria cat = contexto.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
                   cat.PalabrasClave.Add(unaPalabra);
-                  context.SaveChanges();
+                  contexto.SaveChanges();
               }
 
           }
 
         public void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
-        {
-            using (var context = new Persistencia())
+        { 
+            using (var contexto = new Persistencia())
             {
-                Categoria cat = context.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
+                Categoria cat = contexto.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
                 cat.PalabrasClave.Remove(unaPalabra);
                
-                PalabraClave palabra = context.PalabraClaves.FirstOrDefault(x => x.Id == unaPalabra.Id);
-                context.PalabraClaves.Remove(palabra);
-                context.SaveChanges();
+                PalabraClave palabra = contexto.PalabraClaves.FirstOrDefault(x => x.Id == unaPalabra.Id);
+                contexto.PalabraClaves.Remove(palabra);
+                contexto.SaveChanges();
             }
 
         }
 
         /* public void ActualizarPalabrasEnBDLEO(Categoria unaCategoria)
          {
-             using (var context = new Persistencia())
+             using (var contexto = new Persistencia())
              {
                  foreach (PalabraClave palabra in unaCategoria.PalabrasClave)
                  {
                      if (palabra.Id == 0)
                      {
-                         context.PalabraClaves.Add(palabra);
+                         contexto.PalabraClaves.Add(palabra);
                      }
                      else
                      {
-                         context.PalabraClaves.Attach(palabra);
+                         contexto.PalabraClaves.Attach(palabra);
 
                      }
                  }
-                 context.Categorias.Attach(unaCategoria);
-                 context.Entry(unaCategoria).State = System.Data.Entity.EntityState.Modified;
-                 context.SaveChanges();
+                 contexto.Categorias.Attach(unaCategoria);
+                 contexto.Entry(unaCategoria).State = System.Data.Entity.EntityState.Modified;
+                 contexto.SaveChanges();
              }
 
          }*/
+
         public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
          {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
 
-                Categoria cat = context.Categorias.FirstOrDefault(x=> x.Id == unaCategoria.Id);
+                Categoria cat = contexto.Categorias.FirstOrDefault(x=> x.Id == unaCategoria.Id);
                 return cat.PalabrasClave.ToList();
 
             }
         }
-
         public void AgregarCategoria(Categoria unaCategoria)
         {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
-                context.Categorias.Add(unaCategoria);
-                context.SaveChanges();
-
+                contexto.Categorias.Add(unaCategoria);
+                contexto.SaveChanges();
             }
 
         }
-       
-
         public void EliminarCategoria(Categoria unaCategoria)
         {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
-                Categoria cat = context.Categorias.FirstOrDefault(x => x.Id == unaCategoria.Id);
-                context.Categorias.Remove(cat);
-                context.SaveChanges();
+                Categoria cat = contexto.Categorias.FirstOrDefault(x => x.Id == unaCategoria.Id);
+                contexto.Categorias.Remove(cat);
+                contexto.SaveChanges();
             }
-
         }
 
         public List<Categoria> RetornarListaCategorias()
         {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
-                return context.Categorias.Include("PalabrasClave").ToList();
+                return contexto.Categorias.Include("PalabrasClave").ToList();
             }
-
         }
         public bool ExisteCategoria(Categoria unaCategoria)
         {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
-                if (context.Categorias.FirstOrDefault(x => x.Nombre == unaCategoria.Nombre) != null)
+                if (contexto.Categorias.FirstOrDefault(x => x.Nombre == unaCategoria.Nombre) != null)
                 {
                     return true;
                 }
                 return false;
             }
         }
+        public bool EsVaciaListaCategorias()
+        {
 
+            using (var contexto = new Persistencia())
+            {
+                return contexto.Categorias == null;
+
+            }
+        }
+
+        //MONEDA
         public void AgregarMoneda(Moneda unaMoneda)
         {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
-                context.Monedas.Add(unaMoneda);
-                context.SaveChanges();
+                contexto.Monedas.Add(unaMoneda);
+                contexto.SaveChanges();
 
             }
         }
         public List<Moneda> RetornarListaMonedas()
         {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
-                return context.Monedas.ToList();
+                return contexto.Monedas.ToList();
             }
         }
         public bool ExisteMoneda(Moneda unaMoneda)
         {
-            using (var context = new Persistencia())
+            using (var contexto = new Persistencia())
             {
-                if (context.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id) != null)
+                if (contexto.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id) != null)
                 {
                     return true;
                 }
@@ -152,124 +160,141 @@ namespace Dominio
         }
 
 
-        public void AgregarGastoComun(GastoComun unGastoComun)
+        //PRESUPUESTO
+        public void AgregarMesDondeHayPresupuesto(DateTime unaFecha)
         {
-            throw new NotImplementedException();
+            /*using (var contexto = new Persistencia())
+            {
+                contexto.Presupuesto.Add(unaFecha);
+                contexto.SaveChanges();
+            }*/
+        }
+        public void AgregarPresupuesto(Presupuesto unPresupuesto)
+        {
+           /* using (var contexto = new Persistencia())
+            {
+                contexto.Presupuesto.Add(unPresupuesto);
+                contexto.SaveChanges();
+            }*/
+
+        }
+        public bool ExisteUnPresupuesto(DateTime unaFecha)
+        {
+            /*using (var contexto = new Persistencia())
+            {
+                if (contexto.Presupuesto.FirstOrDefault(x => x.Fecha == unaFecha) != null)
+                {
+                    return true;
+                }
+                return false;
+            }*/
+            return true;
+        }
+        public List<DateTime> RetornarListaMesesDondeHayPresupuesto()
+        {
+            /* using (var contexto = new Persistencia())
+             {
+                return contexto.MesesConPresupuesto.ToList();
+             }*/
+            List < DateTime > fake = new List<DateTime>();
+            return fake;
         }
 
+        public List<Presupuesto> RetornarListaPresupuestos()
+        {
+            /* using (var contexto = new Persistencia())
+             {
+                 return contexto.Presupuesto.ToList();
+             }*/
+            List<Presupuesto> fake = new List<Presupuesto>();
+            return fake;
+        }
+        public void AgregarCategoriaMonto(CategoriaMonto catMonto,Presupuesto presupuesto)
+        {
+          /*  using (var contexto = new Persistencia())
+            {
+                Presupuesto pre = contexto.Presupuestos.FirstOrDefault(x => x.Id == presupuesto.Id);
+                pre.CategoriaMontos.Add(catMonto);
+                contexto.SaveChanges();
+            }*/
+           
+        }
+
+
+        //GASTO RECURRENTE
         public void AgregarGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
             throw new NotImplementedException();
         }
-
-        public void AgregarMesDondeHayGasto(DateTime unaFecha)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AgregarMesDondeHayPresupuesto(DateTime unaFecha)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AgregarPresupuesto(Presupuesto unPresupuesto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int CantidadElementosEnListaMesesDondeHayGastos()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public void EliminarGastoComun(GastoComun unGastoComun)
-        {
-            throw new NotImplementedException();
-        }
-
         public void EliminarGastoRecuerrente(GastoRecuerrente unGastoRecurrente)
         {
             throw new NotImplementedException();
         }
-
-        public bool EsVaciaListaCategorias()
-        {
-            
-            using (var context = new Persistencia())
-            {
-               return context.Categorias == null;
-                
-            }
-        }
-
-        public bool EsVaciaListaGastosComunes()
-        {
-            throw new NotImplementedException();
-        }
-
         public bool EsVaciaListaGastosRecurrentes()
         {
             throw new NotImplementedException();
         }
-
-        public bool EsVaciaListaMesesDondeHayGastos()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool ExisteGastoComun(GastoComun unGastoComun)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool ExisteGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
             throw new NotImplementedException();
         }
-
-        public bool ExisteMes(DateTime unaFecha)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool ExisteUnPresupuesto(DateTime unaFecha)
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-
-
-        public List<GastoComun> RetornarListaGastosCoumnes()
-        {
-            throw new NotImplementedException();
-        }
-
         public List<GastoRecuerrente> RetornarListaGastosRecurrentes()
         {
             throw new NotImplementedException();
         }
 
+
+
+
+        //GASTO COMUN
+        public void AgregarGastoComun(GastoComun unGastoComun)
+        {
+            throw new NotImplementedException();
+        }
+        public void EliminarGastoComun(GastoComun unGastoComun)
+        {
+            throw new NotImplementedException();
+        }
+        public bool EsVaciaListaGastosComunes()
+        {
+            throw new NotImplementedException();
+        }
+        public bool EsVaciaListaMesesDondeHayGastos()
+        {
+            throw new NotImplementedException();
+        }
+        public bool ExisteGastoComun(GastoComun unGastoComun)
+        {
+            throw new NotImplementedException();
+        }
+        public List<GastoComun> RetornarListaGastosCoumnes()
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+
+
         public List<DateTime> RetornarListaMesesDondeHayGasto()
         {
             throw new NotImplementedException();
         }
-
-        public List<DateTime> RetornarListaMesesDondeHayPresupuesto()
+        public void AgregarMesDondeHayGasto(DateTime unaFecha)
+        {
+            throw new NotImplementedException();
+        }
+        public int CantidadElementosEnListaMesesDondeHayGastos()
+        {
+            throw new NotImplementedException();
+        }
+        public bool ExisteMes(DateTime unaFecha)
         {
             throw new NotImplementedException();
         }
 
-        public List<Presupuesto> RetornarListaPresupuestos()
-        {
-            List<Presupuesto> fake = new List<Presupuesto>();
-             return fake;
-        }
 
-      
 
-     
+
     }
 }

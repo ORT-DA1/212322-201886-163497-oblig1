@@ -27,14 +27,11 @@ namespace Dominio
 
         }
 
-         public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
-          {
+         public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra){}
 
-            
+        public void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra) {}
 
-          }
-
-        public void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra) { }
+        public void AgregarCategoriaMonto(CategoriaMonto catMonto,Presupuesto presupuesto){}
 
         //PRUEBA
 
@@ -114,10 +111,7 @@ namespace Dominio
         {
             this.ListaGastosComunes.Remove(unGastoComun);
         }
-        public void AgregarPresupuesto(Presupuesto unPresupuesto)
-        {
-            this.ListaPresupuestos.Add(unPresupuesto);
-        }
+       
 
 
 
@@ -144,7 +138,10 @@ namespace Dominio
         }
 
 
-
+        public void AgregarPresupuesto(Presupuesto unPresupuesto)
+        {
+            this.ListaPresupuestos.Add(unPresupuesto);
+        }
         public List<Presupuesto> RetornarListaPresupuestos()
         {
             return this.ListaPresupuestos;
@@ -159,9 +156,9 @@ namespace Dominio
         }
         public bool ExisteUnPresupuesto(DateTime unaFecha)
         {
-            foreach (Presupuesto presu in this.ListaPresupuestos)
+            foreach (Presupuesto presupuesto in this.ListaPresupuestos)
             {
-                if (presu.Fecha == unaFecha) return true;
+                if (presupuesto.Fecha == unaFecha) return true;
             }
             return false;
         }
@@ -182,6 +179,6 @@ namespace Dominio
             return this.ListaMonedas.Contains(unaMoneda);
         }
 
-
+       
     }
 }

@@ -40,5 +40,8 @@ namespace Dominio
         List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria);
 
         void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra);
+
+        void AgregarCategoriaMonto(CategoriaMonto catMonto, Presupuesto presupuesto);
+
     }
 }

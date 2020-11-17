@@ -6,6 +6,7 @@ namespace Dominio
 {
     public class Presupuesto
     {
+        public int Id { get; set; }
         public List <CategoriaMonto> ListaCategoriaMonto { get; }
         
         private DateTime unaFecha;
