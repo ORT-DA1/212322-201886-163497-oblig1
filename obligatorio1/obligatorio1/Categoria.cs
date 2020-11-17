@@ -40,20 +40,11 @@ namespace Dominio
         public void AgregarPalabraClave(PalabraClave palabra)
         {
 
-            if (PalabraClaveInvalida(palabra))
-            {
-
-                throw new InvalidOperationException("Palabra clave invalida");
-            }
             this.PalabrasClave.Add(palabra);
             
-
         }
 
-        private bool PalabraClaveInvalida(PalabraClave palabra)
-        {
-            return CantPalabrasClave() == 10 || this.ExistePalabraClave(palabra);
-        }
+        
 
         public bool EsVacia()
         {

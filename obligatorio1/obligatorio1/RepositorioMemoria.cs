@@ -27,18 +27,14 @@ namespace Dominio
 
         }
 
-        /*  public void AgregarPalabraClaveNuevo(Categoria categoria, PalabraClave unaPalabra)
+         public void ActualizarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
           {
 
-              foreach (Categoria cat in RetornarListaCategorias())
-              {
-                  if (cat.Nombre == categoria.Nombre)
-                  {
-                      cat.AgregarPalabraClave(unaPalabra);
-                  }
-              }
+            
 
-          }*/
+          }
+
+        public void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra) { }
 
         //PRUEBA
 
@@ -50,11 +46,7 @@ namespace Dominio
         //
 
 
-        public void ActualizarPalabrasEnBD(Categoria unaCategoria)
-        {
-          
-
-        }
+      
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
