@@ -22,7 +22,29 @@ namespace Dominio
 
             //
         }
+      
+        /* public void ActualizarPalabrasEnBDLEO(Categoria unaCategoria)
+       {
+           using (var contexto = new Persistencia())
+           {
+               foreach (PalabraClave palabra in unaCategoria.PalabrasClave)
+               {
+                   if (palabra.Id == 0)
+                   {
+                       contexto.PalabraClaves.Add(palabra);
+                   }
+                   else
+                   {
+                       contexto.PalabraClaves.Attach(palabra);
 
+                   }
+               }
+               contexto.Categorias.Attach(unaCategoria);
+               contexto.Entry(unaCategoria).State = System.Data.Entity.EntityState.Modified;
+               contexto.SaveChanges();
+           }
+
+       }*/
 
         //CATEGORIA
         public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
@@ -50,28 +72,7 @@ namespace Dominio
 
         }
 
-        /* public void ActualizarPalabrasEnBDLEO(Categoria unaCategoria)
-         {
-             using (var contexto = new Persistencia())
-             {
-                 foreach (PalabraClave palabra in unaCategoria.PalabrasClave)
-                 {
-                     if (palabra.Id == 0)
-                     {
-                         contexto.PalabraClaves.Add(palabra);
-                     }
-                     else
-                     {
-                         contexto.PalabraClaves.Attach(palabra);
-
-                     }
-                 }
-                 contexto.Categorias.Attach(unaCategoria);
-                 contexto.Entry(unaCategoria).State = System.Data.Entity.EntityState.Modified;
-                 contexto.SaveChanges();
-             }
-
-         }*/
+      
 
         public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
          {
@@ -130,6 +131,92 @@ namespace Dominio
             }
         }
 
+        //PRESUPUESTO
+        public void AgregarMesDondeHayPresupuesto(DateTime unaFecha)
+        {
+            /*using (var contexto = new Persistencia())
+            {
+                contexto.Presupuesto.Add(unaFecha);
+                contexto.SaveChanges();
+            }*/
+        }
+        public void AgregarPresupuesto(Presupuesto unPresupuesto)
+        {
+            /* using (var contexto = new Persistencia())
+             {
+                 contexto.Presupuesto.Add(unPresupuesto);
+                 contexto.SaveChanges();
+             }*/
+
+        }
+        public bool ExisteUnPresupuesto(DateTime unaFecha)
+        {
+            /*using (var contexto = new Persistencia())
+            {
+                if (contexto.Presupuesto.FirstOrDefault(x => x.Fecha == unaFecha) != null)
+                {
+                    return true;
+                }
+                return false;
+            }*/
+            return true;
+        }
+        public List<DateTime> RetornarListaMesesDondeHayPresupuesto()
+        {
+            /* using (var contexto = new Persistencia())
+             {
+                return contexto.MesesConPresupuesto.ToList();
+             }*/
+            List<DateTime> fake = new List<DateTime>();
+            return fake;
+        }
+
+        public List<Presupuesto> RetornarListaPresupuestos()
+        {
+            /* using (var contexto = new Persistencia())
+             {
+                 return contexto.Presupuesto.ToList();
+             }*/
+            List<Presupuesto> fake = new List<Presupuesto>();
+            return fake;
+        }
+        public void AgregarCategoriaMonto(CategoriaMonto categoriaMonto, Presupuesto presupuesto)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Presupuesto pre = contexto.Presupuesto.FirstOrDefault(x => x.Id == presupuesto.Id);
+                pre.ListaCategoriaMonto.Add(categoriaMonto);
+                contexto.SaveChanges();
+            }
+
+        }
+
+        public List<CategoriaMonto> RetornarCategoriaMontoDelRepo(CategoriaMonto unaCategoriaMonto)
+        {
+            using (var contexto = new Persistencia())
+            {
+
+                Presupuesto pre = contexto.Presupuesto.FirstOrDefault(x => x.Id == unaCategoriaMonto.Id);
+                return pre.ListaCategoriaMonto.ToList();
+
+            }
+        }
+
+        public void EliminarCategoriaMontoEnRepo(Presupuesto unPresupuesto, CategoriaMonto categoriaMonto)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Presupuesto pre = contexto.Presupuesto.FirstOrDefault(x => x.Id == unPresupuesto.Id);
+                pre.ListaCategoriaMonto.Remove(categoriaMonto);
+
+                CategoriaMonto unaCatMonto = contexto.CategoriaMonto.FirstOrDefault(x => x.Id == categoriaMonto.Id);
+                contexto.CategoriaMonto.Remove(unaCatMonto);
+                contexto.SaveChanges();
+
+            }
+
+        }
+
         //MONEDA
         public void AgregarMoneda(Moneda unaMoneda)
         {
@@ -160,65 +247,7 @@ namespace Dominio
         }
 
 
-        //PRESUPUESTO
-        public void AgregarMesDondeHayPresupuesto(DateTime unaFecha)
-        {
-            /*using (var contexto = new Persistencia())
-            {
-                contexto.Presupuesto.Add(unaFecha);
-                contexto.SaveChanges();
-            }*/
-        }
-        public void AgregarPresupuesto(Presupuesto unPresupuesto)
-        {
-           /* using (var contexto = new Persistencia())
-            {
-                contexto.Presupuesto.Add(unPresupuesto);
-                contexto.SaveChanges();
-            }*/
-
-        }
-        public bool ExisteUnPresupuesto(DateTime unaFecha)
-        {
-            /*using (var contexto = new Persistencia())
-            {
-                if (contexto.Presupuesto.FirstOrDefault(x => x.Fecha == unaFecha) != null)
-                {
-                    return true;
-                }
-                return false;
-            }*/
-            return true;
-        }
-        public List<DateTime> RetornarListaMesesDondeHayPresupuesto()
-        {
-            /* using (var contexto = new Persistencia())
-             {
-                return contexto.MesesConPresupuesto.ToList();
-             }*/
-            List < DateTime > fake = new List<DateTime>();
-            return fake;
-        }
-
-        public List<Presupuesto> RetornarListaPresupuestos()
-        {
-            /* using (var contexto = new Persistencia())
-             {
-                 return contexto.Presupuesto.ToList();
-             }*/
-            List<Presupuesto> fake = new List<Presupuesto>();
-            return fake;
-        }
-        public void AgregarCategoriaMonto(CategoriaMonto catMonto,Presupuesto presupuesto)
-        {
-          /*  using (var contexto = new Persistencia())
-            {
-                Presupuesto pre = contexto.Presupuestos.FirstOrDefault(x => x.Id == presupuesto.Id);
-                pre.CategoriaMontos.Add(catMonto);
-                contexto.SaveChanges();
-            }*/
-           
-        }
+       
 
 
         //GASTO RECURRENTE
