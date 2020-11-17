@@ -22,7 +22,7 @@ namespace Dominio
             //
         }
 
-         public void ActualizarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
+         public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
           {
               using (var context = new Persistencia())
               {
@@ -39,6 +39,9 @@ namespace Dominio
             {
                 Categoria cat = context.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
                 cat.PalabrasClave.Remove(unaPalabra);
+               
+                PalabraClave palabra = context.PalabraClaves.FirstOrDefault(x => x.Id == unaPalabra.Id);
+                context.PalabraClaves.Remove(palabra);
                 context.SaveChanges();
             }
 
@@ -119,6 +122,35 @@ namespace Dominio
                 return false;
             }
         }
+
+        public void AgregarMoneda(Moneda unaMoneda)
+        {
+            using (var context = new Persistencia())
+            {
+                context.Monedas.Add(unaMoneda);
+                context.SaveChanges();
+
+            }
+        }
+        public List<Moneda> RetornarListaMonedas()
+        {
+            using (var context = new Persistencia())
+            {
+                return context.Monedas.ToList();
+            }
+        }
+        public bool ExisteMoneda(Moneda unaMoneda)
+        {
+            using (var context = new Persistencia())
+            {
+                if (context.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id) != null)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+
 
         public void AgregarGastoComun(GastoComun unGastoComun)
         {
@@ -236,18 +268,7 @@ namespace Dominio
              return fake;
         }
 
-        public void AgregarMoneda(Moneda unaMoneda)
-        {
-            //throw new NotImplementedException();
-        }
-        public List<Moneda> RetornarListaMonedas()
-        {
-            throw new NotImplementedException();
-        }
-        public bool ExisteMoneda(Moneda unaMoneda)
-        {
-            throw new NotImplementedException();
-        }
+      
 
      
     }

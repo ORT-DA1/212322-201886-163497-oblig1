@@ -80,6 +80,10 @@
     <Compile Include="Migrations\202011151348295_Palabras.designer.cs">
       <DependentUpon>202011151348295_Palabras.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011171120456_Monedas.cs" />
+    <Compile Include="Migrations\202011171120456_Monedas.designer.cs">
+      <DependentUpon>202011171120456_Monedas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Moneda.cs" />
     <Compile Include="PalabraClave.cs" />
@@ -118,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011151348295_Palabras.resx">
       <DependentUpon>202011151348295_Palabras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011171120456_Monedas.resx">
+      <DependentUpon>202011171120456_Monedas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -35,7 +35,7 @@ namespace Dominio
         void AgregarMesDondeHayPresupuesto(DateTime unaFecha);
         bool ExisteUnPresupuesto(DateTime unaFecha);
         
-        void ActualizarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra);
+        void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra);
 
         List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria);
 

@@ -27,7 +27,7 @@ namespace Dominio
 
         }
 
-         public void ActualizarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
+         public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
           {
 
             
