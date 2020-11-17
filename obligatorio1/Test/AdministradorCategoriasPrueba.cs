@@ -260,6 +260,18 @@ namespace Test
 
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void ListaMax10PalabrasPrueba()
+        {
+            palabraClaveUno.Palabra = "Manzana";
+            for (int i = 0; i < 11; i++)
+            {
+                adminCategorias.AgregarPalabraClaveACategoria(unaCategoria,palabraClaveUno);
+            }
+        }
+
+
 
     }
 

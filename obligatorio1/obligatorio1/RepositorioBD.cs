@@ -22,7 +22,7 @@ namespace Dominio
             //
         }
 
-        /*  public void ActualizarPalabrasEnBD(Categoria categoria, PalabraClave unaPalabra)
+         public void ActualizarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
           {
               using (var context = new Persistencia())
               {
@@ -31,10 +31,10 @@ namespace Dominio
                   context.SaveChanges();
               }
 
-          }*/
+          }
 
         
-        public void ActualizarPalabrasEnBD(Categoria unaCategoria)
+       /* public void ActualizarPalabrasEnBDLEO(Categoria unaCategoria)
         {
             using (var context = new Persistencia())
             {
@@ -55,7 +55,7 @@ namespace Dominio
                 context.SaveChanges();
             }
 
-        }
+        }*/
         public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
          {
             using (var context = new Persistencia())
@@ -77,20 +77,7 @@ namespace Dominio
             }
 
         }
-        public bool ExisteCategoria(Categoria unaCategoria)
-        {
-
-            using (var context = new Persistencia())
-            {
-                if (context.Categorias.FirstOrDefault(x => x.Nombre == unaCategoria.Nombre) != null)
-                {
-                    return true;
-                }
-                return false;
-            }
-
-
-        }
+       
 
         public void EliminarCategoria(Categoria unaCategoria)
         {
@@ -241,6 +228,9 @@ namespace Dominio
             throw new NotImplementedException();
         }
 
-
+        public bool ExisteCategoria(Categoria unaCategoria)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

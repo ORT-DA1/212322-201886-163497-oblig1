@@ -148,22 +148,22 @@ namespace Dominio
 
         public void AgregarPalabraClaveACategoria(Categoria categoria, PalabraClave unaPalabra)
         {
-            if (this.RetornarPalabrasClaveDeCategoria(categoria).Count == 10)
-                throw new IndexOutOfRangeException("Ya existen 10 palabras clave para esta categoría.");
+            if (this.RetornarPalabrasClaveDeCategoria(categoria).Count == 10 || PalabraClaveYaIngresadaEnAlgunaLista(unaPalabra))
+                throw new IndexOutOfRangeException("Palabra clave ya ingresada o ya existen 10 palabras clave para esta categoría.");
             else
             {
-                //Repositorio.AgregarPalabraClaveNuevo(categoria,unaPalabra);
+              
                 categoria.AgregarPalabraClave(unaPalabra);
 
                 //PRUEBA
-                Repositorio.ActualizarPalabrasEnBD(categoria);
+                Repositorio.ActualizarPalabrasEnRepo(categoria, unaPalabra);
             }
 
         }
         public void BorrarPalabraClaveACategoria(Categoria categoria, PalabraClave palabra)
         {
             categoria.BorrarPalabraClave(palabra);
-            Repositorio.ActualizarPalabrasEnBD(categoria);
+            Repositorio.ActualizarPalabrasEnRepo(categoria, palabra);
 
         }
 
