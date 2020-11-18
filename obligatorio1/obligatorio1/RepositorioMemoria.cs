@@ -10,7 +10,7 @@ namespace Dominio
         private List<GastoRecuerrente> ListaGastosRecurrentes { get; }
         private List<Presupuesto> ListaPresupuestos { get; }
         private List<GastoComun> ListaGastosComunes { get; }
-        private List<DateTime> ListaMesesDondeHayGastos { get; set; }
+       // private List<DateTime> ListaMesesDondeHayGastos { get; set; }
         private List<DateTime> ListaMesesDondeHayPresupuestos { get; set; }
         private List<Moneda> ListaMonedas { get; set; }
 
@@ -20,7 +20,7 @@ namespace Dominio
             ListaGastosRecurrentes = new List<GastoRecuerrente>();
             ListaGastosComunes = new List<GastoComun>();
             ListaPresupuestos = new List<Presupuesto>();
-            ListaMesesDondeHayGastos = new List<DateTime>();
+           // ListaMesesDondeHayGastos = new List<DateTime>();
             ListaMesesDondeHayPresupuestos = new List<DateTime>();
             ListaMonedas = new List<Moneda>();
 
@@ -33,17 +33,12 @@ namespace Dominio
 
         public void AgregarCategoriaMonto(CategoriaMonto catMonto,Presupuesto presupuesto){}
 
-        //PRUEBA
-
         public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
         {
             return unaCategoria.PalabrasClave;
         }
 
-        //
 
-
-      
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
@@ -111,11 +106,11 @@ namespace Dominio
         {
             this.ListaGastosComunes.Remove(unGastoComun);
         }
-       
 
 
 
-        public List<DateTime> RetornarListaMesesDondeHayGasto()
+
+        /*public List<DateTime> RetornarListaMesesDondeHayGasto()
         {
             return this.ListaMesesDondeHayGastos;
         }
@@ -135,7 +130,7 @@ namespace Dominio
         public int CantidadElementosEnListaMesesDondeHayGastos()
         {
             return this.ListaMesesDondeHayGastos.Count();
-        }
+        }*/
 
 
         public void AgregarPresupuesto(Presupuesto unPresupuesto)

@@ -19,8 +19,8 @@ namespace Interfaz_De_Usuario
         public PantallaPrincipal()
         {
             InitializeComponent();
-            Repositorio = new RepositorioBD();
-            //Repositorio = new RepositorioMemoria();
+            //Repositorio = new RepositorioBD();
+            Repositorio = new RepositorioMemoria();
             AdminPresupuesto = new AdministradorPresupuesto(Repositorio);
             AdminCategorias = new AdministradorCategorias(Repositorio);
             AdminGastoComun = new AdministradorGastosComunes(Repositorio);

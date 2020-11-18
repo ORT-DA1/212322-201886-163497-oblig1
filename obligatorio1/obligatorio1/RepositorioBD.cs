@@ -304,7 +304,7 @@ namespace Dominio
 
 
 
-
+/*
         public List<DateTime> RetornarListaMesesDondeHayGasto()
         {
             throw new NotImplementedException();
@@ -320,7 +320,7 @@ namespace Dominio
         public bool ExisteMes(DateTime unaFecha)
         {
             throw new NotImplementedException();
-        }
+        }*/
 
 
 
