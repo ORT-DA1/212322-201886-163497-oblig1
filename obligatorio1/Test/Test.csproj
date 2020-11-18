@@ -58,6 +58,7 @@
     <Compile Include="AdministradorGastosComunesPrueba.cs" />
     <Compile Include="MonedaPrueba.cs" />
     <Compile Include="PalabraClavePrueba.cs" />
+    <Compile Include="AdministradorReporteGastosPrueba.cs" />
     <Compile Include="RepositorioMemoriaPrueba.cs" />
     <Compile Include="GastoComunPrueba.cs" />
     <Compile Include="GastoRecurrentePrueba.cs" />

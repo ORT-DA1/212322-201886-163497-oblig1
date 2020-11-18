@@ -14,13 +14,13 @@ namespace Test
         private AdministradorGastosComunes adminGastosComunes;
         private AdministradorReporteGastos adminReporteGastos;
         private Categoria unaCategoria;
-        private Repositorio miRepositorio;
+        private IRepositorio miRepositorio;
         private GastoComun unGastoComun;
 
         [TestInitialize]
         public void InitTest()
         {
-            miRepositorio = new Repositorio();
+            miRepositorio = new RepositorioMemoria();
             adminGastosRecurrentes = new AdministradorGastosRecurrentes(miRepositorio);
             adminGastosComunes = new AdministradorGastosComunes(miRepositorio);
             unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
@@ -96,11 +96,11 @@ namespace Test
             unGastoComun.Fecha = new DateTime(2020, 10, 1);
             GastoComun otroGasto = new GastoComun { Fecha = new DateTime(2018, 11, 1) };
 
-            miRepositorio.AgregarMesDondeHayGasto(unGastoComun.Fecha);
-            miRepositorio.AgregarMesDondeHayGasto(otroGasto.Fecha);
+            /*miRepositorio.AgregarMesDondeHayGasto(unGastoComun.Fecha);
+            miRepositorio.AgregarMesDondeHayGasto(otroGasto.Fecha);*/
 
 
-            Assert.AreEqual(adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada().First().Year, 2018);
+            Assert.AreEqual(adminReporteGastos.CrearYRetornalListaDeMesesDondeHayGastoOrdenada().First().Year, 2018);
 
         }
 
@@ -111,15 +111,15 @@ namespace Test
             GastoComun unGasto = new GastoComun { Fecha = new DateTime(2020, 5, 1) };
             GastoComun otroGasto = new GastoComun { Fecha = new DateTime(2020, 6, 1) };
 
-            miRepositorio.AgregarMesDondeHayGasto(unGastoComun.Fecha);
+      /*      miRepositorio.AgregarMesDondeHayGasto(unGastoComun.Fecha);
             miRepositorio.AgregarMesDondeHayGasto(unGasto.Fecha);
-            miRepositorio.AgregarMesDondeHayGasto(otroGasto.Fecha);
+            miRepositorio.AgregarMesDondeHayGasto(otroGasto.Fecha);*/
 
             List<DateTime> ListaLocal = new List<DateTime>();
             ListaLocal.Add(new DateTime(2020, 5, 1));
             ListaLocal.Add(new DateTime(2020, 6, 1));
             ListaLocal.Add(new DateTime(2020, 10, 1));
-            Assert.IsTrue(adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada().SequenceEqual(ListaLocal));
+            Assert.IsTrue(adminReporteGastos.CrearYRetornalListaDeMesesDondeHayGastoOrdenada().SequenceEqual(ListaLocal));
 
         }
 
@@ -128,7 +128,7 @@ namespace Test
         {
             unGastoComun.Fecha = new DateTime(2020, 10, 2);
             adminGastosComunes.AgregarGastoComun(unGastoComun);
-            Assert.AreEqual(1, adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada().Count());
+            Assert.AreEqual(1, adminReporteGastos.CrearYRetornalListaDeMesesDondeHayGastoOrdenada().Count());
         }
 
         [TestMethod]
@@ -138,7 +138,7 @@ namespace Test
             adminGastosComunes.AgregarGastoComun(unGastoComun);
             GastoComun unGasto = new GastoComun { Categoria = unaCategoria, Fecha = new DateTime(2020, 10, 2) };
             adminGastosComunes.AgregarGastoComun(unGasto);
-            Assert.AreEqual(1, adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada().Count());
+            Assert.AreEqual(1, adminReporteGastos.CrearYRetornalListaDeMesesDondeHayGastoOrdenada().Count());
         }
 
 
@@ -147,8 +147,8 @@ namespace Test
         {
             unGastoComun.Fecha = new DateTime(2020, 10, 2);
             adminGastosComunes.AgregarGastoComun(unGastoComun);
-            adminReporteGastos.AgregarMesesAnioDondeHayGasto();
-            Assert.AreEqual(1, adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada().Count());
+            //adminReporteGastos.AgregarMesesAnioDondeHayGasto();
+            Assert.AreEqual(1, adminReporteGastos.CrearYRetornalListaDeMesesDondeHayGastoOrdenada().Count());
 
         }
            
