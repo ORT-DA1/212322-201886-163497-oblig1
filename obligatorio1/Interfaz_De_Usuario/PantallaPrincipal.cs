@@ -34,8 +34,8 @@ namespace Interfaz_De_Usuario
             AdminGastoRecurrente.AgregarGastoRecurrente(gasto2);
             */
 
-            Repositorio = new RepositorioMemoria();
-            //Repositorio = new RepositorioBD();
+            //Repositorio = new RepositorioMemoria();
+            Repositorio = new RepositorioBD();
             AdminPresupuesto = new AdministradorPresupuesto(Repositorio);
             AdminCategorias = new AdministradorCategorias(Repositorio);
             AdminGastoComun = new AdministradorGastosComunes(Repositorio);
