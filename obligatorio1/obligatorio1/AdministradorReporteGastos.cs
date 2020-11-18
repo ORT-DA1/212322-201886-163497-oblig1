@@ -122,7 +122,7 @@ namespace Dominio
             {
                 if (GastoIgualACategoria(unaCategoria, gasto))
                 {
-                    gastoTotalDeCategoriaEnMes += gasto.Monto;
+                    gastoTotalDeCategoriaEnMes += gasto.MontoEnPesos;
                 }
             }
             return gastoTotalDeCategoriaEnMes;

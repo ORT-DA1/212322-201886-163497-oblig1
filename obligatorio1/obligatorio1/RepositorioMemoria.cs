@@ -132,7 +132,6 @@ namespace Dominio
             return this.ListaMesesDondeHayGastos.Count();
         }*/
 
-
         public void AgregarPresupuesto(Presupuesto unPresupuesto)
         {
             this.ListaPresupuestos.Add(unPresupuesto);

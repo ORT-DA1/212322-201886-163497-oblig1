@@ -10,26 +10,27 @@ namespace Dominio
         {
             this.Repositorio = unRepositorio;
         }
-        public List<Presupuesto> RetornarListaPresupuestos()
-        {
-            return Repositorio.RetornarListaPresupuestos();
-        }
-
         public void AgregarPresupuesto(Presupuesto unPresupuesto)
         {
             if (NoExiste(unPresupuesto))
             {
+                Repositorio.AgregarPresupuesto(unPresupuesto);
+
                 foreach (Categoria cat in Repositorio.RetornarListaCategorias())
                 {
                     unPresupuesto.AgregarCategoriaMonto(cat, 0);
                 }
-                Repositorio.AgregarPresupuesto(unPresupuesto);
+                
             }
             else
             {
                 throw new ExcepcionElementoRepetido("Ya existe un presupuesto para el mes elegido");
             }
 
+        }
+        public List<Presupuesto> RetornarListaPresupuestos()
+        {
+            return Repositorio.RetornarListaPresupuestos();
         }
 
         private bool NoExiste(Presupuesto unPresupuesto)

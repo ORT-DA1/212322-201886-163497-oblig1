@@ -7,7 +7,7 @@ namespace Dominio
 {
     public class RepositorioBD : IRepositorio
     {
-        private Persistencia contexto;
+        //private Persistencia contexto;
         public RepositorioBD()
         {
             // PRUEBA LEO
@@ -22,7 +22,7 @@ namespace Dominio
 
             //
         }
-      
+
         /* public void ActualizarPalabrasEnBDLEO(Categoria unaCategoria)
        {
            using (var contexto = new Persistencia())
@@ -48,16 +48,15 @@ namespace Dominio
 
         //CATEGORIA
         public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
-          {
-              using (var contexto = new Persistencia())
-              {
-                  Categoria cat = contexto.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
-                  cat.PalabrasClave.Add(unaPalabra);
-                  contexto.SaveChanges();
-              }
+        {
+            using (var contexto = new Persistencia())
+            {
+                Categoria cat = contexto.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
+                cat.PalabrasClave.Add(unaPalabra);
+                contexto.SaveChanges();
+            }
 
-          }
-
+        }
         public void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
         { 
             using (var contexto = new Persistencia())
@@ -71,9 +70,6 @@ namespace Dominio
             }
 
         }
-
-      
-
         public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
          {
             using (var contexto = new Persistencia())
@@ -131,76 +127,77 @@ namespace Dominio
             }
         }
 
+
+
         //PRESUPUESTO
-      
         public void AgregarPresupuesto(Presupuesto unPresupuesto)
         {
-            /* using (var contexto = new Persistencia())
+             using (var contexto = new Persistencia())
              {
-                 contexto.Presupuesto.Add(unPresupuesto);
+                 contexto.Presupuestos.Add(unPresupuesto);
                  contexto.SaveChanges();
-             }*/
+             }
 
         }
         public bool ExisteUnPresupuesto(DateTime unaFecha)
         {
-            /*using (var contexto = new Persistencia())
+             using (var contexto = new Persistencia())
             {
-                if (contexto.Presupuesto.FirstOrDefault(x => x.Fecha == unaFecha) != null)
+                if (contexto.Presupuestos.FirstOrDefault(x => x.Fecha == unaFecha) != null)
                 {
                     return true;
                 }
                 return false;
-            }*/
-            return true;
+            }
+            
         }
-    
-
         public List<Presupuesto> RetornarListaPresupuestos()
         {
-            /* using (var contexto = new Persistencia())
+            /*using (var contexto = new Persistencia())
              {
-                 return contexto.Presupuesto.ToList();
+                 return contexto.Presupuestos.ToList();
              }*/
             List<Presupuesto> fake = new List<Presupuesto>();
             return fake;
         }
         public void AgregarCategoriaMonto(CategoriaMonto categoriaMonto, Presupuesto presupuesto)
         {
-            using (var contexto = new Persistencia())
+           /* using (var contexto = new Persistencia())
             {
-                Presupuesto pre = contexto.Presupuesto.FirstOrDefault(x => x.Id == presupuesto.Id);
+                Presupuesto pre = contexto.Presupuestos.FirstOrDefault(x => x.Id == presupuesto.Id);
                 pre.ListaCategoriaMonto.Add(categoriaMonto);
                 contexto.SaveChanges();
-            }
+            }*/
 
         }
-
         public List<CategoriaMonto> RetornarCategoriaMontoDelRepo(CategoriaMonto unaCategoriaMonto)
         {
-            using (var contexto = new Persistencia())
-            {
+            /*  using (var contexto = new Persistencia())
+              {
 
-                Presupuesto pre = contexto.Presupuesto.FirstOrDefault(x => x.Id == unaCategoriaMonto.Id);
-                return pre.ListaCategoriaMonto.ToList();
+                  Presupuesto pre = contexto.Presupuestos.FirstOrDefault(x => x.Id == unaCategoriaMonto.Id);
+                  return pre.ListaCategoriaMonto.ToList();
 
-            }
+              }*/
+            List<CategoriaMonto> fake = new List<CategoriaMonto>();
+            return fake;
         }
-
         public void EliminarCategoriaMontoEnRepo(Presupuesto unPresupuesto, CategoriaMonto categoriaMonto)
         {
-            using (var contexto = new Persistencia())
+          /*  using (var contexto = new Persistencia())
             {
-                Presupuesto pre = contexto.Presupuesto.FirstOrDefault(x => x.Id == unPresupuesto.Id);
+                Presupuesto pre = contexto.Presupuestos.FirstOrDefault(x => x.Id == unPresupuesto.Id);
                 pre.ListaCategoriaMonto.Remove(categoriaMonto);
 
                 CategoriaMonto unaCatMonto = contexto.CategoriaMonto.FirstOrDefault(x => x.Id == categoriaMonto.Id);
                 contexto.CategoriaMonto.Remove(unaCatMonto);
                 contexto.SaveChanges();
 
-            }
+            }*/
 
         }
+
+
 
         //MONEDA
         public void AgregarMoneda(Moneda unaMoneda)
@@ -238,23 +235,25 @@ namespace Dominio
         //GASTO RECURRENTE
         public void AgregarGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
-            throw new NotImplementedException();
+           
         }
         public void EliminarGastoRecuerrente(GastoRecuerrente unGastoRecurrente)
         {
-            throw new NotImplementedException();
+            
         }
         public bool EsVaciaListaGastosRecurrentes()
         {
-            throw new NotImplementedException();
+            return true;
+
         }
         public bool ExisteGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
-            throw new NotImplementedException();
+            return true;
         }
         public List<GastoRecuerrente> RetornarListaGastosRecurrentes()
         {
-            throw new NotImplementedException();
+            List<GastoRecuerrente> fake = new List<GastoRecuerrente>();
+            return fake;
         }
 
 
@@ -263,27 +262,28 @@ namespace Dominio
         //GASTO COMUN
         public void AgregarGastoComun(GastoComun unGastoComun)
         {
-            throw new NotImplementedException();
+            
         }
         public void EliminarGastoComun(GastoComun unGastoComun)
         {
-            throw new NotImplementedException();
+            
         }
         public bool EsVaciaListaGastosComunes()
         {
-            throw new NotImplementedException();
+            return true;
         }
         public bool EsVaciaListaMesesDondeHayGastos()
         {
-            throw new NotImplementedException();
+            return true;
         }
         public bool ExisteGastoComun(GastoComun unGastoComun)
         {
-            throw new NotImplementedException();
+            return true;
         }
         public List<GastoComun> RetornarListaGastosCoumnes()
         {
-            throw new NotImplementedException();
+            List<GastoComun> fake = new List<GastoComun>();
+            return fake;
         }
 
 

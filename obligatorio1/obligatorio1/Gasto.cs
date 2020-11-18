@@ -6,7 +6,8 @@ namespace Dominio
     {
         private string desc;
         private double monto;
-       
+
+        public int Id { get; set; }
         public double Monto
         {
             get { return monto; }
