@@ -11,7 +11,7 @@ namespace Dominio
         private List<Presupuesto> ListaPresupuestos { get; }
         private List<GastoComun> ListaGastosComunes { get; }
        // private List<DateTime> ListaMesesDondeHayGastos { get; set; }
-        private List<DateTime> ListaMesesDondeHayPresupuestos { get; set; }
+        //private List<DateTime> ListaMesesDondeHayPresupuestos { get; set; }
         private List<Moneda> ListaMonedas { get; set; }
 
         public RepositorioMemoria()
@@ -21,7 +21,7 @@ namespace Dominio
             ListaGastosComunes = new List<GastoComun>();
             ListaPresupuestos = new List<Presupuesto>();
            // ListaMesesDondeHayGastos = new List<DateTime>();
-            ListaMesesDondeHayPresupuestos = new List<DateTime>();
+           // ListaMesesDondeHayPresupuestos = new List<DateTime>();
             ListaMonedas = new List<Moneda>();
 
 
@@ -141,14 +141,7 @@ namespace Dominio
         {
             return this.ListaPresupuestos;
         }
-        public List<DateTime> RetornarListaMesesDondeHayPresupuesto()
-        {
-            return this.ListaMesesDondeHayPresupuestos;
-        }
-        public void AgregarMesDondeHayPresupuesto(DateTime unaFecha)
-        {
-            this.ListaMesesDondeHayPresupuestos.Add(unaFecha);
-        }
+   
         public bool ExisteUnPresupuesto(DateTime unaFecha)
         {
             foreach (Presupuesto presupuesto in this.ListaPresupuestos)
@@ -157,7 +150,6 @@ namespace Dominio
             }
             return false;
         }
-
 
         public void AgregarMoneda(Moneda unaMoneda)
         {

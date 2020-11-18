@@ -31,8 +31,8 @@ namespace Dominio
         bool ExisteMes(DateTime unaFecha);
         int CantidadElementosEnListaMesesDondeHayGastos();*/
         List<Presupuesto> RetornarListaPresupuestos();
-        List<DateTime> RetornarListaMesesDondeHayPresupuesto();
-        void AgregarMesDondeHayPresupuesto(DateTime unaFecha);
+       // List<DateTime> RetornarListaMesesDondeHayPresupuesto();
+        //void AgregarMesDondeHayPresupuesto(DateTime unaFecha);
         bool ExisteUnPresupuesto(DateTime unaFecha);
         
         void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra);

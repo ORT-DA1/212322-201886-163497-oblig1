@@ -1,5 +1,6 @@
 ﻿using Dominio;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Interfaz_De_Usuario
@@ -19,8 +20,22 @@ namespace Interfaz_De_Usuario
         public PantallaPrincipal()
         {
             InitializeComponent();
-            //Repositorio = new RepositorioBD();
+            
+            //Datos para repo en memoria
+            /*
+            List<PalabraClave> palabras = new List<PalabraClave>() { new PalabraClave() { Palabra = "Cine" } };
+            Categoria categoria = new Categoria() { Nombre = "Entretenimiento", PalabrasClave = palabras };
+            AdminCategorias.AgregarCategoria(categoria);
+            Moneda moneda = new Moneda() { Cotizacion = 50, Nombre = "UYU", Simbolo = "$" };
+            AdminMonedas.AgregarMoneda(moneda);
+            GastoComun gasto = new GastoComun() { Categoria = categoria, Moneda = moneda };
+            GastoRecuerrente gasto2 = new GastoRecuerrente() { Categoria = categoria };
+            AdminGastoComun.AgregarGastoComun(gasto);
+            AdminGastoRecurrente.AgregarGastoRecurrente(gasto2);
+            */
+
             Repositorio = new RepositorioMemoria();
+            //Repositorio = new RepositorioBD();
             AdminPresupuesto = new AdministradorPresupuesto(Repositorio);
             AdminCategorias = new AdministradorCategorias(Repositorio);
             AdminGastoComun = new AdministradorGastosComunes(Repositorio);

@@ -132,14 +132,7 @@ namespace Dominio
         }
 
         //PRESUPUESTO
-        public void AgregarMesDondeHayPresupuesto(DateTime unaFecha)
-        {
-            /*using (var contexto = new Persistencia())
-            {
-                contexto.Presupuesto.Add(unaFecha);
-                contexto.SaveChanges();
-            }*/
-        }
+      
         public void AgregarPresupuesto(Presupuesto unPresupuesto)
         {
             /* using (var contexto = new Persistencia())
@@ -161,15 +154,7 @@ namespace Dominio
             }*/
             return true;
         }
-        public List<DateTime> RetornarListaMesesDondeHayPresupuesto()
-        {
-            /* using (var contexto = new Persistencia())
-             {
-                return contexto.MesesConPresupuesto.ToList();
-             }*/
-            List<DateTime> fake = new List<DateTime>();
-            return fake;
-        }
+    
 
         public List<Presupuesto> RetornarListaPresupuestos()
         {
