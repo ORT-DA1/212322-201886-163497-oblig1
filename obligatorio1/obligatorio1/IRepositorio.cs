@@ -25,14 +25,14 @@ namespace Dominio
         bool ExisteGastoComun(GastoComun unGastoComun);
         void EliminarGastoComun(GastoComun unGastoComun);
         void AgregarPresupuesto(Presupuesto unPresupuesto);
-        List<DateTime> RetornarListaMesesDondeHayGasto();
+        /*List<DateTime> RetornarListaMesesDondeHayGasto();
         void AgregarMesDondeHayGasto(DateTime unaFecha);
         bool EsVaciaListaMesesDondeHayGastos();
         bool ExisteMes(DateTime unaFecha);
-        int CantidadElementosEnListaMesesDondeHayGastos();
+        int CantidadElementosEnListaMesesDondeHayGastos();*/
         List<Presupuesto> RetornarListaPresupuestos();
-        List<DateTime> RetornarListaMesesDondeHayPresupuesto();
-        void AgregarMesDondeHayPresupuesto(DateTime unaFecha);
+       // List<DateTime> RetornarListaMesesDondeHayPresupuesto();
+        //void AgregarMesDondeHayPresupuesto(DateTime unaFecha);
         bool ExisteUnPresupuesto(DateTime unaFecha);
         
         void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra);
@@ -40,5 +40,8 @@ namespace Dominio
         List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria);
 
         void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra);
+
+        void AgregarCategoriaMonto(CategoriaMonto catMonto, Presupuesto presupuesto);
+
     }
 }

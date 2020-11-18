@@ -15,10 +15,9 @@ namespace Dominio
 
         public DbSet<Moneda> Monedas { get; set; }
 
-        /*  public Persistencia()
-        {
-            this.Configuration.LazyLoadingEnabled = false;
-        }*/
+        public DbSet<Presupuesto> Presupuesto { get; set; }
+
+        public DbSet<CategoriaMonto> CategoriaMonto { get; set; }
 
     }
 }

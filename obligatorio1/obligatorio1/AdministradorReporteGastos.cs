@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 
 namespace Dominio
+
 {
     public class AdministradorReporteGastos
     {
@@ -73,11 +74,28 @@ namespace Dominio
 
         }
 
-        public List<DateTime> AgregarYRetornalListaDeMesesDondeHayGastoOrdenada()
+
+        public List<DateTime> CrearYRetornalListaDeMesesDondeHayGastoOrdenada()
         {
-            this.AgregarMesesAnioDondeHayGasto();
-            Repositorio.RetornarListaMesesDondeHayGasto().Sort();
-            return Repositorio.RetornarListaMesesDondeHayGasto();
+            List<DateTime> ListaMesesDondeHayGasto = new List<DateTime>();
+
+            foreach (GastoComun gasto in Repositorio.RetornarListaGastosCoumnes())
+            {
+                DateTime fecha = ConvertirFechaDejarSoloAnioMes(gasto);
+
+                if (!ListaMesesDondeHayGasto.Contains(fecha))
+                {
+                    ListaMesesDondeHayGasto.Add(fecha);
+                }
+            }
+            ListaMesesDondeHayGasto.Sort();
+            return ListaMesesDondeHayGasto;
+        }
+
+        public DateTime ConvertirFechaDejarSoloAnioMes(GastoComun gasto)
+        {
+            return new DateTime(gasto.Fecha.Year, gasto.Fecha.Month, 1);
+
         }
 
         public double CalcularMontoDeReporte(List<GastoComun> ListaDeGastosReporte)
@@ -88,25 +106,6 @@ namespace Dominio
                 total += gasto.MontoEnPesos;
             }
             return total;
-        }
-
-        public void AgregarMesesAnioDondeHayGasto()
-        {
-            foreach (GastoComun gasto in Repositorio.RetornarListaGastosCoumnes())
-            {
-                DateTime fecha = ConvertirFechaDejarSoloAnioMes(gasto);
-                if (!Repositorio.RetornarListaMesesDondeHayGasto().Contains(fecha))
-                {
-                    Repositorio.AgregarMesDondeHayGasto(fecha);
-                }
-            }
-
-        }
-
-        public DateTime ConvertirFechaDejarSoloAnioMes(GastoComun gasto)
-        {
-            return new DateTime(gasto.Fecha.Year, gasto.Fecha.Month, 1);
-
         }
 
         public double CalcularGastoTotalDeCategoriaEnMes(int anio, int mes, Categoria unaCategoria)

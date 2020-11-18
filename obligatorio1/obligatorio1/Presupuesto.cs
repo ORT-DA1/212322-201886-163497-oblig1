@@ -6,7 +6,8 @@ namespace Dominio
 {
     public class Presupuesto
     {
-        public List <CategoriaMonto> ListaCategoriaMonto { get; }
+        public int Id { get; set; }
+        public virtual List <CategoriaMonto> ListaCategoriaMonto { get; }
         
         private DateTime unaFecha;
         public DateTime Fecha

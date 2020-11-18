@@ -124,7 +124,7 @@ namespace Test
             Assert.IsTrue(Repositorio.ExisteGastoComun(GastoComun));
         }
 
-        [TestMethod]
+       /* [TestMethod]
         public void RetornarListaMesesDondeHayGastoPrueba()
         {
             List<DateTime> ListaLocal = new List<DateTime>();
@@ -152,7 +152,7 @@ namespace Test
             Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
             Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
             Assert.AreEqual(2, Repositorio.CantidadElementosEnListaMesesDondeHayGastos());
-        }
+        }*/
 
 
 

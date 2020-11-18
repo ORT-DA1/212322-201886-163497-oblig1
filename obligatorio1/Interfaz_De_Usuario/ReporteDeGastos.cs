@@ -25,7 +25,7 @@ namespace Interfaz_De_Usuario
 
         private void CargarComboBoxFechas()
         {
-            foreach (DateTime fecha in adminReporteGastos.AgregarYRetornalListaDeMesesDondeHayGastoOrdenada())
+            foreach (DateTime fecha in adminReporteGastos.CrearYRetornalListaDeMesesDondeHayGastoOrdenada())
             {
                 cbMesAnio.Items.Add(fecha.ToString("yyyy/MM"));
 
