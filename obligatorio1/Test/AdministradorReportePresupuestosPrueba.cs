@@ -45,8 +45,6 @@ namespace Test
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
             adminPresupuestos.AgregarPresupuesto(otroPresupuesto);
 
-            adminReportePresupuestos.AgregarMesesAnioDondeHayPresupuesto();
-
             List<DateTime> ListaLocal = new List<DateTime>();
             ListaLocal.Add(new DateTime(2020, 10, 1));
             ListaLocal.Add(new DateTime(2020, 11, 1));

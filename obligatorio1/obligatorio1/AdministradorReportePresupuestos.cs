@@ -14,22 +14,22 @@ namespace Dominio
 
         public List<DateTime> AgregarYRetornalListaDeMesesDondeHayPresupuestosOrdenada()
         {
-            this.AgregarMesesAnioDondeHayPresupuesto();
-            Repositorio.RetornarListaMesesDondeHayPresupuesto().Sort();
-            return Repositorio.RetornarListaMesesDondeHayPresupuesto();
-        }
-        public void AgregarMesesAnioDondeHayPresupuesto()
-        {
+            List<DateTime> ListaMesesDondeHayPresupuesto = new List<DateTime>();
+
             foreach (Presupuesto presu in Repositorio.RetornarListaPresupuestos())
             {
                 DateTime fecha = ConvertirFechaDejarSoloAnioMes(presu);
-                if (!Repositorio.RetornarListaMesesDondeHayPresupuesto().Contains(fecha))
+                if (!ListaMesesDondeHayPresupuesto.Contains(fecha))
                 {
-                    Repositorio.AgregarMesDondeHayPresupuesto(fecha);
+                    ListaMesesDondeHayPresupuesto.Add(fecha);
                 }
             }
+            ListaMesesDondeHayPresupuesto.Sort();
+            return ListaMesesDondeHayPresupuesto;
+
 
         }
+  
         public DateTime ConvertirFechaDejarSoloAnioMes(Presupuesto presupuesto)
         {
             return new DateTime(presupuesto.Fecha.Year, presupuesto.Fecha.Month, 1);

@@ -13,6 +13,9 @@ namespace Interfaz_De_Usuario
         {   
             InitializeComponent();
             adminCategorias = miAdminCategorias;
+
+        
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

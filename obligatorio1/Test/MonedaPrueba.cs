@@ -70,7 +70,7 @@ namespace Test
         public void ToStringMonedaPrueba()
         {
 
-            Assert.AreEqual(moneda.ToString(), "Nombre: Peso Uruguayo, Simbolo: UYU");
+            Assert.AreEqual(moneda.ToString(), "UYU");
 
         }
 
