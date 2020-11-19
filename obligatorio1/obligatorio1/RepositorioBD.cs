@@ -7,7 +7,7 @@ namespace Dominio
 {
     public class RepositorioBD : IRepositorio
     {
-        private Persistencia contexto;
+        //private Persistencia contexto;
         public RepositorioBD()
         {
             // PRUEBA LEO
@@ -46,6 +46,8 @@ namespace Dominio
 
        }*/
 
+
+
         //CATEGORIA
         public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
           {
@@ -71,9 +73,6 @@ namespace Dominio
             }
 
         }
-
-      
-
         public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
          {
             using (var contexto = new Persistencia())
@@ -131,39 +130,37 @@ namespace Dominio
             }
         }
 
+
+
         //PRESUPUESTO
-      
         public void AgregarPresupuesto(Presupuesto unPresupuesto)
         {
-            /* using (var contexto = new Persistencia())
+             using (var contexto = new Persistencia())
              {
                  contexto.Presupuesto.Add(unPresupuesto);
                  contexto.SaveChanges();
-             }*/
+             }
 
         }
         public bool ExisteUnPresupuesto(DateTime unaFecha)
         {
-            /*using (var contexto = new Persistencia())
+            using (var contexto = new Persistencia())
             {
                 if (contexto.Presupuesto.FirstOrDefault(x => x.Fecha == unaFecha) != null)
                 {
                     return true;
                 }
                 return false;
-            }*/
-            return true;
+            }
         }
-    
-
         public List<Presupuesto> RetornarListaPresupuestos()
         {
-            /* using (var contexto = new Persistencia())
+             using (var contexto = new Persistencia())
              {
-                 return contexto.Presupuesto.ToList();
-             }*/
-            List<Presupuesto> fake = new List<Presupuesto>();
-            return fake;
+                 return contexto.Presupuesto.Include("ListaCategoriaMonto").ToList();
+             }
+           /* List<Presupuesto> fake = new List<Presupuesto>();
+            return fake;*/
         }
         public void AgregarCategoriaMonto(CategoriaMonto categoriaMonto, Presupuesto presupuesto)
         {
@@ -175,21 +172,45 @@ namespace Dominio
             }
 
         }
+        /*  public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
+          {
+              using (var contexto = new Persistencia())
+              {
 
-        public List<CategoriaMonto> RetornarCategoriaMontoDelRepo(CategoriaMonto unaCategoriaMonto)
+                  Categoria cat = contexto.Categorias.FirstOrDefault(x => x.Id == unaCategoria.Id);
+                  return cat.PalabrasClave.ToList();
+
+              }
+          }*/
+       /*  public List<CategoriaMonto> RetornarCategoriaMontoDelRepo(CategoriaMonto unaCategoriaMonto)
+          {
+              using (var contexto = new Persistencia())
+              {
+
+                  Presupuesto pre = contexto.Presupuesto.FirstOrDefault(x => x.Id == unaCategoriaMonto.Id);
+                  return pre.ListaCategoriaMonto.ToList();
+
+              }
+             *//* List<CategoriaMonto> fake = new List<CategoriaMonto>();
+              return fake;*//*
+          }*/
+
+        public List<CategoriaMonto> RetornarCategoriaMontoDelRepo(Presupuesto unPresupuesto)
         {
             using (var contexto = new Persistencia())
             {
 
-                Presupuesto pre = contexto.Presupuesto.FirstOrDefault(x => x.Id == unaCategoriaMonto.Id);
+                Presupuesto pre = contexto.Presupuesto.FirstOrDefault(x => x.Id == unPresupuesto.Id);
                 return pre.ListaCategoriaMonto.ToList();
 
             }
         }
 
+
+
         public void EliminarCategoriaMontoEnRepo(Presupuesto unPresupuesto, CategoriaMonto categoriaMonto)
         {
-            using (var contexto = new Persistencia())
+          /*  using (var contexto = new Persistencia())
             {
                 Presupuesto pre = contexto.Presupuesto.FirstOrDefault(x => x.Id == unPresupuesto.Id);
                 pre.ListaCategoriaMonto.Remove(categoriaMonto);
@@ -198,9 +219,10 @@ namespace Dominio
                 contexto.CategoriaMonto.Remove(unaCatMonto);
                 contexto.SaveChanges();
 
-            }
+            }*/
 
         }
+
 
         //MONEDA
         public void AgregarMoneda(Moneda unaMoneda)

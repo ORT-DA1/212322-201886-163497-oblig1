@@ -5,7 +5,6 @@ namespace Dominio
 {
     public interface IRepositorio
     {
-
         void AgregarCategoria(Categoria unaCategoria);
         List<Categoria> RetornarListaCategorias();
         bool EsVaciaListaCategorias();
