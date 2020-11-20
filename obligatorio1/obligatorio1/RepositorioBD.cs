@@ -190,7 +190,7 @@ namespace Dominio
         {
             using (var contexto = new Persistencia())
             {
-                Presupuesto pre = contexto.Presupuesto.FirstOrDefault(x => x.Id == presupuesto.Id);
+                Presupuesto pre = contexto.Presupuesto.Include("ListaCategoriaMonto.Categoria").FirstOrDefault(x => x.Id == presupuesto.Id);
                 pre.ListaCategoriaMonto.Add(categoriaMonto);
                 contexto.SaveChanges();
             }
