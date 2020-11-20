@@ -20,19 +20,6 @@ namespace Interfaz_De_Usuario
         public PantallaPrincipal()
         {
             InitializeComponent();
-            
-            //Datos para repo en memoria
-            /*
-            List<PalabraClave> palabras = new List<PalabraClave>() { new PalabraClave() { Palabra = "Cine" } };
-            Categoria categoria = new Categoria() { Nombre = "Entretenimiento", PalabrasClave = palabras };
-            AdminCategorias.AgregarCategoria(categoria);
-            Moneda moneda = new Moneda() { Cotizacion = 50, Nombre = "UYU", Simbolo = "$" };
-            AdminMonedas.AgregarMoneda(moneda);
-            GastoComun gasto = new GastoComun() { Categoria = categoria, Moneda = moneda };
-            GastoRecuerrente gasto2 = new GastoRecuerrente() { Categoria = categoria };
-            AdminGastoComun.AgregarGastoComun(gasto);
-            AdminGastoRecurrente.AgregarGastoRecurrente(gasto2);
-            */
 
             //Repositorio = new RepositorioMemoria();
             Repositorio = new RepositorioBD();
@@ -43,12 +30,9 @@ namespace Interfaz_De_Usuario
             AdminReporteGastos = new AdministradorReporteGastos(Repositorio);
             AdminReportePresupuestos = new AdministradorReportePresupuestos(Repositorio);
             AdminMonedas = new AdministradorMonedas(Repositorio);
-
-
-
         }
 
-
+        
         private void btnAgregarCategoria_Click(object sender, EventArgs e)
         {
             

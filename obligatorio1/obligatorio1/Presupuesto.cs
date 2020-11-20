@@ -41,24 +41,27 @@ namespace Dominio
             return this.ListaCategoriaMonto.Count == 0;
         }
 
-        public void AgregarCategoriaMonto(Categoria categoria, int monto)
+        public void AgregarCategoriaMonto(Categoria categoria, double monto)
         {
             CategoriaMonto catMonto = new CategoriaMonto { Categoria = categoria, Monto = monto };
             this.ListaCategoriaMonto.Add(catMonto);
         }
+
         public override string ToString()
         {
             return String.Format("{0},{1}", this.Fecha.Year, this.Fecha.Month);
         }
         public void ModificarMontoACategoria(Categoria unaCategoria, int unMonto)
         {
-            foreach(CategoriaMonto catMonto in this.ListaCategoriaMonto)
+          
+            
+            /*foreach(CategoriaMonto catMonto in this.ListaCategoriaMonto)
             {
                 if(catMonto.Categoria == unaCategoria)
                 {
                     catMonto.Monto = unMonto;
                 }
-            }
+            }*/
         }
     }
 }

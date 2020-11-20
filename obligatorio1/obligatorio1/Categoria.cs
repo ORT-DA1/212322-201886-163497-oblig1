@@ -7,7 +7,7 @@ namespace Dominio
     public class Categoria
     {
         public int Id { get; set; }
-        public virtual List<PalabraClave> PalabrasClave { get; set; }
+        public List<PalabraClave> PalabrasClave { get; set; }
 
         private String nombre;
 

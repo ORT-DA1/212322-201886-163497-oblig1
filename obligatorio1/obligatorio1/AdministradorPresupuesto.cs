@@ -19,18 +19,24 @@ namespace Dominio
         {
             if (NoExiste(unPresupuesto))
             {
-                foreach (Categoria cat in Repositorio.RetornarListaCategorias())
+              foreach (Categoria cat in Repositorio.RetornarListaCategorias())
                 {
-                    unPresupuesto.AgregarCategoriaMonto(cat, 0);
+                   unPresupuesto.AgregarCategoriaMonto(cat, 0);
+
+                    //No usamos el repo, pero funcionaba igual..
+                    //CategoriaMonto catMonto = new CategoriaMonto { Categoria = cat, Monto = 0 };
+                    //Repositorio.AgregarCategoriaMonto(catMonto, unPresupuesto);
                 }
                 Repositorio.AgregarPresupuesto(unPresupuesto);
-            }
+            } 
             else
             {
                 throw new ExcepcionElementoRepetido("Ya existe un presupuesto para el mes elegido");
             }
 
         }
+
+     
 
         private bool NoExiste(Presupuesto unPresupuesto)
         {
@@ -39,7 +45,8 @@ namespace Dominio
 
         public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, int unMonto)
         {
-            unPresupuesto.ModificarMontoACategoria(unaCategoria, unMonto);
+            Repositorio.ModificarMontoACategoria(unPresupuesto,unaCategoria,unMonto);
+            //unPresupuesto.ModificarMontoACategoria(unaCategoria, unMonto);
         }
 
         public Presupuesto RetornarPresupuestoSegunMes(int unMes, int unAnio)
@@ -59,6 +66,13 @@ namespace Dominio
         {
             return presupuesto.Fecha.Month == unMes && presupuesto.Fecha.Year == unAnio;
         }
+
+        public List<CategoriaMonto> RetornarCatMonto(Presupuesto unPresupuesto)
+        {
+            return Repositorio.RetornarCategoriaMontoDelRepo(unPresupuesto);
+
+        }
+
 
     }
 }
