@@ -114,14 +114,7 @@ namespace Dominio
         }
         public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, double unMonto)
         {
-         /*   COMPLETAR
-          *   foreach (CategoriaMonto catMonto in this.ListaCategoriaMonto)
-            {
-                if (catMonto.Categoria == unaCategoria)
-                {
-                    catMonto.Monto = unMonto;
-                }
-            }*/
+            unPresupuesto.ModificarMontoACategoria(unaCategoria, unMonto);
         }
 
 

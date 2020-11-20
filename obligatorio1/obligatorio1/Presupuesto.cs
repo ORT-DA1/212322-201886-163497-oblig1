@@ -51,17 +51,15 @@ namespace Dominio
         {
             return String.Format("{0},{1}", this.Fecha.Year, this.Fecha.Month);
         }
-        public void ModificarMontoACategoria(Categoria unaCategoria, int unMonto)
+        public void ModificarMontoACategoria(Categoria unaCategoria, double unMonto)
         {
-          
-            
-            /*foreach(CategoriaMonto catMonto in this.ListaCategoriaMonto)
+          foreach(CategoriaMonto catMonto in this.ListaCategoriaMonto)
             {
                 if(catMonto.Categoria == unaCategoria)
                 {
                     catMonto.Monto = unMonto;
                 }
-            }*/
+            }
         }
     }
 }

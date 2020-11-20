@@ -41,6 +41,8 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lbTotal = new System.Windows.Forms.Label();
+            this.btnExportar = new System.Windows.Forms.Button();
+            this.cbTipoDeArchivo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -151,10 +153,31 @@
             this.lbTotal.TabIndex = 18;
             this.lbTotal.Text = "monto";
             // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(355, 459);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(86, 34);
+            this.btnExportar.TabIndex = 19;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
+            // cbTipoDeArchivo
+            // 
+            this.cbTipoDeArchivo.FormattingEnabled = true;
+            this.cbTipoDeArchivo.Location = new System.Drawing.Point(84, 463);
+            this.cbTipoDeArchivo.Name = "cbTipoDeArchivo";
+            this.cbTipoDeArchivo.Size = new System.Drawing.Size(251, 28);
+            this.cbTipoDeArchivo.TabIndex = 20;
+            this.cbTipoDeArchivo.SelectedIndexChanged += new System.EventHandler(this.cbTipoDeArchivo_SelectedIndexChanged);
+            // 
             // ReporteDeGastos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbTipoDeArchivo);
+            this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.lbTotal);
             this.Controls.Add(this.tablaGastos);
             this.Controls.Add(this.label2);
@@ -185,5 +208,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.ComboBox cbTipoDeArchivo;
     }
 }

@@ -13,6 +13,8 @@ namespace Dominio
             this.Repositorio = unRepositorio;
         }
 
+        
+
         public List<GastoComun> UnirListaGastosDelMes(int anio, int mes)
         {
             List<GastoComun> listaTotal = new List<GastoComun>();

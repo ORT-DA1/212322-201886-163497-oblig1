@@ -11,13 +11,13 @@ namespace Dominio
     {
         public override void Exportar(List<GastoComun> listaGastosComunes)
         {
-            using(TextWriter tw = new StreamWriter(new FileStream(sfd.FileName, FileMode.Create), Encoding.UTF8))
+           /* using(TextWriter tw = new StreamWriter(new FileStream(sfd.FileName, FileMode.Create), Encoding.UTF8))
             {
                 foreach(GastoComun item in listaGastosComunes)
                 {
                     await tw.WriteLineAsync(item.Fecha.Text + item.Categoria.Text);
                 }
-            }
+            }*/
         }
     }
 }
