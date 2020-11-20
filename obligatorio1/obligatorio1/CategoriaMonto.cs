@@ -5,7 +5,7 @@ namespace Dominio
     public class CategoriaMonto
     {
         public int Id { get; set; }
-        public Categoria Categoria { get; set; }
+        public virtual Categoria Categoria { get; set; }
         
         private double unMonto;
         public double Monto

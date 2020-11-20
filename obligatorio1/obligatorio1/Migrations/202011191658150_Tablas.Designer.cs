@@ -7,13 +7,13 @@ namespace obligatorio1.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class PalabraClave : IMigrationMetadata
+    public sealed partial class Tablas : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PalabraClave));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Tablas));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011142342377_PalabraClave"; }
+            get { return "202011191658150_Tablas"; }
         }
         
         string IMigrationMetadata.Source

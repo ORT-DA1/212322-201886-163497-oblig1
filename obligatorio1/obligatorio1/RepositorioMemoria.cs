@@ -107,7 +107,22 @@ namespace Dominio
             this.ListaGastosComunes.Remove(unGastoComun);
         }
 
+        public List<CategoriaMonto> RetornarCategoriaMontoDelRepo(Presupuesto unPresupuesto)
+        {
+            return unPresupuesto.ListaCategoriaMonto;
 
+        }
+        public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, double unMonto)
+        {
+         /*   COMPLETAR
+          *   foreach (CategoriaMonto catMonto in this.ListaCategoriaMonto)
+            {
+                if (catMonto.Categoria == unaCategoria)
+                {
+                    catMonto.Monto = unMonto;
+                }
+            }*/
+        }
 
 
         /*public List<DateTime> RetornarListaMesesDondeHayGasto()
