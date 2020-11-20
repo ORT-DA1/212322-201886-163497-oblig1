@@ -32,7 +32,8 @@ namespace Interfaz_De_Usuario
                 DateTime fecha = Convert.ToDateTime(cbMesAnio.SelectedItem);
                 Presupuesto presupuesto = adminPresupuestos.RetornarPresupuestoSegunMes(fecha.Month, fecha.Year);
 
-                var listaCatMonto = presupuesto.ListaCategoriaMonto;
+                //var listaCatMonto = presupuesto.ListaCategoriaMonto;
+                var listaCatMonto = adminPresupuestos.RetornarCatMonto(presupuesto);
                 listView1.Items.Clear();
                 foreach (var catMonto in listaCatMonto)
                 {

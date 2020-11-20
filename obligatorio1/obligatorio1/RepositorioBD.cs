@@ -83,6 +83,8 @@ namespace Dominio
 
             }
         }
+
+   
         public void AgregarCategoria(Categoria unaCategoria)
         {
             using (var contexto = new Persistencia())
@@ -130,15 +132,15 @@ namespace Dominio
             }
         }
 
-
+       
 
         //PRESUPUESTO
         public void AgregarPresupuesto(Presupuesto unPresupuesto)
         {
              using (var contexto = new Persistencia())
              {
-                 contexto.Presupuesto.Add(unPresupuesto);
-                 contexto.SaveChanges();
+                contexto.Presupuesto.Add(unPresupuesto);
+                contexto.SaveChanges();
              }
 
         }
@@ -157,10 +159,32 @@ namespace Dominio
         {
              using (var contexto = new Persistencia())
              {
-                 return contexto.Presupuesto.Include("ListaCategoriaMonto").ToList();
+                 return contexto.Presupuesto.Include("ListaCategoriaMonto.Categoria").ToList();
              }
-           /* List<Presupuesto> fake = new List<Presupuesto>();
-            return fake;*/
+        }
+
+        public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, double unMonto) 
+        {
+            using (var contexto = new Persistencia())
+            {
+                Presupuesto pre = contexto.Presupuesto.Include("ListaCategoriaMonto.Categoria").FirstOrDefault(x => x.Id == unPresupuesto.Id);
+                CategoriaMonto categoriaMonto = pre.ListaCategoriaMonto.FirstOrDefault(x => x.Categoria.Id == unaCategoria.Id);
+                categoriaMonto.Monto = unMonto;
+                contexto.CategoriaMonto.Add(categoriaMonto);
+                contexto.SaveChanges();
+            }
+
+        }
+
+        public List<CategoriaMonto> RetornarCategoriaMontoDelRepo(Presupuesto unPresupuesto)
+        {
+            using (var contexto = new Persistencia())
+            {
+
+                Presupuesto pre = contexto.Presupuesto.Include("ListaCategoriaMonto.Categoria").FirstOrDefault(x => x.Id == unPresupuesto.Id);
+                return pre.ListaCategoriaMonto.ToList();
+
+            }
         }
         public void AgregarCategoriaMonto(CategoriaMonto categoriaMonto, Presupuesto presupuesto)
         {
@@ -195,16 +219,7 @@ namespace Dominio
               return fake;*//*
           }*/
 
-        public List<CategoriaMonto> RetornarCategoriaMontoDelRepo(Presupuesto unPresupuesto)
-        {
-            using (var contexto = new Persistencia())
-            {
-
-                Presupuesto pre = contexto.Presupuesto.FirstOrDefault(x => x.Id == unPresupuesto.Id);
-                return pre.ListaCategoriaMonto.ToList();
-
-            }
-        }
+     
 
 
 

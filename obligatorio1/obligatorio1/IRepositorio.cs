@@ -42,5 +42,8 @@ namespace Dominio
 
         void AgregarCategoriaMonto(CategoriaMonto catMonto, Presupuesto presupuesto);
 
+        List<CategoriaMonto> RetornarCategoriaMontoDelRepo(Presupuesto unPresupuesto);
+
+        void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, double unMonto);
     }
 }
