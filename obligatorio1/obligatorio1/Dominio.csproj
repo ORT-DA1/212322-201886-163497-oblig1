@@ -59,6 +59,8 @@
     <Compile Include="AdministradorReportePresupuestos.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="CategoriaMonto.cs" />
+    <Compile Include="ExportarReporteGasto.cs" />
+    <Compile Include="ExportarTxt.cs" />
     <Compile Include="IRepositorio.cs" />
     <Compile Include="Migrations\202011191658150_Tablas.cs" />
     <Compile Include="Migrations\202011191658150_Tablas.designer.cs">
