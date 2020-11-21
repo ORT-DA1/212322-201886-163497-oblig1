@@ -180,7 +180,11 @@ namespace Dominio
         {
             return this.ListaMonedas.Contains(unaMoneda);
         }
+        public void BorrarMoneda(Moneda unaMoneda)
+        {
+            this.ListaMonedas.Remove(unaMoneda);
+        }
 
-       
+
     }
 }

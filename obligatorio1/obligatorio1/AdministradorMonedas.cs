@@ -35,6 +35,9 @@ namespace Dominio
             return Repositorio.RetornarListaMonedas();
         }
 
-        
+        public void BorrarMoneda(Moneda unaMoneda)
+        {
+            Repositorio.BorrarMoneda(unaMoneda);
+        }
     }
 }

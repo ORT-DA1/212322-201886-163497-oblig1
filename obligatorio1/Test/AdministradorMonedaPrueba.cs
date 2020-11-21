@@ -43,6 +43,15 @@ namespace Test
             adminMonedas.AgregarMoneda(unaMoneda);
             adminMonedas.AgregarMoneda(unaMoneda);
         }
+
+        [TestMethod]
+        public void BorrarMonedaPrueba()
+        {
+            adminMonedas.BorrarMoneda(unaMoneda);
+            Assert.IsFalse(adminMonedas.RetornarListaMonedas().Contains(unaMoneda));
+            
+        }
+
     }
 
 

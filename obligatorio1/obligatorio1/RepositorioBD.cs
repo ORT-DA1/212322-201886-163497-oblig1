@@ -268,8 +268,18 @@ namespace Dominio
             }
         }
 
+        public void BorrarMoneda(Moneda unaMoneda)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id);
+                contexto.Monedas.Remove(mon);
+                contexto.SaveChanges();
+            }
+        }
 
-       
+
+
 
 
         //GASTO RECURRENTE
