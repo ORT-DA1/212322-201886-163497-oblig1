@@ -72,6 +72,7 @@
             this.btnModificarNombre.TabIndex = 57;
             this.btnModificarNombre.Text = "Modificar";
             this.btnModificarNombre.UseVisualStyleBackColor = true;
+            this.btnModificarNombre.Click += new System.EventHandler(this.btnModificarNombre_Click);
             // 
             // numCotizacion
             // 

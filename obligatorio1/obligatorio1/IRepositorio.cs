@@ -24,6 +24,7 @@ namespace Dominio
         bool EsVaciaListaGastosComunes();
         bool ExisteGastoComun(GastoComun unGastoComun);
         void EliminarGastoComun(GastoComun unGastoComun);
+        void ModificarNombreAMoneda(Moneda unaMoneda, string unNombre);
         void AgregarPresupuesto(Presupuesto unPresupuesto);
         /*List<DateTime> RetornarListaMesesDondeHayGasto();
         void AgregarMesDondeHayGasto(DateTime unaFecha);

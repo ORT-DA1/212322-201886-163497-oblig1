@@ -278,6 +278,19 @@ namespace Dominio
             }
         }
 
+        public void ModificarNombreAMoneda(Moneda unaMoneda, string unNombre)
+        {
+
+            using (var contexto = new Persistencia())
+            {
+                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id);
+
+               
+                mon.Nombre = unNombre;
+              
+                contexto.SaveChanges();
+            }
+        }
 
 
 

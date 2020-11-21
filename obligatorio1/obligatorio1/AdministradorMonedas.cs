@@ -39,5 +39,9 @@ namespace Dominio
         {
             Repositorio.BorrarMoneda(unaMoneda);
         }
+        public void ModificarNombreAMoneda(Moneda unaMoneda, string unNombre)
+        {
+            Repositorio.ModificarNombreAMoneda(unaMoneda, unNombre);
+        }
     }
 }

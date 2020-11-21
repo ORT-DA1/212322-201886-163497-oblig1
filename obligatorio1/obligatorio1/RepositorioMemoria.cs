@@ -184,6 +184,16 @@ namespace Dominio
         {
             this.ListaMonedas.Remove(unaMoneda);
         }
+        public void ModificarNombreAMoneda(Moneda unaMoneda, string unNombre)
+        {
+            foreach(Moneda mon in this.ListaMonedas)
+            {
+                if(mon == unaMoneda)
+                {
+                    mon.Nombre = unNombre;
+                }
+            }
+        }
 
 
     }

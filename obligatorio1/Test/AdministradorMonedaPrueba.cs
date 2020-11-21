@@ -47,9 +47,23 @@ namespace Test
         [TestMethod]
         public void BorrarMonedaPrueba()
         {
+            adminMonedas.AgregarMoneda(unaMoneda);
             adminMonedas.BorrarMoneda(unaMoneda);
             Assert.IsFalse(adminMonedas.RetornarListaMonedas().Contains(unaMoneda));
             
+        }
+
+        [TestMethod]
+        public void ModificarNombreAMonedaPrueba()
+        {
+            unaMoneda.Nombre = "EURO";
+
+            adminMonedas.AgregarMoneda(unaMoneda);
+
+            adminMonedas.ModificarNombreAMoneda(unaMoneda, "PesosUY");
+
+            Assert.AreEqual(unaMoneda.Nombre, "PesosUY");
+
         }
 
     }
