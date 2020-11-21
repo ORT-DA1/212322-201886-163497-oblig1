@@ -66,6 +66,32 @@ namespace Test
 
         }
 
+        [TestMethod]
+        public void ModificarSimboloAMonedaPrueba()
+        {
+            unaMoneda.Simbolo = "EU";
+
+            adminMonedas.AgregarMoneda(unaMoneda);
+
+            adminMonedas.ModificarSimboloAMoneda(unaMoneda, "$");
+
+            Assert.AreEqual(unaMoneda.Simbolo, "$");
+
+        }
+
+        [TestMethod]
+        public void ModificarCotizacionAMonedaPrueba()
+        {
+            unaMoneda.Cotizacion = 0.22;
+
+            adminMonedas.AgregarMoneda(unaMoneda);
+
+            adminMonedas.ModificarCotizacionAMoneda(unaMoneda, 0.22);
+
+            Assert.AreEqual(unaMoneda.Cotizacion, 0.22);
+
+        }
+
     }
 
 

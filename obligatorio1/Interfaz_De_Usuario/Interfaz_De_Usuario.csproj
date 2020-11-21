@@ -147,12 +147,6 @@
     <Compile Include="ModificarMoneda.Designer.cs">
       <DependentUpon>ModificarMoneda.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModificarMonedaElegida.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ModificarMonedaElegida.Designer.cs">
-      <DependentUpon>ModificarMonedaElegida.cs</DependentUpon>
-    </Compile>
     <Compile Include="ModificarPresupuesto.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -247,9 +241,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarMoneda.resx">
       <DependentUpon>ModificarMoneda.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ModificarMonedaElegida.resx">
-      <DependentUpon>ModificarMonedaElegida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarPresupuesto.resx">
       <DependentUpon>ModificarPresupuesto.cs</DependentUpon>

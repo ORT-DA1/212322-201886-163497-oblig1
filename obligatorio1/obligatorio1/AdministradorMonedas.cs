@@ -43,5 +43,15 @@ namespace Dominio
         {
             Repositorio.ModificarNombreAMoneda(unaMoneda, unNombre);
         }
+
+        public void ModificarSimboloAMoneda(Moneda unaMoneda, string unSimbolo)
+        {
+            Repositorio.ModificarSimboloAMoneda(unaMoneda, unSimbolo);
+        }
+
+        public void ModificarCotizacionAMoneda(Moneda monedaElegida, double cotizacion)
+        {
+            Repositorio.ModificarCotizacionAMoneda(monedaElegida, cotizacion);
+        }
     }
 }

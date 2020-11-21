@@ -26,13 +26,62 @@ namespace Interfaz_De_Usuario
 
         }
 
-        private void btnElegir_Click(object sender, EventArgs e)
-        {
-            Moneda monedaElegida = (Moneda)cbMonedas.SelectedItem;
-            panelNuevo.Controls.Clear();
-            UserControl agregarMoneda = new ModificarMonedaElegida(adminMonedas, monedaElegida);
-            panelNuevo.Controls.Add(agregarMoneda);
-        }
         
+
+        private void btnModificarNombre_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                Moneda monedaElegida = (Moneda)cbMonedas.SelectedItem;
+                adminMonedas.ModificarNombreAMoneda(monedaElegida, tbNombre.Text);
+                MessageBox.Show("Nombre " + tbNombre.Text + " modificado con éxito");
+                tbNombre.Clear();
+                cbMonedas.DataSource = null;
+                CargarComboBoxMoneda();
+            }
+            catch (Exception unaExcepcion)
+            //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+        }
+
+        private void btnModificarSimbolo_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                Moneda monedaElegida = (Moneda)cbMonedas.SelectedItem;
+                adminMonedas.ModificarSimboloAMoneda(monedaElegida, tbSimbolo.Text);
+                MessageBox.Show("Simbolo " + tbSimbolo.Text + " modificado con éxito");
+                tbSimbolo.Clear();
+                cbMonedas.DataSource = null;
+                CargarComboBoxMoneda();
+            }
+            catch (Exception unaExcepcion)
+            //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+        }
+
+        private void btnModificarCotizacion_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                Moneda monedaElegida = (Moneda)cbMonedas.SelectedItem;
+                adminMonedas.ModificarCotizacionAMoneda(monedaElegida, (double)numCotizacion.Value);
+                MessageBox.Show("Cotizacion " + numCotizacion.Text + " modificada con éxito");
+                numCotizacion.Value = 0;
+                // cbMonedas.DataSource = adminMonedas.RetornarListaMonedas();
+                cbMonedas.DataSource = null;
+                CargarComboBoxMoneda();
+
+            }
+            catch (Exception unaExcepcion)
+            //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+        }
     }
 }

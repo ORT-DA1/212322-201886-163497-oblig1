@@ -292,6 +292,27 @@ namespace Dominio
             }
         }
 
+        public void ModificarSimboloAMoneda(Moneda unaMoneda, string unSimbolo)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id);
+                mon.Simbolo = unSimbolo;
+                contexto.SaveChanges();
+            }
+        }
+
+        public void ModificarCotizacionAMoneda(Moneda unaMoneda, double unaCotizacion)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id);
+                mon.Cotizacion = unaCotizacion;
+                contexto.SaveChanges();
+            }
+        }
+
+
 
 
 

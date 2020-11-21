@@ -194,6 +194,27 @@ namespace Dominio
                 }
             }
         }
+        public void ModificarSimboloAMoneda(Moneda unaMoneda, string unSimbolo)
+        {
+            foreach (Moneda mon in this.ListaMonedas)
+            {
+                if (mon == unaMoneda)
+                {
+                    mon.Simbolo = unSimbolo;
+                }
+            }
+        }
+        public void ModificarCotizacionAMoneda(Moneda unaMoneda, double unaCotizacion)
+        {
+            foreach (Moneda mon in this.ListaMonedas)
+            {
+                if (mon == unaMoneda)
+                {
+                    mon.Cotizacion = unaCotizacion;
+                }
+            }
+
+        }
 
 
     }
