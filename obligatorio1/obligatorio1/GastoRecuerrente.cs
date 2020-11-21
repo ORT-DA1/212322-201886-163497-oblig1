@@ -1,10 +1,13 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Dominio
 {
     public class GastoRecuerrente : Gasto
     {
+        //public int Id { get; set; }
         private int fecha;
+        [Display(Name = "Fecha_GastoRecurrente")]
         public int Fecha
         {
             get { return fecha; }

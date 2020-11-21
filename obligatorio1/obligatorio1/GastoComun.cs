@@ -1,12 +1,14 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Dominio
 {
     public class GastoComun : Gasto
     {
-
-         private DateTime unaFecha;
-         public DateTime Fecha
+        //public int Id { get; set; }
+        private DateTime unaFecha;
+        [Display(Name = "Fecha_GastoComun")]
+        public DateTime Fecha
         {
             get { return unaFecha; }
 

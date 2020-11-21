@@ -62,7 +62,27 @@
                         Fecha = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
-            
+
+            CreateTable(
+                "dbo.Gastoes",
+                c => new
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    Monto = c.Double(nullable: false),
+                    Descripcion = c.String(),
+                    MontoEnPesos = c.Double(nullable: false),
+                    Fecha_GastoComun = c.DateTime(),
+                    Fecha_GastoRecurrente = c.Int(),
+                    Categoria_Id = c.Int(),
+                    Moneda_Id = c.Int(),
+                    TipoGasto = c.String(maxLength: 128),
+                })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Categorias", t => t.Categoria_Id)
+                .ForeignKey("dbo.Monedas", t => t.Moneda_Id)
+                .Index(t => t.Categoria_Id)
+                .Index(t => t.Moneda_Id);
+
         }
         
         public override void Down()
@@ -78,6 +98,11 @@
             DropTable("dbo.PalabraClaves");
             DropTable("dbo.Categorias");
             DropTable("dbo.CategoriaMontos");
+            DropForeignKey("dbo.Gastoes", "Moneda_Id", "dbo.Monedas");
+            DropForeignKey("dbo.Gastoes", "Categoria_Id", "dbo.Categorias");
+            DropIndex("dbo.Gastoes", new[] { "Moneda_Id" });
+            DropIndex("dbo.Gastoes", new[] { "Categoria_Id" });
+            DropTable("dbo.Gastoes");
         }
     }
 }

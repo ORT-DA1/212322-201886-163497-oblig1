@@ -18,6 +18,16 @@ namespace Dominio
         public DbSet<Presupuesto> Presupuesto { get; set; }
 
         public DbSet<CategoriaMonto> CategoriaMonto { get; set; }
+        public DbSet<Gasto> Gastoes { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Gasto>()
+                        .Map<GastoComun>(m => m.Requires("TipoGasto").HasValue("Comun"))
+                        .Map<GastoRecuerrente>(m => m.Requires("TipoGasto").HasValue("Recurrente"));
+                       // .Property<Gasto>(m => m.).HasColumnName("DBColumn");
+            
+        }
 
     }
 }
