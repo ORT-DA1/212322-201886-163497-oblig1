@@ -19,16 +19,19 @@ namespace Dominio
         {
             if (NoExiste(unPresupuesto))
             {
-              foreach (Categoria cat in Repositorio.RetornarListaCategorias())
-                {
-                   unPresupuesto.AgregarCategoriaMonto(cat, 0);
-
-                    //No usamos el repo, pero funcionaba igual..
-                    //CategoriaMonto catMonto = new CategoriaMonto { Categoria = cat, Monto = 0 };
-                    //Repositorio.AgregarCategoriaMonto(catMonto, unPresupuesto);
-                }
+             
                 Repositorio.AgregarPresupuesto(unPresupuesto);
-            } 
+
+                foreach (Categoria cat in Repositorio.RetornarListaCategorias())
+               {
+                  //unPresupuesto.AgregarCategoriaMonto(cat, 0);
+
+                  CategoriaMonto catMonto = new CategoriaMonto { Categoria = cat, Monto = 0 };
+                  Repositorio.AgregarCategoriaMonto(catMonto, unPresupuesto);
+                }
+
+                
+            }
             else
             {
                 throw new ExcepcionElementoRepetido("Ya existe un presupuesto para el mes elegido");

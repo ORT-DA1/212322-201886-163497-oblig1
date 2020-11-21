@@ -51,5 +51,18 @@ namespace Interfaz_De_Usuario
 
             lbTotal.Text= adminReporteGastos.CalcularMontoDeReporte(listaGastos).ToString();
         }
+
+        private void cbTipoDeArchivo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // desplegar a mano el tipo de archivo
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            //hacer new segun lo que te pasan por parametro
+            //ExportarReporteGasto exportar = new ExportatTxt(UnirListaGastosDelMes);
+        }
+
+       
     }
 }

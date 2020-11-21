@@ -29,8 +29,6 @@ namespace Dominio
                 AgregarMontoEnPesos(unGastoComun);
                 Repositorio.AgregarGastoComun(unGastoComun);
             }
-            
-
         }
         private bool NoHayCategoriaDefinida(GastoComun unGastoComun)
         {

@@ -50,7 +50,7 @@ namespace Dominio
 
         //CATEGORIA
         public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
-          {
+         {
               using (var contexto = new Persistencia())
               {
                   Categoria cat = contexto.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
@@ -58,7 +58,7 @@ namespace Dominio
                   contexto.SaveChanges();
               }
 
-          }
+         }
 
         public void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
         { 
@@ -77,14 +77,11 @@ namespace Dominio
          {
             using (var contexto = new Persistencia())
             {
-
                 Categoria cat = contexto.Categorias.FirstOrDefault(x=> x.Id == unaCategoria.Id);
                 return cat.PalabrasClave.ToList();
-
             }
         }
 
-   
         public void AgregarCategoria(Categoria unaCategoria)
         {
             using (var contexto = new Persistencia())
@@ -144,6 +141,19 @@ namespace Dominio
              }
 
         }
+
+        public void AgregarCategoriaMonto(CategoriaMonto categoriaMonto, Presupuesto presupuesto)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Presupuesto pre = contexto.Presupuesto.Include("ListaCategoriaMonto.Categoria").FirstOrDefault(x => x.Id == presupuesto.Id);
+                contexto.Entry(categoriaMonto.Categoria).State = EntityState.Unchanged;
+                pre.ListaCategoriaMonto.Add(categoriaMonto);
+                contexto.SaveChanges();
+            }
+
+        }
+
         public bool ExisteUnPresupuesto(DateTime unaFecha)
         {
             using (var contexto = new Persistencia())
@@ -169,8 +179,9 @@ namespace Dominio
             {
                 Presupuesto pre = contexto.Presupuesto.Include("ListaCategoriaMonto.Categoria").FirstOrDefault(x => x.Id == unPresupuesto.Id);
                 CategoriaMonto categoriaMonto = pre.ListaCategoriaMonto.FirstOrDefault(x => x.Categoria.Id == unaCategoria.Id);
+                //contexto.Entry(categoriaMonto.Categoria).State = EntityState.Unchanged;
                 categoriaMonto.Monto = unMonto;
-                contexto.CategoriaMonto.Add(categoriaMonto);
+                //contexto.CategoriaMonto.Add(categoriaMonto);
                 contexto.SaveChanges();
             }
 
@@ -186,43 +197,6 @@ namespace Dominio
 
             }
         }
-        public void AgregarCategoriaMonto(CategoriaMonto categoriaMonto, Presupuesto presupuesto)
-        {
-            using (var contexto = new Persistencia())
-            {
-                Presupuesto pre = contexto.Presupuesto.Include("ListaCategoriaMonto.Categoria").FirstOrDefault(x => x.Id == presupuesto.Id);
-                pre.ListaCategoriaMonto.Add(categoriaMonto);
-                contexto.SaveChanges();
-            }
-
-        }
-        /*  public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
-          {
-              using (var contexto = new Persistencia())
-              {
-
-                  Categoria cat = contexto.Categorias.FirstOrDefault(x => x.Id == unaCategoria.Id);
-                  return cat.PalabrasClave.ToList();
-
-              }
-          }*/
-       /*  public List<CategoriaMonto> RetornarCategoriaMontoDelRepo(CategoriaMonto unaCategoriaMonto)
-          {
-              using (var contexto = new Persistencia())
-              {
-
-                  Presupuesto pre = contexto.Presupuesto.FirstOrDefault(x => x.Id == unaCategoriaMonto.Id);
-                  return pre.ListaCategoriaMonto.ToList();
-
-              }
-             *//* List<CategoriaMonto> fake = new List<CategoriaMonto>();
-              return fake;*//*
-          }*/
-
-     
-
-
-
         public void EliminarCategoriaMontoEnRepo(Presupuesto unPresupuesto, CategoriaMonto categoriaMonto)
         {
           /*  using (var contexto = new Persistencia())
