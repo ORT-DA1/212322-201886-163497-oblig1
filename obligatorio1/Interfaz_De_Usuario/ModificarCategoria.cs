@@ -43,8 +43,8 @@ namespace Interfaz_De_Usuario
                
                 AdminCategorias.AgregarPalabraClaveACategoria(categoriaSeleccionada, palabra);
 
-                
-                /*cbListaPalabrasClave.DataSource = null;
+                /*
+                cbListaPalabrasClave.DataSource = null;
                 cbListaPalabrasClave.DataSource = AdminCategorias.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada);*/
 
                 MessageBox.Show("Palabra Clave agregada con exito");
