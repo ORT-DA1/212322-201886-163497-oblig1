@@ -2,11 +2,12 @@
 
 namespace Dominio
 {
-    public class Gasto
+    public  class Gasto
     {
         private string desc;
         private double monto;
-       
+        public int Id { get; set; }
+
         public double Monto
         {
             get { return monto; }

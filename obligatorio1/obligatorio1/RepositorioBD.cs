@@ -249,23 +249,56 @@ namespace Dominio
         //GASTO RECURRENTE
         public void AgregarGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
-            throw new NotImplementedException();
+            using (var contexto = new Persistencia())
+            {
+                contexto.Entry(unGastoRecurrente.Moneda).State = EntityState.Unchanged; 
+                contexto.Entry(unGastoRecurrente.Categoria).State = EntityState.Unchanged;
+                contexto.Gastoes.Add(unGastoRecurrente);
+                contexto.SaveChanges();
+
+            }
         }
         public void EliminarGastoRecuerrente(GastoRecuerrente unGastoRecurrente)
         {
-            throw new NotImplementedException();
+            using (var contexto = new Persistencia())
+            {
+                Gasto gasto = contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoRecurrente.Id);
+                contexto.Gastoes.Remove(gasto);
+                contexto.SaveChanges();
+            }
         }
         public bool EsVaciaListaGastosRecurrentes()
         {
-            throw new NotImplementedException();
+            using (var contexto = new Persistencia()) /////////////////////////////// verificar que sea gasto recurrente //////////////////////////////////////////////
+            {
+                foreach (Gasto g in contexto.Gastoes.ToList())
+                {
+                    if (g.GetType().ToString() == "Recurrente")
+                    {
+                        return false;
+                    }
+                }
+                return true;
+
+            }
         }
         public bool ExisteGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
-            throw new NotImplementedException();
+            using (var contexto = new Persistencia())
+            {
+                if (contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoRecurrente.Id) != null)
+                {
+                    return true;
+                }
+                return false;
+            }
         }
         public List<GastoRecuerrente> RetornarListaGastosRecurrentes()
         {
-            throw new NotImplementedException();
+            using (var contexto = new Persistencia())
+            {
+                return contexto.Gastoes.Include("Categoria").Include("Moneda").OfType<GastoRecuerrente>().ToList(); //retorna una lista de gastos y no de gastos comunes
+            }
         }
 
 
@@ -274,28 +307,70 @@ namespace Dominio
         //GASTO COMUN
         public void AgregarGastoComun(GastoComun unGastoComun)
         {
-            throw new NotImplementedException();
+            using (var contexto = new Persistencia())
+            {
+                contexto.Entry(unGastoComun.Moneda).State = EntityState.Unchanged;
+                contexto.Entry(unGastoComun.Categoria).State = EntityState.Unchanged;
+                contexto.Gastoes.Add(unGastoComun);
+                contexto.SaveChanges();
+
+            }
         }
         public void EliminarGastoComun(GastoComun unGastoComun)
         {
-            throw new NotImplementedException();
+            using (var contexto = new Persistencia())
+            {
+                Gasto gasto = contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoComun.Id);
+                contexto.Gastoes.Remove(gasto);
+                contexto.SaveChanges();
+            }
         }
         public bool EsVaciaListaGastosComunes()
         {
-            throw new NotImplementedException();
+            using (var contexto = new Persistencia())
+            {
+                foreach (Gasto g in contexto.Gastoes.ToList())
+                {
+                    if (g.GetType().ToString() == "Comun")
+                    {
+                        return false;
+                    }
+                }
+                return true;
+
+            }
         }
         public bool EsVaciaListaMesesDondeHayGastos()
         {
             throw new NotImplementedException();
+
         }
         public bool ExisteGastoComun(GastoComun unGastoComun)
         {
-            throw new NotImplementedException();
+            using (var contexto = new Persistencia())
+            {
+                if (contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoComun.Id) != null)
+                {
+                    return true;
+                }
+                return false;
+            }
         }
         public List<GastoComun> RetornarListaGastosCoumnes()
         {
-            throw new NotImplementedException();
+            using (var contexto = new Persistencia())
+            {
+                return contexto.Gastoes.Include("Categoria").Include("Moneda").OfType<GastoComun>().ToList(); //retorna una lista de gastos y no de gastos comunes
+            }
         }
+
+
+
+
+
+
+
+
 
 
 
