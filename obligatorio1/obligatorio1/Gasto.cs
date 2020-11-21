@@ -18,10 +18,6 @@ namespace Dominio
                 {
                     throw new IndexOutOfRangeException("Monto debe ser positivo.");
                 }
-               /* if (this.Moneda.Simbolo != "UYU")
-                {
-                    this.MontoEnPesos = monto * this.Moneda.Cotizacion;
-                }*/
             }
         }
         public string Descripcion
@@ -49,8 +45,6 @@ namespace Dominio
         {
             this.Monto = 0.00;
             this.Descripcion = "No hay descripcion";
-            this.Categoria = new Categoria();
-            this.Moneda = new Moneda();
             this.MontoEnPesos = 0.00;
         }
         public Gasto(double unMonto, string unaDescripcion, Categoria unaCategoria, Moneda moneda)
