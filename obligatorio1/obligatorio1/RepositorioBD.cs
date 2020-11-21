@@ -243,8 +243,52 @@ namespace Dominio
             }
         }
 
+        public void BorrarMoneda(Moneda unaMoneda)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id);
+                contexto.Monedas.Remove(mon);
+                contexto.SaveChanges();
+            }
+        }
 
-       
+        public void ModificarNombreAMoneda(Moneda unaMoneda, string unNombre)
+        {
+
+            using (var contexto = new Persistencia())
+            {
+                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id);
+
+               
+                mon.Nombre = unNombre;
+              
+                contexto.SaveChanges();
+            }
+        }
+
+        public void ModificarSimboloAMoneda(Moneda unaMoneda, string unSimbolo)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id);
+                mon.Simbolo = unSimbolo;
+                contexto.SaveChanges();
+            }
+        }
+
+        public void ModificarCotizacionAMoneda(Moneda unaMoneda, double unaCotizacion)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id);
+                mon.Cotizacion = unaCotizacion;
+                contexto.SaveChanges();
+            }
+        }
+
+
+
 
 
         //GASTO RECURRENTE
