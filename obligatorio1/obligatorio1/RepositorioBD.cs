@@ -197,34 +197,6 @@ namespace Dominio
 
             }
         }
-    
-        /*  public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
-          {
-              using (var contexto = new Persistencia())
-              {
-
-                  Categoria cat = contexto.Categorias.FirstOrDefault(x => x.Id == unaCategoria.Id);
-                  return cat.PalabrasClave.ToList();
-
-              }
-          }*/
-       /*  public List<CategoriaMonto> RetornarCategoriaMontoDelRepo(CategoriaMonto unaCategoriaMonto)
-          {
-              using (var contexto = new Persistencia())
-              {
-
-                  Presupuesto pre = contexto.Presupuesto.FirstOrDefault(x => x.Id == unaCategoriaMonto.Id);
-                  return pre.ListaCategoriaMonto.ToList();
-
-              }
-             *//* List<CategoriaMonto> fake = new List<CategoriaMonto>();
-              return fake;*//*
-          }*/
-
-     
-
-
-
         public void EliminarCategoriaMontoEnRepo(Presupuesto unPresupuesto, CategoriaMonto categoriaMonto)
         {
           /*  using (var contexto = new Persistencia())

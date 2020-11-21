@@ -9,6 +9,5 @@ namespace Dominio
     public abstract class ExportarReporteGasto
     {
         public abstract void Exportar(List<GastoComun> listaGastosComunes);
-
     }
 }
