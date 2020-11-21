@@ -75,6 +75,10 @@
     <Compile Include="Migrations\202011191658150_Tablas.designer.cs">
       <DependentUpon>202011191658150_Tablas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011211748548_TablasNuevas.cs" />
+    <Compile Include="Migrations\202011211748548_TablasNuevas.designer.cs">
+      <DependentUpon>202011211748548_TablasNuevas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Moneda.cs" />
     <Compile Include="PalabraClave.cs" />
@@ -101,6 +105,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011191658150_Tablas.resx">
       <DependentUpon>202011191658150_Tablas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011211748548_TablasNuevas.resx">
+      <DependentUpon>202011211748548_TablasNuevas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
