@@ -173,7 +173,42 @@ namespace Dominio
         {
             return this.ListaMonedas.Contains(unaMoneda);
         }
+        public void BorrarMoneda(Moneda unaMoneda)
+        {
+            this.ListaMonedas.Remove(unaMoneda);
+        }
+        public void ModificarNombreAMoneda(Moneda unaMoneda, string unNombre)
+        {
+            foreach(Moneda mon in this.ListaMonedas)
+            {
+                if(mon == unaMoneda)
+                {
+                    mon.Nombre = unNombre;
+                }
+            }
+        }
+        public void ModificarSimboloAMoneda(Moneda unaMoneda, string unSimbolo)
+        {
+            foreach (Moneda mon in this.ListaMonedas)
+            {
+                if (mon == unaMoneda)
+                {
+                    mon.Simbolo = unSimbolo;
+                }
+            }
+        }
+        public void ModificarCotizacionAMoneda(Moneda unaMoneda, double unaCotizacion)
+        {
+            foreach (Moneda mon in this.ListaMonedas)
+            {
+                if (mon == unaMoneda)
+                {
+                    mon.Cotizacion = unaCotizacion;
+                }
+            }
 
-       
+        }
+
+
     }
 }

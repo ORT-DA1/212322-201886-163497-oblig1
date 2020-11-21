@@ -35,6 +35,23 @@ namespace Dominio
             return Repositorio.RetornarListaMonedas();
         }
 
-        
+        public void BorrarMoneda(Moneda unaMoneda)
+        {
+            Repositorio.BorrarMoneda(unaMoneda);
+        }
+        public void ModificarNombreAMoneda(Moneda unaMoneda, string unNombre)
+        {
+            Repositorio.ModificarNombreAMoneda(unaMoneda, unNombre);
+        }
+
+        public void ModificarSimboloAMoneda(Moneda unaMoneda, string unSimbolo)
+        {
+            Repositorio.ModificarSimboloAMoneda(unaMoneda, unSimbolo);
+        }
+
+        public void ModificarCotizacionAMoneda(Moneda monedaElegida, double cotizacion)
+        {
+            Repositorio.ModificarCotizacionAMoneda(monedaElegida, cotizacion);
+        }
     }
 }

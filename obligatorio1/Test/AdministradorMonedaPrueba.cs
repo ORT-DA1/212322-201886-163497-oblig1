@@ -43,6 +43,55 @@ namespace Test
             adminMonedas.AgregarMoneda(unaMoneda);
             adminMonedas.AgregarMoneda(unaMoneda);
         }
+
+        [TestMethod]
+        public void BorrarMonedaPrueba()
+        {
+            adminMonedas.AgregarMoneda(unaMoneda);
+            adminMonedas.BorrarMoneda(unaMoneda);
+            Assert.IsFalse(adminMonedas.RetornarListaMonedas().Contains(unaMoneda));
+            
+        }
+
+        [TestMethod]
+        public void ModificarNombreAMonedaPrueba()
+        {
+            unaMoneda.Nombre = "EURO";
+
+            adminMonedas.AgregarMoneda(unaMoneda);
+
+            adminMonedas.ModificarNombreAMoneda(unaMoneda, "PesosUY");
+
+            Assert.AreEqual(unaMoneda.Nombre, "PesosUY");
+
+        }
+
+        [TestMethod]
+        public void ModificarSimboloAMonedaPrueba()
+        {
+            unaMoneda.Simbolo = "EU";
+
+            adminMonedas.AgregarMoneda(unaMoneda);
+
+            adminMonedas.ModificarSimboloAMoneda(unaMoneda, "$");
+
+            Assert.AreEqual(unaMoneda.Simbolo, "$");
+
+        }
+
+        [TestMethod]
+        public void ModificarCotizacionAMonedaPrueba()
+        {
+            unaMoneda.Cotizacion = 0.22;
+
+            adminMonedas.AgregarMoneda(unaMoneda);
+
+            adminMonedas.ModificarCotizacionAMoneda(unaMoneda, 0.22);
+
+            Assert.AreEqual(unaMoneda.Cotizacion, 0.22);
+
+        }
+
     }
 
 

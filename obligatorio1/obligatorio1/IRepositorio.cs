@@ -13,6 +13,7 @@ namespace Dominio
         void AgregarGastoRecurrente(GastoRecuerrente unGastoRecurrente);
         List<GastoRecuerrente> RetornarListaGastosRecurrentes();
         bool ExisteMoneda(Moneda unaMoneda);
+        void BorrarMoneda(Moneda unaMoneda);
         bool EsVaciaListaGastosRecurrentes();
         bool ExisteGastoRecurrente(GastoRecuerrente unGastoRecurrente);
         void EliminarGastoRecuerrente(GastoRecuerrente unGastoRecurrente);
@@ -23,12 +24,16 @@ namespace Dominio
         bool EsVaciaListaGastosComunes();
         bool ExisteGastoComun(GastoComun unGastoComun);
         void EliminarGastoComun(GastoComun unGastoComun);
+        void ModificarNombreAMoneda(Moneda unaMoneda, string unNombre);
         void AgregarPresupuesto(Presupuesto unPresupuesto);
+        void ModificarSimboloAMoneda(Moneda unaMoneda, string unSimbolo);
+        void ModificarCotizacionAMoneda(Moneda unaMoneda, double unaCotizacion);
+
         /*List<DateTime> RetornarListaMesesDondeHayGasto();
-        void AgregarMesDondeHayGasto(DateTime unaFecha);
-        bool EsVaciaListaMesesDondeHayGastos();
-        bool ExisteMes(DateTime unaFecha);
-        int CantidadElementosEnListaMesesDondeHayGastos();*/
+void AgregarMesDondeHayGasto(DateTime unaFecha);
+bool EsVaciaListaMesesDondeHayGastos();
+bool ExisteMes(DateTime unaFecha);
+int CantidadElementosEnListaMesesDondeHayGastos();*/
         List<Presupuesto> RetornarListaPresupuestos();
        // List<DateTime> RetornarListaMesesDondeHayPresupuesto();
         //void AgregarMesDondeHayPresupuesto(DateTime unaFecha);
