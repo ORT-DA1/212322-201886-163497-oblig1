@@ -38,17 +38,17 @@ int CantidadElementosEnListaMesesDondeHayGastos();*/
        // List<DateTime> RetornarListaMesesDondeHayPresupuesto();
         //void AgregarMesDondeHayPresupuesto(DateTime unaFecha);
         bool ExisteUnPresupuesto(DateTime unaFecha);
-        
+        void ModificarDescripcionAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, string unaDescripcion);
         void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra);
 
         List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria);
-
+        void ModificarCategoriaAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, Categoria otraCategoria);
         void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra);
-
+        void ModificarDiaDelMesAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, int dia);
         void AgregarCategoriaMonto(CategoriaMonto catMonto, Presupuesto presupuesto);
-
+        void ModificarMontoAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, int monto);
         List<CategoriaMonto> RetornarCategoriaMontoDelRepo(Presupuesto unPresupuesto);
-
+        void ModificarMonedaAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, Moneda otraMoneda);
         void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, double unMonto);
     }
 }

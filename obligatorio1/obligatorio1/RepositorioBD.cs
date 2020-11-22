@@ -347,10 +347,60 @@ namespace Dominio
             }
         }
 
+        public void ModificarDescripcionAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, string unaDescripcion)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Gasto gas = contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoRecuerrente.Id);
+                gas.Descripcion = unaDescripcion;
+                contexto.SaveChanges();
+            }
+        }
 
+        public void ModificarCategoriaAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, Categoria otraCategoria)
+        {//buscar esa categoria y asignarla
+            using (var contexto = new Persistencia())
+            {
+                Gasto gas = contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoRecuerrente.Id);
+                Categoria cat = contexto.Categorias.FirstOrDefault(x => x.Id == otraCategoria.Id);
+                gas.Categoria = cat;
+                contexto.SaveChanges();
+            }
+        }
+        
+        public void ModificarDiaDelMesAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, int dia)
+        {
+            throw new NotImplementedException();
+            /*
+            using (var contexto = new Persistencia())
+            {
+                Gasto gas = contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoRecuerrente.Id);
+                gas. = dia;
+                contexto.SaveChanges();
+            }*/
+        }
 
+        public void ModificarMontoAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, int monto)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Gasto gas = contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoRecuerrente.Id);
+                gas.Monto = monto;
+                contexto.SaveChanges();
+            }
+        }
 
-        //GASTO COMUN
+        public void ModificarMonedaAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, Moneda otraMoneda)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Gasto gas = contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoRecuerrente.Id);
+                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == unGastoRecuerrente.Id);
+                gas.Moneda = mon;
+                contexto.SaveChanges();
+            }
+        }
+            //GASTO COMUN
         public void AgregarGastoComun(GastoComun unGastoComun)
         {
             using (var contexto = new Persistencia())

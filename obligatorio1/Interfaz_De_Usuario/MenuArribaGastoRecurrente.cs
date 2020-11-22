@@ -26,7 +26,7 @@ namespace Interfaz_De_Usuario
         private void btnModificarGastoRecurrente_Click(object sender, System.EventArgs e)
         {
             panelGRecurrente.Controls.Clear();
-            UserControl eliminarGastoRecurrente = new ModificarGastoRecurrente(adminGastosRecurrentes, adminCategorias);
+            UserControl eliminarGastoRecurrente = new ModificarGastoRecurrente(adminGastosRecurrentes, adminCategorias, adminMonedas);
             panelGRecurrente.Controls.Add(eliminarGastoRecurrente);
         }
 

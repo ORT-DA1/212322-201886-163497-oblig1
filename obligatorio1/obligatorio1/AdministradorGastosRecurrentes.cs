@@ -1,4 +1,5 @@
 ﻿using Excepciones;
+using System;
 using System.Collections.Generic;
 
 namespace Dominio
@@ -55,5 +56,29 @@ namespace Dominio
             }
         }
 
+        public void ModificarDescripcion(GastoRecuerrente unGastoRecuerrente, string unaDescripcion)
+        {
+            Repositorio.ModificarDescripcionAGastoRecurrente(unGastoRecuerrente, unaDescripcion);
+        }
+
+        public void ModificarCategoria(GastoRecuerrente unGastoRecuerrente, Categoria otraCategoria)
+        {
+            Repositorio.ModificarCategoriaAGastoRecurrente(unGastoRecuerrente, otraCategoria);
+        }
+
+        public void ModificarDiaDelMes(GastoRecuerrente unGastoRecuerrente, int dia)
+        {
+            Repositorio.ModificarDiaDelMesAGastoRecurrente(unGastoRecuerrente, dia);
+        }
+
+        public void ModificarMonto(GastoRecuerrente unGastoRecuerrente, int monto)
+        {
+            Repositorio.ModificarMontoAGastoRecurrente(unGastoRecuerrente, monto);
+        }
+
+        public void ModificarMoneda(GastoRecuerrente unGastoRecuerrente, Moneda otraMoneda)
+        {
+            Repositorio.ModificarMonedaAGastoRecurrente(unGastoRecuerrente, otraMoneda);
+        }
     }
 }
