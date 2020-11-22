@@ -8,17 +8,20 @@ namespace Interfaz_De_Usuario
     {
         private AdministradorGastosRecurrentes unAdminGastoRecurrente;
         private AdministradorCategorias unAdminCategorias;
-        public ModificarGastoRecurrente(AdministradorGastosRecurrentes miAdminGastoRecurrente, AdministradorCategorias miAdminCategorias)
+        private AdministradorMonedas unAdminMonedas;
+        public ModificarGastoRecurrente(AdministradorGastosRecurrentes miAdminGastoRecurrente, AdministradorCategorias miAdminCategorias, AdministradorMonedas miAdminMonedas)
         {
             InitializeComponent();
             unAdminGastoRecurrente = miAdminGastoRecurrente;
             unAdminCategorias = miAdminCategorias;
+            unAdminMonedas = miAdminMonedas;
             CargarComboBox();
         }
         public void CargarComboBox()
         {
             cbGastoRecurrente.DataSource = unAdminGastoRecurrente.RetornarListaGastosRecurrentes();
             cbCategoria.DataSource = unAdminCategorias.RetornarListaCategorias();
+            cbMoneda.DataSource = unAdminMonedas.RetornarListaMonedas();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -37,7 +40,14 @@ namespace Interfaz_De_Usuario
             }
         }
 
-        private void btnModificarGasto_Click(object sender, EventArgs e)
+       
+
+        private bool HayCamposVacios()
+        {
+            return cbGastoRecurrente.SelectedItem == null || string.IsNullOrEmpty(tbDescripcion.Text);
+        }
+        /*
+        private void btnModificarGasto_Click_1(object sender, EventArgs e)
         {
             if (HayCamposVacios())
             {
@@ -51,6 +61,7 @@ namespace Interfaz_De_Usuario
                 gastoAmodificar.Monto = (double)numMonto.Value;
                 gastoAmodificar.Fecha = (int)numFecha.Value;
                 gastoAmodificar.Categoria = (Categoria)cbCategoria.SelectedItem;
+                gastoAmodificar.Moneda = (Moneda)cbMoneda.SelectedItem;
                 MessageBox.Show("El gasto ha modificado con exito ");
             }
 
@@ -58,14 +69,98 @@ namespace Interfaz_De_Usuario
             {
                 MessageBox.Show(unaExcepcion.Message);
             }
-            
-        }
+        }*/
 
-        private bool HayCamposVacios()
+        private void btnModificarDescripcion_Click(object sender, EventArgs e)
         {
-            return cbGastoRecurrente.SelectedItem == null || string.IsNullOrEmpty(tbDescripcion.Text);
+            try
+            {
+                GastoRecuerrente gastoElegido = (GastoRecuerrente)cbGastoRecurrente.SelectedItem;
+                unAdminGastoRecurrente.ModificarDescripcion(gastoElegido, tbDescripcion.Text);
+                MessageBox.Show("Descripcion " + tbDescripcion.Text + " modificada con éxito");
+                tbDescripcion.Clear();
+                cbGastoRecurrente.DataSource = null;
+                CargarComboBox();
+            }
+            catch (Exception unaExcepcion)
+            //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
         }
 
+        private void btnModificarMonto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GastoRecuerrente gastoElegido = (GastoRecuerrente)cbGastoRecurrente.SelectedItem;
+                unAdminGastoRecurrente.ModificarMonto(gastoElegido, (int)numMonto.Value);
+                MessageBox.Show("Monto modificado con éxito");
+                numMonto.Value = 0; 
+                cbGastoRecurrente.DataSource = null;
+                CargarComboBox();
+            }
+            catch (Exception unaExcepcion)
+            //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+        }
 
+        private void btnModificarDia_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GastoRecuerrente gastoElegido = (GastoRecuerrente)cbGastoRecurrente.SelectedItem;
+                unAdminGastoRecurrente.ModificarMonto(gastoElegido, (int)numFecha.Value);
+                MessageBox.Show("Fecha modificada con éxito");
+                numFecha.Value = 0;
+                cbGastoRecurrente.DataSource = null;
+                CargarComboBox();
+            }
+            catch (Exception unaExcepcion)
+            //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+        }
+
+        private void btnModificarCategoria_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GastoRecuerrente gastoElegido = (GastoRecuerrente)cbGastoRecurrente.SelectedItem;
+                Categoria categoriaElegida = (Categoria)cbCategoria.SelectedItem;
+                unAdminGastoRecurrente.ModificarCategoria(gastoElegido, categoriaElegida);
+                MessageBox.Show("Categoria modificada con éxito");
+                
+                cbGastoRecurrente.DataSource = null;
+                CargarComboBox();
+            }
+            catch (Exception unaExcepcion)
+            //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+        }
+
+        private void btnModificarMoneda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GastoRecuerrente gastoElegido = (GastoRecuerrente)cbGastoRecurrente.SelectedItem;
+                Moneda monedaElegida = (Moneda)cbMoneda.SelectedItem;
+                unAdminGastoRecurrente.ModificarMoneda(gastoElegido, monedaElegida);
+                MessageBox.Show("Moneda modificada con éxito");
+
+                cbGastoRecurrente.DataSource = null;
+                CargarComboBox();
+            }
+            catch (Exception unaExcepcion)
+            //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+        }
     }
 }

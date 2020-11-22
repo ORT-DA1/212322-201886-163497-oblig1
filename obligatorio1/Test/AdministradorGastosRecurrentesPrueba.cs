@@ -13,6 +13,7 @@ namespace Test
         private GastoRecuerrente unGastoRecuerrente;
         private Categoria unaCategoria;
         private IRepositorio miRepositorio;
+        private Moneda unaMoneda;
 
 
         [TestInitialize]
@@ -21,7 +22,9 @@ namespace Test
             miRepositorio = new RepositorioMemoria();
             adminGastosRecurrentes = new AdministradorGastosRecurrentes(miRepositorio);
             unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
-            unGastoRecuerrente = new GastoRecuerrente() {Categoria = unaCategoria};
+            unaMoneda = new Moneda() {Nombre = "Pesos", Cotizacion = 2.00, Simbolo= "UYU" };
+
+            unGastoRecuerrente = new GastoRecuerrente() {Categoria = unaCategoria, Descripcion = "desc", Fecha= 1, Moneda = unaMoneda, Monto = 300};
             unaCategoria = new Categoria();
 
         }
@@ -51,6 +54,70 @@ namespace Test
             adminGastosRecurrentes.EliminarGastoRecurrente(unGastoRecuerrente);
 
             Assert.IsTrue(adminGastosRecurrentes.EsVaciaListaGastosRecurrentes());
+
+        }
+
+        [TestMethod]
+        public void ModificarDescripcionGastoRecurrentePrueba()
+        {
+
+            unGastoRecuerrente.Descripcion = "luz";
+
+            adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
+
+            adminGastosRecurrentes.ModificarDescripcion(unGastoRecuerrente, "agua");
+
+            Assert.AreEqual(unGastoRecuerrente.Descripcion, "agua");
+
+        }
+
+        [TestMethod]
+        public void ModificarCategoriaAGastoRecurrentePrueba()
+        {
+            Categoria otraCategoria  = new Categoria();
+
+            adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
+
+            adminGastosRecurrentes.ModificarCategoria(unGastoRecuerrente, otraCategoria);
+
+            Assert.AreEqual(unGastoRecuerrente.Categoria, otraCategoria);
+
+        }
+        //no se como hacer porque es herencia
+        [TestMethod]
+        public void ModificarDiaDelMesAGastoRecurrentePrueba()
+        {
+            
+
+            adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
+
+            adminGastosRecurrentes.ModificarDiaDelMes(unGastoRecuerrente, 2);
+
+            Assert.AreEqual(unGastoRecuerrente.Fecha, 2);
+
+        }
+
+        [TestMethod]
+        public void ModificarMontoAGastoRecurrentePrueba()
+        {
+
+            adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
+
+            adminGastosRecurrentes.ModificarMonto(unGastoRecuerrente, 200);
+
+            Assert.AreEqual(unGastoRecuerrente.Monto, 200);
+
+        }
+
+        [TestMethod]
+        public void ModificarMonedaAGastoRecurrentePrueba()
+        {
+            Moneda otraMoneda = new Moneda(){ Nombre = "Euros", Cotizacion = 2.00, Simbolo = "Eu" };
+            adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
+
+            adminGastosRecurrentes.ModificarMoneda(unGastoRecuerrente, otraMoneda);
+
+            Assert.AreEqual(unGastoRecuerrente.Moneda, otraMoneda);
 
         }
 
