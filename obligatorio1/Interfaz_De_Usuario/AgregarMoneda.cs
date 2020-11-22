@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Dominio;
 
 namespace Interfaz_De_Usuario
 {
@@ -24,7 +25,7 @@ namespace Interfaz_De_Usuario
         {
             try
             {
-                Moneda moneda = new Moneda() { Nombre = tbNombre.Text, simbolo = tbSimbolo.Text, Cotizacion = (double)numCotizacion.Value };
+                Moneda moneda = new Moneda() { Nombre = tbNombre.Text, Simbolo = tbSimbolo.Text, Cotizacion = (double)numCotizacion.Value };
                 adminMonedas.AgregarMoneda(moneda);
                 MessageBox.Show("Moneda " + tbNombre.Text + " ha sido creada con exito");
                 tbNombre.Clear();
