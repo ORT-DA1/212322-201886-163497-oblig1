@@ -63,52 +63,32 @@ namespace Interfaz_De_Usuario
       
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            //hacer new segun lo que te pasan por parametro
-            //ExportarReporteGasto exportar = new ExportatTxt(UnirListaGastosDelMes);
-            
-            
-            DateTime fecha = Convert.ToDateTime(cbMesAnio.SelectedItem);
-            List<GastoComun> listaAExportar = adminReporteGastos.UnirListaGastosDelMes(fecha.Year, fecha.Month);
-            
-                
-                  /* FolderBrowserDialog explorar = new FolderBrowserDialog();
-                   if (explorar.ShowDialog()== System.Windows.Forms.DialogResult.OK)
-                   {
-
-                *//*  String direccion = @"explorar.SelectedPath";
-                 ExportarReporteGasto exportar = new ExportarTxt();
-                 exportar.Exportar(listaAExportar, direccion);
-                 MessageBox.Show("Gastos exportados con exito");*//*
-                
-                String tipoArchivo = cbTipoDeArchivo.Text;
-                String direccion = @"explorar.SelectedPath";
-                ExportarReporteGasto exportar2 = ExportarReporteGastoFabrica.CrearExportacion(tipoArchivo);
-                exportar2.Exportar(listaAExportar, direccion);
-                MessageBox.Show("Gastos exportados con exito");
-
-         
-
-                    }*/
-
-            String tipoArchivo = cbTipoDeArchivo.Text;
-
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.FileName = "*."+ tipoArchivo;
-            sfd.DefaultExt = tipoArchivo;
-           
-            if(sfd.ShowDialog() == DialogResult.OK)
+            if(cbTipoDeArchivo.SelectedItem == null)
             {
-                ExportarReporteGasto exportar = ExportarReporteGastoFabrica.CrearExportacion(tipoArchivo);
-                Stream fileStream = sfd.OpenFile();
-                exportar.Exportar(listaAExportar, fileStream);
+                MessageBox.Show("Debe seleccionar el tipo de archivo que quiere exportar");
+            }
+            else
+            {
+                DateTime fecha = Convert.ToDateTime(cbMesAnio.SelectedItem);
+                List<GastoComun> listaAExportar = adminReporteGastos.UnirListaGastosDelMes(fecha.Year, fecha.Month);
 
+                String tipoArchivo = cbTipoDeArchivo.Text;
 
-                /* ExportarReporteGasto exportar = new ExportarTxt();
-                 Stream fileStream = sfd.OpenFile();
-                 exportar.Exportar(listaAExportar, fileStream);*/
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.FileName = "*." + tipoArchivo;
+                sfd.DefaultExt = tipoArchivo;
 
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    ExportarReporteGasto exportar = ExportarReporteGastoFabrica.CrearExportacion(tipoArchivo);
+                    Stream fileStream = sfd.OpenFile();
+                    exportar.Exportar(listaAExportar, fileStream);
+                    MessageBox.Show("Gastos exportados con exito");
+
+                }
 
             }
+            
 
         }
 
