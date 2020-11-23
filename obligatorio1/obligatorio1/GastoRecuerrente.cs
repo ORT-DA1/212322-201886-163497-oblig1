@@ -25,10 +25,12 @@ namespace Dominio
             }
 
         }
-
+        public double CotizacionOriginalDeMoneda { get; set; }
+        
         public GastoRecuerrente()
         {
             this.Fecha = 1;
+            this.CotizacionOriginalDeMoneda = 0;
         }
         public GastoRecuerrente(int unMonto, string unaDescripcion, Categoria unaCategoria , int unaFecha ,Moneda unaMoneda) :base(unMonto, unaDescripcion, unaCategoria ,unaMoneda)
         {

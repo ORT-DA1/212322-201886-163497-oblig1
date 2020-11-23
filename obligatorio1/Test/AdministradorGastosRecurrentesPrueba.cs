@@ -10,6 +10,7 @@ namespace Test
     public class AdministradorGastosRecurrentesPrueba
     {
         private AdministradorGastosRecurrentes adminGastosRecurrentes;
+        private AdministradorMonedas adminMonedas;
         private GastoRecuerrente unGastoRecuerrente;
         private Categoria unaCategoria;
         private IRepositorio miRepositorio;
@@ -26,6 +27,7 @@ namespace Test
 
             unGastoRecuerrente = new GastoRecuerrente() {Categoria = unaCategoria, Descripcion = "desc", Fecha= 1, Moneda = unaMoneda, Monto = 300};
             unaCategoria = new Categoria();
+            adminMonedas = new AdministradorMonedas(miRepositorio);
 
         }
 
@@ -118,6 +120,27 @@ namespace Test
             adminGastosRecurrentes.ModificarMoneda(unGastoRecuerrente, otraMoneda);
 
             Assert.AreEqual(unGastoRecuerrente.Moneda, otraMoneda);
+
+        }
+
+        [TestMethod]
+        public void AsignarCotizacionOriginalPrueba()
+        {
+           
+            adminGastosRecurrentes.AsignarCotizacionOriginal(unGastoRecuerrente);
+
+            Assert.AreEqual(adminGastosRecurrentes.RetornarCotizacionOriginal(unGastoRecuerrente), unGastoRecuerrente.Moneda.Cotizacion);
+
+        }
+
+        [TestMethod]
+        public void RetornarCotizacionOriginalPrueba()
+        {
+            //cotizacion estaba en 2.00
+            adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
+            adminMonedas.ModificarCotizacionAMoneda(unGastoRecuerrente.Moneda, 10);
+
+            Assert.AreEqual(adminGastosRecurrentes.RetornarCotizacionOriginal(unGastoRecuerrente), 2.00);
 
         }
 

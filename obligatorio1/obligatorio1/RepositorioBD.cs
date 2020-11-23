@@ -395,7 +395,7 @@ namespace Dominio
             using (var contexto = new Persistencia())
             {
                 Gasto gas = contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoRecuerrente.Id);
-                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == unGastoRecuerrente.Id);
+                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == otraMoneda.Id);
                 gas.Moneda = mon;
                 contexto.SaveChanges();
             }

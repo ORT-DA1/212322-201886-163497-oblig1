@@ -24,8 +24,10 @@ namespace Dominio
                 throw new ExcepcionElementoNoExistente("La categoria no puede quedar vacía");
             }
             else {
-                Repositorio.AgregarGastoRecurrente(unGastoRecurrente);
                 AgregarMontoEnPesos(unGastoRecurrente);
+                AsignarCotizacionOriginal(unGastoRecurrente);
+                Repositorio.AgregarGastoRecurrente(unGastoRecurrente);
+                
             } 
 
         }
@@ -79,6 +81,17 @@ namespace Dominio
         public void ModificarMoneda(GastoRecuerrente unGastoRecuerrente, Moneda otraMoneda)
         {
             Repositorio.ModificarMonedaAGastoRecurrente(unGastoRecuerrente, otraMoneda);
+        }
+
+        public void AsignarCotizacionOriginal(GastoRecuerrente unGastoRecuerrente)
+        {
+            unGastoRecuerrente.CotizacionOriginalDeMoneda = unGastoRecuerrente.Moneda.Cotizacion;
+        }
+
+
+        public double RetornarCotizacionOriginal(GastoRecuerrente unGastoRecuerrente)
+        {
+            return unGastoRecuerrente.CotizacionOriginalDeMoneda;
         }
     }
 }
