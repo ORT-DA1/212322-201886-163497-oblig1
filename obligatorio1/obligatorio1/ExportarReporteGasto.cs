@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,6 @@ namespace Dominio
 {
     public abstract class ExportarReporteGasto
     {
-        public abstract void Exportar(List<GastoComun> listaGastosComunes);
+        public abstract void Exportar(List<GastoComun> listaGastosComunes, Stream direccion);
     }
 }

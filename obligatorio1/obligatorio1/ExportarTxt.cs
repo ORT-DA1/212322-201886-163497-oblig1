@@ -9,28 +9,52 @@ namespace Dominio
 {
     public class ExportarTxt: ExportarReporteGasto
     {
-        public override void Exportar(List<GastoComun> listaGastosComunes)
+        public ExportarTxt() { }
+
+        // public override void Exportar(List<GastoComun> listaGastosComunes, String direccion)
+        public override void Exportar(List<GastoComun> listaGastosComunes, Stream fileStream)
         {
-            //ver como hacerlo.
-            //string[] lineas= { };
-            using(StreamWriter outputFile = new StreamWriter("c:\\Users\\knowledgeattic\\Desktop\\ReporteGastos.txt"))
+
+            StreamWriter sw = new StreamWriter(fileStream);
+            
+            foreach (GastoComun gasto in listaGastosComunes)
             {
-                foreach(GastoComun gasto in listaGastosComunes)
-                {
-                    outputFile.WriteLine(gasto);
-                }
+
+                sw.WriteLine(gasto.Fecha.ToString("dd/MM/yyyy"));
+                sw.WriteLine(gasto.Descripcion);
+                sw.WriteLine(gasto.Categoria);
+                sw.WriteLine(gasto.Moneda);
+                sw.WriteLine(gasto.Monto);
+                sw.WriteLine("####");
+
             }
 
-        }
-  /*     public override void Exportar(List<GastoComun> listaGastosComunes) 
-        {
-            using(TextWriter tw = new StreamWriter(new FileStream(  .FileName, FileMode.Create), Encoding.UTF8))
+            sw.Close();
+            fileStream.Close();
+
+            /*
+             // funciona
+             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Sara Vila\Desktop\ReporteGastos.txt"))
+            
+            //using (System.IO.StreamWriter file = new System.IO.StreamWriter(direccion + "\\ReporteGastos.txt"))
             {
-                foreach(GastoComun item in listaGastosComunes)
+                foreach (GastoComun gasto in listaGastosComunes)
                 {
-                    await tw.WriteLineAsync(item.Fecha.Text + item.Categoria.Text);
+                    
+                    file.WriteLine(gasto.Fecha.ToString("dd/MM/yyyy"));
+                    file.WriteLine(gasto.Descripcion);
+                    file.WriteLine(gasto.Categoria);
+                    file.WriteLine(gasto.Moneda);
+                    file.WriteLine(gasto.Monto);
+                    file.WriteLine("######");
+                   
                 }
-            }
-        }*/
+            }*/
+
+
+
+
+        }
+
     }
 }

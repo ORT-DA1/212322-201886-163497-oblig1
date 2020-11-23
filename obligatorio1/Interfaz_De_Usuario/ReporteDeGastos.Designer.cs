@@ -43,6 +43,9 @@
             this.lbTotal = new System.Windows.Forms.Label();
             this.btnExportar = new System.Windows.Forms.Button();
             this.cbTipoDeArchivo = new System.Windows.Forms.ComboBox();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -170,7 +173,10 @@
             this.cbTipoDeArchivo.Name = "cbTipoDeArchivo";
             this.cbTipoDeArchivo.Size = new System.Drawing.Size(251, 28);
             this.cbTipoDeArchivo.TabIndex = 20;
-            this.cbTipoDeArchivo.SelectedIndexChanged += new System.EventHandler(this.cbTipoDeArchivo_SelectedIndexChanged);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // ReporteDeGastos
             // 
@@ -210,5 +216,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.ComboBox cbTipoDeArchivo;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

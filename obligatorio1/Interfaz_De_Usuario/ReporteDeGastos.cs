@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using System.IO;
+
 namespace Interfaz_De_Usuario
 {
     public partial class ReporteDeGastos : UserControl
@@ -20,6 +22,7 @@ namespace Interfaz_De_Usuario
             InitializeComponent();
             adminReporteGastos = AdminReporteGastos;
             CargarComboBoxFechas();
+            CargarComboFormatosDeExportar();
 
         }
 
@@ -31,6 +34,11 @@ namespace Interfaz_De_Usuario
 
             }
 
+        }
+
+        private void CargarComboFormatosDeExportar()
+        {
+            cbTipoDeArchivo.Items.AddRange(new object[] { "txt", "csv", "xml" });
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -52,17 +60,58 @@ namespace Interfaz_De_Usuario
             lbTotal.Text= adminReporteGastos.CalcularMontoDeReporte(listaGastos).ToString();
         }
 
-        private void cbTipoDeArchivo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // desplegar a mano el tipo de archivo
-        }
-
+      
         private void btnExportar_Click(object sender, EventArgs e)
         {
             //hacer new segun lo que te pasan por parametro
             //ExportarReporteGasto exportar = new ExportatTxt(UnirListaGastosDelMes);
+            
+            
+            DateTime fecha = Convert.ToDateTime(cbMesAnio.SelectedItem);
+            List<GastoComun> listaAExportar = adminReporteGastos.UnirListaGastosDelMes(fecha.Year, fecha.Month);
+            
+                
+                  /* FolderBrowserDialog explorar = new FolderBrowserDialog();
+                   if (explorar.ShowDialog()== System.Windows.Forms.DialogResult.OK)
+                   {
+
+                *//*  String direccion = @"explorar.SelectedPath";
+                 ExportarReporteGasto exportar = new ExportarTxt();
+                 exportar.Exportar(listaAExportar, direccion);
+                 MessageBox.Show("Gastos exportados con exito");*//*
+                
+                String tipoArchivo = cbTipoDeArchivo.Text;
+                String direccion = @"explorar.SelectedPath";
+                ExportarReporteGasto exportar2 = ExportarReporteGastoFabrica.CrearExportacion(tipoArchivo);
+                exportar2.Exportar(listaAExportar, direccion);
+                MessageBox.Show("Gastos exportados con exito");
+
+         
+
+                    }*/
+
+            String tipoArchivo = cbTipoDeArchivo.Text;
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.FileName = "*."+ tipoArchivo;
+            sfd.DefaultExt = tipoArchivo;
+           
+            if(sfd.ShowDialog() == DialogResult.OK)
+            {
+                ExportarReporteGasto exportar = ExportarReporteGastoFabrica.CrearExportacion(tipoArchivo);
+                Stream fileStream = sfd.OpenFile();
+                exportar.Exportar(listaAExportar, fileStream);
+
+
+                /* ExportarReporteGasto exportar = new ExportarTxt();
+                 Stream fileStream = sfd.OpenFile();
+                 exportar.Exportar(listaAExportar, fileStream);*/
+
+
+            }
+
         }
 
-       
+
     }
 }
