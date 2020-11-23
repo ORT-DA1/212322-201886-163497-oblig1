@@ -9,28 +9,28 @@ namespace Dominio
 {
     public class ExportarTxt: ExportarReporteGasto
     {
-        public override void Exportar(List<GastoComun> listaGastosComunes)
-        {
-            //ver como hacerlo.
-            //string[] lineas= { };
-            using(StreamWriter outputFile = new StreamWriter("c:\\Users\\knowledgeattic\\Desktop\\ReporteGastos.txt"))
-            {
-                foreach(GastoComun gasto in listaGastosComunes)
-                {
-                    outputFile.WriteLine(gasto);
-                }
-            }
+        public ExportarTxt() { }
 
-        }
-  /*     public override void Exportar(List<GastoComun> listaGastosComunes) 
+        public override void Exportar(List<GastoComun> listaGastosComunes, Stream fileStream)
         {
-            using(TextWriter tw = new StreamWriter(new FileStream(  .FileName, FileMode.Create), Encoding.UTF8))
+
+            StreamWriter sw = new StreamWriter(fileStream);
+            foreach (GastoComun gasto in listaGastosComunes)
             {
-                foreach(GastoComun item in listaGastosComunes)
-                {
-                    await tw.WriteLineAsync(item.Fecha.Text + item.Categoria.Text);
-                }
+
+                sw.WriteLine(gasto.Fecha.ToString("dd/MM/yyyy"));
+                sw.WriteLine(gasto.Descripcion);
+                sw.WriteLine(gasto.Categoria);
+                sw.WriteLine(gasto.Moneda);
+                sw.WriteLine(gasto.Monto);
+                sw.WriteLine("####");
+
             }
-        }*/
+            sw.Close();
+            fileStream.Close();
+
+        
+        }
+
     }
 }

@@ -67,7 +67,7 @@
     <Compile Include="CategoriaMonto.cs" />
     <Compile Include="ExportarCSV.cs" />
     <Compile Include="ExportarReporteGasto.cs" />
-    <Compile Include="ExportarReporteGastoFactory.cs" />
+    <Compile Include="ExportarReporteGastoFabrica.cs" />
     <Compile Include="ExportarTXT.cs" />
     <Compile Include="ExportarXML.cs" />
     <Compile Include="IRepositorio.cs" />
