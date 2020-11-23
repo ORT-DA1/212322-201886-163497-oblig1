@@ -87,6 +87,12 @@
     <Compile Include="CrearPresupuesto.Designer.cs">
       <DependentUpon>CrearPresupuesto.cs</DependentUpon>
     </Compile>
+    <Compile Include="EliminarMoneda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EliminarMoneda.Designer.cs">
+      <DependentUpon>EliminarMoneda.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListadoGastosRecurrentes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,6 +140,12 @@
     </Compile>
     <Compile Include="AtributosGastoRecurrente.Designer.cs">
       <DependentUpon>AtributosGastoRecurrente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarMoneda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModificarMoneda.Designer.cs">
+      <DependentUpon>ModificarMoneda.cs</DependentUpon>
     </Compile>
     <Compile Include="ModificarPresupuesto.cs">
       <SubType>UserControl</SubType>
@@ -200,6 +212,9 @@
     <EmbeddedResource Include="CrearPresupuesto.resx">
       <DependentUpon>CrearPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EliminarMoneda.resx">
+      <DependentUpon>EliminarMoneda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListadoGastosRecurrentes.resx">
       <DependentUpon>ListadoGastosRecurrentes.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AtributosGastoRecurrente.resx">
       <DependentUpon>AtributosGastoRecurrente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarMoneda.resx">
+      <DependentUpon>ModificarMoneda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarPresupuesto.resx">
       <DependentUpon>ModificarPresupuesto.cs</DependentUpon>

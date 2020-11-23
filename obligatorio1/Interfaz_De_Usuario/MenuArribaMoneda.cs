@@ -26,5 +26,21 @@ namespace Interfaz_De_Usuario
             UserControl agregarMoneda = new AgregarMoneda(miAdminMonedas);
             panelNuevo.Controls.Add(agregarMoneda);
         }
+
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            panelNuevo.Controls.Clear();
+            UserControl modificarMoneda = new ModificarMoneda(miAdminMonedas);
+            panelNuevo.Controls.Add(modificarMoneda);
+
+        }
+
+        private void btnEliminarMoneda_Click(object sender, EventArgs e)
+        {
+            panelNuevo.Controls.Clear();
+            UserControl eliminarMoneda = new EliminarMoneda(miAdminMonedas);
+            panelNuevo.Controls.Add(eliminarMoneda);
+        }
     }
 }

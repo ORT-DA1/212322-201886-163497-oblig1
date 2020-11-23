@@ -66,7 +66,6 @@ namespace Dominio
             {
                 Categoria cat = contexto.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
                 cat.PalabrasClave.Remove(unaPalabra);
-               
                 PalabraClave palabra = contexto.PalabraClaves.FirstOrDefault(x => x.Id == unaPalabra.Id);
                 contexto.PalabraClaves.Remove(palabra);
                 contexto.SaveChanges();
@@ -77,7 +76,7 @@ namespace Dominio
          {
             using (var contexto = new Persistencia())
             {
-                Categoria cat = contexto.Categorias.FirstOrDefault(x=> x.Id == unaCategoria.Id);
+                Categoria cat = contexto.Categorias.Include("PalabrasClave").FirstOrDefault(x=> x.Id == unaCategoria.Id);
                 return cat.PalabrasClave.ToList();
             }
         }
@@ -91,6 +90,7 @@ namespace Dominio
             }
 
         }
+        //NO USAMOS ESTE METODO.
         public void EliminarCategoria(Categoria unaCategoria)
         {
             using (var contexto = new Persistencia())
@@ -219,6 +219,7 @@ namespace Dominio
             using (var contexto = new Persistencia())
             {
                 contexto.Monedas.Add(unaMoneda);
+                //contexto.Entry(categoriaMonto.Categoria).State = EntityState.Unchanged;
                 contexto.SaveChanges();
 
             }
@@ -242,8 +243,52 @@ namespace Dominio
             }
         }
 
+        public void BorrarMoneda(Moneda unaMoneda)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id);
+                contexto.Monedas.Remove(mon);
+                contexto.SaveChanges();
+            }
+        }
 
-       
+        public void ModificarNombreAMoneda(Moneda unaMoneda, string unNombre)
+        {
+
+            using (var contexto = new Persistencia())
+            {
+                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id);
+
+               
+                mon.Nombre = unNombre;
+              
+                contexto.SaveChanges();
+            }
+        }
+
+        public void ModificarSimboloAMoneda(Moneda unaMoneda, string unSimbolo)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id);
+                mon.Simbolo = unSimbolo;
+                contexto.SaveChanges();
+            }
+        }
+
+        public void ModificarCotizacionAMoneda(Moneda unaMoneda, double unaCotizacion)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id);
+                mon.Cotizacion = unaCotizacion;
+                contexto.SaveChanges();
+            }
+        }
+
+
+
 
 
         //GASTO RECURRENTE
@@ -251,7 +296,8 @@ namespace Dominio
         {
             using (var contexto = new Persistencia())
             {
-                contexto.Entry(unGastoRecurrente.Moneda).State = EntityState.Unchanged; 
+
+                contexto.Entry(unGastoRecurrente.Moneda).State = EntityState.Unchanged;
                 contexto.Entry(unGastoRecurrente.Categoria).State = EntityState.Unchanged;
                 contexto.Gastoes.Add(unGastoRecurrente);
                 contexto.SaveChanges();
@@ -301,10 +347,60 @@ namespace Dominio
             }
         }
 
+        public void ModificarDescripcionAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, string unaDescripcion)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Gasto gas = contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoRecuerrente.Id);
+                gas.Descripcion = unaDescripcion;
+                contexto.SaveChanges();
+            }
+        }
 
+        public void ModificarCategoriaAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, Categoria otraCategoria)
+        {//buscar esa categoria y asignarla
+            using (var contexto = new Persistencia())
+            {
+                Gasto gas = contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoRecuerrente.Id);
+                Categoria cat = contexto.Categorias.FirstOrDefault(x => x.Id == otraCategoria.Id);
+                gas.Categoria = cat;
+                contexto.SaveChanges();
+            }
+        }
+        
+        public void ModificarDiaDelMesAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, int dia)
+        {
+            throw new NotImplementedException();
+            /*
+            using (var contexto = new Persistencia())
+            {
+                Gasto gas = contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoRecuerrente.Id);
+                gas. = dia;
+                contexto.SaveChanges();
+            }*/
+        }
 
+        public void ModificarMontoAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, int monto)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Gasto gas = contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoRecuerrente.Id);
+                gas.Monto = monto;
+                contexto.SaveChanges();
+            }
+        }
 
-        //GASTO COMUN
+        public void ModificarMonedaAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, Moneda otraMoneda)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Gasto gas = contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoRecuerrente.Id);
+                Moneda mon = contexto.Monedas.FirstOrDefault(x => x.Id == unGastoRecuerrente.Id);
+                gas.Moneda = mon;
+                contexto.SaveChanges();
+            }
+        }
+            //GASTO COMUN
         public void AgregarGastoComun(GastoComun unGastoComun)
         {
             using (var contexto = new Persistencia())
@@ -312,6 +408,7 @@ namespace Dominio
                 contexto.Entry(unGastoComun.Moneda).State = EntityState.Unchanged;
                 contexto.Entry(unGastoComun.Categoria).State = EntityState.Unchanged;
                 contexto.Gastoes.Add(unGastoComun);
+                
                 contexto.SaveChanges();
 
             }
@@ -321,6 +418,8 @@ namespace Dominio
             using (var contexto = new Persistencia())
             {
                 Gasto gasto = contexto.Gastoes.FirstOrDefault(x => x.Id == unGastoComun.Id);
+                contexto.Entry(unGastoComun.Categoria).State = EntityState.Unchanged;
+                contexto.Entry(unGastoComun.Moneda).State = EntityState.Unchanged;
                 contexto.Gastoes.Remove(gasto);
                 contexto.SaveChanges();
             }

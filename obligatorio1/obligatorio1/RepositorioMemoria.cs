@@ -83,8 +83,59 @@ namespace Dominio
         {
             this.ListaGastosRecurrentes.Remove(unGastoRecurrente);
         }
+        public void ModificarDescripcionAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, string unaDescripcion)
+        {
+            foreach (GastoRecuerrente gas in this.ListaGastosRecurrentes)
+            {
+                if (gas == unGastoRecuerrente)
+                {
+                    gas.Descripcion = unaDescripcion;
+                }
+            }
+        }
 
+        public void ModificarCategoriaAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, Categoria otraCategoria)
+        {
+            foreach (GastoRecuerrente gas in this.ListaGastosRecurrentes)
+            {
+                if (gas == unGastoRecuerrente)
+                {
+                    gas.Categoria = otraCategoria;
+                }
+            }
+        }
 
+        public void ModificarDiaDelMesAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, int dia)
+        {
+            foreach (GastoRecuerrente gas in this.ListaGastosRecurrentes)
+            {
+                if (gas == unGastoRecuerrente)
+                {
+                    gas.Fecha = dia;
+                }
+            }
+        }
+        public void ModificarMontoAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, int monto)
+        {
+            foreach (GastoRecuerrente gas in this.ListaGastosRecurrentes)
+            {
+                if (gas == unGastoRecuerrente)
+                {
+                    gas.Monto = monto;
+                }
+            }
+        }
+
+        public void ModificarMonedaAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, Moneda otraMoneda)
+        {
+            foreach (GastoRecuerrente gas in this.ListaGastosRecurrentes)
+            {
+                if (gas == unGastoRecuerrente)
+                {
+                    gas.Moneda = otraMoneda;
+                }
+            }
+        }
 
         public void AgregarGastoComun(GastoComun unGastoComun)
         {
@@ -173,7 +224,42 @@ namespace Dominio
         {
             return this.ListaMonedas.Contains(unaMoneda);
         }
+        public void BorrarMoneda(Moneda unaMoneda)
+        {
+            this.ListaMonedas.Remove(unaMoneda);
+        }
+        public void ModificarNombreAMoneda(Moneda unaMoneda, string unNombre)
+        {
+            foreach(Moneda mon in this.ListaMonedas)
+            {
+                if(mon == unaMoneda)
+                {
+                    mon.Nombre = unNombre;
+                }
+            }
+        }
+        public void ModificarSimboloAMoneda(Moneda unaMoneda, string unSimbolo)
+        {
+            foreach (Moneda mon in this.ListaMonedas)
+            {
+                if (mon == unaMoneda)
+                {
+                    mon.Simbolo = unSimbolo;
+                }
+            }
+        }
+        public void ModificarCotizacionAMoneda(Moneda unaMoneda, double unaCotizacion)
+        {
+            foreach (Moneda mon in this.ListaMonedas)
+            {
+                if (mon == unaMoneda)
+                {
+                    mon.Cotizacion = unaCotizacion;
+                }
+            }
 
-       
+        }
+
+
     }
 }
