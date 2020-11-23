@@ -16,7 +16,9 @@ namespace Test
         private AdministradorCategorias adminCategorias;
         private GastoComun unGastoComun;
         private Categoria unaCategoria;
+        private Categoria otraCategoria;
         private AdministradorPresupuesto adminPresupuesto;
+        private GastoComun gasto;
 
         [TestInitialize]
         public void InitTests()
@@ -25,8 +27,11 @@ namespace Test
             adminGastosComunes = new AdministradorGastosComunes(miRepositorio);
             adminPresupuesto = new AdministradorPresupuesto(miRepositorio);
             adminCategorias = new AdministradorCategorias(miRepositorio);
-            
+
+           
             unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
+            otraCategoria = new Categoria() { Nombre = "Super" };
+            gasto = new GastoComun() { Categoria = unaCategoria };
             unGastoComun = new GastoComun() { Categoria = unaCategoria};
         }
 
@@ -68,7 +73,14 @@ namespace Test
             Assert.IsTrue(adminGastosComunes.EsVaciaListaGastosComunes());
 
         }
-
-
+  /*      [TestMethod]
+        public void ModificarGastoPrueba()
+        {
+            GastoComun gastoAntes = gasto;
+            adminGastosComunes.AgregarGastoComun(gasto);
+            adminGastosComunes.ModificarGasto(gasto);
+            GastoComun gastoDespues = gasto;
+            Assert.AreNotEqual(gastoAntes,gastoDespues);
+        }*/
     }
 }

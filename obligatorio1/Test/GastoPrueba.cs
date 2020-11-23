@@ -12,6 +12,7 @@ namespace Test
         private Gasto gasto;
         private Categoria cat;
         private Moneda moneda;
+        private Categoria categoria;
 
         [TestInitialize]
         public void InitTests()
@@ -19,6 +20,7 @@ namespace Test
             gasto = new Gasto();
             cat = new Categoria();
             moneda = new Moneda();
+            categoria = new Categoria() { Nombre = "Entretenimiento" };
         }
 
         [TestMethod]

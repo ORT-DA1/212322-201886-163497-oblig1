@@ -50,5 +50,6 @@ int CantidadElementosEnListaMesesDondeHayGastos();*/
         List<CategoriaMonto> RetornarCategoriaMontoDelRepo(Presupuesto unPresupuesto);
 
         void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, double unMonto);
+        void ModificarGasto(GastoComun unGasto);
     }
 }

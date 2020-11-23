@@ -389,11 +389,14 @@ namespace Dominio
 
             }
         }
+
+        //METODO NO IMPLEMENTADO---------------------------
         public bool EsVaciaListaMesesDondeHayGastos()
         {
             throw new NotImplementedException();
 
         }
+        //--------------------------------------------------
         public bool ExisteGastoComun(GastoComun unGastoComun)
         {
             using (var contexto = new Persistencia())
@@ -412,38 +415,45 @@ namespace Dominio
                 return contexto.Gastoes.Include("Categoria").Include("Moneda").OfType<GastoComun>().ToList(); //retorna una lista de gastos y no de gastos comunes
             }
         }
+        public void ModificarGasto(GastoComun unGasto)
+        {
+            using (var contexto = new Persistencia())
+            {
+                Gasto gasto = contexto.Gastoes.FirstOrDefault(x => x.Id == unGasto.Id);
 
+                contexto.Monedas.Attach(unGasto.Moneda);
+                contexto.Categorias.Attach(unGasto.Categoria);
+                contexto.Entry(gasto).CurrentValues.SetValues(unGasto);
+                gasto.Categoria= unGasto.Categoria;
+                gasto.Moneda= unGasto.Moneda;
 
-
-
-
-
-
-
+                contexto.SaveChanges();
+            }
+}
 
 
 
 
 /*
-        public List<DateTime> RetornarListaMesesDondeHayGasto()
-        {
-            throw new NotImplementedException();
-        }
-        public void AgregarMesDondeHayGasto(DateTime unaFecha)
-        {
-            throw new NotImplementedException();
-        }
-        public int CantidadElementosEnListaMesesDondeHayGastos()
-        {
-            throw new NotImplementedException();
-        }
-        public bool ExisteMes(DateTime unaFecha)
-        {
-            throw new NotImplementedException();
-        }*/
+  public List<DateTime> RetornarListaMesesDondeHayGasto()
+  {
+      throw new NotImplementedException();
+  }
+  public void AgregarMesDondeHayGasto(DateTime unaFecha)
+  {
+      throw new NotImplementedException();
+  }
+  public int CantidadElementosEnListaMesesDondeHayGastos()
+  {
+      throw new NotImplementedException();
+  }
+  public bool ExisteMes(DateTime unaFecha)
+  {
+      throw new NotImplementedException();
+  }*/
 
 
 
 
-    }
+     }
 }
