@@ -11,12 +11,10 @@ namespace Dominio
     {
         public ExportarTxt() { }
 
-        // public override void Exportar(List<GastoComun> listaGastosComunes, String direccion)
         public override void Exportar(List<GastoComun> listaGastosComunes, Stream fileStream)
         {
 
             StreamWriter sw = new StreamWriter(fileStream);
-            
             foreach (GastoComun gasto in listaGastosComunes)
             {
 
@@ -28,32 +26,10 @@ namespace Dominio
                 sw.WriteLine("####");
 
             }
-
             sw.Close();
             fileStream.Close();
 
-            /*
-             // funciona
-             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Sara Vila\Desktop\ReporteGastos.txt"))
-            
-            //using (System.IO.StreamWriter file = new System.IO.StreamWriter(direccion + "\\ReporteGastos.txt"))
-            {
-                foreach (GastoComun gasto in listaGastosComunes)
-                {
-                    
-                    file.WriteLine(gasto.Fecha.ToString("dd/MM/yyyy"));
-                    file.WriteLine(gasto.Descripcion);
-                    file.WriteLine(gasto.Categoria);
-                    file.WriteLine(gasto.Moneda);
-                    file.WriteLine(gasto.Monto);
-                    file.WriteLine("######");
-                   
-                }
-            }*/
-
-
-
-
+        
         }
 
     }

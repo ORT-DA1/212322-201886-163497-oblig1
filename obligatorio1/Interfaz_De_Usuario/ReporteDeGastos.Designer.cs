@@ -43,9 +43,9 @@
             this.lbTotal = new System.Windows.Forms.Label();
             this.btnExportar = new System.Windows.Forms.Button();
             this.cbTipoDeArchivo = new System.Windows.Forms.ComboBox();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -90,11 +90,11 @@
             // s
             // 
             this.s.AutoSize = true;
-            this.s.Location = new System.Drawing.Point(518, 466);
+            this.s.Location = new System.Drawing.Point(501, 466);
             this.s.Name = "s";
-            this.s.Size = new System.Drawing.Size(107, 20);
+            this.s.Size = new System.Drawing.Size(142, 20);
             this.s.TabIndex = 15;
-            this.s.Text = "Total del mes:";
+            this.s.Text = "Total del mes en $:";
             // 
             // label2
             // 
@@ -116,7 +116,7 @@
             this.tablaGastos.HideSelection = false;
             this.tablaGastos.Location = new System.Drawing.Point(42, 177);
             this.tablaGastos.Name = "tablaGastos";
-            this.tablaGastos.Size = new System.Drawing.Size(658, 261);
+            this.tablaGastos.Size = new System.Drawing.Size(711, 261);
             this.tablaGastos.TabIndex = 17;
             this.tablaGastos.UseCompatibleStateImageBehavior = false;
             this.tablaGastos.View = System.Windows.Forms.View.Details;
@@ -150,7 +150,7 @@
             // 
             this.lbTotal.AutoSize = true;
             this.lbTotal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbTotal.Location = new System.Drawing.Point(631, 466);
+            this.lbTotal.Location = new System.Drawing.Point(668, 466);
             this.lbTotal.Name = "lbTotal";
             this.lbTotal.Size = new System.Drawing.Size(54, 20);
             this.lbTotal.TabIndex = 18;
@@ -158,9 +158,9 @@
             // 
             // btnExportar
             // 
-            this.btnExportar.Location = new System.Drawing.Point(355, 459);
+            this.btnExportar.Location = new System.Drawing.Point(320, 482);
             this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(86, 34);
+            this.btnExportar.Size = new System.Drawing.Size(86, 38);
             this.btnExportar.TabIndex = 19;
             this.btnExportar.Text = "Exportar";
             this.btnExportar.UseVisualStyleBackColor = true;
@@ -169,7 +169,7 @@
             // cbTipoDeArchivo
             // 
             this.cbTipoDeArchivo.FormattingEnabled = true;
-            this.cbTipoDeArchivo.Location = new System.Drawing.Point(84, 463);
+            this.cbTipoDeArchivo.Location = new System.Drawing.Point(42, 486);
             this.cbTipoDeArchivo.Name = "cbTipoDeArchivo";
             this.cbTipoDeArchivo.Size = new System.Drawing.Size(251, 28);
             this.cbTipoDeArchivo.TabIndex = 20;
@@ -178,10 +178,20 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(39, 462);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 20);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Tipo de archivo";
+            // 
             // ReporteDeGastos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cbTipoDeArchivo);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.lbTotal);
@@ -216,8 +226,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.ComboBox cbTipoDeArchivo;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -67,6 +67,10 @@ namespace Interfaz_De_Usuario
             {
                 MessageBox.Show("Debe seleccionar el tipo de archivo que quiere exportar");
             }
+            else if (cbMesAnio.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar un mes para exportar el reporte");
+            }
             else
             {
                 DateTime fecha = Convert.ToDateTime(cbMesAnio.SelectedItem);
