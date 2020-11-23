@@ -48,6 +48,7 @@ namespace Interfaz_De_Usuario
                 listView1.Items.Clear();
                 foreach (var catMonto in listaCatMonto)
                 {
+                    
                     double gastoTotalDeCatEnMes = adminReporteGastos.CalcularGastoTotalDeCategoriaEnMes(fecha.Year, fecha.Month, catMonto.Categoria);
                     double diferenciaTotalPlanificado = catMonto.Monto - gastoTotalDeCatEnMes;
                     String diferenciaTotalPlanificadoString = diferenciaTotalPlanificado.ToString();

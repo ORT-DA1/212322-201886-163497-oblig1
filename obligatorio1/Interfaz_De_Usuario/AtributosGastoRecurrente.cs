@@ -57,11 +57,11 @@ namespace Interfaz_De_Usuario
 
             try
             {
-                unGastoRecurrente.Monto = (double)numMonto.Value;
-                //unAdminGastosRecurrentes.AgregarMontoEnPesos(unGastoRecurrente);
+                unGastoRecurrente.Monto = (double)numMonto.Value;                
                 unGastoRecurrente.Fecha = (int)numFecha.Value;
                 unGastoRecurrente.Categoria = (Categoria)cbCategoria.SelectedItem;
                 unGastoRecurrente.Moneda = (Moneda)cbMoneda.SelectedItem;
+                unAdminGastosRecurrentes.AgregarMontoEnPesos(unGastoRecurrente);
                 unAdminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecurrente);
 
                 MessageBox.Show("El gasto recurrente ha sido creado con exito");

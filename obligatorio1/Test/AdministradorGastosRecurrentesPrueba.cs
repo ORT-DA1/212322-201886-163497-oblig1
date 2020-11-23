@@ -136,7 +136,7 @@ namespace Test
         [TestMethod]
         public void RetornarCotizacionOriginalPrueba()
         {
-            //cotizacion estaba en 2.00
+            //cotizacion estaba en 2.00 originalmente
             adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
             adminMonedas.ModificarCotizacionAMoneda(unGastoRecuerrente.Moneda, 10);
 

@@ -67,7 +67,7 @@ namespace Dominio
             int dia = gastoRecurrente.Fecha;
             GastoComun gasto = new GastoComun()
             {
-                Monto = gastoRecurrente.Monto,
+                Monto = gastoRecurrente.MontoEnPesos,
                 Descripcion = gastoRecurrente.Descripcion,
                 Categoria = gastoRecurrente.Categoria,
                 Fecha = new DateTime(anio, mes, dia)
