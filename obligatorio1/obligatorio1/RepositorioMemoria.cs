@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Dominio
 {
@@ -157,6 +156,7 @@ namespace Dominio
         {
             this.ListaGastosComunes.Remove(unGastoComun);
         }
+        public void ModificarGasto(GastoComun unGasto){ }
 
         public List<CategoriaMonto> RetornarCategoriaMontoDelRepo(Presupuesto unPresupuesto)
         {
@@ -260,6 +260,9 @@ namespace Dominio
 
         }
 
+        
+          
 
+  
     }
 }

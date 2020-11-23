@@ -42,6 +42,8 @@
             this.lblMonto = new System.Windows.Forms.Label();
             this.tbDescripcion = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
+            this.Moneda = new System.Windows.Forms.Label();
+            this.cbMoneda = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numMonto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,7 +99,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(40, 195);
+            this.label1.Location = new System.Drawing.Point(36, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(315, 26);
             this.label1.TabIndex = 33;
@@ -165,7 +167,7 @@
             // 
             // tbDescripcion
             // 
-            this.tbDescripcion.Location = new System.Drawing.Point(251, 249);
+            this.tbDescripcion.Location = new System.Drawing.Point(251, 261);
             this.tbDescripcion.MaxLength = 20;
             this.tbDescripcion.Name = "tbDescripcion";
             this.tbDescripcion.Size = new System.Drawing.Size(317, 26);
@@ -175,16 +177,36 @@
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(94, 249);
+            this.lblDescripcion.Location = new System.Drawing.Point(86, 259);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(127, 26);
             this.lblDescripcion.TabIndex = 41;
             this.lblDescripcion.Text = "Descripcion";
             // 
+            // Moneda
+            // 
+            this.Moneda.AutoSize = true;
+            this.Moneda.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Moneda.Location = new System.Drawing.Point(123, 210);
+            this.Moneda.Name = "Moneda";
+            this.Moneda.Size = new System.Drawing.Size(90, 26);
+            this.Moneda.TabIndex = 43;
+            this.Moneda.Text = "Moneda";
+            // 
+            // cbMoneda
+            // 
+            this.cbMoneda.FormattingEnabled = true;
+            this.cbMoneda.Location = new System.Drawing.Point(251, 212);
+            this.cbMoneda.Name = "cbMoneda";
+            this.cbMoneda.Size = new System.Drawing.Size(317, 28);
+            this.cbMoneda.TabIndex = 44;
+            // 
             // ModificarGastoComun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbMoneda);
+            this.Controls.Add(this.Moneda);
             this.Controls.Add(this.tbDescripcion);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.numMonto);
@@ -223,5 +245,7 @@
         private System.Windows.Forms.Label lblMonto;
         private System.Windows.Forms.TextBox tbDescripcion;
         private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.Label Moneda;
+        private System.Windows.Forms.ComboBox cbMoneda;
     }
 }

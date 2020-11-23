@@ -56,6 +56,10 @@ namespace Dominio
                 unGasto.MontoEnPesos = unGasto.Monto;
             }
         }
+        public void ModificarGasto(GastoComun unGasto)
+        {
+            Repositorio.ModificarGasto(unGasto);
+        }
 
     }
 }

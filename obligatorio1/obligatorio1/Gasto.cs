@@ -54,6 +54,7 @@ namespace Dominio
             Categoria = unaCategoria;
             Moneda = moneda;
         }
+        
         public override string ToString()
         {
 

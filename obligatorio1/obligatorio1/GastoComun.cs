@@ -7,7 +7,7 @@ namespace Dominio
     {
         //public int Id { get; set; }
         private DateTime unaFecha;
-        [Display(Name = "Fecha_GastoComun")]
+        [Display(Name = "Fecha_GastoComun")]//funciona?
         public DateTime Fecha
         {
             get { return unaFecha; }

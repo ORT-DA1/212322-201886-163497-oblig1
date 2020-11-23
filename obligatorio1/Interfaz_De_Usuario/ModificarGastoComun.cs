@@ -8,16 +8,20 @@ namespace Interfaz_De_Usuario
     {
         private AdministradorGastosComunes unAdminGastoComun;
         private AdministradorCategorias unAdminCategorias;
+        private AdministradorMonedas unAdminMonedas;
 
-        public ModificarGastoComun(AdministradorGastosComunes miAdminGastoComun, AdministradorCategorias miAdminCategorias)
+        public ModificarGastoComun(AdministradorGastosComunes miAdminGastoComun, AdministradorCategorias miAdminCategorias,
+                                        AdministradorMonedas miAdminMonedas)
         {
             InitializeComponent();
             unAdminGastoComun = miAdminGastoComun;
             unAdminCategorias = miAdminCategorias;
+            unAdminMonedas = miAdminMonedas;
             CargarComboBox();
         }
         public void CargarComboBox()
         {
+            cbMoneda.DataSource = unAdminMonedas.RetornarListaMonedas();
             cbGastoComun.DataSource = unAdminGastoComun.RetornarListaGastosComunes();
             cbCategoria.DataSource = unAdminCategorias.RetornarListaCategorias();
         }
@@ -57,9 +61,12 @@ namespace Interfaz_De_Usuario
 
             GastoComun gastoAmodificar = (GastoComun)cbGastoComun.SelectedItem;
             gastoAmodificar.Descripcion = tbDescripcion.Text;
+            gastoAmodificar.Moneda =(Moneda)cbMoneda.SelectedItem;
             gastoAmodificar.Monto = (double)numMonto.Value;
             gastoAmodificar.Fecha = dtFecha.Value;
             gastoAmodificar.Categoria = (Categoria)cbCategoria.SelectedItem;
+            unAdminGastoComun.ModificarGasto(gastoAmodificar);
+
             MessageBox.Show("El gasto ha modificado con exito ");
 
         }
