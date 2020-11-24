@@ -34,8 +34,7 @@ namespace Test
             unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
             otraCategoria = new Categoria() { Nombre = "Super" };
 
-            gasto = new GastoComun() { Id = 1 };
-            gasto = new GastoComun() { Categoria = unaCategoria };
+            gasto = new GastoComun() { Id = 1, Categoria = unaCategoria, Moneda = moneda };
             unGastoComun = new GastoComun() { Categoria = unaCategoria, Moneda = moneda };
 
         }
@@ -72,10 +71,11 @@ namespace Test
         [TestMethod]
         public void ModificarGastoPrueba()
         {
-            GastoComun nuevo = new GastoComun() {Id=1};
+            adminGastosComunes.AgregarGastoComun(gasto);
+            GastoComun nuevo = new GastoComun() {Id=1, Descripcion = "Nueva Descripcion"};
             adminGastosComunes.ModificarGasto(nuevo);
-        
-            Assert.AreEqual(nuevo.Categoria,gasto.Categoria);
+
+            Assert.AreEqual(nuevo.Descripcion,"Nueva Descripcion");
         }
     }
 }

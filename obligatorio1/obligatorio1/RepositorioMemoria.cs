@@ -9,8 +9,6 @@ namespace Dominio
         private List<GastoRecuerrente> ListaGastosRecurrentes { get; }
         private List<Presupuesto> ListaPresupuestos { get; }
         private List<GastoComun> ListaGastosComunes { get; }
-       // private List<DateTime> ListaMesesDondeHayGastos { get; set; }
-        //private List<DateTime> ListaMesesDondeHayPresupuestos { get; set; }
         private List<Moneda> ListaMonedas { get; set; }
 
         public RepositorioMemoria()
@@ -19,25 +17,22 @@ namespace Dominio
             ListaGastosRecurrentes = new List<GastoRecuerrente>();
             ListaGastosComunes = new List<GastoComun>();
             ListaPresupuestos = new List<Presupuesto>();
-           // ListaMesesDondeHayGastos = new List<DateTime>();
-           // ListaMesesDondeHayPresupuestos = new List<DateTime>();
             ListaMonedas = new List<Moneda>();
+         }
 
-
-        }
-
-         public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra){}
+        public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra){}
 
         public void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra) {}
 
-        public void AgregarCategoriaMonto(CategoriaMonto catMonto,Presupuesto presupuesto){}
+        public void AgregarCategoriaMonto(CategoriaMonto catMonto,Presupuesto presupuesto)
+        {
+
+        }
 
         public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
         {
             return unaCategoria.PalabrasClave;
         }
-
-
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
@@ -59,8 +54,6 @@ namespace Dominio
         {
             this.ListaCategorias.Remove(unaCategoria);
         }
-
-
 
         public void AgregarGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
@@ -171,7 +164,6 @@ namespace Dominio
                 }
             }
         }
-
         public List<CategoriaMonto> RetornarCategoriaMontoDelRepo(Presupuesto unPresupuesto)
         {
             return unPresupuesto.ListaCategoriaMonto;
@@ -181,31 +173,6 @@ namespace Dominio
         {
             unPresupuesto.ModificarMontoACategoria(unaCategoria, unMonto);
         }
-
-
-        /*public List<DateTime> RetornarListaMesesDondeHayGasto()
-        {
-            return this.ListaMesesDondeHayGastos;
-        }
-        public void AgregarMesDondeHayGasto(DateTime unaFecha)
-        {
-            this.ListaMesesDondeHayGastos.Add(unaFecha);
-        }
-        public bool EsVaciaListaMesesDondeHayGastos()
-        {
-            return this.ListaMesesDondeHayGastos.Count == 0;
-        }
-        public bool ExisteMes(DateTime unaFecha)
-        {
-            return this.ListaMesesDondeHayGastos.Contains(unaFecha);
-        }
-
-        public int CantidadElementosEnListaMesesDondeHayGastos()
-        {
-            return this.ListaMesesDondeHayGastos.Count();
-        }*/
-
-
         public void AgregarPresupuesto(Presupuesto unPresupuesto)
         {
             this.ListaPresupuestos.Add(unPresupuesto);
@@ -214,7 +181,6 @@ namespace Dominio
         {
             return this.ListaPresupuestos;
         }
-   
         public bool ExisteUnPresupuesto(DateTime unaFecha)
         {
             foreach (Presupuesto presupuesto in this.ListaPresupuestos)
@@ -223,17 +189,14 @@ namespace Dominio
             }
             return false;
         }
-
         public void AgregarMoneda(Moneda unaMoneda)
         {
             this.ListaMonedas.Add(unaMoneda);
         }
-
         public List<Moneda> RetornarListaMonedas()
         {
             return this.ListaMonedas;
         }
-
         public bool ExisteMoneda(Moneda unaMoneda)
         {
             return this.ListaMonedas.Contains(unaMoneda);
@@ -273,9 +236,6 @@ namespace Dominio
             }
 
         }
-
-        
-          
 
   
     }

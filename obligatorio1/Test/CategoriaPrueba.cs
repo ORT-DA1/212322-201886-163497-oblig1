@@ -29,6 +29,13 @@ namespace Test
         }
 
         [TestMethod]
+        public void PropertyIdCategoriaPrueba()
+        {
+            categoria.Id = 1;
+            Assert.AreEqual(categoria.Id, 1);
+        }
+
+        [TestMethod]
         public void CrearCatListaVaciaPrueba()
         {
             Assert.IsTrue(categoria.EsVacia());
@@ -82,8 +89,6 @@ namespace Test
             PalabraClave palabraClaveDos = new PalabraClave { Palabra = "cInE" };
             Assert.IsTrue(categoria.ExistePalabraClave(palabraClaveDos));
         }
-
-       
 
         [TestMethod]
         public void toStringCategoriaPrueba()

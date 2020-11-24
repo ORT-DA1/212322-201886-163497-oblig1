@@ -35,7 +35,6 @@ namespace Test
             List<Presupuesto> ListaLocal = new List<Presupuesto>();
             Assert.IsTrue(adminPresupuestos.RetornarListaPresupuestos().SequenceEqual(ListaLocal));
         }
-        
        
         [TestMethod]
         public void AgregarPresupuestoPrueba()
@@ -110,9 +109,6 @@ namespace Test
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
             Assert.AreEqual(adminPresupuestos.RetornarPresupuestoSegunMes(1, 2020).Fecha.Year, 2020);
         }
-
-
-
 
 
     }

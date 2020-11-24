@@ -16,6 +16,7 @@ namespace Test
         private Categoria unaCategoria;
         private IRepositorio miRepositorio;
         private GastoComun unGastoComun;
+        private Moneda moneda;
 
         [TestInitialize]
         public void InitTest()
@@ -24,8 +25,9 @@ namespace Test
             adminGastosRecurrentes = new AdministradorGastosRecurrentes(miRepositorio);
             adminGastosComunes = new AdministradorGastosComunes(miRepositorio);
             unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
-            unGastoRecuerrente = new GastoRecuerrente() { Categoria = unaCategoria };
-            unGastoComun = new GastoComun() { Categoria = unaCategoria };
+            moneda = new Moneda { Simbolo = "UYU" };
+            unGastoRecuerrente = new GastoRecuerrente() { Categoria = unaCategoria, Moneda = moneda };
+            unGastoComun = new GastoComun() { Categoria = unaCategoria, Moneda = moneda };
             adminReporteGastos = new AdministradorReporteGastos(miRepositorio);
         }
 
@@ -61,13 +63,12 @@ namespace Test
         }
 
         [TestMethod]
-
         public void DevolverListaDeGastosSegunFechaPrueba()
         {
             unGastoComun.Fecha = new DateTime(2020, 5, 1);
             adminGastosComunes.AgregarGastoComun(unGastoComun);
 
-            GastoComun otroGasto = new GastoComun() { Fecha = new DateTime(2020, 6, 1) };
+            GastoComun otroGasto = new GastoComun() { Moneda = moneda, Fecha = new DateTime(2020, 6, 1) };
             otroGasto.Categoria = new Categoria { Nombre = "Auto" };
             adminGastosComunes.AgregarGastoComun(otroGasto);
 
@@ -87,34 +88,28 @@ namespace Test
             adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
             Assert.AreEqual(2, adminReporteGastos.UnirListaGastosDelMes(2020, 5).Count());
 
-
         }
 
         [TestMethod]
         public void OrdenarListaMesesDondeHayGastoAnioPrueba()
         {
             unGastoComun.Fecha = new DateTime(2020, 10, 1);
-            GastoComun otroGasto = new GastoComun { Fecha = new DateTime(2018, 11, 1) };
-
-            /*miRepositorio.AgregarMesDondeHayGasto(unGastoComun.Fecha);
-            miRepositorio.AgregarMesDondeHayGasto(otroGasto.Fecha);*/
-
-
+            GastoComun otroGasto = new GastoComun { Moneda = moneda, Fecha = new DateTime(2018, 11, 1) };
+            adminGastosComunes.AgregarGastoComun(otroGasto);
+        
             Assert.AreEqual(adminReporteGastos.CrearYRetornalListaDeMesesDondeHayGastoOrdenada().First().Year, 2018);
-
         }
 
         [TestMethod]
-        public void OrdenarListaDondeHayGastoOrdenDeMesesPrueba()
+        public void CrearYRetornalListaDeMesesDondeHayGastoOrdenadaPrueba()
         {
             unGastoComun.Fecha = new DateTime(2020, 10, 1);
-            GastoComun unGasto = new GastoComun { Fecha = new DateTime(2020, 5, 1) };
-            GastoComun otroGasto = new GastoComun { Fecha = new DateTime(2020, 6, 1) };
-
-      /*      miRepositorio.AgregarMesDondeHayGasto(unGastoComun.Fecha);
-            miRepositorio.AgregarMesDondeHayGasto(unGasto.Fecha);
-            miRepositorio.AgregarMesDondeHayGasto(otroGasto.Fecha);*/
-
+            GastoComun unGasto = new GastoComun { Moneda = moneda, Fecha = new DateTime(2020, 5, 1) };
+            GastoComun otroGasto = new GastoComun { Moneda = moneda, Fecha = new DateTime(2020, 6, 1) };
+            adminGastosComunes.AgregarGastoComun(unGastoComun);
+            adminGastosComunes.AgregarGastoComun(unGasto);
+            adminGastosComunes.AgregarGastoComun(otroGasto);
+           
             List<DateTime> ListaLocal = new List<DateTime>();
             ListaLocal.Add(new DateTime(2020, 5, 1));
             ListaLocal.Add(new DateTime(2020, 6, 1));
@@ -136,7 +131,8 @@ namespace Test
         {
             unGastoComun.Fecha = new DateTime(2020, 10, 2);
             adminGastosComunes.AgregarGastoComun(unGastoComun);
-            GastoComun unGasto = new GastoComun { Categoria = unaCategoria, Fecha = new DateTime(2020, 10, 2) };
+
+            GastoComun unGasto = new GastoComun { Categoria = unaCategoria, Moneda = moneda, Fecha = new DateTime(2020, 10, 2) };
             adminGastosComunes.AgregarGastoComun(unGasto);
             Assert.AreEqual(1, adminReporteGastos.CrearYRetornalListaDeMesesDondeHayGastoOrdenada().Count());
         }
@@ -166,7 +162,7 @@ namespace Test
         {
             unGastoComun.Fecha = new DateTime(2020, 10, 28);
             unGastoComun.Monto = 100;
-            GastoComun unGasto = new GastoComun { Categoria = unaCategoria, Monto = 100, Fecha = new DateTime(2020, 10, 2) };
+            GastoComun unGasto = new GastoComun { Categoria = unaCategoria, Moneda = moneda, Monto = 100, Fecha = new DateTime(2020, 10, 2) };
             adminGastosComunes.AgregarGastoComun(unGastoComun);
             adminGastosComunes.AgregarGastoComun(unGasto);
             double resultado = 200;
@@ -178,8 +174,8 @@ namespace Test
         public void CalcularGastoTotalDeCategoriaEnMesPrueba()
         {
             
-            GastoComun unGasto = new GastoComun { Categoria = unaCategoria, Monto = 100, Fecha = new DateTime(2020, 10, 2) };
-            GastoComun otroGasto = new GastoComun { Categoria = unaCategoria, Monto = 200, Fecha = new DateTime(2020, 10, 2) };
+            GastoComun unGasto = new GastoComun { Categoria = unaCategoria, Moneda = moneda, Monto = 100, Fecha = new DateTime(2020, 10, 2) };
+            GastoComun otroGasto = new GastoComun { Categoria = unaCategoria, Moneda = moneda, Monto = 200, Fecha = new DateTime(2020, 10, 2) };
             adminGastosComunes.AgregarGastoComun(unGasto);
             adminGastosComunes.AgregarGastoComun(otroGasto);
 
