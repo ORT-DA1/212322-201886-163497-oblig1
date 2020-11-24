@@ -73,6 +73,7 @@ namespace Interfaz_De_Usuario
                 unAdminGastosComun.AgregarGastoComun(gastoC);
                 
                 MessageBox.Show("El gasto ha sido creado con exito ");
+               
 
             }
             catch (Exception unaExcepcion)

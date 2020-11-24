@@ -65,6 +65,7 @@ namespace Dominio
         {
             this.Nombre = "Peso Uruguayo";
             this.Simbolo = "UYU";
+            this.Cotizacion = 1.00;
         }
         public override bool Equals(Object obj)
         {

@@ -19,6 +19,8 @@ namespace Test
         private Categoria otraCategoria;
         private AdministradorPresupuesto adminPresupuesto;
         private GastoComun gasto;
+        private Moneda moneda;
+        
 
         [TestInitialize]
         public void InitTests()
@@ -28,11 +30,14 @@ namespace Test
             adminPresupuesto = new AdministradorPresupuesto(miRepositorio);
             adminCategorias = new AdministradorCategorias(miRepositorio);
 
-           
+            moneda = new Moneda { Simbolo = "UYU" };
             unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
             otraCategoria = new Categoria() { Nombre = "Super" };
-            gasto = new GastoComun() { Id=1 };
-            unGastoComun = new GastoComun() { Categoria = unaCategoria};
+
+            gasto = new GastoComun() { Id = 1 };
+            gasto = new GastoComun() { Categoria = unaCategoria };
+            unGastoComun = new GastoComun() { Categoria = unaCategoria, Moneda = moneda };
+
         }
 
         [TestMethod]
@@ -56,22 +61,12 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ExcepcionElementoNoExistente))]
-        public void AgregarGastoComunConCategoriaVaciaPrueba()
-        {
-            GastoComun otroGastoComun = new GastoComun();
-            adminGastosComunes.AgregarGastoComun(otroGastoComun);
-
-        }
-
-        [TestMethod]
         public void EliminarGastoComunPrueba()
         {           
             adminGastosComunes.AgregarGastoComun(unGastoComun);
             adminGastosComunes.EliminarGastoComun(unGastoComun);
 
             Assert.IsTrue(adminGastosComunes.EsVaciaListaGastosComunes());
-
         }
 
         [TestMethod]
