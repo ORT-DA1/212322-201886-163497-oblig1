@@ -29,19 +29,10 @@ namespace Dominio
         void AgregarPresupuesto(Presupuesto unPresupuesto);
         void ModificarSimboloAMoneda(Moneda unaMoneda, string unSimbolo);
         void ModificarCotizacionAMoneda(Moneda unaMoneda, double unaCotizacion);
-
-        /*List<DateTime> RetornarListaMesesDondeHayGasto();
-void AgregarMesDondeHayGasto(DateTime unaFecha);
-bool EsVaciaListaMesesDondeHayGastos();
-bool ExisteMes(DateTime unaFecha);
-int CantidadElementosEnListaMesesDondeHayGastos();*/
         List<Presupuesto> RetornarListaPresupuestos();
-       // List<DateTime> RetornarListaMesesDondeHayPresupuesto();
-        //void AgregarMesDondeHayPresupuesto(DateTime unaFecha);
         bool ExisteUnPresupuesto(DateTime unaFecha);
         void ModificarDescripcionAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, string unaDescripcion);
         void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra);
-
         List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria);
         void ModificarCategoriaAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, Categoria otraCategoria);
         void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra);

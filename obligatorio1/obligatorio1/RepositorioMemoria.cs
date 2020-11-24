@@ -19,21 +19,6 @@ namespace Dominio
             ListaPresupuestos = new List<Presupuesto>();
             ListaMonedas = new List<Moneda>();
          }
-
-        public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra){}
-
-        public void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra) {}
-
-        public void AgregarCategoriaMonto(CategoriaMonto catMonto,Presupuesto presupuesto)
-        {
-
-        }
-
-        public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
-        {
-            return unaCategoria.PalabrasClave;
-        }
-
         public void AgregarCategoria(Categoria unaCategoria)
         {
             this.ListaCategorias.Add(unaCategoria);
@@ -54,7 +39,22 @@ namespace Dominio
         {
             this.ListaCategorias.Remove(unaCategoria);
         }
-
+        public List<PalabraClave> RetornarPalabrasClaveDeCategoriaDelRepo(Categoria unaCategoria)
+        {
+            return unaCategoria.PalabrasClave;
+        }
+        public void AgregarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra)
+        {
+            categoria.AgregarPalabraClave(unaPalabra);
+        }
+        public void EliminarPalabrasEnRepo(Categoria categoria, PalabraClave unaPalabra) 
+        {
+            categoria.BorrarPalabraClave(unaPalabra);
+        }
+        public void AgregarCategoriaMonto(CategoriaMonto catMonto, Presupuesto presupuesto)
+        {
+            presupuesto.AgregarCategoriaMonto(catMonto);
+        }
         public void AgregarGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
             ListaGastosRecurrentes.Add(unGastoRecurrente);
@@ -85,7 +85,6 @@ namespace Dominio
                 }
             }
         }
-
         public void ModificarCategoriaAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, Categoria otraCategoria)
         {
             foreach (GastoRecuerrente gas in this.ListaGastosRecurrentes)
@@ -96,7 +95,6 @@ namespace Dominio
                 }
             }
         }
-
         public void ModificarDiaDelMesAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, int dia)
         {
             foreach (GastoRecuerrente gas in this.ListaGastosRecurrentes)
@@ -117,7 +115,6 @@ namespace Dominio
                 }
             }
         }
-
         public void ModificarMonedaAGastoRecurrente(GastoRecuerrente unGastoRecuerrente, Moneda otraMoneda)
         {
             foreach (GastoRecuerrente gas in this.ListaGastosRecurrentes)
@@ -128,7 +125,6 @@ namespace Dominio
                 }
             }
         }
-
         public void AgregarGastoComun(GastoComun unGastoComun)
         {
             ListaGastosComunes.Add(unGastoComun);
@@ -193,7 +189,7 @@ namespace Dominio
         {
             foreach (Presupuesto pres in RetornarListaPresupuestos())
             {
-                pres.AgregarCategoriaMonto(catMonto.Categoria, 0);
+                pres.AgregarCategoriaMonto(catMonto);
             }
         }
         public void AgregarMoneda(Moneda unaMoneda)

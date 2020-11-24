@@ -26,7 +26,6 @@ namespace Dominio
 
         public void AgregarCategoria(Categoria unaCategoria)
         {
-
             if (this.Repositorio.ExisteCategoria(unaCategoria))
             {
                 throw new ExcepcionElementoRepetido("Categoria ya existente");
@@ -36,7 +35,7 @@ namespace Dominio
             {
                 Repositorio.AgregarCategoria(unaCategoria);
                 CategoriaMonto catMonto = new CategoriaMonto { Categoria = unaCategoria, Monto = 0 };
-                Repositorio.AgregarCategoriaMontoAPresupuestos(catMonto); //probar
+                Repositorio.AgregarCategoriaMontoAPresupuestos(catMonto);
             }
 
         }

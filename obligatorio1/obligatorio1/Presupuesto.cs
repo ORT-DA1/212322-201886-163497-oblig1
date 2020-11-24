@@ -30,7 +30,6 @@ namespace Dominio
                 }
             }
         }
-
         public Presupuesto()
         {
             this.ListaCategoriaMonto = new List<CategoriaMonto>();
@@ -40,11 +39,9 @@ namespace Dominio
         {
             return this.ListaCategoriaMonto.Count == 0;
         }
-
-        public void AgregarCategoriaMonto(Categoria categoria, double monto)
+        public void AgregarCategoriaMonto(CategoriaMonto categoriaMonto)
         {
-            CategoriaMonto catMonto = new CategoriaMonto { Categoria = categoria, Monto = monto };
-            this.ListaCategoriaMonto.Add(catMonto);
+           this.ListaCategoriaMonto.Add(categoriaMonto); 
         }
 
         public override string ToString()
