@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.cbMesAnio = new System.Windows.Forms.ComboBox();
             this.btnConsultar = new System.Windows.Forms.Button();
@@ -46,6 +49,8 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label3 = new System.Windows.Forms.Label();
+            this.ReporteGasto = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.ReporteGasto)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -187,10 +192,28 @@
             this.label3.TabIndex = 22;
             this.label3.Text = "Tipo de archivo";
             // 
+            // ReporteGasto
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.ReporteGasto.ChartAreas.Add(chartArea1);
+            this.ReporteGasto.Location = new System.Drawing.Point(769, 95);
+            this.ReporteGasto.Name = "ReporteGasto";
+            series1.ChartArea = "ChartArea1";
+            series1.Name = "S1";
+            this.ReporteGasto.Series.Add(series1);
+            this.ReporteGasto.Size = new System.Drawing.Size(818, 411);
+            this.ReporteGasto.TabIndex = 24;
+            this.ReporteGasto.Text = "ReporteGasto";
+            title1.Font = new System.Drawing.Font("MS Reference Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.Name = "Gasto Por Dia";
+            title1.Text = "Gasto Por Dia";
+            this.ReporteGasto.Titles.Add(title1);
+            // 
             // ReporteDeGastos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ReporteGasto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbTipoDeArchivo);
             this.Controls.Add(this.btnExportar);
@@ -204,6 +227,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Name = "ReporteDeGastos";
             this.Size = new System.Drawing.Size(1800, 1077);
+            ((System.ComponentModel.ISupportInitialize)(this.ReporteGasto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,5 +253,6 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ReporteGasto;
     }
 }

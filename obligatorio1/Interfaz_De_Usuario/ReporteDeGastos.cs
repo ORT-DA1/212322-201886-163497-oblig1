@@ -58,6 +58,16 @@ namespace Interfaz_De_Usuario
             }
 
             lbTotal.Text= adminReporteGastos.CalcularMontoDeReporte(listaGastos).ToString();
+
+            int cantDiasDelMes = adminReporteGastos.CantidadDiasEnElMes(fecha.Year, fecha.Month);
+            
+            for (int i = 1; i <= cantDiasDelMes; i++)
+            {
+                int sumaPorDia =(int) adminReporteGastos.SumaGastosDeUnDiaMes(listaGastos, i);
+                
+                this.ReporteGasto.Series["S1"].Points.AddXY(i,10);
+             
+            }
         }
 
       
