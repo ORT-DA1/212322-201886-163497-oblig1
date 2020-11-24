@@ -20,7 +20,6 @@ namespace Dominio
             file.Close();
 
 
-
             /*     FileInfo file = new FileInfo(fileStream);
 
                  //StreamWriter sw = new StreamWriter(fileStream);
@@ -31,8 +30,6 @@ namespace Dominio
                      writer.Serialize(sw, e as Gasto);
                  }
                  sw.Close();*/
-
-
 
 
             /*       System.Xml.Serialization.XmlSerializer writer = new System.Xml.Serialization.XmlSerializer(typeof(Gasto));

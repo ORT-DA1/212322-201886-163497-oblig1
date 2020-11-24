@@ -20,21 +20,10 @@ namespace Dominio
 
         public void AgregarGastoComun(GastoComun unGastoComun)
         {
-            if (NoHayCategoriaDefinida(unGastoComun))
-            {
-                throw new ExcepcionElementoNoExistente("La categoria no puede quedar vacía");
-            }
-            else
-            {
-                AgregarMontoEnPesos(unGastoComun);
-                Repositorio.AgregarGastoComun(unGastoComun);
-            }
+            AgregarMontoEnPesos(unGastoComun);
+            Repositorio.AgregarGastoComun(unGastoComun);
         }
-        private bool NoHayCategoriaDefinida(GastoComun unGastoComun)
-        {
-            return unGastoComun.Categoria.Nombre == "No hay nombre";
-        }
-
+    
         public bool EsVaciaListaGastosComunes()
         {
             return Repositorio.EsVaciaListaGastosComunes();
