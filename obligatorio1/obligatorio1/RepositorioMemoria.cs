@@ -189,6 +189,13 @@ namespace Dominio
             }
             return false;
         }
+        public void AgregarCategoriaMontoAPresupuestos(CategoriaMonto catMonto)
+        {
+            foreach (Presupuesto pres in RetornarListaPresupuestos())
+            {
+                pres.AgregarCategoriaMonto(catMonto.Categoria, 0);
+            }
+        }
         public void AgregarMoneda(Moneda unaMoneda)
         {
             this.ListaMonedas.Add(unaMoneda);

@@ -22,6 +22,7 @@ namespace Dominio
         List<GastoComun> RetornarListaGastosCoumnes();
         List<Moneda> RetornarListaMonedas();
         bool EsVaciaListaGastosComunes();
+        void AgregarCategoriaMontoAPresupuestos(CategoriaMonto catMonto);
         bool ExisteGastoComun(GastoComun unGastoComun);
         void EliminarGastoComun(GastoComun unGastoComun);
         void ModificarNombreAMoneda(Moneda unaMoneda, string unNombre);
