@@ -156,7 +156,21 @@ namespace Dominio
         {
             this.ListaGastosComunes.Remove(unGastoComun);
         }
-        public void ModificarGasto(GastoComun unGasto){ }
+        public void ModificarGasto(GastoComun unGasto)
+        {
+            foreach(GastoComun gasto in ListaGastosComunes)
+            {
+                if (gasto.Id == unGasto.Id)
+                {
+                    gasto.Categoria = unGasto.Categoria;
+                    gasto.Descripcion = unGasto.Descripcion;
+                    gasto.Fecha = unGasto.Fecha;
+                    gasto.Moneda = unGasto.Moneda;
+                    gasto.Monto = unGasto.Monto;
+                    gasto.MontoEnPesos = unGasto.MontoEnPesos;
+                }
+            }
+        }
 
         public List<CategoriaMonto> RetornarCategoriaMontoDelRepo(Presupuesto unPresupuesto)
         {

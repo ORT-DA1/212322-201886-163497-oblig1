@@ -66,6 +66,18 @@ namespace Dominio
             this.Nombre = "Peso Uruguayo";
             this.Simbolo = "UYU";
         }
+        public override bool Equals(Object obj)
+        {
+            Moneda monedaObj = obj as Moneda;
+            if (monedaObj == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Simbolo.Equals(monedaObj.Simbolo);
+            }
+        }
         public override string ToString()
         {
             return String.Format(this.Simbolo);

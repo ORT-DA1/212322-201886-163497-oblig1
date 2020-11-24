@@ -124,35 +124,47 @@ namespace Test
             Assert.IsTrue(Repositorio.ExisteGastoComun(GastoComun));
         }
 
-       /* [TestMethod]
-        public void RetornarListaMesesDondeHayGastoPrueba()
+        [TestMethod]
+        public void ModificarGastoComunPrueba()
         {
-            List<DateTime> ListaLocal = new List<DateTime>();
-            Assert.IsTrue(Repositorio.RetornarListaMesesDondeHayGasto().SequenceEqual(ListaLocal));
+            GastoComun.Id = 1;
+            GastoComun otro = new GastoComun() { Id = 1 };
+            Repositorio.AgregarGastoComun(otro);
+            otro.Descripcion = "Cine";
+            Repositorio.ModificarGasto(GastoComun);
+            Assert.AreEqual(otro.Descripcion,GastoComun.Descripcion);
         }
 
-        [TestMethod]
-        public void AlAgregarMesesDondeHayGastoNoEsVacioPrueba()
-        {
-            GastoComun.Fecha = new DateTime(2020, 5, 1);
-            Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
-            Assert.IsFalse(Repositorio.EsVaciaListaMesesDondeHayGastos());
-        }
 
-        [TestMethod]
-        public void ExisteMesPrueba()
-        {
-            Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
-            Assert.IsTrue(Repositorio.ExisteMes(GastoComun.Fecha));
-        }
+        /* [TestMethod]
+         public void RetornarListaMesesDondeHayGastoPrueba()
+         {
+             List<DateTime> ListaLocal = new List<DateTime>();
+             Assert.IsTrue(Repositorio.RetornarListaMesesDondeHayGasto().SequenceEqual(ListaLocal));
+         }
 
-        [TestMethod]
-        public void CantidadMesesPrueba()
-        {
-            Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
-            Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
-            Assert.AreEqual(2, Repositorio.CantidadElementosEnListaMesesDondeHayGastos());
-        }*/
+         [TestMethod]
+         public void AlAgregarMesesDondeHayGastoNoEsVacioPrueba()
+         {
+             GastoComun.Fecha = new DateTime(2020, 5, 1);
+             Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
+             Assert.IsFalse(Repositorio.EsVaciaListaMesesDondeHayGastos());
+         }
+
+         [TestMethod]
+         public void ExisteMesPrueba()
+         {
+             Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
+             Assert.IsTrue(Repositorio.ExisteMes(GastoComun.Fecha));
+         }
+
+         [TestMethod]
+         public void CantidadMesesPrueba()
+         {
+             Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
+             Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
+             Assert.AreEqual(2, Repositorio.CantidadElementosEnListaMesesDondeHayGastos());
+         }*/
 
 
 
