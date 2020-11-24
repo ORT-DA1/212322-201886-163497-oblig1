@@ -40,8 +40,6 @@ namespace Interfaz_De_Usuario
             }
         }
 
-       
-
         private bool HayCamposVacios()
         {
             return cbGastoRecurrente.SelectedItem == null || string.IsNullOrEmpty(tbDescripcion.Text);

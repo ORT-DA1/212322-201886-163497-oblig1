@@ -29,11 +29,9 @@ namespace Test
             adminGastosComunes = new AdministradorGastosComunes(miRepositorio);
             adminPresupuesto = new AdministradorPresupuesto(miRepositorio);
             adminCategorias = new AdministradorCategorias(miRepositorio);
-
             moneda = new Moneda { Simbolo = "UYU" };
             unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
             otraCategoria = new Categoria() { Nombre = "Super" };
-
             gasto = new GastoComun() { Id = 1, Categoria = unaCategoria, Moneda = moneda };
             unGastoComun = new GastoComun() { Categoria = unaCategoria, Moneda = moneda };
 

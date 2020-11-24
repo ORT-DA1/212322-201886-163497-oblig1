@@ -64,8 +64,11 @@ namespace Test
         [TestMethod]
         public void AsignacionDeCategoriasMontoPrueba()
         {
-            unPresupuesto.AgregarCategoriaMonto(unaCategoria, 100);
-            unPresupuesto.AgregarCategoriaMonto(otraCategoria, 300);
+            unaCategoriaMonto.Categoria = unaCategoria;
+            unaCategoriaMonto.Monto = 100;
+            CategoriaMonto otraCategoriaMonto = new CategoriaMonto { Categoria = otraCategoria, Monto = 300 };
+            unPresupuesto.AgregarCategoriaMonto(unaCategoriaMonto);
+            unPresupuesto.AgregarCategoriaMonto(otraCategoriaMonto);
 
             Assert.AreEqual(unPresupuesto.ListaCategoriaMonto.Count, 2);
 
@@ -74,7 +77,9 @@ namespace Test
         [TestMethod]
         public void ModificarMontoACategoriaPrueba()
         {
-            unPresupuesto.AgregarCategoriaMonto(unaCategoria, 200);
+            unaCategoriaMonto.Categoria = unaCategoria;
+            unaCategoriaMonto.Monto = 200;
+            unPresupuesto.AgregarCategoriaMonto(unaCategoriaMonto);
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
             adminPresupuestos.ModificarMontoACategoria(unPresupuesto, unaCategoria, 300);
             Assert.AreEqual(unPresupuesto.ListaCategoriaMonto.First().Monto, 300);
@@ -85,9 +90,10 @@ namespace Test
         [ExpectedException(typeof(ExcepcionElementoRepetido))]
         public void AgregarPresupuestoRepetidoPrueba()
         {
-            unPresupuesto.AgregarCategoriaMonto(unaCategoria, 200);
+            unaCategoriaMonto.Categoria = unaCategoria;
+            unaCategoriaMonto.Monto = 200;
+            unPresupuesto.AgregarCategoriaMonto(unaCategoriaMonto);
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
-
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
 
         }
