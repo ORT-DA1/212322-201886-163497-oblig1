@@ -17,18 +17,17 @@ namespace Test
         [TestInitialize]
         public void InitTests()
         {
-            gasto = new Gasto();
+            gasto = new Gasto() ;
             cat = new Categoria();
-            moneda = new Moneda();
+            moneda = new Moneda() ;
             categoria = new Categoria() { Nombre = "Entretenimiento" };
         }
 
         [TestMethod]
         public void PropertyMonedaPrueba()
         {
-            gasto.Moneda.Simbolo ="UYU";
-            moneda.Simbolo = "UYU";
-            Assert.AreEqual(moneda.Simbolo, gasto.Moneda.Simbolo);
+            gasto.Moneda = moneda;
+            Assert.AreEqual(moneda,gasto.Moneda);
         }
 
         [TestMethod]
@@ -84,11 +83,15 @@ namespace Test
             Assert.AreEqual(gasto2.Monto,1000);
         }
 
-       [TestMethod]
+        [TestMethod]
         public void ToStringGastoPrueba()
         {
-
-            Assert.AreEqual(gasto.ToString(),"Monto: 0, Descripcion: No hay descripcion, Categoria: No hay nombre, Moneda: UYU");
+            moneda.Nombre = "Pesos Uruguayos";
+            moneda.Simbolo = "UYU";
+            gasto.Moneda = moneda;
+            categoria.Nombre = "No hay nombre";
+            gasto.Categoria = categoria;
+            Assert.AreEqual(gasto.ToString(), "Monto: 0, Descripcion: No hay descripcion, Categoria: No hay nombre, Moneda: UYU");
 
         }
 

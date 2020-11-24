@@ -6,6 +6,8 @@ namespace Dominio
     {
         private string desc;
         private double monto;
+        private Moneda moneda;
+        private Categoria categoria; 
         public int Id { get; set; }
 
         public double Monto
@@ -45,7 +47,9 @@ namespace Dominio
         {
             this.Monto = 0.00;
             this.Descripcion = "No hay descripcion";
+            this.Moneda= moneda;
             this.MontoEnPesos = 0.00;
+            this.Categoria = categoria;
         }
         public Gasto(double unMonto, string unaDescripcion, Categoria unaCategoria, Moneda moneda)
         {

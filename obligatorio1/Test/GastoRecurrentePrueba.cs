@@ -44,6 +44,11 @@ namespace Test
         [TestMethod]
         public void ToStringGastoRecurrentePrueba()
         {
+            moneda.Nombre = "Pesos Uruguayos";
+            moneda.Simbolo = "UYU";
+            gastoRec.Moneda = moneda;
+            cat.Nombre = "No hay nombre";
+            gastoRec.Categoria = cat;
 
             Assert.AreEqual(gastoRec.ToString(), "Monto: 0, Descripcion: No hay descripcion, Categoria: No hay nombre, Moneda: UYU,1");
        }
