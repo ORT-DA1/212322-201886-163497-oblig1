@@ -5,9 +5,7 @@ namespace Dominio
 {
     public class GastoComun : Gasto
     {
-        //public int Id { get; set; }
         private DateTime unaFecha;
-        [Display(Name = "Fecha_GastoComun")]//funciona?
         public DateTime Fecha
         {
             get { return unaFecha; }
@@ -31,7 +29,6 @@ namespace Dominio
                 }
             }
         }
-
         public GastoComun()
         {
             this.Fecha = new DateTime(2020, 5, 1);
@@ -40,14 +37,9 @@ namespace Dominio
         {
             Fecha = fecha;
         }
-
         public override string ToString()
         {
-
             return String.Format("{0}, Fecha: {1}", base.ToString(),this.Fecha.ToShortDateString());
-
         }
-
-
     }
 }

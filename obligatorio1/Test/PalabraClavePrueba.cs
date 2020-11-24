@@ -15,7 +15,12 @@ namespace Test
         {
             palabraClaveUno = new PalabraClave();
         }
-
+        [TestMethod]
+        public void PropertyIdPrueba()
+        {
+            palabraClaveUno.Id = 1;
+            Assert.AreEqual(palabraClaveUno.Id, 1);
+        }
         [TestMethod]
         public void PropertyNombrePalabraPrueba()
         {
@@ -32,5 +37,11 @@ namespace Test
             Assert.AreEqual(palabraClaveUno, palabraClaveDos);
         }
 
+        [TestMethod]
+        public void toStringPalabrasClavesPrueba()
+        {
+            PalabraClave palabraClaveDos = new PalabraClave() { Palabra = "UnaPalabra" };
+            Assert.AreEqual(palabraClaveDos.ToString(), "UNAPALABRA");
+        }
     }
 }

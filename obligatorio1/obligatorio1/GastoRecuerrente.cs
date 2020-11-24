@@ -26,7 +26,6 @@ namespace Dominio
             }
 
         }
-
         public GastoRecuerrente()
         {
             this.Fecha = 1;

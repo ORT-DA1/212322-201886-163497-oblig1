@@ -13,8 +13,6 @@ namespace Dominio
             this.Repositorio = unRepositorio;
         }
 
-        
-
         public List<GastoComun> UnirListaGastosDelMes(int anio, int mes)
         {
             List<GastoComun> listaTotal = new List<GastoComun>();
@@ -30,7 +28,6 @@ namespace Dominio
             return listaTotal;
 
         }
-
         public List<GastoComun> DevolverListaDeGastosComunesSegunFecha(int anio, int mes)
         {
             List<GastoComun> listaDeGastosDelMes = new List<GastoComun>();
@@ -45,12 +42,10 @@ namespace Dominio
             return listaDeGastosDelMes;
 
         }
-
         private bool CoincideMesAnioDeFechaRecibidaConGasto(int anio, int mes, GastoComun unGasto)
         {
             return unGasto.Fecha.Month == mes && unGasto.Fecha.Year == anio;
         }
-
         public List<GastoComun> RetornarListaGastosRecurrentesConFechaAdecuada(int anio, int mes)
         {
             List<GastoComun> listaGastosRecurrentesConFechaAdecuada = new List<GastoComun>();
@@ -61,7 +56,6 @@ namespace Dominio
 
             return listaGastosRecurrentesConFechaAdecuada;
         }
-
         public GastoComun ConvertirGastoRecurrente(GastoRecuerrente gastoRecurrente, int anio, int mes)
         {
             int dia = gastoRecurrente.Fecha;
@@ -75,8 +69,6 @@ namespace Dominio
             return gasto;
 
         }
-
-
         public List<DateTime> CrearYRetornalListaDeMesesDondeHayGastoOrdenada()
         {
             List<DateTime> ListaMesesDondeHayGasto = new List<DateTime>();
@@ -93,13 +85,11 @@ namespace Dominio
             ListaMesesDondeHayGasto.Sort();
             return ListaMesesDondeHayGasto;
         }
-
         public DateTime ConvertirFechaDejarSoloAnioMes(GastoComun gasto)
         {
             return new DateTime(gasto.Fecha.Year, gasto.Fecha.Month, 1);
 
         }
-
         public double CalcularMontoDeReporte(List<GastoComun> ListaDeGastosReporte)
         {
             double total = 0;
@@ -109,14 +99,12 @@ namespace Dominio
             }
             return total;
         }
-
         public double CalcularGastoTotalDeCategoriaEnMes(int anio, int mes, Categoria unaCategoria)
         {
             List<GastoComun> listaGastosDelMes = this.UnirListaGastosDelMes(anio, mes);
 
             return SumaGastoTotal(unaCategoria, listaGastosDelMes);
         }
-
         private static double SumaGastoTotal(Categoria unaCategoria, List<GastoComun> listaGastosDelMes)
         {
             double gastoTotalDeCategoriaEnMes = 0;
@@ -129,10 +117,9 @@ namespace Dominio
             }
             return gastoTotalDeCategoriaEnMes;
         }
-
         private static bool GastoIgualACategoria(Categoria unaCategoria, Gasto gasto)
         {
-            return gasto.Categoria == unaCategoria;
+            return gasto.Categoria.Nombre == unaCategoria.Nombre;
         }
 
 

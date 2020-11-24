@@ -6,10 +6,7 @@ namespace Dominio
     {
         private string desc;
         private double monto;
-        private Moneda moneda;
-        private Categoria categoria; 
         public int Id { get; set; }
-
         public double Monto
         {
             get { return monto; }
@@ -41,15 +38,12 @@ namespace Dominio
         public Categoria Categoria { get; set; }
         public Moneda Moneda { get; set; }
         public double MontoEnPesos { get; set; }
-        
-
-        public Gasto()
+         public Gasto()
         {
             this.Monto = 0.00;
             this.Descripcion = "No hay descripcion";
-            this.Moneda= moneda;
             this.MontoEnPesos = 0.00;
-            this.Categoria = categoria;
+            
         }
         public Gasto(double unMonto, string unaDescripcion, Categoria unaCategoria, Moneda moneda)
         {
@@ -58,13 +52,10 @@ namespace Dominio
             Categoria = unaCategoria;
             Moneda = moneda;
         }
-        
-        public override string ToString()
+         public override string ToString()
         {
-
             return String.Format("Monto: {0}, Descripcion: {1}, Categoria: {2}, Moneda: {3}", this.Monto, this.Descripcion, this.Categoria, this.Moneda.Simbolo);
-
-        }
+         }
     }
 
 }

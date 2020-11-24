@@ -27,6 +27,13 @@ namespace Test
         {
             presupuesto.Fecha = new DateTime(2070, 12, 31);
         }
+        
+        [TestMethod]
+        public void PropertyIdPresupuestoPrueba()
+        {
+            presupuesto.Id = 1;
+            Assert.AreEqual(presupuesto.Id, 1);
+        }
 
         [TestMethod]
         public void CrearListaCategoriaMontoVaciaPrueba()

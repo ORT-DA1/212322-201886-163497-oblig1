@@ -31,6 +31,13 @@ namespace Test
         }
 
         [TestMethod]
+        public void PropertyIdGastoPrueba()
+        {
+            gasto.Id = 1;
+            Assert.AreEqual(gasto.Id, 1);
+        }
+
+        [TestMethod]
         public void PropertyMontoDecimalPrueba()
         {
             gasto.Monto = 0;

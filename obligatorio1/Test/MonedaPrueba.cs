@@ -25,6 +25,13 @@ namespace Test
         }
 
         [TestMethod]
+        public void PropertyIdMonedaPrueba()
+        {
+            moneda.Id = 1;
+            Assert.AreEqual(moneda.Id, 1);
+        }
+
+        [TestMethod]
         public void PropertSimboloPrueba()
         {
             moneda.Simbolo = "$";

@@ -10,22 +10,20 @@ namespace Dominio
     {
         public int Id { get; set; }
 
-
         private String palabra;
-
         public String Palabra
         {
-
             get { return palabra; }
 
             set
             {
                 palabra = value.ToUpper();
             }
-
         }
-
-
+        public PalabraClave()
+        {
+            
+        }
         public override bool Equals(Object obj)
         {
             PalabraClave catObj = obj as PalabraClave;
@@ -38,12 +36,9 @@ namespace Dominio
                 return Palabra.Equals(catObj.Palabra);
             }
         }
-
-
         public override string ToString()
         {
-            return String.Format(this.Palabra);
+            return String.Format("{0}",this.Palabra);
         }
-
     }
 }

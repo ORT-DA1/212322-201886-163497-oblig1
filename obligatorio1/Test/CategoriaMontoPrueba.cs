@@ -26,6 +26,13 @@ namespace Test
         }
 
         [TestMethod]
+        public void PropertyIdCategoriaMontoPrueba()
+        {
+            categoriaMonto.Id = 1;
+            Assert.AreEqual(categoriaMonto.Id, 1);
+        }
+
+        [TestMethod]
         public void PropertyMontoPrueba()
         {
             categoriaMonto.Monto = 1000;

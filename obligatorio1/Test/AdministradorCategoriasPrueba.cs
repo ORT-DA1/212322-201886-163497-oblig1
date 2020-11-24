@@ -38,8 +38,7 @@ namespace Test
         {
             List<Categoria> ListaLocal = new List<Categoria>();
             Assert.IsTrue(adminCategorias.RetornarListaCategorias().SequenceEqual(ListaLocal));
-
-        }
+         }
 
         [TestMethod]
         public void RetornarCategoriaDePalabraClavePrueba()
