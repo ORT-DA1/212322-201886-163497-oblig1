@@ -172,7 +172,22 @@ namespace Dominio
                  return contexto.Presupuesto.Include("ListaCategoriaMonto.Categoria").ToList();
              }
         }
+        public void AgregarCategoriaMontoAPresupuestos(CategoriaMonto catMonto)
+        {
+            using (var contexto = new Persistencia()) /////////////////////////////// verificar que sea gasto recurrente //////////////////////////////////////////////
+            {
+                foreach (Presupuesto p in contexto.Presupuesto.ToList())
+                {
+                    // p.AgregarCategoriaMonto(unaCategoria, 0);
+                    // CategoriaMonto catMonto = new CategoriaMonto() { Categoria = unaCategoria, Monto = 0 };
+                    this.AgregarCategoriaMonto(catMonto, p);
 
+                   // p.ListaCategoriaMonto.Add(categoriaMonto);
+                }
+                
+
+            }
+        }
         public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, double unMonto) 
         {
             using (var contexto = new Persistencia())

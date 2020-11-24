@@ -35,11 +35,8 @@ namespace Dominio
             else
             {
                 Repositorio.AgregarCategoria(unaCategoria);
-
-                foreach (Presupuesto pres in Repositorio.RetornarListaPresupuestos())
-                {
-                    pres.AgregarCategoriaMonto(unaCategoria, 0);
-                }
+                CategoriaMonto catMonto = new CategoriaMonto { Categoria = unaCategoria, Monto = 0 };
+                Repositorio.AgregarCategoriaMontoAPresupuestos(catMonto); //probar
             }
 
         }
