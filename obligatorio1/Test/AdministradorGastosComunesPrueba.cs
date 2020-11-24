@@ -33,6 +33,8 @@ namespace Test
             moneda = new Moneda { Simbolo = "UYU" };
             unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
             otraCategoria = new Categoria() { Nombre = "Super" };
+
+            gasto = new GastoComun() { Id = 1 };
             gasto = new GastoComun() { Categoria = unaCategoria };
             unGastoComun = new GastoComun() { Categoria = unaCategoria, Moneda = moneda };
 
@@ -66,14 +68,14 @@ namespace Test
 
             Assert.IsTrue(adminGastosComunes.EsVaciaListaGastosComunes());
         }
-  /*      [TestMethod]
+
+        [TestMethod]
         public void ModificarGastoPrueba()
         {
-            GastoComun gastoAntes = gasto;
-            adminGastosComunes.AgregarGastoComun(gasto);
-            adminGastosComunes.ModificarGasto(gasto);
-            GastoComun gastoDespues = gasto;
-            Assert.AreNotEqual(gastoAntes,gastoDespues);
-        }*/
+            GastoComun nuevo = new GastoComun() {Id=1};
+            adminGastosComunes.ModificarGasto(nuevo);
+        
+            Assert.AreEqual(nuevo.Categoria,gasto.Categoria);
+        }
     }
 }

@@ -57,12 +57,11 @@ namespace Test
             Assert.AreEqual(gastoRec2.Descripcion,"Ir a comer");
         }
 
-        [TestMethod]
+       [TestMethod]
         public void ToStringGastoComunPrueba()
         {
-
+            
             Assert.AreEqual(gasto.ToString(), "Monto: 0, Descripcion: No hay descripcion, Categoria: No hay nombre, Moneda: UYU, Fecha: 5/1/2020");
-
 
         }
 

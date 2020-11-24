@@ -5,15 +5,16 @@ namespace Dominio
 {
     public class GastoRecuerrente : Gasto
     {
-        //public int Id { get; set; }
         private int fecha;
+        private int num1 = 1;
+        private int num28 = 28;
         [Display(Name = "Fecha_GastoRecurrente")]
         public int Fecha
         {
             get { return fecha; }
             set
             {
-                if (value < 1 || value > 28)
+                if (value < num1 || value > num28)
                 {
                     throw new IndexOutOfRangeException("Ingrese un dia entre el 1-28");
                 }

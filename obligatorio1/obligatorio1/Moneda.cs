@@ -67,6 +67,18 @@ namespace Dominio
             this.Simbolo = "UYU";
             this.Cotizacion = 1.00;
         }
+        public override bool Equals(Object obj)
+        {
+            Moneda monedaObj = obj as Moneda;
+            if (monedaObj == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Simbolo.Equals(monedaObj.Simbolo);
+            }
+        }
         public override string ToString()
         {
             return String.Format(this.Simbolo);

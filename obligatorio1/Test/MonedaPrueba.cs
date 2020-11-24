@@ -1,10 +1,6 @@
 ﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Dominio;
 using Excepciones;
 
@@ -72,6 +68,14 @@ namespace Test
 
             Assert.AreEqual(moneda.ToString(), "UYU");
 
+        }
+
+        [TestMethod]
+        public void EqualsMonedaPrueba()
+        {
+            Moneda unaMoneda = new Moneda {Simbolo = "UYU" };
+            Moneda otraMoneda = new Moneda { Simbolo = "UYU" };
+            Assert.AreEqual(unaMoneda, otraMoneda);
         }
 
         // La moneda por defecto es el ‘Peso
