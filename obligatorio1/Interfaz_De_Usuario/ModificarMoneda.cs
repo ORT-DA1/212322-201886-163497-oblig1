@@ -27,6 +27,11 @@ namespace Interfaz_De_Usuario
         }
         private void btnModificarNombre_Click_1(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(tbNombre.Text))
+            {
+                MessageBox.Show("El nombre no puede quedar vacío.");
+                return;
+            }
             try
             {
                 Moneda monedaElegida = (Moneda)cbMonedas.SelectedItem;
@@ -43,6 +48,11 @@ namespace Interfaz_De_Usuario
         }
         private void btnModificarSimbolo_Click_1(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(tbSimbolo.Text))
+            {
+                MessageBox.Show("El símbolo no puede quedar vacío.");
+                return;
+            }
             try
             {
                 Moneda monedaElegida = (Moneda)cbMonedas.SelectedItem;
