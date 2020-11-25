@@ -16,14 +16,11 @@ namespace Dominio
         {
             this.Repositorio = unRepositorio;
             this.AdminPresupuesto = new AdministradorPresupuesto(unRepositorio);
-
         }
-
         public List<Categoria> RetornarListaCategorias()
         {
             return Repositorio.RetornarListaCategorias();
         }
-
         public void AgregarCategoria(Categoria unaCategoria)
         {
             if (this.Repositorio.ExisteCategoria(unaCategoria))
@@ -39,13 +36,11 @@ namespace Dominio
             }
 
         }
-
         public bool EsVaciaListaCategorias()
         {
             
             return Repositorio.EsVaciaListaCategorias();
         }
-
         public Categoria CategoriaDePalabraClave(PalabraClave palabraClave)
         {
             foreach (Categoria unaCategoria in Repositorio.RetornarListaCategorias())
@@ -58,9 +53,7 @@ namespace Dominio
             }
 
             throw new ExcepcionElementoNoExistente("No esta la palabra clave");
-
         }
-
         public bool PalabraClaveYaIngresadaEnAlgunaLista(PalabraClave palabreClave)
         {
             foreach (Categoria unaCategoria in Repositorio.RetornarListaCategorias())
@@ -72,7 +65,6 @@ namespace Dominio
             }
             return false;
         }
-
         public Categoria RetornarCategoriaDeDescripcion(string descripcion)
         {
             if (CantDeCategoriasDistintasDondeApareceLaDescripcion(descripcion) > 1)
@@ -83,9 +75,7 @@ namespace Dominio
             {
                 string[] palabras = SepararPalabras(descripcion);
                 return this.BuscarCategoriaPorPalabras(palabras);
-
             }
-
         }
         private string[] SepararPalabras(string descripcion)
         {
@@ -133,15 +123,12 @@ namespace Dominio
             }
 
             return cantDeCategoriasDistintas;
-
         }
 
         private bool LaCategoriaEsDistinta(Categoria unaCategoria, Categoria otraCategoria)
         {
             return !unaCategoria.Equals(otraCategoria);
-
         }
-
         public void AgregarPalabraClaveACategoria(Categoria categoria, PalabraClave unaPalabra)
         {
             if (this.RetornarPalabrasClaveDeCategoria(categoria).Count == 10 || PalabraClaveYaIngresadaEnAlgunaLista(unaPalabra))
@@ -152,7 +139,6 @@ namespace Dominio
                 categoria.AgregarPalabraClave(unaPalabra);
                 Repositorio.AgregarPalabrasEnRepo(categoria, unaPalabra);
             }
-
         }
         public void BorrarPalabraClaveACategoria(Categoria categoria, PalabraClave palabra)
         {
@@ -162,26 +148,20 @@ namespace Dominio
 
         public List<PalabraClave> RetornarPalabrasClaveDeCategoria(Categoria unaCategoria)
         {
-            return Repositorio.RetornarPalabrasClaveDeCategoriaDelRepo(unaCategoria);
-          
+            return Repositorio.RetornarPalabrasClaveDeCategoriaDelRepo(unaCategoria);          
         }
 
         public Categoria RetornarCategoriaSegunString(string unNombre)
         {
-
             foreach (Categoria categoria in Repositorio.RetornarListaCategorias())
             {
                 if (categoria.Nombre == unNombre) return categoria;
             }
-
             throw new ExcepcionElementoNoExistente("Categoria no existente");
-
         }
         public void EliminarCategoria(Categoria unaCategoria)
         {
             Repositorio.EliminarCategoria(unaCategoria);
         }
-
-
     }
 }

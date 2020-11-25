@@ -18,9 +18,6 @@ namespace Interfaz_De_Usuario
         {
             InitializeComponent();
             unAdminCategorias = miAdminCategorias;
-
-
-
         }
 
         private void btnAgregarCatMenuArriba_Click(object sender, EventArgs e)

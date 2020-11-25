@@ -11,12 +11,10 @@ namespace Dominio
         {
             this.Repositorio = unRepositorio;
         }
-
         public List<GastoRecuerrente> RetornarListaGastosRecurrentes()
         {
             return Repositorio.RetornarListaGastosRecurrentes();
         }
-
         public void AgregarGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
             if (NoHayCategoriaDefinida(unGastoRecurrente))
@@ -27,23 +25,19 @@ namespace Dominio
                 AgregarMontoEnPesos(unGastoRecurrente);
                 Repositorio.AgregarGastoRecurrente(unGastoRecurrente);
             } 
-
         }
         private bool NoHayCategoriaDefinida(GastoRecuerrente unGastoRecurrente)
         {
             return unGastoRecurrente.Categoria.Nombre == "No hay nombre";
         }
-
         public bool EsVaciaListaGastosRecurrentes()
         {
             return Repositorio.EsVaciaListaGastosRecurrentes();
         }
-
         public void EliminarGastoRecurrente(GastoRecuerrente unGastoRecurrente)
         {
             Repositorio.EliminarGastoRecuerrente(unGastoRecurrente);
         }
-
         public void AgregarMontoEnPesos(Gasto unGasto)
         {
             if (unGasto.Moneda.simbolo != "UYU")
@@ -60,22 +54,18 @@ namespace Dominio
         {
             Repositorio.ModificarDescripcionAGastoRecurrente(unGastoRecuerrente, unaDescripcion);
         }
-
         public void ModificarCategoria(GastoRecuerrente unGastoRecuerrente, Categoria otraCategoria)
         {
             Repositorio.ModificarCategoriaAGastoRecurrente(unGastoRecuerrente, otraCategoria);
         }
-
         public void ModificarDiaDelMes(GastoRecuerrente unGastoRecuerrente, int dia)
         {
             Repositorio.ModificarDiaDelMesAGastoRecurrente(unGastoRecuerrente, dia);
         }
-
         public void ModificarMonto(GastoRecuerrente unGastoRecuerrente, int monto)
         {
             Repositorio.ModificarMontoAGastoRecurrente(unGastoRecuerrente, monto);
         }
-
         public void ModificarMoneda(GastoRecuerrente unGastoRecuerrente, Moneda otraMoneda)
         {
             Repositorio.ModificarMonedaAGastoRecurrente(unGastoRecuerrente, otraMoneda);

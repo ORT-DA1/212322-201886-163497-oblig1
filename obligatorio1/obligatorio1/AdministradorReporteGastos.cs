@@ -38,9 +38,7 @@ namespace Dominio
                     listaDeGastosDelMes.Add(unGasto);
                 }
             }
-
             return listaDeGastosDelMes;
-
         }
         private bool CoincideMesAnioDeFechaRecibidaConGasto(int anio, int mes, GastoComun unGasto)
         {
@@ -54,7 +52,6 @@ namespace Dominio
             {
                 listaGastosRecurrentesConFechaAdecuada.Add(ConvertirGastoRecurrente(unGasto, anio, mes));
             }
-
             return listaGastosRecurrentesConFechaAdecuada;
         }
         public GastoComun ConvertirGastoRecurrente(GastoRecuerrente gastoRecurrente, int anio, int mes)
@@ -67,7 +64,7 @@ namespace Dominio
                 Categoria = gastoRecurrente.Categoria,
                 Fecha = new DateTime(anio, mes, dia),
                 Moneda = gastoRecurrente.Moneda,
-                MontoEnPesos=gastoRecurrente.MontoEnPesos
+                MontoEnPesos = gastoRecurrente.MontoEnPesos
             };
             return gasto;
 
@@ -75,7 +72,6 @@ namespace Dominio
         public List<DateTime> CrearYRetornalListaDeMesesDondeHayGastoOrdenada()
         {
             List<DateTime> ListaMesesDondeHayGasto = new List<DateTime>();
-
             foreach (GastoComun gasto in Repositorio.RetornarListaGastosCoumnes())
             {
                 DateTime fecha = ConvertirFechaDejarSoloAnioMes(gasto);
@@ -91,7 +87,6 @@ namespace Dominio
         public DateTime ConvertirFechaDejarSoloAnioMes(GastoComun gasto)
         {
             return new DateTime(gasto.Fecha.Year, gasto.Fecha.Month, 1);
-
         }
         public double CalcularMontoDeReporte(List<GastoComun> ListaDeGastosReporte)
         {
@@ -127,7 +122,7 @@ namespace Dominio
 
         public double[] SumaGastosPorDia(int diasDelMes, List<GastoComun> gastosMes)
         {
-            double[] gastosPorDia = new double[diasDelMes+1];
+            double[] gastosPorDia = new double[diasDelMes + 1];
             for (int i = 0; i <= diasDelMes; i++)
             {
                 gastosPorDia[i] = SumaGastosDeUnDiaMes(gastosMes, i);
@@ -147,14 +142,13 @@ namespace Dominio
             return gastoTotalDelMes;
 
         }
-        
         public String[] CantidadDiasEnElMes(int anio, int mes)
         {
             int dias = DateTime.DaysInMonth(anio, mes);
             String[] diasDelMes = new String[dias + 1];
             for (int i = 0; i <= dias; i++)
             {
-                diasDelMes[i] = i+"/"+mes;
+                diasDelMes[i] = i + "/" + mes;
             }
             return diasDelMes;
         }
@@ -174,11 +168,5 @@ namespace Dominio
         {
             return gasto.Fecha.Day == dia;
         }
-
-        
-
-
-
-
     }
 }

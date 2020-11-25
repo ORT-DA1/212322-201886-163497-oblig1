@@ -71,7 +71,6 @@ namespace Test
             unPresupuesto.AgregarCategoriaMonto(otraCategoriaMonto);
 
             Assert.AreEqual(unPresupuesto.ListaCategoriaMonto.Count, 2);
-
         }
 
         [TestMethod]
@@ -123,8 +122,6 @@ namespace Test
             List<CategoriaMonto> ListaLocal = new List<CategoriaMonto>();
             ListaLocal.Add(unaCategoriaMonto);
             Assert.IsTrue(adminPresupuestos.RetornarCatMonto(unPresupuesto).SequenceEqual(ListaLocal));
-            
         }
-
     }
 }

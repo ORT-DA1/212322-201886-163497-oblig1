@@ -42,13 +42,11 @@ namespace Interfaz_De_Usuario
                 Presupuesto presupuesto = adminPresupuestos.RetornarPresupuestoSegunMes(fecha.Month, fecha.Year);
                 var listaCatMonto = presupuesto.ListaCategoriaMonto;
                 listView1.Items.Clear();
-                
                 foreach (var catMonto in listaCatMonto)
                 {
                     double gastoTotalDeCatEnMes = adminReporteGastos.CalcularGastoTotalDeCategoriaEnMes(fecha.Year, fecha.Month, catMonto.Categoria);
                     double diferenciaTotalPlanificado = catMonto.Monto - gastoTotalDeCatEnMes;
                     String diferenciaTotalPlanificadoString = diferenciaTotalPlanificado.ToString();
-
                     if (diferenciaTotalPlanificado > 0.00)
                     {
                         diferenciaTotalPlanificadoString = diferenciaTotalPlanificado.ToString();
@@ -66,7 +64,6 @@ namespace Interfaz_De_Usuario
                         lvi.SubItems[3].ForeColor = Color.Red;
                         listView1.Items.Add(lvi);
                     }
-
                     this.chartPresupuesto.Series["Planificado"].Points.AddXY(catMonto.Categoria.ToString(), catMonto.Monto);
                     this.chartPresupuesto.Series["Real"].Points.AddXY(catMonto.Categoria.ToString(), gastoTotalDeCatEnMes.ToString());
                     this.chartPresupuesto2.Series["s2"].Points.AddXY(catMonto.Categoria.ToString(), gastoTotalDeCatEnMes);
@@ -76,10 +73,7 @@ namespace Interfaz_De_Usuario
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
-
-        
     }
 }
 

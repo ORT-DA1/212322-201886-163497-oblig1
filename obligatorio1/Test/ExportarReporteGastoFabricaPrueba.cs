@@ -6,7 +6,6 @@ namespace Test
     [TestClass]
     public class ExportarReporteGastoFabricaPrueba
     {
-        
         [TestMethod]
         public void CrearExportarTxtPrueba()
         {
@@ -27,8 +26,5 @@ namespace Test
             var ExportarXml = ExportarReporteGastoFabrica.CrearExportacion("xml");
             Assert.IsNotNull(ExportarXml);
         }
-
     }
-
-
 }

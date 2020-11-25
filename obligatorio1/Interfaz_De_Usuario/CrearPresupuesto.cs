@@ -16,7 +16,6 @@ namespace Interfaz_De_Usuario
             adminPresupuestos = miAdminPresupuestos;
             presupuesto = new Presupuesto();
         }
-
         private void btnCrearPresupuesto2_Click(object sender, EventArgs e)
         {
             try

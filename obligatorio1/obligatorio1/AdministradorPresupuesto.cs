@@ -21,9 +21,9 @@ namespace Dominio
                 Repositorio.AgregarPresupuesto(unPresupuesto);
 
                 foreach (Categoria cat in Repositorio.RetornarListaCategorias())
-               {
-                  CategoriaMonto catMonto = new CategoriaMonto { Categoria = cat, Monto = 0 };
-                  Repositorio.AgregarCategoriaMonto(catMonto, unPresupuesto);
+                {
+                    CategoriaMonto catMonto = new CategoriaMonto { Categoria = cat, Monto = 0 };
+                    Repositorio.AgregarCategoriaMonto(catMonto, unPresupuesto);
                 }
 
             }
@@ -39,7 +39,7 @@ namespace Dominio
         }
         public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, int unMonto)
         {
-            Repositorio.ModificarMontoACategoria(unPresupuesto,unaCategoria,unMonto);
+            Repositorio.ModificarMontoACategoria(unPresupuesto, unaCategoria, unMonto);
         }
         public Presupuesto RetornarPresupuestoSegunMes(int unMes, int unAnio)
         {

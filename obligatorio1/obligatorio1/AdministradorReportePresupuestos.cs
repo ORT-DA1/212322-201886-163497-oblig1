@@ -11,7 +11,6 @@ namespace Dominio
         {
             this.Repositorio = unRepositorio;
         }
-
         public List<DateTime> AgregarYRetornalListaDeMesesDondeHayPresupuestosOrdenada()
         {
             List<DateTime> ListaMesesDondeHayPresupuesto = new List<DateTime>();
@@ -26,16 +25,11 @@ namespace Dominio
             }
             ListaMesesDondeHayPresupuesto.Sort();
             return ListaMesesDondeHayPresupuesto;
-
-
         }
-  
         public DateTime ConvertirFechaDejarSoloAnioMes(Presupuesto presupuesto)
         {
             return new DateTime(presupuesto.Fecha.Year, presupuesto.Fecha.Month, 1);
         }
-
-
     }
 }
 

@@ -20,8 +20,8 @@ namespace Test
         private AdministradorPresupuesto adminPresupuesto;
         private GastoComun gasto;
         private Moneda moneda;
+        private Moneda otraMoneda;
         
-
         [TestInitialize]
         public void InitTests()
         {
@@ -29,7 +29,8 @@ namespace Test
             adminGastosComunes = new AdministradorGastosComunes(miRepositorio);
             adminPresupuesto = new AdministradorPresupuesto(miRepositorio);
             adminCategorias = new AdministradorCategorias(miRepositorio);
-            moneda = new Moneda { Simbolo = "UYU" };
+            moneda = new Moneda { Simbolo = "UYU", Cotizacion = 1.00 };
+            otraMoneda = new Moneda { Simbolo = "Eu", Cotizacion = 2.00 };
             unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
             otraCategoria = new Categoria() { Nombre = "Super" };
             gasto = new GastoComun() { Id = 1, Categoria = unaCategoria, Moneda = moneda };
@@ -74,6 +75,16 @@ namespace Test
             adminGastosComunes.ModificarGasto(nuevo);
 
             Assert.AreEqual(nuevo.Descripcion,"Nueva Descripcion");
+        }
+
+        [TestMethod]
+        public void AgregarMontoEnPesosPrueba()
+        {
+            adminGastosComunes.AgregarGastoComun(gasto);
+            GastoComun nuevo = new GastoComun() { Id = 1, Descripcion = "Nueva Descripcion", Moneda = otraMoneda, Monto = 1.00 };
+            adminGastosComunes.AgregarMontoEnPesos(nuevo);
+            Assert.AreEqual(nuevo.MontoEnPesos, nuevo.Monto * nuevo.Moneda.Cotizacion);
+
         }
     }
 }

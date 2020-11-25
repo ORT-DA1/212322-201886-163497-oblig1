@@ -80,7 +80,6 @@ namespace Test
         {
             gasto.Descripcion = "a";
             Gasto gasto2 = new Gasto() { Descripcion = "abcdefghijklmnopqrsuvwxyz" };
-
         }
 
         [TestMethod]
@@ -99,12 +98,8 @@ namespace Test
             categoria.Nombre = "No hay nombre";
             gasto.Categoria = categoria;
             Assert.AreEqual(gasto.ToString(), "Monto: 0, Descripcion: No hay descripcion, Categoria: No hay nombre, Moneda: UYU");
-
         }
-
-
     }
-
 }
 
   

@@ -186,6 +186,7 @@ namespace Test
             UnPresupuesto.Fecha= new DateTime(2020, 5, 1);
             Repositorio.AgregarPresupuesto(UnPresupuesto);
             List<Presupuesto> ListaLocal = new List<Presupuesto>();
+            ListaLocal.Add(UnPresupuesto);
             Assert.IsTrue(Repositorio.RetornarListaPresupuestos().SequenceEqual(ListaLocal));
         }
 
@@ -196,7 +197,5 @@ namespace Test
             Repositorio.ModificarNombreAMoneda(UnaMoneda, "Peso");
             Assert.AreEqual(UnaMoneda.Nombre, "Peso");
         }
-
-
     }
 }

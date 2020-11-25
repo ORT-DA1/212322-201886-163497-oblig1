@@ -16,14 +16,10 @@ namespace Interfaz_De_Usuario
                 InitializeComponent();            
                 CargarListaGastosComunes();
             }
-            
         }
-
         public void CargarListaGastosComunes()
         {
              lstGastosComunes.DataSource = unAdminGastoComun.RetornarListaGastosComunes();
         }
-
-
     }
 }

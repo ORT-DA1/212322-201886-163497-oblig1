@@ -25,9 +25,6 @@ namespace Interfaz_De_Usuario
             cbMonedas.DataSource = adminMonedas.RetornarListaMonedas();
 
         }
-
-        
-
         private void btnModificarNombre_Click_1(object sender, EventArgs e)
         {
             try
@@ -40,12 +37,10 @@ namespace Interfaz_De_Usuario
                 CargarComboBoxMoneda();
             }
             catch (Exception unaExcepcion)
-            //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
             {
                 MessageBox.Show(unaExcepcion.Message);
             }
         }
-
         private void btnModificarSimbolo_Click_1(object sender, EventArgs e)
         {
             try
@@ -58,12 +53,10 @@ namespace Interfaz_De_Usuario
                 CargarComboBoxMoneda();
             }
             catch (Exception unaExcepcion)
-            //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
             {
                 MessageBox.Show(unaExcepcion.Message);
             }
         }
-
         private void btnModificarCotizacion_Click_1(object sender, EventArgs e)
         {
             try
@@ -72,13 +65,10 @@ namespace Interfaz_De_Usuario
                 adminMonedas.ModificarCotizacionAMoneda(monedaElegida, (double)numCotizacion.Value);
                 MessageBox.Show("Cotizacion " + numCotizacion.Text + " modificada con éxito");
                 numCotizacion.Value = 0;
-                // cbMonedas.DataSource = adminMonedas.RetornarListaMonedas();
                 cbMonedas.DataSource = null;
                 CargarComboBoxMoneda();
-
             }
             catch (Exception unaExcepcion)
-            //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
             {
                 MessageBox.Show(unaExcepcion.Message);
             }

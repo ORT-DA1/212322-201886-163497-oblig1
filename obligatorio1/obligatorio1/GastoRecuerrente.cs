@@ -22,9 +22,7 @@ namespace Dominio
                 {
                     fecha = value;
                 }
-
             }
-
         }
         public GastoRecuerrente()
         {

@@ -24,7 +24,6 @@ namespace Dominio
         {
             this.unMonto = 0;
         }
-
-
     }
+
 }

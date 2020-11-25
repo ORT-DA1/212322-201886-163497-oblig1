@@ -72,8 +72,6 @@ namespace Test
             presupuesto.AgregarCategoriaMonto(unaCategoriaMonto);
             presupuesto.ModificarMontoACategoria(unaCategoria, 300);
             Assert.AreEqual(presupuesto.ListaCategoriaMonto.First().Monto , 300);
-
         }
-
     }
 }

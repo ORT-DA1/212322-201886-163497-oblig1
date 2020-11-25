@@ -18,21 +18,17 @@ namespace Interfaz_De_Usuario
         private void CargarComboBoxCategoria()
         {
             cbCategorias.DataSource = AdminCategorias.RetornarListaCategorias();
-           
         }
-
         private void cbCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
             Categoria categoriaSeleccionada = (Categoria)cbCategorias.SelectedItem;
             cbListaPalabrasClave.DataSource = null;
             cbListaPalabrasClave.DataSource = AdminCategorias.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada);
-
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
             {
-                //Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
                 Categoria categoriaSeleccionada = (Categoria)cbCategorias.SelectedItem;
                 PalabraClave palabraSeleccionada = (PalabraClave)cbListaPalabrasClave.SelectedItem;
                 AdminCategorias.BorrarPalabraClaveACategoria(categoriaSeleccionada, palabraSeleccionada);

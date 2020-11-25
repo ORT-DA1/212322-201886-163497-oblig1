@@ -28,12 +28,10 @@ namespace Dominio
         {
             return Repositorio.EsVaciaListaGastosComunes();
         }
-
         public void EliminarGastoComun(GastoComun unGastoComun)
         {
             Repositorio.EliminarGastoComun(unGastoComun);
         }
-
         public void AgregarMontoEnPesos(Gasto unGasto)
         {
             if(unGasto.Moneda.simbolo != "UYU")
@@ -48,7 +46,6 @@ namespace Dominio
         public void ModificarGasto(GastoComun unGasto)
         {
             Repositorio.ModificarGasto(unGasto);
-        }
-      
+        }    
     }
 }

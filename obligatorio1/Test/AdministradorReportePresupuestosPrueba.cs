@@ -8,7 +8,6 @@ using System.Linq;
 namespace Test
 {
     [TestClass]
-
     public class AdministradorReportePresupuestosPrueba
     {
         private Categoria unaCategoria;
@@ -33,7 +32,6 @@ namespace Test
             unPresupuesto.Fecha = new DateTime(2020, 10, 2);
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
             Assert.AreEqual(1, adminReportePresupuestos.AgregarYRetornalListaDeMesesDondeHayPresupuestosOrdenada().Count());
-
         }
 
         [TestMethod]
@@ -74,9 +72,6 @@ namespace Test
             unPresupuesto.Fecha = new DateTime(2020, 5, 28);
             DateTime convertido = adminReportePresupuestos.ConvertirFechaDejarSoloAnioMes(unPresupuesto);
             Assert.IsFalse(convertido.Equals(unPresupuesto.Fecha));
-
         }
-
-        
     }
 }

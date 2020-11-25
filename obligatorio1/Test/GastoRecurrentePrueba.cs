@@ -17,7 +17,6 @@ namespace Test
             gastoRec = new GastoRecuerrente();
             cat = new Categoria();
             moneda = new Moneda();
-
         }
 
         [TestMethod]
@@ -52,6 +51,5 @@ namespace Test
 
             Assert.AreEqual(gastoRec.ToString(), "Monto: 0, Descripcion: No hay descripcion, Categoria: No hay nombre, Moneda: UYU,1");
        }
-
     }
 }

@@ -11,8 +11,7 @@ namespace Interfaz_De_Usuario
         private AdministradorCategorias adminCategorias;
         private AdministradorMonedas adminMonedas;
 
-        public AgregarGastoComun(AdministradorGastosComunes miAdminGastosComunes,AdministradorCategorias miAdministradorCategorias
-            , AdministradorMonedas miAdminMonedas)
+        public AgregarGastoComun(AdministradorGastosComunes miAdminGastosComunes,AdministradorCategorias miAdministradorCategorias, AdministradorMonedas miAdminMonedas)
         {
             InitializeComponent();
             adminGastosComunes = miAdminGastosComunes;

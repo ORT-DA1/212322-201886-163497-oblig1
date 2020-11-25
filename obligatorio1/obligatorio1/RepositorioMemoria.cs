@@ -10,7 +10,6 @@ namespace Dominio
         private List<Presupuesto> ListaPresupuestos { get; }
         private List<GastoComun> ListaGastosComunes { get; }
         private List<Moneda> ListaMonedas { get; set; }
-
         public RepositorioMemoria()
         {
             ListaCategorias = new List<Categoria>();
@@ -237,9 +236,6 @@ namespace Dominio
                     mon.Cotizacion = unaCotizacion;
                 }
             }
-
         }
-
-  
     }
 }
