@@ -125,6 +125,27 @@ namespace Dominio
             return gasto.Categoria.Nombre == unaCategoria.Nombre;
         }
 
+        public double[] SumaGastosPorDia(int diasDelMes, List<GastoComun> gastosMes)
+        {
+            //tiene que retornar un array que en pos 1, gasto para el dia 1
+            double[] gastosPorDia = new double[diasDelMes+1];
+            for (int i = 0; i <= diasDelMes; i++)
+            {
+                gastosPorDia[i] = SumaGastosDeUnDiaMes(gastosMes, i);
+            }
+            return gastosPorDia;
+
+        }
+        public int[] CantidadDiasEnElMes(int anio, int mes)
+        {
+            int dias = DateTime.DaysInMonth(anio, mes);
+            int[] diasDelMes = new int[dias + 1];
+            for (int i = 0; i <= dias; i++)
+            {
+                diasDelMes[i] = i;
+            }
+            return diasDelMes;
+        }
         public double SumaGastosDeUnDiaMes(List<GastoComun> gastosMes, int dia)
         {
             double acumulado = 0;
@@ -142,10 +163,7 @@ namespace Dominio
             return gasto.Fecha.Day == dia;
         }
 
-        public int CantidadDiasEnElMes(int anio, int mes)
-        {
-            return DateTime.DaysInMonth(anio, mes);
-        }
+        
 
 
 
