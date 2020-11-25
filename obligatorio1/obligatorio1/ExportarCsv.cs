@@ -28,7 +28,5 @@ namespace Dominio
                 gasto.Descripcion = "'" + gasto.Descripcion + "'";
             }
         }
-
-
     }
 }

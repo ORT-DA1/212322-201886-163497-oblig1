@@ -91,7 +91,7 @@
             this.Controls.Add(this.btnAgregar);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MenuArribaMoneda";
-            this.Size = new System.Drawing.Size(905, 670);
+            this.Size = new System.Drawing.Size(1300, 1000);
             this.ResumeLayout(false);
 
         }

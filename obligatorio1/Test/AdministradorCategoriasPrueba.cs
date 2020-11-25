@@ -43,7 +43,6 @@ namespace Test
         [TestMethod]
         public void RetornarCategoriaDePalabraClavePrueba()
         {
-
             Categoria c1 = new Categoria { Nombre = "Entretenimiento" };
             palabraClaveUno.Palabra = "Cine";
             palabraClaveDos.Palabra = "Serie";
@@ -58,12 +57,8 @@ namespace Test
             c2.AgregarPalabraClave(palabraClaveCuatro);
             adminCategorias.AgregarCategoria(c2);
 
-
             unaCategoria = adminCategorias.CategoriaDePalabraClave(palabraClaveUno);
-
             Assert.AreEqual(c1, unaCategoria);
-
-
         }
 
         [TestMethod]
@@ -74,7 +69,6 @@ namespace Test
             cat.AgregarPalabraClave(palabraClaveUno);
             adminCategorias.AgregarCategoria(cat);
             Assert.IsTrue(adminCategorias.PalabraClaveYaIngresadaEnAlgunaLista(palabraClaveUno));
-
         }
 
         [TestMethod]
@@ -83,24 +77,20 @@ namespace Test
         {
             palabraClaveUno.Palabra = "Manzana";
             adminCategorias.CategoriaDePalabraClave(palabraClaveUno);
-
         }
 
         [TestMethod]
         public void IgnorarMayusculasMinusulasCategoriaPrueba()
         {
-
             Categoria c1 = new Categoria { Nombre = "Auto" };
             palabraClaveUno.Palabra = "Nafta";
             palabraClaveDos.Palabra = "Patente";
             c1.AgregarPalabraClave(palabraClaveUno);
             c1.AgregarPalabraClave(palabraClaveDos);
             adminCategorias.AgregarCategoria(c1);
-
             palabraClaveTres.Palabra = "nAfta";
             unaCategoria = adminCategorias.CategoriaDePalabraClave(palabraClaveTres);
             Assert.AreEqual(c1, unaCategoria);
-
         }
 
         [TestMethod]

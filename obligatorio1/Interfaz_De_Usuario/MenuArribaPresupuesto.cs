@@ -12,17 +12,13 @@ namespace Interfaz_De_Usuario
             InitializeComponent();
             adminPresupuestos = miAdminPresupuestos;
             adminReportePresupuestos = miAdminReportePresupuestos;
-
-
         }
-
         private void btnCrearPresupuesto_Click(object sender, System.EventArgs e)
         {
             panelPresupuesto.Controls.Clear();
             UserControl crearPresupuesto = new CrearPresupuesto(adminPresupuestos);
             panelPresupuesto.Controls.Add(crearPresupuesto);
         }
-
         private void btnModificarPresupuesto_Click(object sender, System.EventArgs e)
         {
             panelPresupuesto.Controls.Clear();

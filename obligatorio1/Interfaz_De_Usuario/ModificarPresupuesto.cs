@@ -31,8 +31,6 @@ namespace Interfaz_De_Usuario
             {
                 DateTime fecha = Convert.ToDateTime(cbMesAnio.SelectedItem);
                 Presupuesto presupuesto = adminPresupuestos.RetornarPresupuestoSegunMes(fecha.Month, fecha.Year);
-
-                //var listaCatMonto = presupuesto.ListaCategoriaMonto;
                 var listaCatMonto = adminPresupuestos.RetornarCatMonto(presupuesto);
                 listView1.Items.Clear();
                 foreach (var catMonto in listaCatMonto)
@@ -40,20 +38,14 @@ namespace Interfaz_De_Usuario
                     var row = new string[] { catMonto.Categoria.ToString(), catMonto.Monto.ToString() };
                     var lvi = new ListViewItem(row);
                     lvi.Tag = catMonto;
-
                     listView1.Items.Add(lvi);
-
                 }
             }
             catch (Exception ex)
-
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
-
-
         private void btnModificarMonto_Click(object sender, EventArgs e)
         {
             try
@@ -71,23 +63,14 @@ namespace Interfaz_De_Usuario
                     var row = new string[] { catMonto.Categoria.ToString(), catMonto.Monto.ToString() };
                     var lvi = new ListViewItem(row);
                     lvi.Tag = catMonto;
-
                     listView1.Items.Add(lvi);
-
                 }
-
             }
             catch (Exception ex)
             when (ex is ArgumentOutOfRangeException || ex is ExcepcionElementoNoExistente)
             {
                 MessageBox.Show("Seleccione una categoria para modificar el monto.");
             }
-
-
-
         }
-
-
     }
-
 }

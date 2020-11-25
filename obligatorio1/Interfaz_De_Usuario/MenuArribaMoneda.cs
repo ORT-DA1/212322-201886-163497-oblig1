@@ -19,23 +19,18 @@ namespace Interfaz_De_Usuario
             InitializeComponent();
             miAdminMonedas = unAdminMonedas;
         }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             panelNuevo.Controls.Clear();
             UserControl agregarMoneda = new AgregarMoneda(miAdminMonedas);
             panelNuevo.Controls.Add(agregarMoneda);
         }
-
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             panelNuevo.Controls.Clear();
             UserControl modificarMoneda = new ModificarMoneda(miAdminMonedas);
             panelNuevo.Controls.Add(modificarMoneda);
-
         }
-
         private void btnEliminarMoneda_Click(object sender, EventArgs e)
         {
             panelNuevo.Controls.Clear();

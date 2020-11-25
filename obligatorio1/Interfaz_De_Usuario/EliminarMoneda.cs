@@ -21,7 +21,6 @@ namespace Interfaz_De_Usuario
             adminMonedas = miAdminMonedas;
             CargarComboBoxMoneda();
         }
-
         private void CargarComboBoxMoneda()
         {
             cbMonedas.DataSource = adminMonedas.RetornarListaMonedas();
@@ -31,23 +30,17 @@ namespace Interfaz_De_Usuario
         {
             try
             {
-                //Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
                 Moneda monedaSeleccionada = (Moneda)cbMonedas.SelectedItem;
-
                 adminMonedas.BorrarMoneda(monedaSeleccionada);
                 cbMonedas.DataSource = null;
                 cbMonedas.DataSource = adminMonedas.RetornarListaMonedas();
                 MessageBox.Show("Moneda eliminada con éxito. ");
             }
-
             catch (ExcepcionElementoNoExistente unaExcepcion)
             {
                 MessageBox.Show(unaExcepcion.Message);
             }
-
         }
-        
     }
-    
     
 }

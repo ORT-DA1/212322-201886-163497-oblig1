@@ -20,8 +20,6 @@ namespace Interfaz_De_Usuario
         public PantallaPrincipal()
         {
             InitializeComponent();
-
-            //Repositorio = new RepositorioMemoria();
             Repositorio = new RepositorioBD();
             AdminPresupuesto = new AdministradorPresupuesto(Repositorio);
             AdminCategorias = new AdministradorCategorias(Repositorio);
@@ -31,45 +29,35 @@ namespace Interfaz_De_Usuario
             AdminReportePresupuestos = new AdministradorReportePresupuestos(Repositorio);
             AdminMonedas = new AdministradorMonedas(Repositorio);
         }
-
-        
         private void btnAgregarCategoria_Click(object sender, EventArgs e)
-        {
-            
+        { 
             panelPrincipal.Controls.Clear();
             UserControl menuArriba = new MenuArribaCategoria(AdminCategorias);
             panelPrincipal.Controls.Add(menuArriba);
-
         }
-
         private void btnMoneda_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
             UserControl menuArriba = new MenuArribaMoneda(AdminMonedas);
             panelPrincipal.Controls.Add(menuArriba);
         }
-
         private void btnGastoComun_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
             UserControl menuArriba = new MenuArribaGasto(AdminGastoComun, AdminCategorias,AdminMonedas);
             panelPrincipal.Controls.Add(menuArriba);
         }
-
         private void btGastoRecurrente_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
             UserControl gastoRecurrente = new MenuArribaGastoRecurrente(AdminGastoRecurrente, AdminCategorias,AdminMonedas);
             panelPrincipal.Controls.Add(gastoRecurrente);
         }
-
         private void btnCrearPresupuesto_Click(object sender, EventArgs e)
         {
-           
             panelPrincipal.Controls.Clear();
             UserControl presupuesto = new MenuArribaPresupuesto(AdminPresupuesto, AdminCategorias, AdminReportePresupuestos);
             panelPrincipal.Controls.Add(presupuesto);
-
         }
 
         private void btnReporteGastos_Click(object sender, EventArgs e)
@@ -78,15 +66,11 @@ namespace Interfaz_De_Usuario
             UserControl reporteGastos = new ReporteDeGastos(AdminReporteGastos);
             panelPrincipal.Controls.Add(reporteGastos);
         }
-
-
         private void btnReportePres_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
             UserControl reportePresupuesto = new ReportePresupuesto(AdminPresupuesto, AdminReportePresupuestos, AdminReporteGastos);
             panelPrincipal.Controls.Add(reportePresupuesto);
         }
-
-        
     }
 }

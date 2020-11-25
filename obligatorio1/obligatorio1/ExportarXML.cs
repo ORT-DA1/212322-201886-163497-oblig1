@@ -16,7 +16,6 @@ namespace Dominio
             var file = new StreamWriter(fileStream);
             writer.Serialize(file, listaGastosComunes);
             file.Close();
-
         }
     }
 }

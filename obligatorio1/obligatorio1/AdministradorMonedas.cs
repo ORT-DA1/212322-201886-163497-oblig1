@@ -7,34 +7,29 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-
     public class AdministradorMonedas
     {
-        private IRepositorio Repositorio { get;  }
+        private IRepositorio Repositorio { get; }
         public AdministradorMonedas(IRepositorio unRepositorio)
         {
             this.Repositorio = unRepositorio;
         }
+        public void AgregarMoneda(Moneda unaMoneda)
+        {
+            if (Repositorio.ExisteMoneda(unaMoneda))
+            {
+                throw new ExcepcionElementoRepetido("Moneda ya existente");
+            }
+            else
+            {
 
-        
-          public void AgregarMoneda(Moneda unaMoneda)
-          {
-               if (Repositorio.ExisteMoneda(unaMoneda))
-              {
-                  throw new ExcepcionElementoRepetido("Moneda ya existente");
-              }
-              else
-              { 
-                    
-                  Repositorio.AgregarMoneda(unaMoneda);
-              }
-          }
-
+                Repositorio.AgregarMoneda(unaMoneda);
+            }
+        }
         public List<Moneda> RetornarListaMonedas()
         {
             return Repositorio.RetornarListaMonedas();
         }
-
         public void BorrarMoneda(Moneda unaMoneda)
         {
             Repositorio.BorrarMoneda(unaMoneda);
@@ -48,7 +43,6 @@ namespace Dominio
         {
             Repositorio.ModificarSimboloAMoneda(unaMoneda, unSimbolo);
         }
-
         public void ModificarCotizacionAMoneda(Moneda monedaElegida, double cotizacion)
         {
             Repositorio.ModificarCotizacionAMoneda(monedaElegida, cotizacion);

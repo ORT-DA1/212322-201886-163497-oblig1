@@ -28,17 +28,14 @@ namespace Interfaz_De_Usuario
         }
         public void CargarComboBoxCategorias(String descripcion)
         {
-            
             foreach (Categoria unaCategoria in unAdminCategorias.RetornarListaCategorias())
             {
                 cbCategoria.Items.Add(unaCategoria);
             }
             try
             {
-               
                 Categoria cat = unAdminCategorias.RetornarCategoriaDeDescripcion(descripcion);
                 cbCategoria.SelectedItem = cat;
-
             }
            catch (Exception unaExcepcion)
            when ( unaExcepcion is IndexOutOfRangeException || unaExcepcion is InvalidOperationException || unaExcepcion is ExcepcionElementoNoExistente)
@@ -54,11 +51,9 @@ namespace Interfaz_De_Usuario
                 MessageBox.Show("La Categoria no puede quedar vacia");
                 return;
             }
-
             try
             {
                 unGastoRecurrente.Monto = (double)numMonto.Value;
-                //unAdminGastosRecurrentes.AgregarMontoEnPesos(unGastoRecurrente);
                 unGastoRecurrente.Fecha = (int)numFecha.Value;
                 unGastoRecurrente.Categoria = (Categoria)cbCategoria.SelectedItem;
                 unGastoRecurrente.Moneda = (Moneda)cbMoneda.SelectedItem;
@@ -75,16 +70,11 @@ namespace Interfaz_De_Usuario
             {
                 MessageBox.Show(unaExcepcion.Message);
             }
-
         }
-
         private bool CampoCategoriaEsVacia()
         {
             return cbCategoria.SelectedItem == null;
         }
-
-        
-
     }
 }
 

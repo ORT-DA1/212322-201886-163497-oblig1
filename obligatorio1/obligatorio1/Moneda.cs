@@ -10,9 +10,7 @@ namespace Dominio
         private String nombre;
         public String Nombre
         {
-
             get { return nombre; }
-
             set
             {
                 if (value.Length < 3 || value.Length > 20)
@@ -23,16 +21,12 @@ namespace Dominio
                 {
                     nombre = value;
                 }
-
             }
-
         }
         public String simbolo;
         public String Simbolo
         {
-
             get { return simbolo; }
-
             set
             {
                 if (value.Length < 1 || value.Length > 3)
@@ -43,9 +37,7 @@ namespace Dominio
                 {
                     simbolo = value;
                 }
-
             }
-
         }
         private double cotizacion;
         public double Cotizacion
@@ -60,7 +52,6 @@ namespace Dominio
                 }
             }
         }
-
         public Moneda()
         {
             this.Nombre = "Peso Uruguayo";

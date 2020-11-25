@@ -65,7 +65,7 @@ namespace Test
             gasto.Moneda = moneda;
             cat.Nombre = "No hay nombre";
             gasto.Categoria = cat;
-            Assert.AreEqual(gasto.ToString(), "Monto: 0, Descripcion: No hay descripcion, Categoria: No hay nombre, Moneda: UYU, Fecha: 1/5/2020");
+            Assert.AreEqual(gasto.ToString(), "Monto: 0, Descripcion: No hay descripcion, Categoria: No hay nombre, Moneda: UYU, Fecha: 5/1/2020");
             
         }
 

@@ -12,8 +12,7 @@ namespace Interfaz_De_Usuario
         private AdministradorCategorias unAdminCategorias;
         private GastoComun gastoC;
         private AdministradorMonedas unAdminMonedas;
-        public AtributosGastoComun(AdministradorGastosComunes miAdminGastoComun, String descripcion, 
-                                   AdministradorCategorias miAdministradorCategorias,AdministradorMonedas miAdminMonedas)
+        public AtributosGastoComun(AdministradorGastosComunes miAdminGastoComun, String descripcion, AdministradorCategorias miAdministradorCategorias,AdministradorMonedas miAdminMonedas)
         {
             InitializeComponent();
             unAdminGastosComun = miAdminGastoComun;
@@ -28,10 +27,8 @@ namespace Interfaz_De_Usuario
         {
             cbMoneda.DataSource = unAdminMonedas.RetornarListaMonedas();
         }
-
         private void CargarComboBoxCategoria(String descripcion)
         {
-
             foreach (Categoria unaCategoria in unAdminCategorias.RetornarListaCategorias())
             {
                 cbCategoria.Items.Add(unaCategoria);
@@ -47,7 +44,6 @@ namespace Interfaz_De_Usuario
             {
                 MessageBox.Show(unaExcepcion.Message);
             }
-
         }
 
         private void btnAceptarGastoC_Click(object sender, EventArgs e)
@@ -62,11 +58,9 @@ namespace Interfaz_De_Usuario
                 MessageBox.Show("La Moneda no puede quedar vacia");
                 return;
             }
-
             try
             {
                 gastoC.Monto = (double)numMonto.Value;
-                //unAdminGastosComun.AgregarMontoEnPesos(gastoC);
                 gastoC.Fecha = dtFecha.Value;
                 gastoC.Categoria = (Categoria)cbCategoria.SelectedItem;
                 gastoC.Moneda = (Moneda)cbMoneda.SelectedItem;
@@ -75,7 +69,6 @@ namespace Interfaz_De_Usuario
                 numMonto.Value = (decimal)0.00;
                 cbCategoria.SelectedIndex = -1;
                 cbMoneda.SelectedIndex = -1;
-
             }
             catch (Exception unaExcepcion)
             when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException)

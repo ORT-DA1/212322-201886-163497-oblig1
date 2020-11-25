@@ -8,12 +8,9 @@ namespace Dominio
     {
         public int Id { get; set; }
         public List<PalabraClave> PalabrasClave { get; set; }
-
         private String nombre;
-
         public String Nombre
         {
-
             get { return nombre; }
 
             set
@@ -26,9 +23,7 @@ namespace Dominio
                 {
                     nombre = value;
                 }
-
             }
-
         }
 
         public Categoria()
@@ -39,33 +34,24 @@ namespace Dominio
 
         public void AgregarPalabraClave(PalabraClave palabra)
         {
-
-            this.PalabrasClave.Add(palabra);
-            
+            this.PalabrasClave.Add(palabra); 
         }
-
-        
-
         public bool EsVacia()
         {
             return this.PalabrasClave.Count == 0;
         }
-
         public void BorrarPalabraClave(PalabraClave palabra)
         {
             this.PalabrasClave.Remove(palabra);
         }
-
         private int CantPalabrasClave()
         {
             return this.PalabrasClave.Count;
         }
-
         public bool ExistePalabraClave(PalabraClave unaPalabra)
         {
             return PalabrasClave.Contains((unaPalabra));
         }
-
         public override bool Equals(Object obj)
         {
             Categoria catObj = obj as Categoria;
@@ -78,7 +64,6 @@ namespace Dominio
                 return Nombre.Equals(catObj.Nombre);
             }
         }
-
         public override string ToString()
         {
             return String.Format(this.Nombre);

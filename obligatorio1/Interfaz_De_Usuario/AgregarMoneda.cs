@@ -20,7 +20,6 @@ namespace Interfaz_De_Usuario
             InitializeComponent();
             adminMonedas = miAdminMonedas;
         }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -31,7 +30,6 @@ namespace Interfaz_De_Usuario
                 tbNombre.Clear();
             }
             catch (Exception unaExcepcion)
-            //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
             {
                 MessageBox.Show(unaExcepcion.Message);
             }

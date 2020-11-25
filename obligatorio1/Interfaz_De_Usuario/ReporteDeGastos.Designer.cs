@@ -160,9 +160,9 @@
             this.lbTotal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbTotal.Location = new System.Drawing.Point(546, 385);
             this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(45, 16);
+            this.lbTotal.Size = new System.Drawing.Size(15, 16);
             this.lbTotal.TabIndex = 18;
-            this.lbTotal.Text = "monto";
+            this.lbTotal.Text = "0";
             // 
             // btnExportar
             // 
