@@ -17,13 +17,20 @@ namespace Interfaz_De_Usuario
             unAdminGastoComun = miAdminGastoComun;
             unAdminCategorias = miAdminCategorias;
             unAdminMonedas = miAdminMonedas;
-            CargarComboBox();
+            if (unAdminGastoComun.RetornarListaGastosComunes().Count != 0) CargarComboBox();
+            else ComboBoxVacio();
         }
         public void CargarComboBox()
         {
             cbMoneda.DataSource = unAdminMonedas.RetornarListaMonedas();
             cbGastoComun.DataSource = unAdminGastoComun.RetornarListaGastosComunes();
             cbCategoria.DataSource = unAdminCategorias.RetornarListaCategorias();
+        }
+        public void ComboBoxVacio()
+        {
+
+            cbGastoComun.Text = "- Ningun gasto para eliminar -";
+            btnEliminar.Visible = false;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -35,11 +42,12 @@ namespace Interfaz_De_Usuario
                 unAdminGastoComun.EliminarGastoComun(gastoEliminar);
                 cbGastoComun.DataSource = null;
                 cbGastoComun.DataSource = unAdminGastoComun.RetornarListaGastosComunes();
+                MessageBox.Show("Gasto eliminado con éxito");
 
             }
             catch (Exception unaExcepcion)
             {
-                MessageBox.Show(unaExcepcion.Message);
+                
             }
         }
 
@@ -75,5 +83,23 @@ namespace Interfaz_De_Usuario
         {
             return cbGastoComun.SelectedItem == null || string.IsNullOrEmpty(tbDescripcion.Text);
         }
+
+       /* private void cbGastoComun_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GastoComun gastoAmodificar = (GastoComun)cbGastoComun.SelectedItem;
+                tbDescripcion.Text = gastoAmodificar.Descripcion;
+                cbMoneda.SelectedItem = gastoAmodificar.Moneda.ToString();
+                numMonto.Value = (decimal)gastoAmodificar.Monto;
+                dtFecha.Value = gastoAmodificar.Fecha;
+                cbCategoria.SelectedItem = gastoAmodificar.Categoria.ToString();
+                
+            }
+            catch (Exception unaExcepcion)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+        }*/
     }
 }

@@ -59,9 +59,7 @@ namespace Interfaz_De_Usuario
                 tablaGastos.Items.Add(lvi);
 
             }
-
-
-           
+   
             String[] diasMes = adminReporteGastos.CantidadDiasEnElMes(fecha.Year, fecha.Month); 
             int cantDias = diasMes.Length; 
 

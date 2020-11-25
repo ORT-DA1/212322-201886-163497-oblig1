@@ -55,6 +55,7 @@
             this.cbGastoComun.Name = "cbGastoComun";
             this.cbGastoComun.Size = new System.Drawing.Size(589, 24);
             this.cbGastoComun.TabIndex = 31;
+            
             // 
             // btnEliminar
             // 

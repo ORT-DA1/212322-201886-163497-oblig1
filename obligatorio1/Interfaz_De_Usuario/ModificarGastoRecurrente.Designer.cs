@@ -54,17 +54,18 @@
             // cbGastoRecurrente
             // 
             this.cbGastoRecurrente.FormattingEnabled = true;
-            this.cbGastoRecurrente.Location = new System.Drawing.Point(134, 81);
+            this.cbGastoRecurrente.Location = new System.Drawing.Point(35, 81);
             this.cbGastoRecurrente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbGastoRecurrente.Name = "cbGastoRecurrente";
-            this.cbGastoRecurrente.Size = new System.Drawing.Size(550, 24);
+            this.cbGastoRecurrente.Size = new System.Drawing.Size(650, 24);
             this.cbGastoRecurrente.TabIndex = 35;
+
             // 
             // lblSeleccionarGasto
             // 
             this.lblSeleccionarGasto.AutoSize = true;
             this.lblSeleccionarGasto.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeleccionarGasto.Location = new System.Drawing.Point(3, 84);
+            this.lblSeleccionarGasto.Location = new System.Drawing.Point(32, 61);
             this.lblSeleccionarGasto.Name = "lblSeleccionarGasto";
             this.lblSeleccionarGasto.Size = new System.Drawing.Size(131, 18);
             this.lblSeleccionarGasto.TabIndex = 33;
