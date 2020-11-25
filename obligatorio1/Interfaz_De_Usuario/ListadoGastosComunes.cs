@@ -9,14 +9,19 @@ namespace Interfaz_De_Usuario
         private AdministradorGastosComunes unAdminGastoComun;
         public ListadoGastosComunes(AdministradorGastosComunes miAdminGastoComun)
         {
-            InitializeComponent();
             unAdminGastoComun = miAdminGastoComun;
-            CargarListaGastosComunes();
+            if (unAdminGastoComun.RetornarListaGastosComunes().Count == 0) MessageBox.Show("No hay gastos comunes por el momento");
+            else
+            {
+                InitializeComponent();            
+                CargarListaGastosComunes();
+            }
+            
         }
 
         public void CargarListaGastosComunes()
         {
-            lstGastosComunes.DataSource = unAdminGastoComun.RetornarListaGastosComunes();
+             lstGastosComunes.DataSource = unAdminGastoComun.RetornarListaGastosComunes();
         }
 
 

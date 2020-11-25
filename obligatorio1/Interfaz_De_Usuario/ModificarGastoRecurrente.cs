@@ -15,7 +15,9 @@ namespace Interfaz_De_Usuario
             unAdminGastoRecurrente = miAdminGastoRecurrente;
             unAdminCategorias = miAdminCategorias;
             unAdminMonedas = miAdminMonedas;
-            CargarComboBox();
+            if (unAdminGastoRecurrente.RetornarListaGastosRecurrentes().Count != 0) CargarComboBox();
+            else ComboBoxVacio();
+            
         }
         public void CargarComboBox()
         {
@@ -23,8 +25,13 @@ namespace Interfaz_De_Usuario
             cbCategoria.DataSource = unAdminCategorias.RetornarListaCategorias();
             cbMoneda.DataSource = unAdminMonedas.RetornarListaMonedas();
         }
+        public void ComboBoxVacio()
+        {
+            cbGastoRecurrente.Text = "- Ningun gasto para eliminar -";
+            btnEliminar.Visible = false;
+        }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -32,11 +39,11 @@ namespace Interfaz_De_Usuario
                 unAdminGastoRecurrente.EliminarGastoRecurrente(gastoEliminar);
                 cbGastoRecurrente.DataSource = null;
                 cbGastoRecurrente.DataSource = unAdminGastoRecurrente.RetornarListaGastosRecurrentes();
-
+                MessageBox.Show("Gasto recurrente eliminado con éxito");
             }
             catch (Exception unaExcepcion)
             {
-                MessageBox.Show(unaExcepcion.Message);
+                MessageBox.Show("Seleccione un gasto para eliminar");
             }
         }
 
@@ -83,7 +90,7 @@ namespace Interfaz_De_Usuario
             catch (Exception unaExcepcion)
             //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
             {
-                MessageBox.Show(unaExcepcion.Message);
+                MessageBox.Show("Ingrese algo a modificar");
             }
         }
 
@@ -101,7 +108,7 @@ namespace Interfaz_De_Usuario
             catch (Exception unaExcepcion)
             //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
             {
-                MessageBox.Show(unaExcepcion.Message);
+                MessageBox.Show("Ingrese algo a modificar");
             }
         }
 
@@ -119,7 +126,7 @@ namespace Interfaz_De_Usuario
             catch (Exception unaExcepcion)
             //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
             {
-                MessageBox.Show(unaExcepcion.Message);
+                MessageBox.Show("Ingrese algo a modificar");
             }
         }
 
@@ -138,7 +145,7 @@ namespace Interfaz_De_Usuario
             catch (Exception unaExcepcion)
             //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
             {
-                MessageBox.Show(unaExcepcion.Message);
+                MessageBox.Show("Ingrese algo a modificar");
             }
         }
 
@@ -157,8 +164,30 @@ namespace Interfaz_De_Usuario
             catch (Exception unaExcepcion)
             //when (unaExcepcion is ExcepcionElementoRepetido || unaExcepcion is ExcepcionPalabraLarga)
             {
-                MessageBox.Show(unaExcepcion.Message);
+                MessageBox.Show("Ingrese algo a modificar");
             }
         }
+
+        /* private void cbGastoRecurrente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(!unAdminGastoRecurrente.EsVaciaListaGastosRecurrentes())
+            {
+                try
+                {
+                    GastoRecuerrente gastoElegido = (GastoRecuerrente)cbGastoRecurrente.SelectedItem;
+                    tbDescripcion.Text = gastoElegido.Descripcion;
+                    cbMoneda.SelectedItem = gastoElegido.Moneda.ToString();
+                    numMonto.Value = (decimal)gastoElegido.Monto;
+                    numFecha.Value = gastoElegido.Fecha;
+                    cbCategoria.SelectedItem = gastoElegido.Categoria.ToString();
+
+                }
+                catch (Exception unaExcepcion)
+                {
+                    MessageBox.Show(unaExcepcion.Message);
+                }
+            }
+            
+        }*/
     }
 }

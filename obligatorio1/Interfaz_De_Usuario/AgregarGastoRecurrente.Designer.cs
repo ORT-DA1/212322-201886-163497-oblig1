@@ -37,19 +37,21 @@
             // 
             // tbDescripcion
             // 
-            this.tbDescripcion.Location = new System.Drawing.Point(215, 101);
+            this.tbDescripcion.Location = new System.Drawing.Point(114, 65);
+            this.tbDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbDescripcion.MaxLength = 20;
             this.tbDescripcion.Name = "tbDescripcion";
-            this.tbDescripcion.Size = new System.Drawing.Size(317, 26);
+            this.tbDescripcion.Size = new System.Drawing.Size(213, 20);
             this.tbDescripcion.TabIndex = 30;
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(33, 99);
+            this.lblDescripcion.Location = new System.Drawing.Point(22, 64);
+            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(127, 26);
+            this.lblDescripcion.Size = new System.Drawing.Size(88, 18);
             this.lblDescripcion.TabIndex = 29;
             this.lblDescripcion.Text = "Descripcion";
             // 
@@ -57,40 +59,44 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("MS Reference Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(30, 30);
+            this.lblTitulo.Location = new System.Drawing.Point(20, 19);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(279, 35);
+            this.lblTitulo.Size = new System.Drawing.Size(191, 24);
             this.lblTitulo.TabIndex = 28;
             this.lblTitulo.Text = "Gasto Recurrente";
             // 
             // pGastoRecurrente
             // 
-            this.pGastoRecurrente.Location = new System.Drawing.Point(6, 164);
+            this.pGastoRecurrente.Location = new System.Drawing.Point(4, 107);
+            this.pGastoRecurrente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pGastoRecurrente.Name = "pGastoRecurrente";
-            this.pGastoRecurrente.Size = new System.Drawing.Size(633, 410);
+            this.pGastoRecurrente.Size = new System.Drawing.Size(422, 266);
             this.pGastoRecurrente.TabIndex = 32;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(562, 99);
+            this.btnAgregar.Location = new System.Drawing.Point(345, 65);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(77, 33);
+            this.btnAgregar.Size = new System.Drawing.Size(81, 21);
             this.btnAgregar.TabIndex = 33;
-            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Text = "Siguiente";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // AgregarGastoRecurrente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pGastoRecurrente);
             this.Controls.Add(this.tbDescripcion);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblTitulo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AgregarGastoRecurrente";
-            this.Size = new System.Drawing.Size(792, 615);
+            this.Size = new System.Drawing.Size(528, 400);
             this.ResumeLayout(false);
             this.PerformLayout();
 

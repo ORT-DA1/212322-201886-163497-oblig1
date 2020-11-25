@@ -63,9 +63,11 @@ namespace Interfaz_De_Usuario
                 unGastoRecurrente.Categoria = (Categoria)cbCategoria.SelectedItem;
                 unGastoRecurrente.Moneda = (Moneda)cbMoneda.SelectedItem;
                 unAdminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecurrente);
-
                 MessageBox.Show("El gasto recurrente ha sido creado con exito");
-
+                numMonto.Value = (decimal)0.00;
+                numFecha.Value = 0;
+                cbCategoria.SelectedIndex = -1;
+                cbMoneda.SelectedIndex = -1;
 
             }
             catch (Exception unaExcepcion)

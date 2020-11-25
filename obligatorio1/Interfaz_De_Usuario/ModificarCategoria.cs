@@ -28,36 +28,6 @@ namespace Interfaz_De_Usuario
             cbListaPalabrasClave.DataSource = AdminCategorias.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada);
 
         }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            if (cbCategorias.SelectedItem == null || AdminCategorias.EsVaciaListaCategorias())
-            {
-                MessageBox.Show("Categoria y palabra clave no pueden ser vacias");
-                return;
-            }
-            try
-            {
-                Categoria categoriaSeleccionada = (Categoria)cbCategorias.SelectedItem;
-                PalabraClave palabra = new PalabraClave() { Palabra = tbPalabraClave.Text };
-               
-                AdminCategorias.AgregarPalabraClaveACategoria(categoriaSeleccionada, palabra);
-
-                /*
-                cbListaPalabrasClave.DataSource = null;
-                cbListaPalabrasClave.DataSource = AdminCategorias.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada);*/
-
-                MessageBox.Show("Palabra Clave agregada con exito");
-                tbPalabraClave.Clear();
-            }
-            catch (Exception unaExcepcion)
-            when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is InvalidOperationException || unaExcepcion is IndexOutOfRangeException)
-            {
-                MessageBox.Show(unaExcepcion.Message);
-            }
-
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -68,11 +38,12 @@ namespace Interfaz_De_Usuario
                 AdminCategorias.BorrarPalabraClaveACategoria(categoriaSeleccionada, palabraSeleccionada);
                 cbListaPalabrasClave.DataSource = null;
                 cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
+                MessageBox.Show("Palabra clave eliminada con exito");
             }
 
-            catch (ExcepcionElementoNoExistente unaExcepcion)
+            catch (Exception ex)
             {
-                MessageBox.Show(unaExcepcion.Message);
+                MessageBox.Show("Seleccione una categoria y una palabra clave para eliminarla");
             }
 
         }

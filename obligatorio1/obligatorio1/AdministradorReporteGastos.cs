@@ -134,7 +134,20 @@ namespace Dominio
             }
             return gastosPorDia;
 
+        }//array de gasto en pesos por dia del mes
+        //hacer metodo que sume todo lo que hay en ese array
+        //PROBAR
+        public double GastoTotalDelMesEnPesos(double[] gastosPorDiaEnPesos)
+        {
+            double gastoTotalDelMes = 0;
+            for (int i = 0; i < gastosPorDiaEnPesos.Length; i++)
+            {
+                gastoTotalDelMes += gastosPorDiaEnPesos[i];
+            }
+            return gastoTotalDelMes;
+
         }
+        
         public String[] CantidadDiasEnElMes(int anio, int mes)
         {
             int dias = DateTime.DaysInMonth(anio, mes);

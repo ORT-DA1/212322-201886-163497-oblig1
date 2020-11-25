@@ -57,8 +57,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("MS Reference Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(11, 13);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitulo.Location = new System.Drawing.Point(15, 16);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(203, 24);
             this.lblTitulo.TabIndex = 7;
@@ -67,19 +66,19 @@
             // cbMesAnio
             // 
             this.cbMesAnio.FormattingEnabled = true;
-            this.cbMesAnio.Location = new System.Drawing.Point(65, 62);
-            this.cbMesAnio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbMesAnio.Location = new System.Drawing.Point(87, 76);
+            this.cbMesAnio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbMesAnio.Name = "cbMesAnio";
-            this.cbMesAnio.Size = new System.Drawing.Size(168, 21);
+            this.cbMesAnio.Size = new System.Drawing.Size(223, 24);
             this.cbMesAnio.TabIndex = 11;
             // 
             // btnConsultar
             // 
             this.btnConsultar.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultar.Location = new System.Drawing.Point(251, 56);
-            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConsultar.Location = new System.Drawing.Point(335, 69);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(93, 27);
+            this.btnConsultar.Size = new System.Drawing.Size(124, 33);
             this.btnConsultar.TabIndex = 12;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
@@ -89,8 +88,7 @@
             // 
             this.lblMes.AutoSize = true;
             this.lblMes.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMes.Location = new System.Drawing.Point(18, 60);
-            this.lblMes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMes.Location = new System.Drawing.Point(24, 74);
             this.lblMes.Name = "lblMes";
             this.lblMes.Size = new System.Drawing.Size(35, 18);
             this.lblMes.TabIndex = 13;
@@ -99,20 +97,18 @@
             // s
             // 
             this.s.AutoSize = true;
-            this.s.Location = new System.Drawing.Point(334, 303);
-            this.s.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.s.Location = new System.Drawing.Point(406, 385);
             this.s.Name = "s";
-            this.s.Size = new System.Drawing.Size(97, 13);
+            this.s.Size = new System.Drawing.Size(121, 16);
             this.s.TabIndex = 15;
             this.s.Text = "Total del mes en $:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(395, 303);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(527, 373);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.Size = new System.Drawing.Size(0, 16);
             this.label2.TabIndex = 16;
             // 
             // tablaGastos
@@ -125,10 +121,10 @@
             this.columnHeader5});
             this.tablaGastos.GridLines = true;
             this.tablaGastos.HideSelection = false;
-            this.tablaGastos.Location = new System.Drawing.Point(2, 116);
-            this.tablaGastos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tablaGastos.Location = new System.Drawing.Point(3, 143);
+            this.tablaGastos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tablaGastos.Name = "tablaGastos";
-            this.tablaGastos.Size = new System.Drawing.Size(475, 171);
+            this.tablaGastos.Size = new System.Drawing.Size(603, 210);
             this.tablaGastos.TabIndex = 17;
             this.tablaGastos.UseCompatibleStateImageBehavior = false;
             this.tablaGastos.View = System.Windows.Forms.View.Details;
@@ -162,19 +158,18 @@
             // 
             this.lbTotal.AutoSize = true;
             this.lbTotal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbTotal.Location = new System.Drawing.Point(445, 303);
-            this.lbTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbTotal.Location = new System.Drawing.Point(546, 385);
             this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(36, 13);
+            this.lbTotal.Size = new System.Drawing.Size(45, 16);
             this.lbTotal.TabIndex = 18;
             this.lbTotal.Text = "monto";
             // 
             // btnExportar
             // 
-            this.btnExportar.Location = new System.Drawing.Point(213, 313);
-            this.btnExportar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExportar.Location = new System.Drawing.Point(284, 385);
+            this.btnExportar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(57, 25);
+            this.btnExportar.Size = new System.Drawing.Size(76, 31);
             this.btnExportar.TabIndex = 19;
             this.btnExportar.Text = "Exportar";
             this.btnExportar.UseVisualStyleBackColor = true;
@@ -183,10 +178,10 @@
             // cbTipoDeArchivo
             // 
             this.cbTipoDeArchivo.FormattingEnabled = true;
-            this.cbTipoDeArchivo.Location = new System.Drawing.Point(28, 316);
-            this.cbTipoDeArchivo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbTipoDeArchivo.Location = new System.Drawing.Point(37, 389);
+            this.cbTipoDeArchivo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbTipoDeArchivo.Name = "cbTipoDeArchivo";
-            this.cbTipoDeArchivo.Size = new System.Drawing.Size(169, 21);
+            this.cbTipoDeArchivo.Size = new System.Drawing.Size(224, 24);
             this.cbTipoDeArchivo.TabIndex = 20;
             // 
             // openFileDialog1
@@ -196,10 +191,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 300);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(35, 369);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.Size = new System.Drawing.Size(102, 16);
             this.label3.TabIndex = 22;
             this.label3.Text = "Tipo de archivo";
             // 
@@ -209,13 +203,13 @@
             chartArea1.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
             chartArea1.Name = "ChartArea1";
             this.ReporteGasto.ChartAreas.Add(chartArea1);
-            this.ReporteGasto.Location = new System.Drawing.Point(507, 71);
-            this.ReporteGasto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ReporteGasto.Location = new System.Drawing.Point(612, 87);
+            this.ReporteGasto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ReporteGasto.Name = "ReporteGasto";
             series1.ChartArea = "ChartArea1";
             series1.Name = "S1";
             this.ReporteGasto.Series.Add(series1);
-            this.ReporteGasto.Size = new System.Drawing.Size(417, 267);
+            this.ReporteGasto.Size = new System.Drawing.Size(556, 329);
             this.ReporteGasto.TabIndex = 24;
             this.ReporteGasto.Text = "ReporteGasto";
             title1.Font = new System.Drawing.Font("MS Reference Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,7 +219,7 @@
             // 
             // ReporteDeGastos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ReporteGasto);
             this.Controls.Add(this.label3);
@@ -239,9 +233,9 @@
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.cbMesAnio);
             this.Controls.Add(this.lblTitulo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ReporteDeGastos";
-            this.Size = new System.Drawing.Size(1262, 711);
+            this.Size = new System.Drawing.Size(1683, 875);
             ((System.ComponentModel.ISupportInitialize)(this.ReporteGasto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

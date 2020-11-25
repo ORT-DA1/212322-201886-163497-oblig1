@@ -46,6 +46,7 @@
             this.btnModificarDia = new System.Windows.Forms.Button();
             this.btnModificarCategoria = new System.Windows.Forms.Button();
             this.btnModificarMoneda = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numFecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMonto)).BeginInit();
             this.SuspendLayout();
@@ -53,17 +54,18 @@
             // cbGastoRecurrente
             // 
             this.cbGastoRecurrente.FormattingEnabled = true;
-            this.cbGastoRecurrente.Location = new System.Drawing.Point(189, 81);
+            this.cbGastoRecurrente.Location = new System.Drawing.Point(35, 81);
             this.cbGastoRecurrente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbGastoRecurrente.Name = "cbGastoRecurrente";
-            this.cbGastoRecurrente.Size = new System.Drawing.Size(495, 24);
+            this.cbGastoRecurrente.Size = new System.Drawing.Size(650, 24);
             this.cbGastoRecurrente.TabIndex = 35;
+
             // 
             // lblSeleccionarGasto
             // 
             this.lblSeleccionarGasto.AutoSize = true;
             this.lblSeleccionarGasto.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeleccionarGasto.Location = new System.Drawing.Point(-3, 81);
+            this.lblSeleccionarGasto.Location = new System.Drawing.Point(32, 61);
             this.lblSeleccionarGasto.Name = "lblSeleccionarGasto";
             this.lblSeleccionarGasto.Size = new System.Drawing.Size(131, 18);
             this.lblSeleccionarGasto.TabIndex = 33;
@@ -81,7 +83,7 @@
             // 
             // numFecha
             // 
-            this.numFecha.Location = new System.Drawing.Point(298, 251);
+            this.numFecha.Location = new System.Drawing.Point(299, 269);
             this.numFecha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numFecha.Name = "numFecha";
             this.numFecha.Size = new System.Drawing.Size(276, 22);
@@ -90,7 +92,7 @@
             // numMonto
             // 
             this.numMonto.DecimalPlaces = 2;
-            this.numMonto.Location = new System.Drawing.Point(298, 201);
+            this.numMonto.Location = new System.Drawing.Point(299, 219);
             this.numMonto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numMonto.Maximum = new decimal(new int[] {
             100000,
@@ -104,7 +106,7 @@
             // cbCategoria
             // 
             this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(297, 295);
+            this.cbCategoria.Location = new System.Drawing.Point(298, 313);
             this.cbCategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(277, 24);
@@ -114,7 +116,7 @@
             // 
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(196, 298);
+            this.lblCategoria.Location = new System.Drawing.Point(197, 316);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(75, 18);
             this.lblCategoria.TabIndex = 38;
@@ -124,7 +126,7 @@
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(183, 249);
+            this.lblFecha.Location = new System.Drawing.Point(184, 267);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(89, 18);
             this.lblFecha.TabIndex = 37;
@@ -134,7 +136,7 @@
             // 
             this.lblMonto.AutoSize = true;
             this.lblMonto.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonto.Location = new System.Drawing.Point(212, 201);
+            this.lblMonto.Location = new System.Drawing.Point(213, 219);
             this.lblMonto.Name = "lblMonto";
             this.lblMonto.Size = new System.Drawing.Size(57, 18);
             this.lblMonto.TabIndex = 36;
@@ -142,7 +144,7 @@
             // 
             // tbDescripcion
             // 
-            this.tbDescripcion.Location = new System.Drawing.Point(298, 154);
+            this.tbDescripcion.Location = new System.Drawing.Point(299, 172);
             this.tbDescripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbDescripcion.MaxLength = 20;
             this.tbDescripcion.Name = "tbDescripcion";
@@ -153,7 +155,7 @@
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(187, 152);
+            this.lblDescripcion.Location = new System.Drawing.Point(188, 170);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(88, 18);
             this.lblDescripcion.TabIndex = 45;
@@ -163,7 +165,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(207, 344);
+            this.label2.Location = new System.Drawing.Point(208, 362);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 18);
             this.label2.TabIndex = 50;
@@ -172,7 +174,7 @@
             // cbMoneda
             // 
             this.cbMoneda.FormattingEnabled = true;
-            this.cbMoneda.Location = new System.Drawing.Point(297, 341);
+            this.cbMoneda.Location = new System.Drawing.Point(298, 359);
             this.cbMoneda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbMoneda.Name = "cbMoneda";
             this.cbMoneda.Size = new System.Drawing.Size(277, 24);
@@ -180,7 +182,7 @@
             // 
             // btnModificarDescripcion
             // 
-            this.btnModificarDescripcion.Location = new System.Drawing.Point(593, 154);
+            this.btnModificarDescripcion.Location = new System.Drawing.Point(594, 172);
             this.btnModificarDescripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificarDescripcion.Name = "btnModificarDescripcion";
             this.btnModificarDescripcion.Size = new System.Drawing.Size(91, 29);
@@ -191,7 +193,7 @@
             // 
             // btnModificarMonto
             // 
-            this.btnModificarMonto.Location = new System.Drawing.Point(593, 197);
+            this.btnModificarMonto.Location = new System.Drawing.Point(594, 215);
             this.btnModificarMonto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificarMonto.Name = "btnModificarMonto";
             this.btnModificarMonto.Size = new System.Drawing.Size(91, 29);
@@ -202,7 +204,7 @@
             // 
             // btnModificarDia
             // 
-            this.btnModificarDia.Location = new System.Drawing.Point(593, 247);
+            this.btnModificarDia.Location = new System.Drawing.Point(594, 265);
             this.btnModificarDia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificarDia.Name = "btnModificarDia";
             this.btnModificarDia.Size = new System.Drawing.Size(91, 29);
@@ -213,7 +215,7 @@
             // 
             // btnModificarCategoria
             // 
-            this.btnModificarCategoria.Location = new System.Drawing.Point(593, 295);
+            this.btnModificarCategoria.Location = new System.Drawing.Point(594, 313);
             this.btnModificarCategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificarCategoria.Name = "btnModificarCategoria";
             this.btnModificarCategoria.Size = new System.Drawing.Size(91, 29);
@@ -224,7 +226,7 @@
             // 
             // btnModificarMoneda
             // 
-            this.btnModificarMoneda.Location = new System.Drawing.Point(593, 339);
+            this.btnModificarMoneda.Location = new System.Drawing.Point(594, 357);
             this.btnModificarMoneda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificarMoneda.Name = "btnModificarMoneda";
             this.btnModificarMoneda.Size = new System.Drawing.Size(91, 29);
@@ -233,10 +235,22 @@
             this.btnModificarMoneda.UseVisualStyleBackColor = true;
             this.btnModificarMoneda.Click += new System.EventHandler(this.btnModificarMoneda_Click);
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(593, 109);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(91, 29);
+            this.btnEliminar.TabIndex = 58;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
+            // 
             // ModificarGastoRecurrente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificarMoneda);
             this.Controls.Add(this.btnModificarCategoria);
             this.Controls.Add(this.btnModificarDia);
@@ -285,5 +299,6 @@
         private System.Windows.Forms.Button btnModificarDia;
         private System.Windows.Forms.Button btnModificarCategoria;
         private System.Windows.Forms.Button btnModificarMoneda;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
