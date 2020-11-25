@@ -49,6 +49,6 @@ namespace Dominio
         {
             Repositorio.ModificarGasto(unGasto);
         }
-
+      
     }
 }

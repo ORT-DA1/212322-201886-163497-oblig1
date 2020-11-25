@@ -24,8 +24,8 @@ namespace Dominio
                 throw new ExcepcionElementoNoExistente("La categoria no puede quedar vacía");
             }
             else {
-                Repositorio.AgregarGastoRecurrente(unGastoRecurrente);
                 AgregarMontoEnPesos(unGastoRecurrente);
+                Repositorio.AgregarGastoRecurrente(unGastoRecurrente);
             } 
 
         }

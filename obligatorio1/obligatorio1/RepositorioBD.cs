@@ -234,7 +234,6 @@ namespace Dominio
             using (var contexto = new Persistencia())
             {
                 contexto.Monedas.Add(unaMoneda);
-                //contexto.Entry(categoriaMonto.Categoria).State = EntityState.Unchanged;
                 contexto.SaveChanges();
 
             }
