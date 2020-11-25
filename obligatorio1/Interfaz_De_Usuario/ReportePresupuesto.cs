@@ -72,7 +72,6 @@ namespace Interfaz_De_Usuario
                 }
             }
             catch (Exception ex)
-
             {
                 MessageBox.Show(ex.Message);
             }

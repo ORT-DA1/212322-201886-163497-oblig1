@@ -97,7 +97,7 @@
             // s
             // 
             this.s.AutoSize = true;
-            this.s.Location = new System.Drawing.Point(445, 373);
+            this.s.Location = new System.Drawing.Point(406, 385);
             this.s.Name = "s";
             this.s.Size = new System.Drawing.Size(121, 16);
             this.s.TabIndex = 15;
@@ -124,7 +124,7 @@
             this.tablaGastos.Location = new System.Drawing.Point(3, 143);
             this.tablaGastos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tablaGastos.Name = "tablaGastos";
-            this.tablaGastos.Size = new System.Drawing.Size(632, 210);
+            this.tablaGastos.Size = new System.Drawing.Size(603, 210);
             this.tablaGastos.TabIndex = 17;
             this.tablaGastos.UseCompatibleStateImageBehavior = false;
             this.tablaGastos.View = System.Windows.Forms.View.Details;
@@ -158,7 +158,7 @@
             // 
             this.lbTotal.AutoSize = true;
             this.lbTotal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbTotal.Location = new System.Drawing.Point(593, 373);
+            this.lbTotal.Location = new System.Drawing.Point(546, 385);
             this.lbTotal.Name = "lbTotal";
             this.lbTotal.Size = new System.Drawing.Size(45, 16);
             this.lbTotal.TabIndex = 18;
@@ -203,7 +203,7 @@
             chartArea1.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
             chartArea1.Name = "ChartArea1";
             this.ReporteGasto.ChartAreas.Add(chartArea1);
-            this.ReporteGasto.Location = new System.Drawing.Point(676, 87);
+            this.ReporteGasto.Location = new System.Drawing.Point(612, 87);
             this.ReporteGasto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ReporteGasto.Name = "ReporteGasto";
             series1.ChartArea = "ChartArea1";

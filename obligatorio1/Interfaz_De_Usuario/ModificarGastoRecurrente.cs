@@ -24,7 +24,8 @@ namespace Interfaz_De_Usuario
             cbMoneda.DataSource = unAdminMonedas.RetornarListaMonedas();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        
+        private void btnEliminar_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -32,7 +33,7 @@ namespace Interfaz_De_Usuario
                 unAdminGastoRecurrente.EliminarGastoRecurrente(gastoEliminar);
                 cbGastoRecurrente.DataSource = null;
                 cbGastoRecurrente.DataSource = unAdminGastoRecurrente.RetornarListaGastosRecurrentes();
-
+                MessageBox.Show("Gasto recurrente eliminado con éxito");
             }
             catch (Exception unaExcepcion)
             {
@@ -160,5 +161,7 @@ namespace Interfaz_De_Usuario
                 MessageBox.Show(unaExcepcion.Message);
             }
         }
+
+        
     }
 }
