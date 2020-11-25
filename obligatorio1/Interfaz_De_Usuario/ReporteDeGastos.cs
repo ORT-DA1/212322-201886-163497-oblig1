@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using System.IO;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Interfaz_De_Usuario
 {
@@ -57,10 +58,34 @@ namespace Interfaz_De_Usuario
 
             }
 
+            ReporteGasto.Titles.Add("reportes");
+            String[] diasMes = adminReporteGastos.CantidadDiasEnElMes(fecha.Year, fecha.Month); //dias del mes
+            int cantDias = diasMes.Length; 
+
+            double[] gastosPorDia = adminReporteGastos.SumaGastosPorDia(cantDias, listaGastos); //monto
+            ReporteGasto.ChartAreas[0].AxisX.Interval = 1;
+           
+            for (int i = 1; i < cantDias; i++)
+            {
+                //int sumaPorDia = (int)adminReporteGastos.SumaGastosDeUnDiaMes(listaGastos, i);
+                this.ReporteGasto.Series["S1"].Points.AddXY(diasMes[i], gastosPorDia[i]);
+            }
+
+            /*
             lbTotal.Text= adminReporteGastos.CalcularMontoDeReporte(listaGastos).ToString();
+
+            int cantDiasDelMes = adminReporteGastos.CantidadDiasEnElMes(fecha.Year, fecha.Month);
+            
+            for (int i = 1; i <= cantDiasDelMes; i++)
+            {
+                int sumaPorDia =(int) adminReporteGastos.SumaGastosDeUnDiaMes(listaGastos, i);                
+                this.ReporteGasto.Series["S1"].Points.AddXY("hola", sumaPorDia.ToString());             
+            }
+
+            */
         }
 
-      
+
         private void btnExportar_Click(object sender, EventArgs e)
         {
             if(cbTipoDeArchivo.SelectedItem == null)

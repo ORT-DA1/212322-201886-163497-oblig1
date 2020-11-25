@@ -28,7 +28,7 @@ namespace Test
             adminGastosRecurrentes = new AdministradorGastosRecurrentes(miRepositorio);
             adminGastosComunes = new AdministradorGastosComunes(miRepositorio);
             unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
-            moneda = new Moneda { Simbolo = "UYU" };
+            moneda = new Moneda { Simbolo = "UYU",Cotizacion=1.00 };
             unGastoRecuerrente = new GastoRecuerrente() { Categoria = unaCategoria, Moneda = moneda };
             unGastoComun = new GastoComun() { Categoria = unaCategoria, Moneda = moneda };
             adminReporteGastos = new AdministradorReporteGastos(miRepositorio);
@@ -189,8 +189,21 @@ namespace Test
 
         }
 
+        [TestMethod]
+        public void SumaGastosDeUnDiaMesPrueba()
+        {
+            GastoComun unGasto = new GastoComun { Categoria = unaCategoria, Moneda = moneda, Monto = 100, Fecha = new DateTime(2020, 10, 2), MontoEnPesos = 100 };
+            GastoComun otroGasto = new GastoComun { Categoria = unaCategoria, Moneda = moneda, Monto = 200, Fecha = new DateTime(2020, 10, 2), MontoEnPesos = 200 };
+            adminGastosComunes.AgregarGastoComun(unGasto);
+            adminGastosComunes.AgregarGastoComun(otroGasto);
+            List<GastoComun> lista = adminGastosComunes.RetornarListaGastosComunes();
+            int dia = unGasto.Fecha.Day;
+            double acumulado = adminReporteGastos.SumaGastosDeUnDiaMes(lista, dia);
 
-      [TestMethod]
+            Assert.AreEqual(acumulado, 300);
+        }
+
+        [TestMethod]
         public void ExportarTXTPrueba()
         {
             adminGastosComunes.AgregarGastoComun(unGastoComun);
@@ -206,7 +219,6 @@ namespace Test
 
             }
         }
-
 
 
 
