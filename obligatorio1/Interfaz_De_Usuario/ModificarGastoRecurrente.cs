@@ -37,7 +37,7 @@ namespace Interfaz_De_Usuario
             }
             catch (Exception unaExcepcion)
             {
-                MessageBox.Show(unaExcepcion.Message);
+                MessageBox.Show("Seleccione un gasto para eliminar");
             }
         }
 

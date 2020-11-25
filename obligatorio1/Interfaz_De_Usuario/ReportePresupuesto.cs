@@ -42,6 +42,7 @@ namespace Interfaz_De_Usuario
                 Presupuesto presupuesto = adminPresupuestos.RetornarPresupuestoSegunMes(fecha.Month, fecha.Year);
                 var listaCatMonto = presupuesto.ListaCategoriaMonto;
                 listView1.Items.Clear();
+                
                 foreach (var catMonto in listaCatMonto)
                 {
                     double gastoTotalDeCatEnMes = adminReporteGastos.CalcularGastoTotalDeCategoriaEnMes(fecha.Year, fecha.Month, catMonto.Categoria);

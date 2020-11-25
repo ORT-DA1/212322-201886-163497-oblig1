@@ -53,10 +53,9 @@
             // lblReportePresupuesto
             // 
             this.lblReportePresupuesto.AutoSize = true;
-            this.lblReportePresupuesto.Location = new System.Drawing.Point(24, 15);
-            this.lblReportePresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblReportePresupuesto.Location = new System.Drawing.Point(32, 18);
             this.lblReportePresupuesto.Name = "lblReportePresupuesto";
-            this.lblReportePresupuesto.Size = new System.Drawing.Size(121, 13);
+            this.lblReportePresupuesto.Size = new System.Drawing.Size(154, 16);
             this.lblReportePresupuesto.TabIndex = 0;
             this.lblReportePresupuesto.Text = "Reporte de presupuesto";
             // 
@@ -70,10 +69,10 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(26, 71);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2);
+            this.listView1.Location = new System.Drawing.Point(35, 87);
+            this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(389, 222);
+            this.listView1.Size = new System.Drawing.Size(517, 272);
             this.listView1.TabIndex = 7;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -101,18 +100,18 @@
             // cbMesAnio
             // 
             this.cbMesAnio.FormattingEnabled = true;
-            this.cbMesAnio.Location = new System.Drawing.Point(26, 46);
-            this.cbMesAnio.Margin = new System.Windows.Forms.Padding(2);
+            this.cbMesAnio.Location = new System.Drawing.Point(35, 57);
+            this.cbMesAnio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbMesAnio.Name = "cbMesAnio";
-            this.cbMesAnio.Size = new System.Drawing.Size(168, 21);
+            this.cbMesAnio.Size = new System.Drawing.Size(223, 24);
             this.cbMesAnio.TabIndex = 12;
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(218, 48);
-            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConsultar.Location = new System.Drawing.Point(291, 59);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(106, 19);
+            this.btnConsultar.Size = new System.Drawing.Size(141, 23);
             this.btnConsultar.TabIndex = 13;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
@@ -124,8 +123,8 @@
             this.chartPresupuesto.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartPresupuesto.Legends.Add(legend1);
-            this.chartPresupuesto.Location = new System.Drawing.Point(440, 46);
-            this.chartPresupuesto.Margin = new System.Windows.Forms.Padding(2);
+            this.chartPresupuesto.Location = new System.Drawing.Point(587, 57);
+            this.chartPresupuesto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chartPresupuesto.Name = "chartPresupuesto";
             series1.ChartArea = "ChartArea1";
             series1.LabelBorderColor = System.Drawing.Color.Transparent;
@@ -137,7 +136,7 @@
             series2.Name = "Real";
             this.chartPresupuesto.Series.Add(series1);
             this.chartPresupuesto.Series.Add(series2);
-            this.chartPresupuesto.Size = new System.Drawing.Size(353, 230);
+            this.chartPresupuesto.Size = new System.Drawing.Size(471, 283);
             this.chartPresupuesto.TabIndex = 14;
             this.chartPresupuesto.Text = "chartPresupuesto";
             title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -153,20 +152,22 @@
             this.chartPresupuesto2.IsSoftShadows = false;
             legend2.Name = "Legend1";
             this.chartPresupuesto2.Legends.Add(legend2);
-            this.chartPresupuesto2.Location = new System.Drawing.Point(440, 281);
+            this.chartPresupuesto2.Location = new System.Drawing.Point(587, 346);
+            this.chartPresupuesto2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chartPresupuesto2.Name = "chartPresupuesto2";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.CustomProperties = "PieLabelStyle=Disabled";
             series3.Legend = "Legend1";
             series3.Name = "s2";
             this.chartPresupuesto2.Series.Add(series3);
-            this.chartPresupuesto2.Size = new System.Drawing.Size(353, 300);
+            this.chartPresupuesto2.Size = new System.Drawing.Size(471, 369);
             this.chartPresupuesto2.TabIndex = 15;
             this.chartPresupuesto2.Text = "chartPresupuesto2";
             // 
             // ReportePresupuesto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -176,9 +177,9 @@
             this.Controls.Add(this.cbMesAnio);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.lblReportePresupuesto);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ReportePresupuesto";
-            this.Size = new System.Drawing.Size(2000, 700);
+            this.Size = new System.Drawing.Size(2667, 862);
             ((System.ComponentModel.ISupportInitialize)(this.chartPresupuesto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartPresupuesto2)).EndInit();
             this.ResumeLayout(false);
