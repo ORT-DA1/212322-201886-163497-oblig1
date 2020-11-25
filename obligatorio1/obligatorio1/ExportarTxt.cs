@@ -11,10 +11,10 @@ namespace Dominio
     {
         public ExportarTxt() { }
 
-        public override void Exportar(List<GastoComun> listaGastosComunes, Stream fileStream)
+        public override void Exportar(List<GastoComun> listaGastosComunes, Stream unStream)
         {
 
-            StreamWriter sw = new StreamWriter(fileStream);
+            StreamWriter sw = new StreamWriter(unStream);
             foreach (GastoComun gasto in listaGastosComunes)
             {
 
@@ -27,9 +27,8 @@ namespace Dominio
 
             }
             sw.Close();
-            fileStream.Close();
+            unStream.Close();
 
-        
         }
 
     }

@@ -56,6 +56,8 @@
     <Compile Include="CategoriaMontoPrueba.cs" />
     <Compile Include="CategoriaPrueba.cs" />
     <Compile Include="AdministradorGastosComunesPrueba.cs" />
+    <Compile Include="ExportarReporteGastoFabricaPrueba.cs" />
+    <Compile Include="ExportarUnTXTPrueba.cs" />
     <Compile Include="MonedaPrueba.cs" />
     <Compile Include="PalabraClavePrueba.cs" />
     <Compile Include="AdministradorReporteGastosPrueba.cs" />

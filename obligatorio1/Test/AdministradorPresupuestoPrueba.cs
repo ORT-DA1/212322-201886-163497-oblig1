@@ -116,6 +116,15 @@ namespace Test
             Assert.AreEqual(adminPresupuestos.RetornarPresupuestoSegunMes(1, 2020).Fecha.Year, 2020);
         }
 
+        [TestMethod]
+        public void RetornarCategoriaMontoPrueba()
+        {
+            unPresupuesto.AgregarCategoriaMonto(unaCategoriaMonto);
+            List<CategoriaMonto> ListaLocal = new List<CategoriaMonto>();
+            ListaLocal.Add(unaCategoriaMonto);
+            Assert.IsTrue(adminPresupuestos.RetornarCatMonto(unPresupuesto).SequenceEqual(ListaLocal));
+            
+        }
 
     }
 }

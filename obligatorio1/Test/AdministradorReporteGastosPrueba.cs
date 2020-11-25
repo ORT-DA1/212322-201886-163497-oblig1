@@ -2,7 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace Test
 {
@@ -17,6 +19,7 @@ namespace Test
         private IRepositorio miRepositorio;
         private GastoComun unGastoComun;
         private Moneda moneda;
+        private ExportarTxt exportarTxt;
 
         [TestInitialize]
         public void InitTest()
@@ -29,6 +32,7 @@ namespace Test
             unGastoRecuerrente = new GastoRecuerrente() { Categoria = unaCategoria, Moneda = moneda };
             unGastoComun = new GastoComun() { Categoria = unaCategoria, Moneda = moneda };
             adminReporteGastos = new AdministradorReporteGastos(miRepositorio);
+            exportarTxt = new ExportarTxt();
         }
 
 
@@ -183,6 +187,24 @@ namespace Test
 
             Assert.AreEqual(gastoTotalDeCategoriaEnMes, 300);
 
+        }
+
+
+      [TestMethod]
+        public void ExportarTXTPrueba()
+        {
+            adminGastosComunes.AgregarGastoComun(unGastoComun);
+            List<GastoComun> ListaLocal = new List<GastoComun>();
+            ListaLocal.Add(unGastoComun);
+            using (var stream = new MemoryStream())
+            using (var writer = new StreamWriter(stream))
+              
+            {
+                exportarTxt.Exportar(ListaLocal, stream);
+                string actual = Encoding.UTF8.GetString(stream.ToArray());
+                Assert.AreEqual("01/05/2020\nNo hay descripcion\nEntretenimiento\nUYU\n0\n####\n", actual);
+
+            }
         }
 
 
