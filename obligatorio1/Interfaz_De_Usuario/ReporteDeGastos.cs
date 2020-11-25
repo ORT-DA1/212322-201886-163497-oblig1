@@ -58,11 +58,11 @@ namespace Interfaz_De_Usuario
 
             }
 
-            ReporteGasto.Titles.Add("reportes");
-            String[] diasMes = adminReporteGastos.CantidadDiasEnElMes(fecha.Year, fecha.Month); //dias del mes
+           
+            String[] diasMes = adminReporteGastos.CantidadDiasEnElMes(fecha.Year, fecha.Month); 
             int cantDias = diasMes.Length; 
 
-            double[] gastosPorDia = adminReporteGastos.SumaGastosPorDia(cantDias, listaGastos); //monto
+            double[] gastosPorDia = adminReporteGastos.SumaGastosPorDia(cantDias, listaGastos); 
             ReporteGasto.ChartAreas[0].AxisX.Interval = 1;
            
             for (int i = 1; i < cantDias; i++)
