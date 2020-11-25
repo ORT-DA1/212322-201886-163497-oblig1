@@ -22,6 +22,11 @@ namespace Interfaz_De_Usuario
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(tbNombre.Text) || String.IsNullOrEmpty(tbSimbolo.Text))
+            {
+                MessageBox.Show("Hay campos vacíos.");
+                return;
+            }
             try
             {
                 Moneda moneda = new Moneda() { Nombre = tbNombre.Text, Simbolo = tbSimbolo.Text, Cotizacion = (double)numCotizacion.Value };

@@ -22,6 +22,11 @@ namespace Interfaz_De_Usuario
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(tbNombre.Text))
+            {
+                MessageBox.Show("El nombre de la categoria no puede quedar vacío.");
+                return;
+            }
            try
             {
                 Categoria categoria = new Categoria() { Nombre = tbNombre.Text };

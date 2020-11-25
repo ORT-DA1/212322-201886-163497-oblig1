@@ -37,6 +37,11 @@ namespace Interfaz_De_Usuario
         }
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(cbMesAnio.Text))
+            {
+                MessageBox.Show("No hay gastos por el momento.");
+                return;
+            }
             this.ReporteGasto.Series["S1"].Points.Clear();
             DateTime fecha = Convert.ToDateTime(cbMesAnio.SelectedItem);
             var listaGastos = adminReporteGastos.UnirListaGastosDelMes(fecha.Year, fecha.Month);
