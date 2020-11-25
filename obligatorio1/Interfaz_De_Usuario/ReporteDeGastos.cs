@@ -67,7 +67,6 @@ namespace Interfaz_De_Usuario
            
             for (int i = 1; i < cantDias; i++)
             {
-                //int sumaPorDia = (int)adminReporteGastos.SumaGastosDeUnDiaMes(listaGastos, i);
                 this.ReporteGasto.Series["S1"].Points.AddXY(diasMes[i], gastosPorDia[i]);
             }
 

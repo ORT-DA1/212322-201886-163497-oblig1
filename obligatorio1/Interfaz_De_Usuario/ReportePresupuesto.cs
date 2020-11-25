@@ -37,7 +37,7 @@ namespace Interfaz_De_Usuario
                 this.chartPresupuesto.Series["Planificado"].Points.Clear();
                 this.chartPresupuesto.Series["Real"].Points.Clear();
                 this.chartPresupuesto2.Series["s2"].Points.Clear();
-
+                chartPresupuesto.ChartAreas[0].AxisX.Interval = 1;
                 DateTime fecha = Convert.ToDateTime(cbMesAnio.SelectedItem);
                 Presupuesto presupuesto = adminPresupuestos.RetornarPresupuestoSegunMes(fecha.Month, fecha.Year);
                 var listaCatMonto = presupuesto.ListaCategoriaMonto;

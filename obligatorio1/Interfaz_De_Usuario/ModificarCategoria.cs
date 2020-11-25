@@ -42,10 +42,8 @@ namespace Interfaz_De_Usuario
                 PalabraClave palabra = new PalabraClave() { Palabra = tbPalabraClave.Text };
                
                 AdminCategorias.AgregarPalabraClaveACategoria(categoriaSeleccionada, palabra);
-
-                /*
                 cbListaPalabrasClave.DataSource = null;
-                cbListaPalabrasClave.DataSource = AdminCategorias.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada);*/
+                cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
 
                 MessageBox.Show("Palabra Clave agregada con exito");
                 tbPalabraClave.Clear();
@@ -68,6 +66,7 @@ namespace Interfaz_De_Usuario
                 AdminCategorias.BorrarPalabraClaveACategoria(categoriaSeleccionada, palabraSeleccionada);
                 cbListaPalabrasClave.DataSource = null;
                 cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
+                MessageBox.Show("Palabra clave eliminada con exito");
             }
 
             catch (ExcepcionElementoNoExistente unaExcepcion)

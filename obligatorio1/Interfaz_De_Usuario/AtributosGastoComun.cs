@@ -71,9 +71,10 @@ namespace Interfaz_De_Usuario
                 gastoC.Categoria = (Categoria)cbCategoria.SelectedItem;
                 gastoC.Moneda = (Moneda)cbMoneda.SelectedItem;
                 unAdminGastosComun.AgregarGastoComun(gastoC);
-                
                 MessageBox.Show("El gasto ha sido creado con exito ");
-               
+                numMonto.Value = (decimal)0.00;
+                cbCategoria.SelectedIndex = -1;
+                cbMoneda.SelectedIndex = -1;
 
             }
             catch (Exception unaExcepcion)
