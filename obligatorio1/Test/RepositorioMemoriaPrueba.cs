@@ -197,7 +197,5 @@ namespace Test
             Repositorio.ModificarNombreAMoneda(UnaMoneda, "Peso");
             Assert.AreEqual(UnaMoneda.Nombre, "Peso");
         }
-
-
     }
 }

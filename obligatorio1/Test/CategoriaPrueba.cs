@@ -11,7 +11,6 @@ namespace Test
     {
         private Categoria categoria;
         private PalabraClave palabraClaveUno;
-        
 
         [TestInitialize]
         public void InitTests()
@@ -95,6 +94,5 @@ namespace Test
         {
             Assert.AreEqual(categoria.ToString(), "No hay nombre");
         }
-
     }
 }

@@ -58,6 +58,7 @@ namespace Interfaz_De_Usuario
 
                 var listaCatMonto = presupuesto.ListaCategoriaMonto;
                 listView1.Items.Clear();
+                
                 foreach (var catMonto in listaCatMonto)
                 {
                     var row = new string[] { catMonto.Categoria.ToString(), catMonto.Monto.ToString() };

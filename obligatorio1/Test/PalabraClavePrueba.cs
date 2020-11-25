@@ -7,7 +7,6 @@ namespace Test
     [TestClass]
     public class PalabraClavePrueba
     {
-
         private PalabraClave palabraClaveUno;
         
         [TestInitialize]

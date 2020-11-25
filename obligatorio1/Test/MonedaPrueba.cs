@@ -52,7 +52,6 @@ namespace Test
         public void LargoNombrePrueba()
         {
             moneda.Nombre = "Eu";
-
         }
 
         [TestMethod]
@@ -72,9 +71,7 @@ namespace Test
         [TestMethod]
         public void ToStringMonedaPrueba()
         {
-
             Assert.AreEqual(moneda.ToString(), "UYU");
-
         }
 
         [TestMethod]
@@ -84,14 +81,5 @@ namespace Test
             Moneda otraMoneda = new Moneda { Simbolo = "UYU" };
             Assert.AreEqual(unaMoneda, otraMoneda);
         }
-
-        // La moneda por defecto es el ‘Peso
-        //Uruguayo’, con símbolo ‘UYU’. Esta moneda debe estar disponible en el
-        //sistema, sin necesidad de ingresarla manualmente, a la vez no se puede
-        //modificar ni eliminar.
-
-        //equals, constructor
-
-
     }
 }

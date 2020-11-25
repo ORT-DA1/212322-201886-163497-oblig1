@@ -39,23 +39,17 @@ namespace Test
         [TestMethod]
         public void ConvertirGastoRecurrenteMesPrueba()
         {
-
             unGastoComun = new GastoComun { Categoria = unaCategoria };
             unGastoComun = adminReporteGastos.ConvertirGastoRecurrente(unGastoRecuerrente, 2020, 5);
             Assert.AreEqual(unGastoComun.Fecha.Month, 5);
-
         }
-
 
         [TestMethod]
         public void ConvertirGastoRecurrenteAnioPrueba()
         {
-
             unGastoComun = new GastoComun { Categoria = unaCategoria };
             Assert.AreEqual(adminReporteGastos.ConvertirGastoRecurrente(unGastoRecuerrente, 2020, 5).Fecha.Year, 2020);
-
         }
-
 
         [TestMethod]
         public void ElementosEnListaGastosRecurrentesConFechaAdecuadaPrueba()
@@ -63,7 +57,6 @@ namespace Test
             unGastoRecuerrente.Fecha = 1;
             adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
             Assert.AreEqual(1, adminReporteGastos.RetornarListaGastosRecurrentesConFechaAdecuada(2020, 10).Count());
-
         }
 
         [TestMethod]
@@ -79,7 +72,6 @@ namespace Test
             List<GastoComun> ListaLocal = new List<GastoComun>();
             ListaLocal.Add(otroGasto);
             Assert.IsTrue(adminReporteGastos.DevolverListaDeGastosComunesSegunFecha(2020,6).SequenceEqual(ListaLocal));
-
         }
         
         [TestMethod]
@@ -91,7 +83,6 @@ namespace Test
             unGastoRecuerrente.Fecha = 1;
             adminGastosRecurrentes.AgregarGastoRecurrente(unGastoRecuerrente);
             Assert.AreEqual(2, adminReporteGastos.UnirListaGastosDelMes(2020, 5).Count());
-
         }
 
         [TestMethod]
@@ -147,9 +138,7 @@ namespace Test
         {
             unGastoComun.Fecha = new DateTime(2020, 10, 2);
             adminGastosComunes.AgregarGastoComun(unGastoComun);
-            //adminReporteGastos.AgregarMesesAnioDondeHayGasto();
             Assert.AreEqual(1, adminReporteGastos.CrearYRetornalListaDeMesesDondeHayGastoOrdenada().Count());
-
         }
            
         [TestMethod]
@@ -182,11 +171,8 @@ namespace Test
             GastoComun otroGasto = new GastoComun { Categoria = unaCategoria, Moneda = moneda, Monto = 200, Fecha = new DateTime(2020, 10, 2) };
             adminGastosComunes.AgregarGastoComun(unGasto);
             adminGastosComunes.AgregarGastoComun(otroGasto);
-
             double gastoTotalDeCategoriaEnMes = adminReporteGastos.CalcularGastoTotalDeCategoriaEnMes(2020, 10, unaCategoria);
-
             Assert.AreEqual(gastoTotalDeCategoriaEnMes, 300);
-
         }
 
         [TestMethod]
@@ -199,9 +185,7 @@ namespace Test
             List<GastoComun> lista = adminGastosComunes.RetornarListaGastosComunes();
             int dia = unGasto.Fecha.Day;
             double acumulado = adminReporteGastos.SumaGastosDeUnDiaMes(lista, dia);
-
             Assert.AreEqual(acumulado, 300);
         }
-
     }
 }

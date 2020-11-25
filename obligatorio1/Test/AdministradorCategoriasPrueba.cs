@@ -103,7 +103,6 @@ namespace Test
             adminCategorias.AgregarCategoria(otraCategoria);
         }
 
-
         [TestMethod]
         public void CantDeCategoriasDistintasDondeApareceLaDescripcionPrueba()
         {
@@ -145,24 +144,16 @@ namespace Test
             palabraClaveDos.Palabra = "Peli";
             catrgoria.AgregarPalabraClave(palabraClaveDos);
             adminCategorias.AgregarCategoria(catrgoria);
-
-
             string descripcion = "Peli al Cine";
-
             Assert.AreEqual(1, adminCategorias.CantDeCategoriasDistintasDondeApareceLaDescripcion(descripcion));
-
         }
-
 
         [TestMethod]
         [ExpectedException(typeof(ExcepcionElementoNoExistente))]
         public void RetornarCategoriaDeDescripcionQueNoEstaPrueba()
         {
-
             adminCategorias.RetornarCategoriaDeDescripcion("Manzana");
-
         }
-
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
@@ -179,8 +170,6 @@ namespace Test
             adminCategorias.AgregarCategoria(otraCatrgoria);
 
             adminCategorias.RetornarCategoriaDeDescripcion("Salida al Cine");
-
-
         }
 
         [TestMethod]
@@ -209,14 +198,12 @@ namespace Test
         [TestMethod]
         public void EliminarPalabraClaveACategoriaPrueba()
         {
-
             adminCategorias.AgregarCategoria(unaCategoria);
             palabraClaveUno.Palabra = "Peaje";
             adminCategorias.AgregarPalabraClaveACategoria(unaCategoria, palabraClaveUno);
             adminCategorias.BorrarPalabraClaveACategoria(unaCategoria, palabraClaveUno);
             Assert.IsTrue(unaCategoria.EsVacia());
         }
-
 
         [TestMethod]
         public void RetornarPalabrasClaveCategoriaPrueba()
@@ -231,11 +218,9 @@ namespace Test
         [TestMethod]
         public void ConvertirStringACategoriaPrueba()
         {
-
             unaCategoria.Nombre = "Entretenimiento";
             adminCategorias.AgregarCategoria(unaCategoria);
             Assert.AreEqual(adminCategorias.RetornarCategoriaSegunString("Entretenimiento"), unaCategoria);
-
         }
 
         [TestMethod]
@@ -245,8 +230,6 @@ namespace Test
             adminCategorias.EliminarCategoria(unaCategoria);
 
             Assert.IsTrue(adminCategorias.EsVaciaListaCategorias());
-
-
         }
 
         [TestMethod]
@@ -259,9 +242,5 @@ namespace Test
                 adminCategorias.AgregarPalabraClaveACategoria(unaCategoria,palabraClaveUno);
             }
         }
-
-
-
     }
-
 }

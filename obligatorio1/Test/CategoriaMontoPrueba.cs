@@ -21,7 +21,6 @@ namespace Test
         public void PropertyCategoriaPrueba()
         {
             categoriaMonto.Categoria = categoria;
-
             Assert.AreEqual(categoria, categoriaMonto.Categoria);
         }
 
@@ -61,10 +60,6 @@ namespace Test
         {
             int montoInicial = 0;
             Assert.AreEqual(montoInicial, categoriaMonto.Monto);
-
         }
-
-
-
     }
 }
