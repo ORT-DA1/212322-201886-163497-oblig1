@@ -59,37 +59,17 @@ namespace Interfaz_De_Usuario
             }
 
             ReporteGasto.Titles.Add("reportes");
-            int[] diasMes = adminReporteGastos.CantidadDiasEnElMes(fecha.Year, fecha.Month); //dias del mes
+            String[] diasMes = adminReporteGastos.CantidadDiasEnElMes(fecha.Year, fecha.Month); //dias del mes
             int cantDias = diasMes.Length; 
 
             double[] gastosPorDia = adminReporteGastos.SumaGastosPorDia(cantDias, listaGastos); //monto
-
-
-            //ReporteGasto.ChartAreas[0].AxisX.Maximum = 32;
-            // ReporteGasto.ChartAreas[0].AxisX.Minimum = 0;
-
-            /*
-                        for (int i = 0; i < diasMes.Length; i++)
-                        {
-                            //nombres
-                            Series serie = ReporteGasto.Series.Add(diasMes[i].ToString());
-                            //cantidades (label muestra)
-                            serie.Label = gastosPorDia[i].ToString();
-                            //graficarlo
-                            serie.Points.Add(gastosPorDia[i]);
-                        }
-                        */
-            // Show all labels on the x-axis
             ReporteGasto.ChartAreas[0].AxisX.Interval = 1;
-            //this.ReporteGasto.AlignDataPointsByAxisLabel();
-           // ReporteGasto.DataBind();
+           
             for (int i = 1; i < cantDias; i++)
             {
                 //int sumaPorDia = (int)adminReporteGastos.SumaGastosDeUnDiaMes(listaGastos, i);
                 this.ReporteGasto.Series["S1"].Points.AddXY(diasMes[i], gastosPorDia[i]);
             }
-
-           
 
             /*
             lbTotal.Text= adminReporteGastos.CalcularMontoDeReporte(listaGastos).ToString();

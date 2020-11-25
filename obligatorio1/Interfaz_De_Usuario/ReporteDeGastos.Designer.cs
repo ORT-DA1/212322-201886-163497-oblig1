@@ -125,7 +125,7 @@
             this.columnHeader5});
             this.tablaGastos.GridLines = true;
             this.tablaGastos.HideSelection = false;
-            this.tablaGastos.Location = new System.Drawing.Point(28, 115);
+            this.tablaGastos.Location = new System.Drawing.Point(2, 116);
             this.tablaGastos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tablaGastos.Name = "tablaGastos";
             this.tablaGastos.Size = new System.Drawing.Size(475, 171);
@@ -209,13 +209,13 @@
             chartArea1.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
             chartArea1.Name = "ChartArea1";
             this.ReporteGasto.ChartAreas.Add(chartArea1);
-            this.ReporteGasto.Location = new System.Drawing.Point(513, 62);
+            this.ReporteGasto.Location = new System.Drawing.Point(507, 71);
             this.ReporteGasto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ReporteGasto.Name = "ReporteGasto";
             series1.ChartArea = "ChartArea1";
             series1.Name = "S1";
             this.ReporteGasto.Series.Add(series1);
-            this.ReporteGasto.Size = new System.Drawing.Size(545, 267);
+            this.ReporteGasto.Size = new System.Drawing.Size(417, 267);
             this.ReporteGasto.TabIndex = 24;
             this.ReporteGasto.Text = "ReporteGasto";
             title1.Font = new System.Drawing.Font("MS Reference Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -241,7 +241,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ReporteDeGastos";
-            this.Size = new System.Drawing.Size(1200, 700);
+            this.Size = new System.Drawing.Size(1262, 711);
             ((System.ComponentModel.ISupportInitialize)(this.ReporteGasto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

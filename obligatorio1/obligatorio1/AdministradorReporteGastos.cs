@@ -127,7 +127,6 @@ namespace Dominio
 
         public double[] SumaGastosPorDia(int diasDelMes, List<GastoComun> gastosMes)
         {
-            //tiene que retornar un array que en pos 1, gasto para el dia 1
             double[] gastosPorDia = new double[diasDelMes+1];
             for (int i = 0; i <= diasDelMes; i++)
             {
@@ -136,13 +135,13 @@ namespace Dominio
             return gastosPorDia;
 
         }
-        public int[] CantidadDiasEnElMes(int anio, int mes)
+        public String[] CantidadDiasEnElMes(int anio, int mes)
         {
             int dias = DateTime.DaysInMonth(anio, mes);
-            int[] diasDelMes = new int[dias + 1];
+            String[] diasDelMes = new String[dias + 1];
             for (int i = 0; i <= dias; i++)
             {
-                diasDelMes[i] = i;
+                diasDelMes[i] = i+"/"+mes;
             }
             return diasDelMes;
         }
