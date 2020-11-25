@@ -47,11 +47,24 @@ namespace Interfaz_De_Usuario
         {
             Categoria categoriaSeleccionada = (Categoria)listCategorias.SelectedItem;
             listPalabrasClave.DataSource = null;
-            listPalabrasClave.DataSource = adminCategorias.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada);
+            try
+            {
+                listPalabrasClave.DataSource = adminCategorias.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada);
+            }
+            catch (Exception TargetException)
+            {
+
+            }
+            
         }
 
         private void btnAgregarPClave_Click(object sender, EventArgs e)
         {
+            if (listCategorias.SelectedItem == null || adminCategorias.EsVaciaListaCategorias())
+            {
+                MessageBox.Show("Debe haber una categoria para agregarle una Palabra Clave");
+                return;
+            }
             try
             {
                 Categoria categoriaSeleccionada = (Categoria)listCategorias.SelectedItem;

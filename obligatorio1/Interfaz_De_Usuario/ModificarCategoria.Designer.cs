@@ -33,29 +33,27 @@
             this.lbCategorias = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.cbListaPalabrasClave = new System.Windows.Forms.ComboBox();
-            this.tbPalabraClave = new System.Windows.Forms.TextBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.lblPalabrasClave = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("MS Reference Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(25, 22);
+            this.lblTitulo.Location = new System.Drawing.Point(17, 14);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(311, 35);
+            this.lblTitulo.Size = new System.Drawing.Size(215, 24);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Modificar Categoria";
             // 
             // cbCategorias
             // 
             this.cbCategorias.FormattingEnabled = true;
-            this.cbCategorias.Location = new System.Drawing.Point(315, 89);
-            this.cbCategorias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbCategorias.Location = new System.Drawing.Point(210, 58);
+            this.cbCategorias.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.cbCategorias.Name = "cbCategorias";
-            this.cbCategorias.Size = new System.Drawing.Size(259, 28);
+            this.cbCategorias.Size = new System.Drawing.Size(174, 21);
             this.cbCategorias.TabIndex = 16;
             this.cbCategorias.SelectedIndexChanged += new System.EventHandler(this.cbCategorias_SelectedIndexChanged);
             // 
@@ -63,19 +61,20 @@
             // 
             this.lbCategorias.AutoSize = true;
             this.lbCategorias.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCategorias.Location = new System.Drawing.Point(35, 87);
+            this.lbCategorias.Location = new System.Drawing.Point(23, 57);
+            this.lbCategorias.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbCategorias.Name = "lbCategorias";
-            this.lbCategorias.Size = new System.Drawing.Size(264, 26);
+            this.lbCategorias.Size = new System.Drawing.Size(180, 18);
             this.lbCategorias.TabIndex = 17;
             this.lbCategorias.Text = "Seleccione una categoria";
             // 
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(411, 370);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEliminar.Location = new System.Drawing.Point(274, 135);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(163, 35);
+            this.btnEliminar.Size = new System.Drawing.Size(109, 23);
             this.btnEliminar.TabIndex = 30;
             this.btnEliminar.Text = "Eliminar palabra";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -84,68 +83,36 @@
             // cbListaPalabrasClave
             // 
             this.cbListaPalabrasClave.FormattingEnabled = true;
-            this.cbListaPalabrasClave.Location = new System.Drawing.Point(315, 329);
-            this.cbListaPalabrasClave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbListaPalabrasClave.Location = new System.Drawing.Point(210, 109);
+            this.cbListaPalabrasClave.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.cbListaPalabrasClave.Name = "cbListaPalabrasClave";
-            this.cbListaPalabrasClave.Size = new System.Drawing.Size(259, 28);
+            this.cbListaPalabrasClave.Size = new System.Drawing.Size(174, 21);
             this.cbListaPalabrasClave.TabIndex = 29;
-            // 
-            // tbPalabraClave
-            // 
-            this.tbPalabraClave.Location = new System.Drawing.Point(315, 140);
-            this.tbPalabraClave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbPalabraClave.Name = "tbPalabraClave";
-            this.tbPalabraClave.Size = new System.Drawing.Size(259, 26);
-            this.tbPalabraClave.TabIndex = 28;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(424, 185);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(150, 39);
-            this.btnAgregar.TabIndex = 27;
-            this.btnAgregar.Text = "Agregar palabra";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblPalabrasClave
             // 
             this.lblPalabrasClave.AutoSize = true;
             this.lblPalabrasClave.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPalabrasClave.Location = new System.Drawing.Point(35, 331);
+            this.lblPalabrasClave.Location = new System.Drawing.Point(23, 110);
+            this.lblPalabrasClave.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPalabrasClave.Name = "lblPalabrasClave";
-            this.lblPalabrasClave.Size = new System.Drawing.Size(251, 26);
+            this.lblPalabrasClave.Size = new System.Drawing.Size(167, 18);
             this.lblPalabrasClave.TabIndex = 26;
             this.lblPalabrasClave.Text = "Eliminar Palabras Clave";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 138);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(250, 26);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Palabra clave a agregar";
-            // 
             // ModificarCategoria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.cbListaPalabrasClave);
-            this.Controls.Add(this.tbPalabraClave);
-            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.lblPalabrasClave);
             this.Controls.Add(this.lbCategorias);
             this.Controls.Add(this.cbCategorias);
             this.Controls.Add(this.lblTitulo);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "ModificarCategoria";
-            this.Size = new System.Drawing.Size(765, 428);
+            this.Size = new System.Drawing.Size(510, 278);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,9 +125,6 @@
         private System.Windows.Forms.Label lbCategorias;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.ComboBox cbListaPalabrasClave;
-        private System.Windows.Forms.TextBox tbPalabraClave;
-        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label lblPalabrasClave;
-        private System.Windows.Forms.Label label1;
     }
 }

@@ -68,7 +68,7 @@
             // 
             this.cbMesAnio.FormattingEnabled = true;
             this.cbMesAnio.Location = new System.Drawing.Point(65, 62);
-            this.cbMesAnio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbMesAnio.Margin = new System.Windows.Forms.Padding(2);
             this.cbMesAnio.Name = "cbMesAnio";
             this.cbMesAnio.Size = new System.Drawing.Size(168, 21);
             this.cbMesAnio.TabIndex = 11;
@@ -77,7 +77,7 @@
             // 
             this.btnConsultar.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultar.Location = new System.Drawing.Point(251, 56);
-            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(93, 27);
             this.btnConsultar.TabIndex = 12;
@@ -126,7 +126,7 @@
             this.tablaGastos.GridLines = true;
             this.tablaGastos.HideSelection = false;
             this.tablaGastos.Location = new System.Drawing.Point(2, 116);
-            this.tablaGastos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tablaGastos.Margin = new System.Windows.Forms.Padding(2);
             this.tablaGastos.Name = "tablaGastos";
             this.tablaGastos.Size = new System.Drawing.Size(475, 171);
             this.tablaGastos.TabIndex = 17;
@@ -172,7 +172,7 @@
             // btnExportar
             // 
             this.btnExportar.Location = new System.Drawing.Point(213, 313);
-            this.btnExportar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExportar.Margin = new System.Windows.Forms.Padding(2);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(57, 25);
             this.btnExportar.TabIndex = 19;
@@ -184,7 +184,7 @@
             // 
             this.cbTipoDeArchivo.FormattingEnabled = true;
             this.cbTipoDeArchivo.Location = new System.Drawing.Point(28, 316);
-            this.cbTipoDeArchivo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbTipoDeArchivo.Margin = new System.Windows.Forms.Padding(2);
             this.cbTipoDeArchivo.Name = "cbTipoDeArchivo";
             this.cbTipoDeArchivo.Size = new System.Drawing.Size(169, 21);
             this.cbTipoDeArchivo.TabIndex = 20;
@@ -210,7 +210,7 @@
             chartArea1.Name = "ChartArea1";
             this.ReporteGasto.ChartAreas.Add(chartArea1);
             this.ReporteGasto.Location = new System.Drawing.Point(507, 71);
-            this.ReporteGasto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ReporteGasto.Margin = new System.Windows.Forms.Padding(2);
             this.ReporteGasto.Name = "ReporteGasto";
             series1.ChartArea = "ChartArea1";
             series1.Name = "S1";
@@ -239,7 +239,7 @@
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.cbMesAnio);
             this.Controls.Add(this.lblTitulo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ReporteDeGastos";
             this.Size = new System.Drawing.Size(1262, 711);
             ((System.ComponentModel.ISupportInitialize)(this.ReporteGasto)).EndInit();

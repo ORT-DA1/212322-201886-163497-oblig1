@@ -44,6 +44,8 @@ namespace Interfaz_De_Usuario
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+
+            this.ReporteGasto.Series["S1"].Points.Clear();
             DateTime fecha = Convert.ToDateTime(cbMesAnio.SelectedItem);
             
             var listaGastos = adminReporteGastos.UnirListaGastosDelMes(fecha.Year, fecha.Month);
@@ -58,6 +60,7 @@ namespace Interfaz_De_Usuario
 
             }
 
+
            
             String[] diasMes = adminReporteGastos.CantidadDiasEnElMes(fecha.Year, fecha.Month); 
             int cantDias = diasMes.Length; 
@@ -70,18 +73,10 @@ namespace Interfaz_De_Usuario
                 this.ReporteGasto.Series["S1"].Points.AddXY(diasMes[i], gastosPorDia[i]);
             }
 
-            /*
-            lbTotal.Text= adminReporteGastos.CalcularMontoDeReporte(listaGastos).ToString();
+            lbTotal.Text = adminReporteGastos.GastoTotalDelMesEnPesos(gastosPorDia).ToString();
 
-            int cantDiasDelMes = adminReporteGastos.CantidadDiasEnElMes(fecha.Year, fecha.Month);
-            
-            for (int i = 1; i <= cantDiasDelMes; i++)
-            {
-                int sumaPorDia =(int) adminReporteGastos.SumaGastosDeUnDiaMes(listaGastos, i);                
-                this.ReporteGasto.Series["S1"].Points.AddXY("hola", sumaPorDia.ToString());             
-            }
 
-            */
+
         }
 
 

@@ -126,7 +126,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 302);
+            this.label3.Location = new System.Drawing.Point(24, 293);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(159, 18);
@@ -135,7 +135,7 @@
             // 
             // tbPalabraClave
             // 
-            this.tbPalabraClave.Location = new System.Drawing.Point(26, 333);
+            this.tbPalabraClave.Location = new System.Drawing.Point(27, 324);
             this.tbPalabraClave.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tbPalabraClave.Name = "tbPalabraClave";
             this.tbPalabraClave.Size = new System.Drawing.Size(156, 20);
@@ -144,7 +144,7 @@
             // btnAgregarPClave
             // 
             this.btnAgregarPClave.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarPClave.Location = new System.Drawing.Point(186, 330);
+            this.btnAgregarPClave.Location = new System.Drawing.Point(187, 321);
             this.btnAgregarPClave.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnAgregarPClave.Name = "btnAgregarPClave";
             this.btnAgregarPClave.Size = new System.Drawing.Size(100, 25);
@@ -170,7 +170,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AgregarCategoria";
-            this.Size = new System.Drawing.Size(696, 412);
+            this.Size = new System.Drawing.Size(696, 424);
             this.ResumeLayout(false);
             this.PerformLayout();
 
