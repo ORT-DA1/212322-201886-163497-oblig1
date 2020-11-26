@@ -201,12 +201,24 @@ namespace Dominio
         }
         public bool ExisteMoneda(Moneda unaMoneda)
         {
-            return this.ListaMonedas.Contains(unaMoneda);
+            foreach (Moneda mon in this.ListaMonedas)
+            {
+                if (mon.Nombre == unaMoneda.Nombre || mon.Simbolo == unaMoneda.Simbolo)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
+
         public void BorrarMoneda(Moneda unaMoneda)
         {
+          
+            
             this.ListaMonedas.Remove(unaMoneda);
+
         }
+       
         public void ModificarNombreAMoneda(Moneda unaMoneda, string unNombre)
         {
             foreach(Moneda mon in this.ListaMonedas)

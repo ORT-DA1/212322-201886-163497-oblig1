@@ -183,7 +183,11 @@ namespace Dominio
         {
             using (var contexto = new Persistencia())
             {
-                if (contexto.Monedas.FirstOrDefault(x => x.Id == unaMoneda.Id) != null)
+                if (contexto.Monedas.FirstOrDefault(x => x.Nombre == unaMoneda.Nombre) != null)
+                {
+                    return true;
+                }
+                if (contexto.Monedas.FirstOrDefault(x => x.Simbolo == unaMoneda.Simbolo) != null)
                 {
                     return true;
                 }

@@ -19,6 +19,12 @@ namespace Interfaz_De_Usuario
         {
             InitializeComponent();
             adminMonedas = miAdminMonedas;
+            CargarListaMonedas();
+        }
+        public void CargarListaMonedas()
+        {
+            listMonedas.DataSource = null;
+            listMonedas.DataSource = adminMonedas.RetornarListaMonedas();
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -33,6 +39,7 @@ namespace Interfaz_De_Usuario
                 adminMonedas.AgregarMoneda(moneda);
                 MessageBox.Show("Moneda " + tbNombre.Text + " ha sido creada con exito");
                 tbNombre.Clear();
+                CargarListaMonedas();
             }
             catch (Exception unaExcepcion)
             {
