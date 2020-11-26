@@ -36,9 +36,9 @@ namespace Interfaz_De_Usuario
                 cbMonedas.DataSource = adminMonedas.RetornarListaMonedas();
                 MessageBox.Show("Moneda eliminada con éxito. ");
             }
-            catch (ExcepcionElementoNoExistente unaExcepcion)
+            catch (Exception unaExcepcion)
             {
-                MessageBox.Show(unaExcepcion.Message);
+                MessageBox.Show("Imposible borrar esa moneda");
             }
         }
     }
