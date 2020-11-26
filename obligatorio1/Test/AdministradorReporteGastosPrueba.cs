@@ -20,6 +20,7 @@ namespace Test
         private GastoComun unGastoComun;
         private Moneda moneda;
         private ExportarTxt exportarTxt;
+        private ExportarCsv exportarCsv;
 
         [TestInitialize]
         public void InitTest()
@@ -33,6 +34,7 @@ namespace Test
             unGastoComun = new GastoComun() { Categoria = unaCategoria, Moneda = moneda };
             adminReporteGastos = new AdministradorReporteGastos(miRepositorio);
             exportarTxt = new ExportarTxt();
+            exportarCsv = new ExportarCsv();
         }
 
 
@@ -186,6 +188,36 @@ namespace Test
             int dia = unGasto.Fecha.Day;
             double acumulado = adminReporteGastos.SumaGastosDeUnDiaMes(lista, dia);
             Assert.AreEqual(acumulado, 300);
+        }
+        [TestMethod]
+        public void ExportarTXTPrueba()
+        {
+            adminGastosComunes.AgregarGastoComun(unGastoComun);
+            List<GastoComun> ListaLocal = new List<GastoComun>();
+            ListaLocal.Add(unGastoComun);
+            using (var stream = new MemoryStream())
+            using (var writer = new StreamWriter(stream))
+
+            {
+                exportarTxt.Exportar(ListaLocal, stream);
+                string actual = Encoding.UTF8.GetString(stream.ToArray());
+                Assert.AreEqual("01/05/2020\r\nNo hay descripcion\r\nEntretenimiento\r\nUYU\r\n0\r\n####\r\n", actual);
+            }
+        }
+
+        [TestMethod]
+        public void ExportarCSVPrueba()
+        {
+            adminGastosComunes.AgregarGastoComun(unGastoComun);
+            List<GastoComun> ListaLocal = new List<GastoComun>();
+            ListaLocal.Add(unGastoComun);
+            using (var stream = new MemoryStream())
+            using (var writer = new StreamWriter(stream))
+            {
+                exportarCsv.Exportar(ListaLocal, stream);
+                string actual = Encoding.UTF8.GetString(stream.ToArray());
+                Assert.AreEqual("01/05/2020,No hay descripcion, Entretenimiento, UYU, 0\r\n", actual);
+            }
         }
     }
 }
