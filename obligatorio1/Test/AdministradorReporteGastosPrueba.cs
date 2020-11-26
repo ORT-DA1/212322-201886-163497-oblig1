@@ -187,5 +187,20 @@ namespace Test
             double acumulado = adminReporteGastos.SumaGastosDeUnDiaMes(lista, dia);
             Assert.AreEqual(acumulado, 300);
         }
+        [TestMethod]
+        public void ExportarTXTPrueba()
+        {
+            adminGastosComunes.AgregarGastoComun(unGastoComun);
+            List<GastoComun> ListaLocal = new List<GastoComun>();
+            ListaLocal.Add(unGastoComun);
+            using (var stream = new MemoryStream())
+            using (var writer = new StreamWriter(stream))
+
+            {
+                exportarTxt.Exportar(ListaLocal, stream);
+                string actual = Encoding.UTF8.GetString(stream.ToArray());
+                Assert.AreEqual("01/05/2020\r\nNo hay descripcion\r\nEntretenimiento\r\nUYU\r\n0\r\n####\r\n", actual);
+            }
+        }
     }
 }
