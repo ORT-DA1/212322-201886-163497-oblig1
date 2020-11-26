@@ -22,7 +22,6 @@ namespace Interfaz_De_Usuario
             foreach (DateTime fecha in adminReportePresupuestos.AgregarYRetornalListaDeMesesDondeHayPresupuestosOrdenada())
             {
                 cbMesAnio.Items.Add(fecha.ToString("yyyy/MM"));
-
             }
         }
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -55,10 +54,8 @@ namespace Interfaz_De_Usuario
                 var categoriaMontoSeleccionado = (CategoriaMonto)listView1.SelectedItems[0].Tag;
                 int nuevoMonto = (int)nudMonto.Value;
                 adminPresupuestos.ModificarMontoACategoria(presupuesto, categoriaMontoSeleccionado.Categoria, nuevoMonto);
-
                 var listaCatMonto = presupuesto.ListaCategoriaMonto;
                 listView1.Items.Clear();
-                
                 foreach (var catMonto in listaCatMonto)
                 {
                     var row = new string[] { catMonto.Categoria.ToString(), catMonto.Monto.ToString() };

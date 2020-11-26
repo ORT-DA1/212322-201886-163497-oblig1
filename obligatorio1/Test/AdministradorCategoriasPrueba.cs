@@ -11,7 +11,6 @@ namespace Test
     [TestClass]
     public class AdministradorCategoriasPrueba
     {
-
         private IRepositorio miRepositorio;
         private AdministradorCategorias adminCategorias;
         private Categoria unaCategoria;
@@ -31,7 +30,6 @@ namespace Test
             palabraClaveTres = new PalabraClave();
             palabraClaveCuatro = new PalabraClave();
         }
-
 
         [TestMethod]
         public void RetornarListaCategoriasPrueba()
@@ -129,10 +127,7 @@ namespace Test
             palabraClaveUno.Palabra = "Cine";
             catrgoria.AgregarPalabraClave(palabraClaveUno);
             adminCategorias.AgregarCategoria(catrgoria);
-
-
             Assert.AreEqual(catrgoria, adminCategorias.RetornarCategoriaDeDescripcion("Voy al Cine"));
-
         }
 
         [TestMethod]
@@ -168,7 +163,6 @@ namespace Test
             palabraClaveDos.Palabra = "Salida";
             otraCatrgoria.AgregarPalabraClave(palabraClaveDos);
             adminCategorias.AgregarCategoria(otraCatrgoria);
-
             adminCategorias.RetornarCategoriaDeDescripcion("Salida al Cine");
         }
 
@@ -188,7 +182,6 @@ namespace Test
         [TestMethod]
         public void AgregarPalabraCalveCategoriaSeleccionadaPrueba()
         {
-
             adminCategorias.AgregarCategoria(unaCategoria);
             palabraClaveUno.Palabra = "Peaje";
             adminCategorias.AgregarPalabraClaveACategoria(unaCategoria, palabraClaveUno);
@@ -228,7 +221,6 @@ namespace Test
         {
             adminCategorias.AgregarCategoria(unaCategoria);
             adminCategorias.EliminarCategoria(unaCategoria);
-
             Assert.IsTrue(adminCategorias.EsVaciaListaCategorias());
         }
 
