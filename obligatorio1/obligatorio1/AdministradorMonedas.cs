@@ -32,7 +32,6 @@ namespace Dominio
         }
         public void BorrarMoneda(Moneda unaMoneda)
         {
-            //Repositorio.BorrarGastoConEsaMoneda(unaMoneda);
             Repositorio.BorrarMoneda(unaMoneda);
         }
         public void ModificarNombreAMoneda(Moneda unaMoneda, string unNombre)

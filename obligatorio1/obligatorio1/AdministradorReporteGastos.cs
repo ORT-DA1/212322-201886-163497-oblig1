@@ -129,9 +129,7 @@ namespace Dominio
             }
             return gastosPorDia;
 
-        }//array de gasto en pesos por dia del mes
-        //hacer metodo que sume todo lo que hay en ese array
-        //PROBAR
+        }
         public double GastoTotalDelMesEnPesos(double[] gastosPorDiaEnPesos)
         {
             double gastoTotalDelMes = 0;
