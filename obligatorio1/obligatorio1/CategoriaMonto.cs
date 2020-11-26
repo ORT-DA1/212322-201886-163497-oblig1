@@ -4,8 +4,8 @@ namespace Dominio
 {
     public class CategoriaMonto
     {
-
-        public Categoria Categoria { get; set; }
+        public int Id { get; set; }
+        public virtual Categoria Categoria { get; set; }
         
         private double unMonto;
         public double Monto
@@ -24,7 +24,6 @@ namespace Dominio
         {
             this.unMonto = 0;
         }
-
-
     }
+
 }

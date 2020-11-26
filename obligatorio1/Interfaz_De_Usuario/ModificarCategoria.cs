@@ -19,55 +19,31 @@ namespace Interfaz_De_Usuario
         {
             cbCategorias.DataSource = AdminCategorias.RetornarListaCategorias();
         }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            if (cbCategorias.SelectedItem == null || AdminCategorias.EsVaciaListaCategorias())
-            {
-                MessageBox.Show("Categoria y palabra clave no pueden quedar vacias");
-                return;
-            }
-            try
-            {
-                Categoria categoriaSeleccionada = (Categoria)cbCategorias.SelectedItem;
-                AdminCategorias.AgregarPalabraClaveACategoria(categoriaSeleccionada, tbPalabraClave.Text);
-                cbListaPalabrasClave.DataSource = null;
-                cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
-                MessageBox.Show("Palabra Clave agregada con exito");
-                tbPalabraClave.Clear();
-            }
-            catch (Exception unaExcepcion)
-            when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is InvalidOperationException || unaExcepcion is IndexOutOfRangeException)
-            {
-                MessageBox.Show(unaExcepcion.Message);
-            }
-
-        }
-
         private void cbCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
             Categoria categoriaSeleccionada = (Categoria)cbCategorias.SelectedItem;
-            cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
-
+            cbListaPalabrasClave.DataSource = null;
+            cbListaPalabrasClave.DataSource = AdminCategorias.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada);
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
             {
-                Categoria categoriaSeleccionada = AdminCategorias.RetornarCategoriaSegunString(cbCategorias.Text);
-                AdminCategorias.BorrarPalabraClaveACategoria(categoriaSeleccionada, cbListaPalabrasClave.Text);
+                Categoria categoriaSeleccionada = (Categoria)cbCategorias.SelectedItem;
+                PalabraClave palabraSeleccionada = (PalabraClave)cbListaPalabrasClave.SelectedItem;
+                AdminCategorias.BorrarPalabraClaveACategoria(categoriaSeleccionada, palabraSeleccionada);
                 cbListaPalabrasClave.DataSource = null;
                 cbListaPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
+                MessageBox.Show("Palabra clave eliminada con exito");
             }
 
-            catch (ExcepcionElementoNoExistente unaExcepcion)
+            catch (Exception ex)
             {
-                MessageBox.Show(unaExcepcion.Message);
+                MessageBox.Show("Seleccione una categoria y una palabra clave para eliminarla");
             }
 
         }
 
-
+     
     }
 }

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 
 
 namespace Dominio
+
 {
     public class AdministradorReporteGastos
     {
-        private Repositorio Repositorio { get; }
-        public AdministradorReporteGastos(Repositorio unRepositorio)
+        private IRepositorio Repositorio { get; }
+        public AdministradorReporteGastos(IRepositorio unRepositorio)
         {
             this.Repositorio = unRepositorio;
         }
@@ -27,7 +28,6 @@ namespace Dominio
             return listaTotal;
 
         }
-
         public List<GastoComun> DevolverListaDeGastosComunesSegunFecha(int anio, int mes)
         {
             List<GastoComun> listaDeGastosDelMes = new List<GastoComun>();
@@ -38,27 +38,22 @@ namespace Dominio
                     listaDeGastosDelMes.Add(unGasto);
                 }
             }
-
             return listaDeGastosDelMes;
-
         }
-
         private bool CoincideMesAnioDeFechaRecibidaConGasto(int anio, int mes, GastoComun unGasto)
         {
             return unGasto.Fecha.Month == mes && unGasto.Fecha.Year == anio;
         }
-
         public List<GastoComun> RetornarListaGastosRecurrentesConFechaAdecuada(int anio, int mes)
         {
             List<GastoComun> listaGastosRecurrentesConFechaAdecuada = new List<GastoComun>();
-            foreach (GastoRecuerrente unGasto in Repositorio.RetornarListaGastosRecurrentes())
+            List<GastoRecuerrente> listaGastosRecurrentes = Repositorio.RetornarListaGastosRecurrentes();
+            foreach (GastoRecuerrente unGasto in listaGastosRecurrentes)
             {
                 listaGastosRecurrentesConFechaAdecuada.Add(ConvertirGastoRecurrente(unGasto, anio, mes));
             }
-
             return listaGastosRecurrentesConFechaAdecuada;
         }
-
         public GastoComun ConvertirGastoRecurrente(GastoRecuerrente gastoRecurrente, int anio, int mes)
         {
             int dia = gastoRecurrente.Fecha;
@@ -67,55 +62,47 @@ namespace Dominio
                 Monto = gastoRecurrente.Monto,
                 Descripcion = gastoRecurrente.Descripcion,
                 Categoria = gastoRecurrente.Categoria,
-                Fecha = new DateTime(anio, mes, dia)
+                Fecha = new DateTime(anio, mes, dia),
+                Moneda = gastoRecurrente.Moneda,
+                MontoEnPesos = gastoRecurrente.MontoEnPesos
             };
             return gasto;
 
         }
-
-        public List<DateTime> AgregarYRetornalListaDeMesesDondeHayGastoOrdenada()
+        public List<DateTime> CrearYRetornalListaDeMesesDondeHayGastoOrdenada()
         {
-            this.AgregarMesesAnioDondeHayGasto();
-            Repositorio.RetornarListaMesesDondeHayGasto().Sort();
-            return Repositorio.RetornarListaMesesDondeHayGasto();
-        }
+            List<DateTime> ListaMesesDondeHayGasto = new List<DateTime>();
+            foreach (GastoComun gasto in Repositorio.RetornarListaGastosCoumnes())
+            {
+                DateTime fecha = ConvertirFechaDejarSoloAnioMes(gasto);
 
+                if (!ListaMesesDondeHayGasto.Contains(fecha))
+                {
+                    ListaMesesDondeHayGasto.Add(fecha);
+                }
+            }
+            ListaMesesDondeHayGasto.Sort();
+            return ListaMesesDondeHayGasto;
+        }
+        public DateTime ConvertirFechaDejarSoloAnioMes(GastoComun gasto)
+        {
+            return new DateTime(gasto.Fecha.Year, gasto.Fecha.Month, 1);
+        }
         public double CalcularMontoDeReporte(List<GastoComun> ListaDeGastosReporte)
         {
             double total = 0;
             foreach (GastoComun gasto in ListaDeGastosReporte)
             {
-                total += gasto.Monto;
+                total += gasto.MontoEnPesos;
             }
             return total;
         }
-
-        public void AgregarMesesAnioDondeHayGasto()
-        {
-            foreach (GastoComun gasto in Repositorio.RetornarListaGastosCoumnes())
-            {
-                DateTime fecha = ConvertirFechaDejarSoloAnioMes(gasto);
-                if (!Repositorio.RetornarListaMesesDondeHayGasto().Contains(fecha))
-                {
-                    Repositorio.AgregarMesDondeHayGasto(fecha);
-                }
-            }
-
-        }
-
-        public DateTime ConvertirFechaDejarSoloAnioMes(GastoComun gasto)
-        {
-            return new DateTime(gasto.Fecha.Year, gasto.Fecha.Month, 1);
-
-        }
-
         public double CalcularGastoTotalDeCategoriaEnMes(int anio, int mes, Categoria unaCategoria)
         {
             List<GastoComun> listaGastosDelMes = this.UnirListaGastosDelMes(anio, mes);
 
             return SumaGastoTotal(unaCategoria, listaGastosDelMes);
         }
-
         private static double SumaGastoTotal(Categoria unaCategoria, List<GastoComun> listaGastosDelMes)
         {
             double gastoTotalDeCategoriaEnMes = 0;
@@ -128,18 +115,64 @@ namespace Dominio
             }
             return gastoTotalDeCategoriaEnMes;
         }
-
         private static bool GastoIgualACategoria(Categoria unaCategoria, Gasto gasto)
         {
-            return gasto.Categoria == unaCategoria;
+            return gasto.Categoria.Nombre == unaCategoria.Nombre;
         }
 
+        public double[] SumaGastosPorDia(int diasDelMes, List<GastoComun> gastosMes)
+        {
+            double[] gastosPorDia = new double[diasDelMes + 1];
+            for (int i = 0; i <= diasDelMes; i++)
+            {
+                gastosPorDia[i] = SumaGastosDeUnDiaMes(gastosMes, i);
+            }
+            return gastosPorDia;
+
+        }
+        public double GastoTotalDelMesEnPesos(double[] gastosPorDiaEnPesos)
+        {
+            double gastoTotalDelMes = 0;
+            for (int i = 0; i < gastosPorDiaEnPesos.Length; i++)
+            {
+                gastoTotalDelMes += gastosPorDiaEnPesos[i];
+            }
+            return gastoTotalDelMes;
 
 
 
 
-        //comentario para commit
 
+
+
+
+        }
+        public String[] CantidadDiasEnElMes(int anio, int mes)
+        {
+            int dias = DateTime.DaysInMonth(anio, mes);
+            String[] diasDelMes = new String[dias + 1];
+            for (int i = 0; i <= dias; i++)
+            {
+                diasDelMes[i] = i + "/" + mes;
+            }
+            return diasDelMes;
+        }
+        public double SumaGastosDeUnDiaMes(List<GastoComun> gastosMes, int dia)
+        {
+            double acumulado = 0;
+            foreach (GastoComun gasto in gastosMes)
+            {
+                if (GastoEsDelDia(dia, gasto))
+                {
+                    acumulado += gasto.MontoEnPesos;
+                }
+            }
+            return acumulado;
+        }
+        private static bool GastoEsDelDia(int dia, GastoComun gasto)
+        {
+            return gasto.Fecha.Day == dia;
+        }
 
     }
 }

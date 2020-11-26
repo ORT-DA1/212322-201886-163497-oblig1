@@ -1,16 +1,20 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Dominio
 {
     public class GastoRecuerrente : Gasto
     {
         private int fecha;
+        private int num1 = 1;
+        private int num28 = 28;
+        [Display(Name = "Fecha_GastoRecurrente")]
         public int Fecha
         {
             get { return fecha; }
             set
             {
-                if (value < 1 || value > 28)
+                if (value < num1 || value > num28)
                 {
                     throw new IndexOutOfRangeException("Ingrese un dia entre el 1-28");
                 }
@@ -18,16 +22,13 @@ namespace Dominio
                 {
                     fecha = value;
                 }
-
             }
-
         }
-
         public GastoRecuerrente()
         {
             this.Fecha = 1;
         }
-        public GastoRecuerrente(int unMonto, string unaDescripcion, Categoria unaCategoria , int unaFecha):base(unMonto, unaDescripcion, unaCategoria)
+        public GastoRecuerrente(int unMonto, string unaDescripcion, Categoria unaCategoria , int unaFecha ,Moneda unaMoneda) :base(unMonto, unaDescripcion, unaCategoria ,unaMoneda)
         {
             Fecha = unaFecha;
         }

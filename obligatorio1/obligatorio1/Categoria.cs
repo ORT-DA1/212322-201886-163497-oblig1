@@ -6,13 +6,11 @@ namespace Dominio
 {
     public class Categoria
     {
-        public List<String> PalabrasClave { get; }
-
+        public int Id { get; set; }
+        public List<PalabraClave> PalabrasClave { get; set; }
         private String nombre;
-
         public String Nombre
         {
-
             get { return nombre; }
 
             set
@@ -25,59 +23,35 @@ namespace Dominio
                 {
                     nombre = value;
                 }
-
             }
-
         }
 
         public Categoria()
         {
-            this.PalabrasClave = new List<string>();
+            this.PalabrasClave = new List<PalabraClave>();
             this.Nombre = "No hay nombre";
         }
 
-        public void AgregarPalabraClave(string palabra)
+        public void AgregarPalabraClave(PalabraClave palabra)
         {
-
-            String palabraMayuscula = PasarAMayuscula(palabra);
-            if (PalabraClaveInvalida(palabraMayuscula))
-            {
-
-                throw new InvalidOperationException("Palabra clave invalida");
-            }
-            this.PalabrasClave.Add(palabraMayuscula);
+            this.PalabrasClave.Add(palabra); 
         }
-
-        private bool PalabraClaveInvalida(string palabraMayuscula)
-        {
-            return CantPalabrasClave() == 10 || this.ExistePalabraClave(palabraMayuscula);
-        }
-
         public bool EsVacia()
         {
             return this.PalabrasClave.Count == 0;
         }
-
-        public void BorrarPalabraClave(string palabra)
+        public void BorrarPalabraClave(PalabraClave palabra)
         {
-            String palabraMayuscula = palabra.ToUpper();
-            this.PalabrasClave.Remove(palabraMayuscula);
+            this.PalabrasClave.Remove(palabra);
         }
         private int CantPalabrasClave()
         {
             return this.PalabrasClave.Count;
         }
-
-        public bool ExistePalabraClave(string unaPalabra)
+        public bool ExistePalabraClave(PalabraClave unaPalabra)
         {
-            return PalabrasClave.Contains(PasarAMayuscula(unaPalabra));
+            return PalabrasClave.Contains((unaPalabra));
         }
-
-        private string PasarAMayuscula(string unaPalabra)
-        {
-            return unaPalabra.ToUpper();
-        }
-
         public override bool Equals(Object obj)
         {
             Categoria catObj = obj as Categoria;
@@ -90,7 +64,6 @@ namespace Dominio
                 return Nombre.Equals(catObj.Nombre);
             }
         }
-
         public override string ToString()
         {
             return String.Format(this.Nombre);

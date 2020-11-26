@@ -8,20 +8,28 @@ namespace Interfaz_De_Usuario
     {
         private AdministradorGastosComunes unAdminGastoComun;
         private AdministradorCategorias unAdminCategorias;
+        private AdministradorMonedas unAdminMonedas;
 
-        public ModificarGastoComun(AdministradorGastosComunes miAdminGastoComun, AdministradorCategorias miAdminCategorias)
+        public ModificarGastoComun(AdministradorGastosComunes miAdminGastoComun, AdministradorCategorias miAdminCategorias, AdministradorMonedas miAdminMonedas)
         {
             InitializeComponent();
             unAdminGastoComun = miAdminGastoComun;
             unAdminCategorias = miAdminCategorias;
-            CargarComboBox();
+            unAdminMonedas = miAdminMonedas;
+            if (unAdminGastoComun.RetornarListaGastosComunes().Count != 0) CargarComboBox();
+            else ComboBoxVacio();
         }
         public void CargarComboBox()
         {
+            cbMoneda.DataSource = unAdminMonedas.RetornarListaMonedas();
             cbGastoComun.DataSource = unAdminGastoComun.RetornarListaGastosComunes();
             cbCategoria.DataSource = unAdminCategorias.RetornarListaCategorias();
         }
-
+        public void ComboBoxVacio()
+        {
+            cbGastoComun.Text = "- Ningun gasto para eliminar -";
+            btnEliminar.Visible = false;
+        }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             VerificarSiElCampocbGastoComunEsVacio();
@@ -31,14 +39,12 @@ namespace Interfaz_De_Usuario
                 unAdminGastoComun.EliminarGastoComun(gastoEliminar);
                 cbGastoComun.DataSource = null;
                 cbGastoComun.DataSource = unAdminGastoComun.RetornarListaGastosComunes();
-
+                MessageBox.Show("Gasto eliminado con éxito");
             }
             catch (Exception unaExcepcion)
             {
-                MessageBox.Show(unaExcepcion.Message);
             }
         }
-
         private void VerificarSiElCampocbGastoComunEsVacio()
         {
             if (cbGastoComun.SelectedItem == null)
@@ -46,7 +52,6 @@ namespace Interfaz_De_Usuario
                 MessageBox.Show("Seleccione un gasto a eliminar");
             }
         }
-
         private void btnModificarGasto_Click(object sender, EventArgs e)
         {
             if (HayCamposVacios())
@@ -54,16 +59,15 @@ namespace Interfaz_De_Usuario
                 MessageBox.Show("Categoria y Descripción no pueden quedar vacias");
                 return;
             }
-
             GastoComun gastoAmodificar = (GastoComun)cbGastoComun.SelectedItem;
             gastoAmodificar.Descripcion = tbDescripcion.Text;
+            gastoAmodificar.Moneda =(Moneda)cbMoneda.SelectedItem;
             gastoAmodificar.Monto = (double)numMonto.Value;
             gastoAmodificar.Fecha = dtFecha.Value;
             gastoAmodificar.Categoria = (Categoria)cbCategoria.SelectedItem;
+            unAdminGastoComun.ModificarGasto(gastoAmodificar);
             MessageBox.Show("El gasto ha modificado con exito ");
-
         }
-
         private bool HayCamposVacios()
         {
             return cbGastoComun.SelectedItem == null || string.IsNullOrEmpty(tbDescripcion.Text);

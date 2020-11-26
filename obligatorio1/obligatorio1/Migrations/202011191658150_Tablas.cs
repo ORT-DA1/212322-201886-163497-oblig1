@@ -1,0 +1,108 @@
+﻿namespace Dominio.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class Tablas : DbMigration
+    {
+        public override void Up()
+        {
+            CreateTable(
+                "dbo.CategoriaMontos",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Monto = c.Double(nullable: false),
+                        Categoria_Id = c.Int(),
+                        Presupuesto_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Categorias", t => t.Categoria_Id)
+                .ForeignKey("dbo.Presupuestos", t => t.Presupuesto_Id)
+                .Index(t => t.Categoria_Id)
+                .Index(t => t.Presupuesto_Id);
+            
+            CreateTable(
+                "dbo.Categorias",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Nombre = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.PalabraClaves",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Palabra = c.String(),
+                        Categoria_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Categorias", t => t.Categoria_Id)
+                .Index(t => t.Categoria_Id);
+            
+            CreateTable(
+                "dbo.Monedas",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Nombre = c.String(),
+                        Simbolo = c.String(),
+                        Cotizacion = c.Double(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Presupuestos",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Fecha = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+
+            CreateTable(
+                "dbo.Gastoes",
+                c => new
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    Monto = c.Double(nullable: false),
+                    Descripcion = c.String(),
+                    MontoEnPesos = c.Double(nullable: false),
+                    Fecha_GastoComun = c.DateTime(),
+                    Fecha_GastoRecurrente = c.Int(),
+                    Categoria_Id = c.Int(),
+                    Moneda_Id = c.Int(),
+                    TipoGasto = c.String(maxLength: 128),
+                })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Categorias", t => t.Categoria_Id)
+                .ForeignKey("dbo.Monedas", t => t.Moneda_Id)
+                .Index(t => t.Categoria_Id)
+                .Index(t => t.Moneda_Id);
+
+        }
+        
+        public override void Down()
+        {
+            DropForeignKey("dbo.CategoriaMontos", "Presupuesto_Id", "dbo.Presupuestos");
+            DropForeignKey("dbo.CategoriaMontos", "Categoria_Id", "dbo.Categorias");
+            DropForeignKey("dbo.PalabraClaves", "Categoria_Id", "dbo.Categorias");
+            DropIndex("dbo.PalabraClaves", new[] { "Categoria_Id" });
+            DropIndex("dbo.CategoriaMontos", new[] { "Presupuesto_Id" });
+            DropIndex("dbo.CategoriaMontos", new[] { "Categoria_Id" });
+            DropTable("dbo.Presupuestos");
+            DropTable("dbo.Monedas");
+            DropTable("dbo.PalabraClaves");
+            DropTable("dbo.Categorias");
+            DropTable("dbo.CategoriaMontos");
+            DropForeignKey("dbo.Gastoes", "Moneda_Id", "dbo.Monedas");
+            DropForeignKey("dbo.Gastoes", "Categoria_Id", "dbo.Categorias");
+            DropIndex("dbo.Gastoes", new[] { "Moneda_Id" });
+            DropIndex("dbo.Gastoes", new[] { "Categoria_Id" });
+            DropTable("dbo.Gastoes");
+        }
+    }
+}

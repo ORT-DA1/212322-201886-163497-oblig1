@@ -7,22 +7,28 @@ using System;
 namespace Test
 {
     [TestClass]
-    public class RepositorioPrueba
+    public class RepositorioMemoriaPrueba
     {
-
-        private Repositorio Repositorio { get; set; }
+        private IRepositorio Repositorio { get; set; }
         private Categoria UnaCategoria { get; set; }
         private GastoRecuerrente GastoRecuerrente { get; set; }
         private GastoComun GastoComun { get; set; }
-
+        private PalabraClave UnaPalabraClave { get; set; }
+        private CategoriaMonto UnaCategoriaMonto { get; set; }
+        private Presupuesto UnPresupuesto { get; set; }
+        private Moneda UnaMoneda { get; set; }
 
         [TestInitialize]
         public void InitTests()
         {
-            Repositorio = new Repositorio();
+            Repositorio = new RepositorioMemoria();
             UnaCategoria = new Categoria();
             GastoRecuerrente = new GastoRecuerrente();
             GastoComun = new GastoComun();
+            UnaPalabraClave = new PalabraClave() { Palabra = "Cine" };
+            UnaCategoriaMonto = new CategoriaMonto();
+            UnPresupuesto = new Presupuesto();
+            UnaMoneda = new Moneda();
         }
 
         [TestMethod]
@@ -59,30 +65,25 @@ namespace Test
             Repositorio.AgregarCategoria(UnaCategoria);
             Assert.IsTrue(Repositorio.ExisteCategoria(UnaCategoria));
         }
-
-
-
+      
         [TestMethod]
         public void RetornarListaGastosRecurrentesPrueba()
         {
             List<GastoRecuerrente> ListaLocal = new List<GastoRecuerrente>();
             Assert.IsTrue(Repositorio.RetornarListaGastosRecurrentes().SequenceEqual(ListaLocal));
         }
-
         [TestMethod]
         public void AlAgregarGastoRecuerrenteNoEsVacioPrueba()
         {
             Repositorio.AgregarGastoRecurrente(GastoRecuerrente);
             Assert.IsFalse(Repositorio.EsVaciaListaGastosRecurrentes());
         }
-
         [TestMethod]
         public void EliminarGastoRecuerrentePrueba()
         {
             Repositorio.AgregarGastoRecurrente(GastoRecuerrente);
             Repositorio.EliminarGastoRecuerrente(GastoRecuerrente);
             Assert.IsFalse(Repositorio.ExisteGastoRecurrente(GastoRecuerrente));
-
         }
 
         [TestMethod]
@@ -91,9 +92,6 @@ namespace Test
             Repositorio.AgregarGastoRecurrente(GastoRecuerrente);
             Assert.IsTrue(Repositorio.ExisteGastoRecurrente(GastoRecuerrente));
         }
-
-
-
 
         [TestMethod]
         public void RetornarListaGastosComunesPrueba()
@@ -125,37 +123,79 @@ namespace Test
         }
 
         [TestMethod]
-        public void RetornarListaMesesDondeHayGastoPrueba()
+        public void ModificarGastoComunPrueba()
         {
-            List<DateTime> ListaLocal = new List<DateTime>();
-            Assert.IsTrue(Repositorio.RetornarListaMesesDondeHayGasto().SequenceEqual(ListaLocal));
+            GastoComun.Id = 1;
+            GastoComun otro = new GastoComun() { Id = 1 };
+            Repositorio.AgregarGastoComun(otro);
+            otro.Descripcion = "Cine";
+            Repositorio.ModificarGasto(GastoComun);
+            Assert.AreEqual(otro.Descripcion,GastoComun.Descripcion);
         }
 
         [TestMethod]
-        public void AlAgregarMesesDondeHayGastoNoEsVacioPrueba()
+        public void AgregarPalabrasEnRepoPrueba()
         {
-            GastoComun.Fecha = new DateTime(2020, 5, 1);
-            Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
-            Assert.IsFalse(Repositorio.EsVaciaListaMesesDondeHayGastos());
+            Repositorio.AgregarPalabrasEnRepo(UnaCategoria, UnaPalabraClave);
+            List<PalabraClave> ListaLocal = new List<PalabraClave>();
+            ListaLocal.Add(UnaPalabraClave);
+            Assert.IsTrue(Repositorio.RetornarPalabrasClaveDeCategoriaDelRepo(UnaCategoria).SequenceEqual(ListaLocal));
+        }
+        [TestMethod]
+        public void EliminarPalabrasEnRepoPrueba()
+        {
+            Repositorio.AgregarPalabrasEnRepo(UnaCategoria, UnaPalabraClave);
+            Repositorio.EliminarPalabrasEnRepo(UnaCategoria, UnaPalabraClave);
+            Assert.IsFalse(UnaCategoria.ExistePalabraClave(UnaPalabraClave));
         }
 
         [TestMethod]
-        public void ExisteMesPrueba()
+        public void AgregarCategoriaMontoPrueba()
         {
-            Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
-            Assert.IsTrue(Repositorio.ExisteMes(GastoComun.Fecha));
+            Repositorio.AgregarCategoriaMonto(UnaCategoriaMonto, UnPresupuesto);
+            List<CategoriaMonto> ListaLocal = new List<CategoriaMonto>();
+            ListaLocal.Add(UnaCategoriaMonto);
+            Assert.IsTrue(Repositorio.RetornarCategoriaMontoDelRepo(UnPresupuesto).SequenceEqual(ListaLocal));
         }
 
         [TestMethod]
-        public void CantidadMesesPrueba()
+        public void ExisteMonedaPrueba()
         {
-            Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
-            Repositorio.AgregarMesDondeHayGasto(GastoComun.Fecha);
-            Assert.AreEqual(2, Repositorio.CantidadElementosEnListaMesesDondeHayGastos());
+            Repositorio.AgregarMoneda(UnaMoneda);
+            Assert.IsTrue(Repositorio.ExisteMoneda(UnaMoneda));
         }
 
+        [TestMethod]
+        public void RetornarListaMonedasPrueba()
+        {
+            List<Moneda> ListaLocal = new List<Moneda>();
+            Assert.IsTrue(Repositorio.RetornarListaMonedas().SequenceEqual(ListaLocal));
+        }
 
+        [TestMethod]
+        public void ExisteUnPresupuestoPrueba()
+        {
+            UnPresupuesto.Fecha = new DateTime(2020, 5, 1);
+            Repositorio.AgregarPresupuesto(UnPresupuesto);
+            Assert.IsTrue(Repositorio.ExisteUnPresupuesto(UnPresupuesto.Fecha));
+        }
 
+        [TestMethod]
+        public void AgregarPresupuestoPrueba()
+        {
+            UnPresupuesto.Fecha= new DateTime(2020, 5, 1);
+            Repositorio.AgregarPresupuesto(UnPresupuesto);
+            List<Presupuesto> ListaLocal = new List<Presupuesto>();
+            ListaLocal.Add(UnPresupuesto);
+            Assert.IsTrue(Repositorio.RetornarListaPresupuestos().SequenceEqual(ListaLocal));
+        }
 
+        [TestMethod]
+        public void ModificarNombreAMonedaPrueba()
+        {
+            Repositorio.AgregarMoneda(UnaMoneda);
+            Repositorio.ModificarNombreAMoneda(UnaMoneda, "Peso");
+            Assert.AreEqual(UnaMoneda.Nombre, "Peso");
+        }
     }
 }

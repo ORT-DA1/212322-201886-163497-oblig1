@@ -16,12 +16,12 @@ namespace Test
         private Categoria otraCategoria;
         private CategoriaMonto unaCategoriaMonto;
         private Presupuesto unPresupuesto;
-        private Repositorio miRepositorio;
+        private IRepositorio miRepositorio;
 
         [TestInitialize]
         public void InitTests()
         {
-            miRepositorio = new Repositorio();
+            miRepositorio = new RepositorioMemoria();
             adminPresupuestos = new AdministradorPresupuesto(miRepositorio);           
             unaCategoria = new Categoria();
             otraCategoria = new Categoria();
@@ -35,7 +35,6 @@ namespace Test
             List<Presupuesto> ListaLocal = new List<Presupuesto>();
             Assert.IsTrue(adminPresupuestos.RetornarListaPresupuestos().SequenceEqual(ListaLocal));
         }
-        
        
         [TestMethod]
         public void AgregarPresupuestoPrueba()
@@ -65,17 +64,21 @@ namespace Test
         [TestMethod]
         public void AsignacionDeCategoriasMontoPrueba()
         {
-            unPresupuesto.AgregarCategoriaMonto(unaCategoria, 100);
-            unPresupuesto.AgregarCategoriaMonto(otraCategoria, 300);
+            unaCategoriaMonto.Categoria = unaCategoria;
+            unaCategoriaMonto.Monto = 100;
+            CategoriaMonto otraCategoriaMonto = new CategoriaMonto { Categoria = otraCategoria, Monto = 300 };
+            unPresupuesto.AgregarCategoriaMonto(unaCategoriaMonto);
+            unPresupuesto.AgregarCategoriaMonto(otraCategoriaMonto);
 
             Assert.AreEqual(unPresupuesto.ListaCategoriaMonto.Count, 2);
-
         }
 
         [TestMethod]
         public void ModificarMontoACategoriaPrueba()
         {
-            unPresupuesto.AgregarCategoriaMonto(unaCategoria, 200);
+            unaCategoriaMonto.Categoria = unaCategoria;
+            unaCategoriaMonto.Monto = 200;
+            unPresupuesto.AgregarCategoriaMonto(unaCategoriaMonto);
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
             adminPresupuestos.ModificarMontoACategoria(unPresupuesto, unaCategoria, 300);
             Assert.AreEqual(unPresupuesto.ListaCategoriaMonto.First().Monto, 300);
@@ -86,9 +89,10 @@ namespace Test
         [ExpectedException(typeof(ExcepcionElementoRepetido))]
         public void AgregarPresupuestoRepetidoPrueba()
         {
-            unPresupuesto.AgregarCategoriaMonto(unaCategoria, 200);
+            unaCategoriaMonto.Categoria = unaCategoria;
+            unaCategoriaMonto.Monto = 200;
+            unPresupuesto.AgregarCategoriaMonto(unaCategoriaMonto);
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
-
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
 
         }
@@ -111,9 +115,13 @@ namespace Test
             Assert.AreEqual(adminPresupuestos.RetornarPresupuestoSegunMes(1, 2020).Fecha.Year, 2020);
         }
 
-
-
-
-
+        [TestMethod]
+        public void RetornarCategoriaMontoPrueba()
+        {
+            unPresupuesto.AgregarCategoriaMonto(unaCategoriaMonto);
+            List<CategoriaMonto> ListaLocal = new List<CategoriaMonto>();
+            ListaLocal.Add(unaCategoriaMonto);
+            Assert.IsTrue(adminPresupuestos.RetornarCatMonto(unPresupuesto).SequenceEqual(ListaLocal));
+        }
     }
 }

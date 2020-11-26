@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,7 +36,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -59,6 +69,12 @@
     <Compile Include="AgregarGastoRecurrente.Designer.cs">
       <DependentUpon>AgregarGastoRecurrente.cs</DependentUpon>
     </Compile>
+    <Compile Include="AgregarMoneda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AgregarMoneda.Designer.cs">
+      <DependentUpon>AgregarMoneda.cs</DependentUpon>
+    </Compile>
     <Compile Include="AtributosGastoComun.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -71,12 +87,23 @@
     <Compile Include="CrearPresupuesto.Designer.cs">
       <DependentUpon>CrearPresupuesto.cs</DependentUpon>
     </Compile>
-
+    <Compile Include="EliminarMoneda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EliminarMoneda.Designer.cs">
+      <DependentUpon>EliminarMoneda.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListadoGastosRecurrentes.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ListadoGastosRecurrentes.Designer.cs">
       <DependentUpon>ListadoGastosRecurrentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuArribaMoneda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuArribaMoneda.Designer.cs">
+      <DependentUpon>MenuArribaMoneda.cs</DependentUpon>
     </Compile>
     <Compile Include="ModificarGastoComun.cs">
       <SubType>UserControl</SubType>
@@ -96,7 +123,6 @@
     <Compile Include="MenuArribaCategoria.Designer.cs">
       <DependentUpon>MenuArribaCategoria.cs</DependentUpon>
     </Compile>
-
     <Compile Include="ModificarCategoria.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -114,6 +140,12 @@
     </Compile>
     <Compile Include="AtributosGastoRecurrente.Designer.cs">
       <DependentUpon>AtributosGastoRecurrente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarMoneda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModificarMoneda.Designer.cs">
+      <DependentUpon>ModificarMoneda.cs</DependentUpon>
     </Compile>
     <Compile Include="ModificarPresupuesto.cs">
       <SubType>UserControl</SubType>
@@ -171,14 +203,23 @@
     <EmbeddedResource Include="AgregarGastoRecurrente.resx">
       <DependentUpon>AgregarGastoRecurrente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AgregarMoneda.resx">
+      <DependentUpon>AgregarMoneda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AtributosGastoComun.resx">
       <DependentUpon>AtributosGastoComun.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearPresupuesto.resx">
       <DependentUpon>CrearPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EliminarMoneda.resx">
+      <DependentUpon>EliminarMoneda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListadoGastosRecurrentes.resx">
       <DependentUpon>ListadoGastosRecurrentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuArribaMoneda.resx">
+      <DependentUpon>MenuArribaMoneda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarGastoComun.resx">
       <DependentUpon>ModificarGastoComun.cs</DependentUpon>
@@ -197,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AtributosGastoRecurrente.resx">
       <DependentUpon>AtributosGastoRecurrente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarMoneda.resx">
+      <DependentUpon>ModificarMoneda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarPresupuesto.resx">
       <DependentUpon>ModificarPresupuesto.cs</DependentUpon>
@@ -232,6 +276,7 @@
     <EmbeddedResource Include="ListadoGastosComunes.resx">
       <DependentUpon>ListadoGastosComunes.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -262,4 +307,12 @@
     <None Include="Resources\Logo_misfinanzas-04.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

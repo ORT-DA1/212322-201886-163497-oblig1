@@ -37,19 +37,21 @@
             // 
             // tbDescripcion
             // 
-            this.tbDescripcion.Location = new System.Drawing.Point(192, 94);
+            this.tbDescripcion.Location = new System.Drawing.Point(128, 61);
+            this.tbDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbDescripcion.MaxLength = 21;
             this.tbDescripcion.Name = "tbDescripcion";
-            this.tbDescripcion.Size = new System.Drawing.Size(317, 26);
+            this.tbDescripcion.Size = new System.Drawing.Size(213, 20);
             this.tbDescripcion.TabIndex = 9;
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(35, 94);
+            this.lblDescripcion.Location = new System.Drawing.Point(23, 61);
+            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(127, 26);
+            this.lblDescripcion.Size = new System.Drawing.Size(88, 18);
             this.lblDescripcion.TabIndex = 7;
             this.lblDescripcion.Text = "Descripcion";
             // 
@@ -57,40 +59,44 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("MS Reference Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(35, 30);
+            this.lblTitulo.Location = new System.Drawing.Point(23, 19);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(347, 35);
+            this.lblTitulo.Size = new System.Drawing.Size(240, 24);
             this.lblTitulo.TabIndex = 6;
             this.lblTitulo.Text = "Agregar Gasto Comun";
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(548, 89);
+            this.btnAgregar.Location = new System.Drawing.Point(365, 58);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(102, 36);
+            this.btnAgregar.Size = new System.Drawing.Size(79, 23);
             this.btnAgregar.TabIndex = 18;
-            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Text = "Siguiente";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnOkDescripcion_Click);
             // 
             // pAgregarAtributos
             // 
-            this.pAgregarAtributos.Location = new System.Drawing.Point(37, 145);
+            this.pAgregarAtributos.Location = new System.Drawing.Point(25, 94);
+            this.pAgregarAtributos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pAgregarAtributos.Name = "pAgregarAtributos";
-            this.pAgregarAtributos.Size = new System.Drawing.Size(656, 311);
+            this.pAgregarAtributos.Size = new System.Drawing.Size(437, 202);
             this.pAgregarAtributos.TabIndex = 19;
             // 
             // AgregarGastoComun
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pAgregarAtributos);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.tbDescripcion);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblTitulo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AgregarGastoComun";
-            this.Size = new System.Drawing.Size(769, 481);
+            this.Size = new System.Drawing.Size(513, 313);
             this.ResumeLayout(false);
             this.PerformLayout();
 

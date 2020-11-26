@@ -8,20 +8,28 @@ namespace Interfaz_De_Usuario
     {
         private AdministradorGastosRecurrentes unAdminGastoRecurrente;
         private AdministradorCategorias unAdminCategorias;
-        public ModificarGastoRecurrente(AdministradorGastosRecurrentes miAdminGastoRecurrente, AdministradorCategorias miAdminCategorias)
+        private AdministradorMonedas unAdminMonedas;
+        public ModificarGastoRecurrente(AdministradorGastosRecurrentes miAdminGastoRecurrente, AdministradorCategorias miAdminCategorias, AdministradorMonedas miAdminMonedas)
         {
             InitializeComponent();
             unAdminGastoRecurrente = miAdminGastoRecurrente;
             unAdminCategorias = miAdminCategorias;
-            CargarComboBox();
+            unAdminMonedas = miAdminMonedas;
+            if (unAdminGastoRecurrente.RetornarListaGastosRecurrentes().Count != 0) CargarComboBox();
+            else ComboBoxVacio();
         }
         public void CargarComboBox()
         {
             cbGastoRecurrente.DataSource = unAdminGastoRecurrente.RetornarListaGastosRecurrentes();
             cbCategoria.DataSource = unAdminCategorias.RetornarListaCategorias();
+            cbMoneda.DataSource = unAdminMonedas.RetornarListaMonedas();
         }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
+        public void ComboBoxVacio()
+        {
+            cbGastoRecurrente.Text = "- Ningun gasto para eliminar -";
+            btnEliminar.Visible = false;
+        }
+        private void btnEliminar_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -29,43 +37,97 @@ namespace Interfaz_De_Usuario
                 unAdminGastoRecurrente.EliminarGastoRecurrente(gastoEliminar);
                 cbGastoRecurrente.DataSource = null;
                 cbGastoRecurrente.DataSource = unAdminGastoRecurrente.RetornarListaGastosRecurrentes();
-
+                MessageBox.Show("Gasto recurrente eliminado con éxito");
             }
             catch (Exception unaExcepcion)
             {
-                MessageBox.Show(unaExcepcion.Message);
+                MessageBox.Show("Seleccione un gasto para eliminar");
             }
         }
-
-        private void btnModificarGasto_Click(object sender, EventArgs e)
-        {
-            if (HayCamposVacios())
-            {
-                MessageBox.Show("Categoria y Descripción no pueden quedar vacias");
-                return;
-            }
-            try
-            {
-                GastoRecuerrente gastoAmodificar = (GastoRecuerrente)cbGastoRecurrente.SelectedItem;
-                gastoAmodificar.Descripcion = tbDescripcion.Text;
-                gastoAmodificar.Monto = (double)numMonto.Value;
-                gastoAmodificar.Fecha = (int)numFecha.Value;
-                gastoAmodificar.Categoria = (Categoria)cbCategoria.SelectedItem;
-                MessageBox.Show("El gasto ha modificado con exito ");
-            }
-
-            catch (IndexOutOfRangeException unaExcepcion)
-            {
-                MessageBox.Show(unaExcepcion.Message);
-            }
-            
-        }
-
         private bool HayCamposVacios()
         {
             return cbGastoRecurrente.SelectedItem == null || string.IsNullOrEmpty(tbDescripcion.Text);
         }
-
-
+        private void btnModificarDescripcion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GastoRecuerrente gastoElegido = (GastoRecuerrente)cbGastoRecurrente.SelectedItem;
+                unAdminGastoRecurrente.ModificarDescripcion(gastoElegido, tbDescripcion.Text);
+                MessageBox.Show("Descripcion " + tbDescripcion.Text + " modificada con éxito");
+                tbDescripcion.Clear();
+                cbGastoRecurrente.DataSource = null;
+                CargarComboBox();
+            }
+            catch (Exception unaExcepcion)
+            {
+                MessageBox.Show("Ingrese algo a modificar");
+            }
+        }
+        private void btnModificarMonto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GastoRecuerrente gastoElegido = (GastoRecuerrente)cbGastoRecurrente.SelectedItem;
+                unAdminGastoRecurrente.ModificarMonto(gastoElegido, (int)numMonto.Value);
+                MessageBox.Show("Monto modificado con éxito");
+                numMonto.Value = 0; 
+                cbGastoRecurrente.DataSource = null;
+                CargarComboBox();
+            }
+            catch (Exception unaExcepcion)
+            {
+                MessageBox.Show("Ingrese algo a modificar");
+            }
+        }
+        private void btnModificarDia_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GastoRecuerrente gastoElegido = (GastoRecuerrente)cbGastoRecurrente.SelectedItem;
+                unAdminGastoRecurrente.ModificarMonto(gastoElegido, (int)numFecha.Value);
+                MessageBox.Show("Fecha modificada con éxito");
+                numFecha.Value = 0;
+                cbGastoRecurrente.DataSource = null;
+                CargarComboBox();
+            }
+            catch (Exception unaExcepcion)
+            {
+                MessageBox.Show("Ingrese algo a modificar");
+            }
+        }
+        private void btnModificarCategoria_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GastoRecuerrente gastoElegido = (GastoRecuerrente)cbGastoRecurrente.SelectedItem;
+                Categoria categoriaElegida = (Categoria)cbCategoria.SelectedItem;
+                unAdminGastoRecurrente.ModificarCategoria(gastoElegido, categoriaElegida);
+                MessageBox.Show("Categoria modificada con éxito");
+                
+                cbGastoRecurrente.DataSource = null;
+                CargarComboBox();
+            }
+            catch (Exception unaExcepcion)
+            {
+                MessageBox.Show("Ingrese algo a modificar");
+            }
+        }
+        private void btnModificarMoneda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GastoRecuerrente gastoElegido = (GastoRecuerrente)cbGastoRecurrente.SelectedItem;
+                Moneda monedaElegida = (Moneda)cbMoneda.SelectedItem;
+                unAdminGastoRecurrente.ModificarMoneda(gastoElegido, monedaElegida);
+                MessageBox.Show("Moneda modificada con éxito");
+                cbGastoRecurrente.DataSource = null;
+                CargarComboBox();
+            }
+            catch (Exception unaExcepcion)
+            {
+                MessageBox.Show("Ingrese algo a modificar");
+            }
+        }
     }
 }

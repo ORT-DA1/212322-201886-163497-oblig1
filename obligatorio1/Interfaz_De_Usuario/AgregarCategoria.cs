@@ -13,15 +13,26 @@ namespace Interfaz_De_Usuario
         {   
             InitializeComponent();
             adminCategorias = miAdminCategorias;
+            CargarListaCategorias();
         }
-
+        public void CargarListaCategorias()
+        {
+            listCategorias.DataSource = null;
+            listCategorias.DataSource = adminCategorias.RetornarListaCategorias();
+        }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(tbNombre.Text))
+            {
+                MessageBox.Show("El nombre de la categoria no puede quedar vacío.");
+                return;
+            }
            try
             {
                 Categoria categoria = new Categoria() { Nombre = tbNombre.Text };
                 adminCategorias.AgregarCategoria(categoria);
                 MessageBox.Show("Categoria " + tbNombre.Text + " ha sido creada con exito");
+                CargarListaCategorias();
                 tbNombre.Clear();
             }
             catch (Exception unaExcepcion)
@@ -29,9 +40,49 @@ namespace Interfaz_De_Usuario
             {
                 MessageBox.Show(unaExcepcion.Message);
             }
-
         }
 
-      
+        private void listCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Categoria categoriaSeleccionada = (Categoria)listCategorias.SelectedItem;
+            listPalabrasClave.DataSource = null;
+            try
+            {
+                listPalabrasClave.DataSource = adminCategorias.RetornarPalabrasClaveDeCategoria(categoriaSeleccionada);
+            }
+            catch (Exception TargetException)
+            {
+            }
+        }
+        private void btnAgregarPClave_Click(object sender, EventArgs e)
+        {
+            if (listCategorias.SelectedItem == null || adminCategorias.EsVaciaListaCategorias())
+            {
+                MessageBox.Show("Debe haber una categoria para agregarle una Palabra Clave");
+                return;
+            }
+            if (String.IsNullOrEmpty(tbPalabraClave.Text))
+            {
+                MessageBox.Show("La palabra clave no puede quedar vacía");
+                return;
+            }
+            try
+            {
+                Categoria categoriaSeleccionada = (Categoria)listCategorias.SelectedItem;
+                PalabraClave palabra = new PalabraClave() { Palabra = tbPalabraClave.Text };
+
+                adminCategorias.AgregarPalabraClaveACategoria(categoriaSeleccionada, palabra);
+                listPalabrasClave.DataSource = null;
+                listPalabrasClave.DataSource = categoriaSeleccionada.PalabrasClave;
+
+                MessageBox.Show("Palabra Clave agregada con exito");
+                tbPalabraClave.Clear();
+            }
+            catch (Exception unaExcepcion)
+            when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is InvalidOperationException || unaExcepcion is IndexOutOfRangeException)
+            {
+                MessageBox.Show(unaExcepcion.Message);
+            }
+        }
     }
 }

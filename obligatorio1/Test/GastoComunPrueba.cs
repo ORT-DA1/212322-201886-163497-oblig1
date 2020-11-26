@@ -10,12 +10,14 @@ namespace Test
     {
         private GastoComun gasto;
         private Categoria cat;
+        private Moneda moneda; 
 
         [TestInitialize]
         public void InitTests()
         {
             gasto = new GastoComun();
             cat = new Categoria();
+            moneda = new Moneda();
         }
 
         [TestMethod]
@@ -51,19 +53,19 @@ namespace Test
         public void ConstructorGastoComunPrueba()
         {
             DateTime fecha = new DateTime(2020, 5, 1);
-            GastoComun gastoRec2 = new GastoComun(1000, "Ir a comer", cat,fecha);
+            GastoComun gastoRec2 = new GastoComun(1000, "Ir a comer", cat,fecha,moneda);
             Assert.AreEqual(gastoRec2.Descripcion,"Ir a comer");
         }
 
-        [TestMethod]
+       [TestMethod]
         public void ToStringGastoComunPrueba()
         {
-
-            Assert.AreEqual(gasto.ToString(), "Monto: 0, Descripcion: No hay descripcion, Categoria: No hay nombre, Fecha: 5/1/2020");
-
-
+            moneda.Nombre = "Pesos Uruguayos";
+            moneda.Simbolo = "UYU";
+            gasto.Moneda = moneda;
+            cat.Nombre = "No hay nombre";
+            gasto.Categoria = cat;
+            Assert.AreEqual(gasto.ToString(), "Monto: 0, Descripcion: No hay descripcion, Categoria: No hay nombre, Moneda: UYU, Fecha: 5/1/2020");
         }
-
-
     }
 }

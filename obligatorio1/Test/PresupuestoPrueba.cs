@@ -6,19 +6,19 @@ using System.Linq;
 namespace Test
 {
 
-
     [TestClass]
     public class PresupuestoPrueba
     {
         private Presupuesto presupuesto;
         private Categoria unaCategoria;
-
+        private CategoriaMonto unaCategoriaMonto;
 
         [TestInitialize]
         public void InitTests()
         {
             presupuesto = new Presupuesto();
             Categoria unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
+            unaCategoriaMonto = new CategoriaMonto();
         }
      
         [TestMethod]
@@ -26,6 +26,13 @@ namespace Test
         public void RangoAnioPrueba()
         {
             presupuesto.Fecha = new DateTime(2070, 12, 31);
+        }
+        
+        [TestMethod]
+        public void PropertyIdPresupuestoPrueba()
+        {
+            presupuesto.Id = 1;
+            Assert.AreEqual(presupuesto.Id, 1);
         }
 
         [TestMethod]
@@ -37,7 +44,9 @@ namespace Test
         [TestMethod]
         public void AgregarCategoriaMontoPrueba()
         {
-            presupuesto.AgregarCategoriaMonto(unaCategoria, 100);
+            unaCategoriaMonto.Categoria = unaCategoria;
+            unaCategoriaMonto.Monto = 100;
+            presupuesto.AgregarCategoriaMonto(unaCategoriaMonto);
             Assert.IsFalse(presupuesto.EsVaciaListaCategoriaMonto());
         }
 
@@ -58,11 +67,11 @@ namespace Test
         [TestMethod]
         public void ModificarMontoACategoriaPrueba()
         {
-            presupuesto.AgregarCategoriaMonto(unaCategoria, 100);
+            unaCategoriaMonto.Categoria = unaCategoria;
+            unaCategoriaMonto.Monto = 100;
+            presupuesto.AgregarCategoriaMonto(unaCategoriaMonto);
             presupuesto.ModificarMontoACategoria(unaCategoria, 300);
             Assert.AreEqual(presupuesto.ListaCategoriaMonto.First().Monto , 300);
-
         }
-
     }
 }

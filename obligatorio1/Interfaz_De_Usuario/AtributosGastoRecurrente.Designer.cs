@@ -35,6 +35,8 @@
             this.numMonto = new System.Windows.Forms.NumericUpDown();
             this.numFecha = new System.Windows.Forms.NumericUpDown();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.cbMoneda = new System.Windows.Forms.ComboBox();
+            this.lblMoneda = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numMonto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFecha)).BeginInit();
             this.SuspendLayout();
@@ -42,7 +44,7 @@
             // cbCategoria
             // 
             this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(214, 149);
+            this.cbCategoria.Location = new System.Drawing.Point(222, 232);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(317, 28);
             this.cbCategoria.TabIndex = 25;
@@ -51,7 +53,7 @@
             // 
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(24, 151);
+            this.lblCategoria.Location = new System.Drawing.Point(32, 234);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(109, 26);
             this.lblCategoria.TabIndex = 24;
@@ -61,7 +63,7 @@
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(24, 88);
+            this.lblFecha.Location = new System.Drawing.Point(32, 171);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(130, 26);
             this.lblFecha.TabIndex = 23;
@@ -71,7 +73,7 @@
             // 
             this.lblMonto.AutoSize = true;
             this.lblMonto.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonto.Location = new System.Drawing.Point(21, 24);
+            this.lblMonto.Location = new System.Drawing.Point(29, 107);
             this.lblMonto.Name = "lblMonto";
             this.lblMonto.Size = new System.Drawing.Size(176, 26);
             this.lblMonto.TabIndex = 20;
@@ -79,22 +81,20 @@
             // 
             // numMonto
             // 
-
             this.numMonto.DecimalPlaces = 2;
-            this.numMonto.Location = new System.Drawing.Point(215, 24);
+            this.numMonto.Location = new System.Drawing.Point(223, 107);
             this.numMonto.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-
             this.numMonto.Name = "numMonto";
             this.numMonto.Size = new System.Drawing.Size(316, 26);
             this.numMonto.TabIndex = 29;
             // 
             // numFecha
             // 
-            this.numFecha.Location = new System.Drawing.Point(215, 91);
+            this.numFecha.Location = new System.Drawing.Point(223, 174);
             this.numFecha.Name = "numFecha";
             this.numFecha.Size = new System.Drawing.Size(316, 26);
             this.numFecha.TabIndex = 30;
@@ -102,7 +102,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(422, 195);
+            this.btnAceptar.Location = new System.Drawing.Point(430, 278);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(109, 45);
             this.btnAceptar.TabIndex = 32;
@@ -110,10 +110,30 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // cbMoneda
+            // 
+            this.cbMoneda.FormattingEnabled = true;
+            this.cbMoneda.Location = new System.Drawing.Point(222, 56);
+            this.cbMoneda.Name = "cbMoneda";
+            this.cbMoneda.Size = new System.Drawing.Size(317, 28);
+            this.cbMoneda.TabIndex = 34;
+            // 
+            // lblMoneda
+            // 
+            this.lblMoneda.AutoSize = true;
+            this.lblMoneda.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoneda.Location = new System.Drawing.Point(32, 58);
+            this.lblMoneda.Name = "lblMoneda";
+            this.lblMoneda.Size = new System.Drawing.Size(90, 26);
+            this.lblMoneda.TabIndex = 33;
+            this.lblMoneda.Text = "Moneda";
+            // 
             // AtributosGastoRecurrente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbMoneda);
+            this.Controls.Add(this.lblMoneda);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.numFecha);
             this.Controls.Add(this.numMonto);
@@ -122,7 +142,7 @@
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblMonto);
             this.Name = "AtributosGastoRecurrente";
-            this.Size = new System.Drawing.Size(602, 254);
+            this.Size = new System.Drawing.Size(602, 348);
             ((System.ComponentModel.ISupportInitialize)(this.numMonto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFecha)).EndInit();
             this.ResumeLayout(false);
@@ -138,5 +158,7 @@
         private System.Windows.Forms.NumericUpDown numMonto;
         private System.Windows.Forms.NumericUpDown numFecha;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.ComboBox cbMoneda;
+        private System.Windows.Forms.Label lblMoneda;
     }
 }

@@ -5,8 +5,8 @@ namespace Dominio
 {
     public class AdministradorPresupuesto
     {
-        private Repositorio Repositorio { get; }
-        public AdministradorPresupuesto(Repositorio unRepositorio)
+        private IRepositorio Repositorio { get; }
+        public AdministradorPresupuesto(IRepositorio unRepositorio)
         {
             this.Repositorio = unRepositorio;
         }
@@ -14,16 +14,18 @@ namespace Dominio
         {
             return Repositorio.RetornarListaPresupuestos();
         }
-
         public void AgregarPresupuesto(Presupuesto unPresupuesto)
         {
             if (NoExiste(unPresupuesto))
             {
+                Repositorio.AgregarPresupuesto(unPresupuesto);
+
                 foreach (Categoria cat in Repositorio.RetornarListaCategorias())
                 {
-                    unPresupuesto.AgregarCategoriaMonto(cat, 0);
+                    CategoriaMonto catMonto = new CategoriaMonto { Categoria = cat, Monto = 0 };
+                    Repositorio.AgregarCategoriaMonto(catMonto, unPresupuesto);
                 }
-                Repositorio.AgregarPresupuesto(unPresupuesto);
+
             }
             else
             {
@@ -31,17 +33,14 @@ namespace Dominio
             }
 
         }
-
         private bool NoExiste(Presupuesto unPresupuesto)
         {
             return !Repositorio.ExisteUnPresupuesto(unPresupuesto.Fecha);
         }
-
         public void ModificarMontoACategoria(Presupuesto unPresupuesto, Categoria unaCategoria, int unMonto)
         {
-            unPresupuesto.ModificarMontoACategoria(unaCategoria, unMonto);
+            Repositorio.ModificarMontoACategoria(unPresupuesto, unaCategoria, unMonto);
         }
-
         public Presupuesto RetornarPresupuestoSegunMes(int unMes, int unAnio)
         {
             foreach (Presupuesto presupuesto in this.RetornarListaPresupuestos())
@@ -54,10 +53,13 @@ namespace Dominio
             throw new ExcepcionElementoNoExistente("No hay un presupuesto para el mes elegido");
 
         }
-
         private bool CoincideMesYAnio(int unMes, int unAnio, Presupuesto presupuesto)
         {
             return presupuesto.Fecha.Month == unMes && presupuesto.Fecha.Year == unAnio;
+        }
+        public List<CategoriaMonto> RetornarCatMonto(Presupuesto unPresupuesto)
+        {
+            return Repositorio.RetornarCategoriaMontoDelRepo(unPresupuesto);
         }
 
     }

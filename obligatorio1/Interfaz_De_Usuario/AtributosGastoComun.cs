@@ -11,19 +11,24 @@ namespace Interfaz_De_Usuario
         private AdministradorGastosComunes unAdminGastosComun;
         private AdministradorCategorias unAdminCategorias;
         private GastoComun gastoC;
-        public AtributosGastoComun(AdministradorGastosComunes miAdminGastoComun, String descripcion, AdministradorCategorias miAdministradorCategorias)
+        private AdministradorMonedas unAdminMonedas;
+        public AtributosGastoComun(AdministradorGastosComunes miAdminGastoComun, String descripcion, AdministradorCategorias miAdministradorCategorias,AdministradorMonedas miAdminMonedas)
         {
             InitializeComponent();
             unAdminGastosComun = miAdminGastoComun;
             unAdminCategorias = miAdministradorCategorias;
+            unAdminMonedas = miAdminMonedas;
             gastoC = new GastoComun() { Descripcion = descripcion };
-            CargarComboBox(descripcion);
+            CargarComboBoxCategoria(descripcion);
+            CargarComboBoxMoneda();
 
         }
-
-        private void CargarComboBox(String descripcion)
+        private void CargarComboBoxMoneda()
         {
-
+            cbMoneda.DataSource = unAdminMonedas.RetornarListaMonedas();
+        }
+        private void CargarComboBoxCategoria(String descripcion)
+        {
             foreach (Categoria unaCategoria in unAdminCategorias.RetornarListaCategorias())
             {
                 cbCategoria.Items.Add(unaCategoria);
@@ -39,7 +44,6 @@ namespace Interfaz_De_Usuario
             {
                 MessageBox.Show(unaExcepcion.Message);
             }
-
         }
 
         private void btnAceptarGastoC_Click(object sender, EventArgs e)
@@ -49,17 +53,22 @@ namespace Interfaz_De_Usuario
                 MessageBox.Show("La Categoria no puede quedar vacia");
                 return;
             }
-
+            if (cbMoneda.SelectedItem == null)
+            {
+                MessageBox.Show("La Moneda no puede quedar vacia");
+                return;
+            }
             try
             {
                 gastoC.Monto = (double)numMonto.Value;
                 gastoC.Fecha = dtFecha.Value;
-                //No usar esta funcion RetornarCategoriaSegunString, usar las funciones que traen las ventanas tipo .SelectedItem
-                // gastoC.Categoria = unAdminCategorias.RetornarCategoriaSegunString(cbCategoria.Text);
                 gastoC.Categoria = (Categoria)cbCategoria.SelectedItem;
+                gastoC.Moneda = (Moneda)cbMoneda.SelectedItem;
                 unAdminGastosComun.AgregarGastoComun(gastoC);
                 MessageBox.Show("El gasto ha sido creado con exito ");
-
+                numMonto.Value = (decimal)0.00;
+                cbCategoria.SelectedIndex = -1;
+                cbMoneda.SelectedIndex = -1;
             }
             catch (Exception unaExcepcion)
             when (unaExcepcion is ExcepcionElementoNoExistente || unaExcepcion is IndexOutOfRangeException)

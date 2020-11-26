@@ -6,7 +6,8 @@ namespace Dominio
 {
     public class Presupuesto
     {
-        public List <CategoriaMonto> ListaCategoriaMonto { get; }
+        public int Id { get; set; }
+        public virtual List <CategoriaMonto> ListaCategoriaMonto { get; }
         
         private DateTime unaFecha;
         public DateTime Fecha
@@ -29,7 +30,6 @@ namespace Dominio
                 }
             }
         }
-
         public Presupuesto()
         {
             this.ListaCategoriaMonto = new List<CategoriaMonto>();
@@ -39,19 +39,18 @@ namespace Dominio
         {
             return this.ListaCategoriaMonto.Count == 0;
         }
-
-        public void AgregarCategoriaMonto(Categoria categoria, int monto)
+        public void AgregarCategoriaMonto(CategoriaMonto categoriaMonto)
         {
-            CategoriaMonto catMonto = new CategoriaMonto { Categoria = categoria, Monto = monto };
-            this.ListaCategoriaMonto.Add(catMonto);
+           this.ListaCategoriaMonto.Add(categoriaMonto); 
         }
+
         public override string ToString()
         {
             return String.Format("{0},{1}", this.Fecha.Year, this.Fecha.Month);
         }
-        public void ModificarMontoACategoria(Categoria unaCategoria, int unMonto)
+        public void ModificarMontoACategoria(Categoria unaCategoria, double unMonto)
         {
-            foreach(CategoriaMonto catMonto in this.ListaCategoriaMonto)
+          foreach(CategoriaMonto catMonto in this.ListaCategoriaMonto)
             {
                 if(catMonto.Categoria == unaCategoria)
                 {

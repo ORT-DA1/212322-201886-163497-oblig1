@@ -11,7 +11,6 @@ namespace Interfaz_De_Usuario
         private AdministradorPresupuesto adminPresupuestos;
         private AdministradorReportePresupuestos adminReportePresupuestos;
         private AdministradorReporteGastos adminReporteGastos;
-
         public ReportePresupuesto(AdministradorPresupuesto miAdminPresupuesto, AdministradorReportePresupuestos miAdminReportePresupuestos, AdministradorReporteGastos miAdminReporteGastos)
         {
             InitializeComponent();
@@ -23,7 +22,6 @@ namespace Interfaz_De_Usuario
             title.Text = "Gasto real por categoría";
             chartPresupuesto2.Titles.Add(title);
             cargarComboBox();
-           
         }
         public void cargarComboBox()
         {
@@ -34,10 +32,12 @@ namespace Interfaz_De_Usuario
         }
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            
-
             try
             {
+                this.chartPresupuesto.Series["Planificado"].Points.Clear();
+                this.chartPresupuesto.Series["Real"].Points.Clear();
+                this.chartPresupuesto2.Series["s2"].Points.Clear();
+                chartPresupuesto.ChartAreas[0].AxisX.Interval = 1;
                 DateTime fecha = Convert.ToDateTime(cbMesAnio.SelectedItem);
                 Presupuesto presupuesto = adminPresupuestos.RetornarPresupuestoSegunMes(fecha.Month, fecha.Year);
                 var listaCatMonto = presupuesto.ListaCategoriaMonto;
@@ -47,7 +47,6 @@ namespace Interfaz_De_Usuario
                     double gastoTotalDeCatEnMes = adminReporteGastos.CalcularGastoTotalDeCategoriaEnMes(fecha.Year, fecha.Month, catMonto.Categoria);
                     double diferenciaTotalPlanificado = catMonto.Monto - gastoTotalDeCatEnMes;
                     String diferenciaTotalPlanificadoString = diferenciaTotalPlanificado.ToString();
-
                     if (diferenciaTotalPlanificado > 0.00)
                     {
                         diferenciaTotalPlanificadoString = diferenciaTotalPlanificado.ToString();
@@ -64,23 +63,17 @@ namespace Interfaz_De_Usuario
                         lvi.UseItemStyleForSubItems = false;
                         lvi.SubItems[3].ForeColor = Color.Red;
                         listView1.Items.Add(lvi);
-
                     }
-
                     this.chartPresupuesto.Series["Planificado"].Points.AddXY(catMonto.Categoria.ToString(), catMonto.Monto);
                     this.chartPresupuesto.Series["Real"].Points.AddXY(catMonto.Categoria.ToString(), gastoTotalDeCatEnMes.ToString());
                     this.chartPresupuesto2.Series["s2"].Points.AddXY(catMonto.Categoria.ToString(), gastoTotalDeCatEnMes);
                 }
             }
             catch (Exception ex)
-
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
-
-        
     }
 }
 

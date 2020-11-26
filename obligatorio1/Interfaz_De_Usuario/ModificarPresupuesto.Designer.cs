@@ -70,7 +70,7 @@
             // 
             // hdrMonto
             // 
-            this.hdrMonto.Text = "Monto";
+            this.hdrMonto.Text = "Monto (UYU)";
             this.hdrMonto.Width = 143;
             // 
             // btnModificarMonto

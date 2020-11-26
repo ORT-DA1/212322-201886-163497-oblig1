@@ -8,12 +8,15 @@ namespace Interfaz_De_Usuario
         private AdministradorGastosRecurrentes unAdminGastoRecurrente;
         public ListadoGastosRecurrentes(AdministradorGastosRecurrentes miAdminGastoRecurrente)
         {
-            InitializeComponent();
             unAdminGastoRecurrente = miAdminGastoRecurrente;
-            CargarListaGastosComunes();
+            if (unAdminGastoRecurrente.RetornarListaGastosRecurrentes().Count == 0) MessageBox.Show("No hay gastos recurrentes por el momento");
+            else
+            {
+                InitializeComponent();
+                CargarListaGastosRecurrentes();
+            }
         }
-
-        public void CargarListaGastosComunes()
+        public void CargarListaGastosRecurrentes()
         {
             lstGastosRecurrentes.DataSource = unAdminGastoRecurrente.RetornarListaGastosRecurrentes();
         }

@@ -21,8 +21,14 @@ namespace Test
         public void PropertyCategoriaPrueba()
         {
             categoriaMonto.Categoria = categoria;
-
             Assert.AreEqual(categoria, categoriaMonto.Categoria);
+        }
+
+        [TestMethod]
+        public void PropertyIdCategoriaMontoPrueba()
+        {
+            categoriaMonto.Id = 1;
+            Assert.AreEqual(categoriaMonto.Id, 1);
         }
 
         [TestMethod]
@@ -54,10 +60,6 @@ namespace Test
         {
             int montoInicial = 0;
             Assert.AreEqual(montoInicial, categoriaMonto.Monto);
-
         }
-
-
-
     }
 }

@@ -6,9 +6,9 @@ namespace Dominio
 {
     public class AdministradorGastosComunes
     {
-        private Repositorio Repositorio { get; }
+        private IRepositorio Repositorio { get; }
 
-        public AdministradorGastosComunes(Repositorio unRepositorio)
+        public AdministradorGastosComunes(IRepositorio unRepositorio)
         {
             this.Repositorio = unRepositorio;
         }
@@ -20,28 +20,32 @@ namespace Dominio
 
         public void AgregarGastoComun(GastoComun unGastoComun)
         {
-            if (NoHayCategoriaDefinida(unGastoComun))
-            {
-                throw new ExcepcionElementoNoExistente("La categoria no puede quedar vacía");
-            }
-            else Repositorio.AgregarGastoComun(unGastoComun);
-
+            AgregarMontoEnPesos(unGastoComun);
+            Repositorio.AgregarGastoComun(unGastoComun);
         }
-        private bool NoHayCategoriaDefinida(GastoComun unGastoComun)
-        {
-            return unGastoComun.Categoria.Nombre == "No hay nombre";
-        }
-
+    
         public bool EsVaciaListaGastosComunes()
         {
             return Repositorio.EsVaciaListaGastosComunes();
         }
-
         public void EliminarGastoComun(GastoComun unGastoComun)
         {
             Repositorio.EliminarGastoComun(unGastoComun);
         }
-
-
+        public void AgregarMontoEnPesos(Gasto unGasto)
+        {
+            if(unGasto.Moneda.simbolo != "UYU")
+            {
+                unGasto.MontoEnPesos = unGasto.Monto * unGasto.Moneda.Cotizacion;
+            }
+            else
+            {
+                unGasto.MontoEnPesos = unGasto.Monto;
+            }
+        }
+        public void ModificarGasto(GastoComun unGasto)
+        {
+            Repositorio.ModificarGasto(unGasto);
+        }    
     }
 }

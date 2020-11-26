@@ -1,12 +1,12 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Dominio
 {
     public class GastoComun : Gasto
     {
-
-         private DateTime unaFecha;
-         public DateTime Fecha
+        private DateTime unaFecha;
+        public DateTime Fecha
         {
             get { return unaFecha; }
 
@@ -29,23 +29,17 @@ namespace Dominio
                 }
             }
         }
-
         public GastoComun()
         {
             this.Fecha = new DateTime(2020, 5, 1);
         }
-        public GastoComun(int unMonto, string unaDescripcion, Categoria unaCategoria, DateTime fecha):base(unMonto, unaDescripcion, unaCategoria)
+        public GastoComun(int unMonto, string unaDescripcion, Categoria unaCategoria, DateTime fecha , Moneda unaMoneda):base(unMonto, unaDescripcion, unaCategoria , unaMoneda)
         {
             Fecha = fecha;
         }
-
         public override string ToString()
         {
-
             return String.Format("{0}, Fecha: {1}", base.ToString(),this.Fecha.ToShortDateString());
-
         }
-
-
     }
 }

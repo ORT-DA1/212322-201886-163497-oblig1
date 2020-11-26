@@ -8,19 +8,22 @@ namespace Interfaz_De_Usuario
     {
         private AdministradorGastosRecurrentes adminGastosRecurrentes;
         private AdministradorCategorias adminCategorias;
+        private AdministradorMonedas adminMonedas;
        
-        public AgregarGastoRecurrente(AdministradorGastosRecurrentes miAdminGastosRecurrentes ,AdministradorCategorias miAdminCategorias)
+        public AgregarGastoRecurrente(AdministradorGastosRecurrentes miAdminGastosRecurrentes ,AdministradorCategorias miAdminCategorias
+            ,AdministradorMonedas  miAdminMonedas)
         {
             InitializeComponent();
             adminCategorias = miAdminCategorias;
             adminGastosRecurrentes = miAdminGastosRecurrentes;
+            adminMonedas = miAdminMonedas;
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
                 pGastoRecurrente.Controls.Clear();
-                UserControl agregarAtributos = new AtributosGastoRecurrente(adminGastosRecurrentes, adminCategorias, tbDescripcion.Text);
+                UserControl agregarAtributos = new AtributosGastoRecurrente(adminGastosRecurrentes, adminCategorias, tbDescripcion.Text,adminMonedas);
                 pGastoRecurrente.Controls.Add(agregarAtributos);
             }
             catch (IndexOutOfRangeException unaExcepcion)

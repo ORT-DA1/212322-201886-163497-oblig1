@@ -8,11 +8,10 @@ using System.Linq;
 namespace Test
 {
     [TestClass]
-
     public class AdministradorReportePresupuestosPrueba
     {
         private Categoria unaCategoria;
-        private Repositorio miRepositorio;
+        private IRepositorio miRepositorio;
         private AdministradorReportePresupuestos adminReportePresupuestos;
         private Presupuesto unPresupuesto;
         private AdministradorPresupuesto adminPresupuestos;
@@ -20,7 +19,7 @@ namespace Test
         [TestInitialize]
         public void InitTest()
         {
-            miRepositorio = new Repositorio();
+            miRepositorio = new RepositorioMemoria();
             adminPresupuestos = new AdministradorPresupuesto(miRepositorio);
             unaCategoria = new Categoria() { Nombre = "Entretenimiento" };
             adminReportePresupuestos = new AdministradorReportePresupuestos(miRepositorio);
@@ -33,7 +32,6 @@ namespace Test
             unPresupuesto.Fecha = new DateTime(2020, 10, 2);
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
             Assert.AreEqual(1, adminReportePresupuestos.AgregarYRetornalListaDeMesesDondeHayPresupuestosOrdenada().Count());
-
         }
 
         [TestMethod]
@@ -44,8 +42,6 @@ namespace Test
             otroPresupuesto.Fecha = new DateTime(2020, 11, 2);
             adminPresupuestos.AgregarPresupuesto(unPresupuesto);
             adminPresupuestos.AgregarPresupuesto(otroPresupuesto);
-
-            adminReportePresupuestos.AgregarMesesAnioDondeHayPresupuesto();
 
             List<DateTime> ListaLocal = new List<DateTime>();
             ListaLocal.Add(new DateTime(2020, 10, 1));
@@ -76,9 +72,6 @@ namespace Test
             unPresupuesto.Fecha = new DateTime(2020, 5, 28);
             DateTime convertido = adminReportePresupuestos.ConvertirFechaDejarSoloAnioMes(unPresupuesto);
             Assert.IsFalse(convertido.Equals(unPresupuesto.Fecha));
-
         }
-
-        
     }
 }
